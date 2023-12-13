@@ -1,5 +1,8 @@
 SET FOREIGN_KEY_CHECKS = 0;
 
+DROP DATABASE IF EXISTS mechka;
+CREATE DATABASE mechka;
+
 DROP TABLE IF EXISTS recipe;
 CREATE TABLE recipe (
   id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
@@ -8,7 +11,7 @@ CREATE TABLE recipe (
   instructions TEXT NOT NULL,
   global_time VARCHAR(50) NOT NULL,
   number_persons INT NOT NULL,
-  image_url VARCHAR(255) NOT NULL,
+  image_url VARCHAR(255) NOT NULL
 );
 
 DROP TABLE IF EXISTS ingredient;
