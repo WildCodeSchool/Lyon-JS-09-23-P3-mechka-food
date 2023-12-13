@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import RecipeCard from "./RecipeCard";
+import styles from "./RecipeContainer.module.css";
 
 export default function RecipeContainer() {
   const [recipes, setRecipes] = useState([]);
@@ -10,9 +11,14 @@ export default function RecipeContainer() {
   });
   return (
     <div>
-      {recipes.map((recipe) => (
-        <RecipeCard key={recipe.id} recipes={recipe} />
-      ))}
+      <div>
+        <h2 className={styles.titleRecipeContainer}>Suggestions</h2>
+      </div>
+      <div className={styles.cardPosition}>
+        {recipes.map((recipe) => (
+          <RecipeCard key={recipe.id} recipes={recipe} />
+        ))}
+      </div>
     </div>
   );
 }

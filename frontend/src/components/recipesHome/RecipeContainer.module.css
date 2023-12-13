@@ -1,0 +1,8 @@
+.cardPosition {
+  display: flex;
+  font-size: 0.8rem;
+  justify-content: space-evenly;
+}
+.titleRecipeContainer {
+  margin-left: 2rem;
+}
