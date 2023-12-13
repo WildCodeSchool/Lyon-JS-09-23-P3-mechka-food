@@ -1,10 +1,13 @@
 import "./App.css";
 import RecipeContainer from "./components/recipesHome/RecipeContainer";
+import Header from "./components/Header/Header";
+import Navbar from "./components/Navbar/Navbar";
 
 function App() {
   return (
     <div className="App">
-      <h1>Mechka Food</h1>
+      <Header />
+      <Navbar />
       <RecipeContainer />
     </div>
   );
