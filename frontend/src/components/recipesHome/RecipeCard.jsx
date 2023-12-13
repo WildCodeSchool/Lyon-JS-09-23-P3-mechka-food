@@ -3,14 +3,14 @@ import styles from "./RecipeCard.module.css";
 
 export default function RecipeCard({ recipes }) {
   return (
-    <div className={styles.card}>
+    <section className={styles.card}>
       <h3 className={styles.recipeTitle}>{recipes.title}</h3>
       <img
         src={recipes.image_url}
         alt={recipes.title}
         className={styles.imageCard}
       />
-    </div>
+    </section>
   );
 }
 
