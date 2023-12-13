@@ -1,8 +1,19 @@
+/* .positionRecipeContainer{
+  display: flex;
+  font-size: 0.8rem;
+  justify-content: space-around;
+  
+  flex-direction: column;
+  
+} */
+
 .cardPosition {
   display: flex;
   font-size: 0.8rem;
   justify-content: space-evenly;
+  flex-wrap: wrap;
 }
 .titleRecipeContainer {
   margin-left: 2rem;
+  padding: 1rem;
 }

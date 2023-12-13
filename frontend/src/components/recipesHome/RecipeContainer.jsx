@@ -10,7 +10,7 @@ export default function RecipeContainer() {
       .then((data) => setRecipes(data));
   });
   return (
-    <div>
+    <section>
       <div>
         <h2 className={styles.titleRecipeContainer}>Suggestions</h2>
       </div>
@@ -19,6 +19,6 @@ export default function RecipeContainer() {
           <RecipeCard key={recipe.id} recipes={recipe} />
         ))}
       </div>
-    </div>
+    </section>
   );
 }
