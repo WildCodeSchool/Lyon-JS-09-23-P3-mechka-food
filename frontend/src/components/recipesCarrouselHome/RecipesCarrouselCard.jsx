@@ -1,10 +1,11 @@
 import PropTypes from "prop-types";
+import styles from "./RecipesCarrouselCard.module.css";
 
 export default function RecipesCarrouselCard({ title, image }) {
   return (
-    <div>
-      <p>{title}</p>
-      <img src={image} alt={title} />
+    <div className={styles.carrouselCardPosition}>
+      <h3>{title}</h3>
+      <img src={image} alt={title} className={styles.imageCarrouselCard} />
     </div>
   );
 }
