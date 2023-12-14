@@ -26,7 +26,7 @@ export default function RecipesCarrousel() {
 
   return (
     <section>
-      <Carousel>
+      <Carousel className={styles.carouselGlobal}>
         {random &&
           random.map((recipe) => (
             <Carousel.Item interval={3000} key={recipe.id}>
