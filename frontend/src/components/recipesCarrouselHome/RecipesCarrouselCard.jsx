@@ -4,8 +4,8 @@ import styles from "./RecipesCarrouselCard.module.css";
 export default function RecipesCarrouselCard({ title, image }) {
   return (
     <div className={styles.carrouselCardPosition}>
-      <h3>{title}</h3>
       <img src={image} alt={title} className={styles.imageCarrouselCard} />
+      <h3>{title}</h3>
     </div>
   );
 }
