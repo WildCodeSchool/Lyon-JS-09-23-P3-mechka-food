@@ -1,6 +1,11 @@
 import { useEffect } from "react";
 import styles from "./Navbar.module.css";
 import logo from "../../assets/images/logo.png";
+import home from "../../assets/svg/HomeMobile.svg";
+import search from "../../assets/svg/search.svg";
+import plus from "../../assets/svg/Plus.svg";
+import About from "../../assets/svg/About.svg";
+import favoris from "../../assets/svg/Favoris.svg";
 
 export default function Navar() {
   useEffect(() => {
@@ -27,7 +32,7 @@ export default function Navar() {
               <a href="/">
                 <img
                   className={styles.navicon}
-                  src={logo}
+                  src={home}
                   alt="logo of application"
                 />
                 <i className={styles.fa2x} />
@@ -119,48 +124,54 @@ export default function Navar() {
       {/* navbar pour version mobile  */}
       <nav className={styles.menumobile}>
         <ul>
-          <li>
+          <li className={styles.iconMobile}>
             <a href="/">
               <img
                 className={styles.navicon}
-                src={logo}
+                src={home}
                 alt="logo of application"
               />
               <i className={styles.fa2x} />
-              <span className={styles.navtext}>Logout</span>
             </a>
           </li>
           <li>
             <a href="/">
               <img
                 className={styles.navicon}
-                src={logo}
+                src={search}
                 alt="logo of application"
               />
               <i className={styles.fa2x} />
-              <span className={styles.navtext}>Logout</span>
+            </a>
+          </li>
+          <li>
+            <a href="/">
+              <img
+                className={styles.naviconplus}
+                src={plus}
+                alt="logo of application"
+              />
+              <i className={styles.fa2x} />
             </a>
           </li>
           <li>
             <a href="/">
               <img
                 className={styles.navicon}
-                src={logo}
+                src={favoris}
                 alt="logo of application"
               />
               <i className={styles.fa2x} />
-              <span className={styles.navtext}>Logout</span>
             </a>
           </li>
           <li>
             <a href="/">
               <img
                 className={styles.navicon}
-                src={logo}
+                src={About}
                 alt="logo of application"
               />
               <i className={styles.fa2x} />
-              <span className={styles.navtext}>Logout</span>
             </a>
           </li>
         </ul>
