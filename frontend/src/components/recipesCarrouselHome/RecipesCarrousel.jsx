@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
+import Carousel from "react-bootstrap/Carousel";
 import RecipesCarrouselCard from "./RecipesCarrouselCard";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function RecipesCarrousel() {
   const [random, setRandom] = useState(null);
@@ -23,14 +25,18 @@ export default function RecipesCarrousel() {
 
   return (
     <section>
-      {random &&
-        random.map((recipe) => (
-          <RecipesCarrouselCard
-            title={recipe.title}
-            image={recipe.image_url}
-            key={recipe.id}
-          />
-        ))}
+      <Carousel>
+        {random &&
+          random.map((recipe) => (
+            <Carousel.Item interval={1000} key={recipe.id}>
+              <RecipesCarrouselCard
+                key={recipe.id}
+                image={recipe.image_url}
+                title={recipe.title}
+              />
+            </Carousel.Item>
+          ))}
+      </Carousel>
     </section>
   );
 }
