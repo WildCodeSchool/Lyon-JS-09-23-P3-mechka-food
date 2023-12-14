@@ -16,7 +16,11 @@ export default function RecipeContainer() {
       </div>
       <div className={styles.cardPosition}>
         {recipes.map((recipe) => (
-          <RecipeCard key={recipe.id} recipes={recipe} />
+          <RecipeCard
+            key={recipe.id}
+            image={recipe.image_url}
+            title={recipe.title}
+          />
         ))}
       </div>
     </section>

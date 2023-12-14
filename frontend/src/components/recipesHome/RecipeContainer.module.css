@@ -12,6 +12,7 @@
   font-size: 0.8rem;
   justify-content: space-evenly;
   flex-wrap: wrap;
+  padding-bottom: 7rem;
 }
 .titleRecipeContainer {
   margin-left: 2rem;

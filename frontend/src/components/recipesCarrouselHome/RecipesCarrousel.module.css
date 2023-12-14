@@ -2,3 +2,8 @@
   color: white;
   font-weight: bold;
 }
+
+.carouselGlobal {
+  display: flex;
+  height: 17rem;
+}
