@@ -1,0 +1,44 @@
+* {
+  margin: 0;
+}
+
+.navBar {
+  font-weight: bold;
+  display: flex;
+  justify-content: space-around;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+.container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  background-color: #f5b409;
+  position: relative;
+  overflow: hidden;
+}
+
+/* .home,
+.title,
+.favoris,
+.switch {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+} */
+
+.svgLogo {
+  height: 3rem;
+}
+
+.svgProfil {
+  height: 2rem;
+}
+
+.svgLink {
+  text-decoration: none;
+}
