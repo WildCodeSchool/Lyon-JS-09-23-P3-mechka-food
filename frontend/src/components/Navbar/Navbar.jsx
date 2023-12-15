@@ -6,14 +6,14 @@ import plus from "../../assets/svg/Plus.svg";
 import About from "../../assets/svg/About.svg";
 import favoris from "../../assets/svg/Favoris.svg";
 
-export default function Navar() {
+export default function Navbar() {
   return (
     <>
       <div className={styles.area}>
         <nav className={styles.mainmenu}>
           <ul>
             <img className={styles.logo} src={logo} alt="logo of application" />
-            <li className={styles.hassubnav}>
+            <li className={styles.linav}>
               <a href="/">
                 <img
                   className={styles.navicon}
@@ -23,7 +23,7 @@ export default function Navar() {
                 <span className={styles.navtext}>Home</span>
               </a>
             </li>
-            <li className={styles.hassubnav}>
+            <li className={styles.linav}>
               <a href="/">
                 <img
                   className={styles.navicon}
@@ -33,7 +33,7 @@ export default function Navar() {
                 <span className={styles.navtext}>Search</span>
               </a>
             </li>
-            <li className={styles.hassubnav}>
+            <li className={styles.linav}>
               <a href="/">
                 <img
                   className={styles.navicon}
@@ -43,7 +43,7 @@ export default function Navar() {
                 <span className={styles.navtext}>Favoris</span>
               </a>
             </li>
-            <li className={styles.hassubnav}>
+            <li className={styles.linav}>
               <a href="/">
                 <img
                   className={styles.navicon}
