@@ -10,6 +10,7 @@ function App() {
     <div className="App">
       <Header />
       <Navbar />
+      <h1>Mechka Food</h1>
       <RecipesCarrousel />
       <RecipeContainer />
     </div>
