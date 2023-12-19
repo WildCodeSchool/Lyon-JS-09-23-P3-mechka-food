@@ -7,7 +7,6 @@ import App from "./App";
 import ProfilComponent from "./components/Profil/ProfilComponent";
 import InscriptionComponent from "./components/InscriptionComponent/InscriptionComponent";
 
-
 const router = createBrowserRouter([
   {
     path: "/",
@@ -16,10 +15,10 @@ const router = createBrowserRouter([
   {
     path: "/profil",
     element: <ProfilComponent />,
-
+  },
+  {
     path: "/inscription",
     element: <InscriptionComponent />,
-
   },
 ]);
 
