@@ -15,8 +15,8 @@ export default function Header() {
       <h1>MECHKA FOOD</h1>
 
       <div className={styles.favoris}>
-        <Link className={styles.svgLink} to="/favorite">
-          <img className={styles.svgProfil} src={profile} alt="" />
+        <Link className={styles.svgLink} to="/profil">
+          <img className={styles.svgProfil} src={profile} alt="Profil" />
         </Link>
       </div>
     </div>
