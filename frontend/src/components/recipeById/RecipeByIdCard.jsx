@@ -11,17 +11,21 @@ export default function RecipeByIdCard({
 }) {
   return (
     <section className={styles.recipeByIdCard}>
-      <div className={styles.recipeByIdImageContainer}>
-        <img src={image} className={styles.recipeImage} alt={title} />
+      <div className={styles.recipeBydUpperContainer}>
+        <div className={styles.recipeByIdImageContainer}>
+          <img src={image} className={styles.recipeImage} alt={title} />
+        </div>
+        <div className={styles.recipeByIdContainerTop}>
+          <h2 className={styles.recipeByIdTitle}>{title}</h2>
+          <h5>Temps requis: {time}</h5>
+          <h5>Pour {number} personnes</h5>
+          <h4>
+            <p className={styles.recipeByIdTitle}>Description: </p>
+            {description}
+          </h4>
+        </div>
       </div>
       <div className={styles.recipeByIdContainer}>
-        <h2 className={styles.recipeByIdTitle}>{title}</h2>
-        <h5>Temps requis: {time}</h5>
-        <h5>Pour {number} personnes</h5>
-        <h4>
-          <p className={styles.recipeByIdTitle}>Description: </p>
-          {description}
-        </h4>
         <h4>
           <p className={styles.recipeByIdTitle}>Instructions: </p>
           {instructions}
