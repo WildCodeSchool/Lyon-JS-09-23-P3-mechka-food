@@ -5,6 +5,8 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import App from "./App";
 import Search from "./pages/Search/Search";
+import InscriptionComponent from "./components/InscriptionComponent/InscriptionComponent";
+
 
 const router = createBrowserRouter([
   {
@@ -14,6 +16,10 @@ const router = createBrowserRouter([
   {
     path: "/search",
     element: <Search />,
+  },
+    {
+    path: "/inscription",
+    element: <InscriptionComponent />,
   },
 ]);
 
