@@ -16,6 +16,7 @@ router.get("/recipes", recipeControllers.browse);
 
 // Route to get a specific item by ID
 router.get("/items/:id", itemControllers.read);
+router.get("/recipes/:id", recipeControllers.readById);
 
 // Route to add a new item
 router.post("/items", itemControllers.add);
