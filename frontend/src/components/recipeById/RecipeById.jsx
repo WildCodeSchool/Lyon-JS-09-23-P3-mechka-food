@@ -1,45 +1,25 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import RecipeCard from "../recipesHome/RecipeCard";
 
 export default function RecipeById() {
   const [recipes, setRecipes] = useState([]);
-  //   const [ingredients, setIngredients] = useState([]);
   const idRecipe = useParams();
 
   useEffect(() => {
-    const urlRecipe = `http://localhost:3310/api/recipes/${idRecipe.id}`;
-
-    fetch(urlRecipe)
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Network Error");
-        }
-        return response.json();
-      })
-      .then((data) => {
-        setRecipes(Object.values(data));
-      })
-      .catch((error) => {
-        console.error("Something bad happened!", error);
-      });
-  }, []);
+    fetch(`http://localhost:3310/api/recipes/${idRecipe.id}`)
+      .then((response) => response.json())
+      .then((data) => setRecipes(data));
+  });
 
   return (
     <section>
       <div>
-        {recipes.map((recipe) => (
-          <RecipeCard
-            key={recipe.id}
-            id={recipe.id}
-            image={recipe.image_url}
-            title={recipe.title}
-            time={recipe.global_time}
-            number={recipe.number_persons}
-            description={recipe.descriptions}
-            instructions={recipe.instructions}
-          />
-        ))}
+        <img src={recipes.image_url} alt="recipe" />
+        <h2>{recipes.title}</h2>
+        <h4>{recipes.global_time}</h4>
+        <h4>{recipes.number_persons}</h4>
+        <p>{recipes.descriptions}</p>
+        <p>{recipes.instructions}</p>
       </div>
     </section>
   );
