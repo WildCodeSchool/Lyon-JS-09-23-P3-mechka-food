@@ -6,11 +6,12 @@ import search from "../../assets/svg/search.svg";
 import plus from "../../assets/svg/Plus.svg";
 import About from "../../assets/svg/About.svg";
 import favoris from "../../assets/svg/Favoris.svg";
+import logo from "../../assets/images/logo.png";
 
 export default function Navbar() {
   return (
     <>
-      {/* <div className={styles.area}>
+      <div className={styles.area}>
         <nav className={styles.mainmenu}>
           <ul>
             <img className={styles.logo} src={logo} alt="logo of application" />
@@ -98,7 +99,7 @@ export default function Navbar() {
             </li>
           </ul>
         </nav>
-      </div> */}
+      </div>
       {/* navbar pour version mobile  */}
       <nav className={styles.menumobile}>
         <ul>
