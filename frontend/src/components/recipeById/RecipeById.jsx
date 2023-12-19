@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import RecipeByIdCard from "./RecipeByIdCard";
 
 export default function RecipeById() {
-  const [recipes, setRecipes] = useState([]);
+  const [recipes, setRecipes] = useState(null);
   const idRecipe = useParams();
 
   useEffect(() => {
@@ -14,12 +15,16 @@ export default function RecipeById() {
   return (
     <section>
       <div>
-        <img src={recipes.image_url} alt="recipe" />
-        <h2>{recipes.title}</h2>
-        <h4>{recipes.global_time}</h4>
-        <h4>{recipes.number_persons}</h4>
-        <p>{recipes.descriptions}</p>
-        <p>{recipes.instructions}</p>
+        {recipes !== null && (
+          <RecipeByIdCard
+            image={recipes.image_url}
+            title={recipes.title}
+            time={recipes.global_time}
+            number={recipes.number_persons}
+            description={recipes.descriptions}
+            instructions={recipes.instructions}
+          />
+        )}
       </div>
     </section>
   );

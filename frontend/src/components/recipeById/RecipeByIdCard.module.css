@@ -1,0 +1,25 @@
+.recipeByIdCard {
+  padding-bottom: 5rem;
+}
+
+.recipeImage {
+  width: 100vw;
+  max-width: 50rem;
+}
+
+.recipeByIdContainer {
+  background-color: #f4f4f4;
+  display: flex;
+  flex-direction: column;
+  margin: 1.5rem;
+  padding: 2rem;
+  padding-top: 1rem;
+  margin-top: 1rem;
+  border-radius: 0.7rem;
+  box-shadow: rgba(0, 0, 0, 0.15) 0.3rem 4px 2.6px;
+}
+
+.recipeByIdTitle {
+  font-weight: bold;
+  padding: 0.5rem;
+}
