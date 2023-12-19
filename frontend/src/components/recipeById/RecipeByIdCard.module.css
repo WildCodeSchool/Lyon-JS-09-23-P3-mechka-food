@@ -2,6 +2,11 @@
   padding-bottom: 5rem;
 }
 
+.recipeByIdImageContainer {
+  display: flex;
+  justify-content: center;
+}
+
 .recipeImage {
   width: 100vw;
   max-width: 50rem;
@@ -22,4 +27,31 @@
 .recipeByIdTitle {
   font-weight: bold;
   padding: 0.5rem;
+}
+
+@media screen and (width > 1024px) {
+  .recipeByIdCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .recipeByIdImageContainer {
+    width: 40vw;
+    padding: 2rem;
+  }
+  .recipeByIdContainer {
+    width: 80vw;
+  }
+
+  .recipeByIdContainer > h2 {
+    display: flex;
+    justify-content: center;
+  }
+
+  .recipeImage {
+    max-width: 100%;
+    padding: 2rem;
+  }
 }
