@@ -5,6 +5,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import App from "./App";
 import Contact from "./components/Contact/Contact";
+import InscriptionComponent from "./components/InscriptionComponent/InscriptionComponent";
 
 const router = createBrowserRouter([
   {
@@ -14,6 +15,10 @@ const router = createBrowserRouter([
   {
     path: "/contact",
     element: <Contact />,
+  },
+  {
+    path: "/inscription",
+    element: <InscriptionComponent />,
   },
 ]);
 
