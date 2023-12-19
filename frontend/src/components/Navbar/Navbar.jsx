@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import styles from "./Navbar.module.css";
 import logo from "../../assets/images/logo.png";
@@ -97,7 +98,7 @@ export default function Navar() {
               </a>
             </li>
             <li>
-              <a href="/">
+              <Link to="/contact">
                 <img
                   className={styles.naviconbas}
                   src={logo}
@@ -105,7 +106,7 @@ export default function Navar() {
                 />
                 <i className={styles.fa2x} />
                 <span className={styles.navtext}>Contact Us</span>
-              </a>
+              </Link>
             </li>
             <li>
               <a href="/">
@@ -165,14 +166,14 @@ export default function Navar() {
             </a>
           </li>
           <li>
-            <a href="/">
+            <Link to="/contact">
               <img
                 className={styles.navicon}
                 src={About}
                 alt="logo of application"
               />
               <i className={styles.fa2x} />
-            </a>
+            </Link>
           </li>
         </ul>
       </nav>
