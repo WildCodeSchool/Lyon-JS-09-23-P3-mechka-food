@@ -7,11 +7,21 @@
   justify-content: space-between;
 }
 
+.input:focus {
+  outline: none;
+}
+
 .input {
   background-color: rgb(217, 217, 217);
-  width: 55vw;
   border-radius: 15px;
   border: none;
+  padding: 0.7rem;
+  width: 45vw;
+}
+
+.warning {
+  margin-left: 3rem;
+  font-style: italic;
 }
 
 .button {
@@ -20,11 +30,37 @@
   width: 20vw;
   border: none;
   border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button > svg {
+  fill: white;
+}
+
+.containerFlex {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  margin-top: 2rem;
 }
 
 @media screen and (width > 768px) {
   .container {
-    margin: 2rem 8rem 2rem 8rem;
+    margin: 2rem 8rem 0rem 8rem;
+  }
+
+  .button > svg {
+    height: 1.3rem;
+    width: 1.3rem;
+  }
+
+  .warning {
+    margin-left: 8rem;
   }
 }
 
@@ -43,5 +79,10 @@
 
   .input {
     border-radius: 30px;
+    padding-left: 1.5rem;
+  }
+
+  .warning {
+    text-align: center;
   }
 }
