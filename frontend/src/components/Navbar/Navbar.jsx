@@ -1,10 +1,12 @@
+import { Link } from "react-router-dom";
 import styles from "./Navbar.module.css";
-import logo from "../../assets/images/logo.png";
+// import logo from "../../assets/images/logo.png";
 import home from "../../assets/svg/HomeMobile.svg";
 import search from "../../assets/svg/search.svg";
 import plus from "../../assets/svg/Plus.svg";
 import About from "../../assets/svg/About.svg";
 import favoris from "../../assets/svg/Favoris.svg";
+import logo from "../../assets/images/logo.png";
 
 export default function Navbar() {
   return (
@@ -123,7 +125,10 @@ export default function Navbar() {
           </li>
           <li>
             <a href="/">
-              <img className={styles.navicon} src={About} alt="about us" />
+              <Link className={styles.svgLink} to="/inscription">
+                {" "}
+                <img className={styles.navicon} src={About} alt="about us" />
+              </Link>
             </a>
           </li>
         </ul>
