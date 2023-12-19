@@ -1,5 +1,6 @@
+import { Link } from "react-router-dom";
 import styles from "./Navbar.module.css";
-import logo from "../../assets/images/logo.png";
+// import logo from "../../assets/images/logo.png";
 import home from "../../assets/svg/HomeMobile.svg";
 import search from "../../assets/svg/search.svg";
 import plus from "../../assets/svg/Plus.svg";
@@ -9,7 +10,7 @@ import favoris from "../../assets/svg/Favoris.svg";
 export default function Navbar() {
   return (
     <>
-      <div className={styles.area}>
+      {/* <div className={styles.area}>
         <nav className={styles.mainmenu}>
           <ul>
             <img className={styles.logo} src={logo} alt="logo of application" />
@@ -97,7 +98,7 @@ export default function Navbar() {
             </li>
           </ul>
         </nav>
-      </div>
+      </div> */}
       {/* navbar pour version mobile  */}
       <nav className={styles.menumobile}>
         <ul>
@@ -123,7 +124,10 @@ export default function Navbar() {
           </li>
           <li>
             <a href="/">
-              <img className={styles.navicon} src={About} alt="about us" />
+              <Link className={styles.svgLink} to="/inscription">
+                {" "}
+                <img className={styles.navicon} src={About} alt="about us" />
+              </Link>
             </a>
           </li>
         </ul>
