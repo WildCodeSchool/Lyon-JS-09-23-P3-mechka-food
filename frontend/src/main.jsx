@@ -6,6 +6,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App";
 import Contact from "./components/Contact/Contact";
 import ProfilComponent from "./components/Profil/ProfilComponent";
+
 import InscriptionComponent from "./components/InscriptionComponent/InscriptionComponent";
 
 const router = createBrowserRouter([
