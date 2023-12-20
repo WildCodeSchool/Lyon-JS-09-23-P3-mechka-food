@@ -18,7 +18,6 @@ const router = createBrowserRouter([
     element: <App />,
   },
   {
-
     path: "/recipes/:id",
     element: <RecipePage />,
   },
