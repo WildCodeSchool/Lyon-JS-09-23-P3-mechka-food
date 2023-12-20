@@ -124,12 +124,9 @@ export default function Navbar() {
             </a>
           </li>
           <li>
-            <a href="/">
-              <Link className={styles.svgLink} to="/inscription">
-                {" "}
-                <img className={styles.navicon} src={About} alt="about us" />
-              </Link>
-            </a>
+            <Link className={styles.svgLink} to="/inscription">
+              <img className={styles.navicon} src={About} alt="about us" />
+            </Link>
           </li>
         </ul>
       </nav>
