@@ -10,13 +10,17 @@ export default function RecipeById() {
   const [ingredients, setIngredients] = useState(null);
 
   useEffect(() => {
-    fetch(`http://localhost:3310/api/recipes/${idRecipe.id}`)
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/recipes/${idRecipe.id}`)
       .then((response) => response.json())
       .then((data) => setRecipes(data));
   }, []);
 
   useEffect(() => {
-    fetch(`http://localhost:3310/api/recipes/ingredients/${idRecipe.id}`)
+    fetch(
+      `${import.meta.env.VITE_BACKEND_URL}/api/recipes/ingredients/${
+        idRecipe.id
+      }`
+    )
       .then((response) => response.json())
       .then((data) => setIngredients(data));
   }, []);

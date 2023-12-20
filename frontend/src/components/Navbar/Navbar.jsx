@@ -77,14 +77,14 @@ export default function Navbar() {
               </a>
             </li>
             <li>
-              <a href="/">
+              <Link to="/contact">
                 <img
                   className={styles.naviconbas}
                   src={logo}
                   alt="logo of application"
                 />
                 <span className={styles.navtext}>Contact Us</span>
-              </a>
+              </Link>
             </li>
             <li>
               <a href="/">
@@ -123,8 +123,13 @@ export default function Navbar() {
             </a>
           </li>
           <li>
-            <Link className={styles.svgLink} to="/inscription">
-              <img className={styles.navicon} src={About} alt="about us" />
+            <Link to="/contact">
+              <img
+                className={styles.navicon}
+                src={About}
+                alt="logo of application"
+              />
+              <i className={styles.fa2x} />
             </Link>
           </li>
         </ul>

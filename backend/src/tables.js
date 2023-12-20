@@ -7,6 +7,7 @@ const ItemManager = require("./models/ItemManager");
 const RecipeManager = require("./models/RecipeManager");
 const IngredientsManager = require("./models/IngrdientsManager");
 const InstructionManager = require("./models/InstructionManager");
+const IngredientsManager = require("./models/IngredientsManager");
 
 const managers = [
   ItemManager,
