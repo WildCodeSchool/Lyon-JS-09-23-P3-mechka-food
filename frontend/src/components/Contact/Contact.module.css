@@ -1,89 +1,59 @@
+label p {
+  margin: 0.3rem;
+}
+
 .container {
   display: flex;
   justify-content: center;
-  align-items: center;
-}
-h1 {
-  font-size: 1.3rem;
-  padding-bottom: 0.7rem;
-}
-.title {
-  background-color: #f5b409;
-  width: 30%;
-  border-radius: 5px;
-  margin-left: 35vw;
-  margin-top: 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.75);
-}
-button {
-  width: 5rem;
-  height: 1.8rem;
-  background-color: #f5b409;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-button:hover {
-  background-color: #e0a905;
-}
-form {
-  position: absolute;
-  top: 10rem;
-  margin-left: 5%;
-  margin-right: 5%;
-  background-color: #fff;
-  padding: 0.8rem;
-  border-radius: 5px;
-  width: 80%;
 }
 
-span {
-  background-color: #f5b409;
-  width: 3rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.name,
-.email,
-.message {
-  display: flex;
-  border: 3px solid #f5b409;
-  box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.75);
-  border-radius: 5px;
+.inputContact {
+  background-color: #f4f4f4;
+  height: 2rem;
+  width: 100%;
+  border: none;
+  border-radius: 0.5rem;
   margin-bottom: 0.5rem;
-  color: #fff;
 }
-.textarea {
-  width: 100%;
-  border: none;
-  outline: none;
-  color: #f5b409;
-  background-color: transparent;
-  padding: 1rem 0.5rem;
+
+.formInscription {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
 }
-.input::placeholder {
-  color: #f5b409;
+
+.divInscriptionTitle {
+  height: 2.5rem;
+  margin: 1rem;
+  margin-top: 1.5rem;
+  background-color: #feecbe;
+  border-radius: 0.3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  -webkit-box-shadow: -1px 3px 14px 1px rgba(0, 0, 0, 0.25);
+  box-shadow: -1px 3px 14px 1px rgba(0, 0, 0, 0.25);
 }
-.textarea::placeholder {
-  color: #f5b409;
-}
-.messageIcon {
-  align-items: flex-start;
-  padding-top: 0.5rem;
-}
-input,
-optgroup,
-select,
-textarea {
+
+.inscriptionTitle {
   margin: 0;
-  font-family: inherit;
-  font-size: inherit;
-  line-height: inherit;
+}
+
+.subscribeButton {
+  height: 2.5rem;
+  margin: 1rem;
+  background-color: #f5b409;
+  border-radius: 1rem;
+  border: none;
+  -webkit-box-shadow: -1px 3px 14px 1px rgba(0, 0, 0, 0.51);
+  box-shadow: -1px 3px 14px 1px rgba(0, 0, 0, 0.51);
+}
+
+.Message {
+  height: 13rem;
+  background-color: #f4f4f4;
   width: 100%;
   border: none;
+  border-radius: 0.5rem;
+  margin-bottom: 0.5rem;
 }
