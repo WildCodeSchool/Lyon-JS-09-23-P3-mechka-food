@@ -1,0 +1,88 @@
+.container {
+  margin: 2rem 3rem 0 3rem;
+  height: 2rem;
+  background-color: rgb(217, 217, 217);
+  border-radius: 15px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.input:focus {
+  outline: none;
+}
+
+.input {
+  background-color: rgb(217, 217, 217);
+  border-radius: 15px;
+  border: none;
+  padding: 0.7rem;
+  width: 45vw;
+}
+
+.warning {
+  margin-left: 3rem;
+  font-style: italic;
+}
+
+.button {
+  background-color: rgb(73, 71, 56);
+  color: rgb(245, 180, 9);
+  width: 20vw;
+  border: none;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button > svg {
+  fill: white;
+}
+
+.containerFlex {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  margin-top: 2rem;
+}
+
+@media screen and (width > 768px) {
+  .container {
+    margin: 2rem 8rem 0rem 8rem;
+  }
+
+  .button > svg {
+    height: 1.3rem;
+    width: 1.3rem;
+  }
+
+  .warning {
+    margin-left: 8rem;
+  }
+}
+
+@media screen and (width > 1024px) {
+  .container {
+    width: 50rem;
+    height: 3rem;
+    border-radius: 20px;
+    margin: 0 auto;
+  }
+
+  .button {
+    width: 30vh;
+    border-radius: 30px;
+  }
+
+  .input {
+    border-radius: 30px;
+    padding-left: 1.5rem;
+  }
+
+  .warning {
+    text-align: center;
+  }
+}
