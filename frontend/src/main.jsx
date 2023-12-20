@@ -4,12 +4,11 @@ import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import App from "./App";
+
 import Contact from "./components/Contact/Contact";
-
+import RecipePage from "./pages/recipePage/RecipePage";
 import Search from "./pages/Search/Search";
-
 import ProfilComponent from "./components/Profil/ProfilComponent";
-
 import InscriptionComponent from "./components/InscriptionComponent/InscriptionComponent";
 
 const router = createBrowserRouter([
@@ -20,6 +19,10 @@ const router = createBrowserRouter([
   {
     path: "/contact",
     element: <Contact />,
+  },
+  {
+    path: "/recipes/:id",
+    element: <RecipePage />,
   },
   {
     path: "/search",
@@ -41,7 +44,6 @@ const router = createBrowserRouter([
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-
 root.render(
   <React.StrictMode>
     <RouterProvider router={router} />
