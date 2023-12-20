@@ -7,7 +7,6 @@ import App from "./App";
 import Search from "./pages/Search/Search";
 import InscriptionComponent from "./components/InscriptionComponent/InscriptionComponent";
 
-
 const router = createBrowserRouter([
   {
     path: "/",
@@ -17,7 +16,7 @@ const router = createBrowserRouter([
     path: "/search",
     element: <Search />,
   },
-    {
+  {
     path: "/inscription",
     element: <InscriptionComponent />,
   },

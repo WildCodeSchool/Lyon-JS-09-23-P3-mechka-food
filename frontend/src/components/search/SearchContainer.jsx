@@ -18,7 +18,7 @@ export default function SearcContainer() {
   const maxReached = value.length >= MAX_LENGTH;
 
   useEffect(() => {
-    fetch("http://localhost:3310/api/recipes")
+    fetch(`http://${import.meta.env.VITE_BACKEND_URL}/api/recipes`)
       .then((res) => res.json())
       .then((data) => setRecipe(data));
   }, []);
