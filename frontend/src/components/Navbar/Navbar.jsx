@@ -124,6 +124,7 @@ export default function Navbar() {
             </a>
           </li>
           <li>
+
             <Link to="/contact">
               <img
                 className={styles.navicon}
@@ -131,6 +132,10 @@ export default function Navbar() {
                 alt="logo of application"
               />
               <i className={styles.fa2x} />
+
+            <Link className={styles.svgLink} to="/inscription">
+              <img className={styles.navicon} src={About} alt="about us" />
+
             </Link>
           </li>
         </ul>
