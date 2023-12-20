@@ -13,24 +13,40 @@ export default function Contact() {
               <h2 className={styles.inscriptionTitle}>Contactez Nous</h2>
             </div>
             <label>
-              <p>Nom :</p>
-              <input className={styles.inputContact} type="text" name="text" />
-            </label>
-            <label>
-              <p>Prénom :</p>
+              <label htmlFor="Nom">Nom :</label>
               <input
                 className={styles.inputContact}
-                type="password"
-                name="password"
+                type="text"
+                name="text"
+                id="Nom"
               />
             </label>
             <label>
-              <p>Email :</p>
-              <input className={styles.inputContact} type="mail" name="email" />
+              <label htmlFor="Prénom">Prénom :</label>
+              <input
+                className={styles.inputContact}
+                type="text"
+                name="text"
+                id="Prénom"
+              />
             </label>
             <label>
-              <p>Message :</p>
-              <input className={styles.Message} type="Message" name="message" />
+              <label htmlFor="Email">Email :</label>
+              <input
+                className={styles.inputContact}
+                type="mail"
+                name="email"
+                id="Email"
+              />
+            </label>
+            <label>
+              <label htmlFor="Message">Message :</label>
+              <input
+                className={styles.Message}
+                type="Message"
+                name="message"
+                id="Message"
+              />
             </label>
 
             <button className={styles.subscribeButton} type="button">
