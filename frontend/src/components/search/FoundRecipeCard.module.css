@@ -1,0 +1,30 @@
+.card {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: center;
+  align-items: center;
+}
+
+.imageCard {
+  width: 13rem;
+  border-radius: 0.7rem;
+  box-shadow: rgba(0, 0, 0, 0.15) 0.3rem 4px 2.6px;
+}
+
+.recipeTitle {
+  font-size: 1rem;
+  width: 8rem;
+  padding-top: 0.5rem;
+}
+
+@media screen and (width > 768px) {
+  .imageCard {
+    width: 16rem;
+  }
+}
+
+@media screen and (width > 1024px) {
+  .imageCard {
+    width: 20rem;
+  }
+}
