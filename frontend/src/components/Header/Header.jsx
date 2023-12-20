@@ -8,17 +8,15 @@ export default function Header() {
     <div className={styles.container}>
       <div className={styles.home}>
         <Link className={styles.svgLink} to="/">
-          <img className={styles.svgNavBar} src={logo} alt="" />
+          <img className={styles.svgLogo} src={logo} alt="" />
         </Link>
       </div>
 
-      <div className={styles.search}>
-        <h1>MECHKA FOOD</h1>
-      </div>
+      <h1>MECHKA FOOD</h1>
 
       <div className={styles.favoris}>
-        <Link className={styles.svgLink} to="/favorite">
-          <img className={styles.svgNavBar} src={profile} alt="" />
+        <Link className={styles.svgLink} to="/logSignIn">
+          <img className={styles.svgProfil} src={profile} alt="Profil" />
         </Link>
       </div>
     </div>
