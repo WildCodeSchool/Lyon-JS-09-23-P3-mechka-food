@@ -16,7 +16,7 @@ export default function Header() {
 
       <div className={styles.favoris}>
         <Link className={styles.svgLink} to="/inscription">
-          <img className={styles.svgProfil} src={profile} alt="" />
+          <img className={styles.svgProfil} src={profile} alt="profile" />
         </Link>
       </div>
     </div>
