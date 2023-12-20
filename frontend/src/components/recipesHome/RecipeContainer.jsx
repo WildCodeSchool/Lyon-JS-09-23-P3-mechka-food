@@ -18,6 +18,7 @@ export default function RecipeContainer() {
         {recipes.map((recipe) => (
           <RecipeCard
             key={recipe.id}
+            id={recipe.id}
             image={recipe.image_url}
             title={recipe.title}
           />
