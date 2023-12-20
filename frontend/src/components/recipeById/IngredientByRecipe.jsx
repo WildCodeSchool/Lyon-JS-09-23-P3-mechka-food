@@ -1,11 +1,7 @@
 import PropTypes from "prop-types";
 
 export default function IngredientByRecipe({ quantity, unit, name }) {
-  return (
-    <section>
-      <p>{`${quantity} ${unit} ${name}`}</p>
-    </section>
-  );
+  return <li>{`${quantity} ${unit} ${name}`}</li>;
 }
 
 IngredientByRecipe.propTypes = {

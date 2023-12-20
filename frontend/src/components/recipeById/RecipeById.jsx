@@ -22,7 +22,7 @@ export default function RecipeById() {
   }, []);
 
   return (
-    <section>
+    <section className={styles.RecipeByIdContainer}>
       <div>
         {recipes !== null && (
           <RecipeByIdCard
@@ -40,16 +40,16 @@ export default function RecipeById() {
         {ingredients !== null &&
           ingredients.map((ingredient) => {
             return (
-              <div className={styles.ingredientByRecipeCard}>
-                <div>
-                  <IngredientByRecipe
-                    key={ingredient.id}
-                    quantity={ingredient.quantity}
-                    unit={ingredient.unit}
-                    name={ingredient.name}
-                  />
-                </div>
-              </div>
+              <ul
+                key={ingredient.name}
+                className={styles.ingredientByRecipeCard}
+              >
+                <IngredientByRecipe
+                  quantity={ingredient.quantity}
+                  unit={ingredient.unit}
+                  name={ingredient.name}
+                />
+              </ul>
             );
           })}
       </div>

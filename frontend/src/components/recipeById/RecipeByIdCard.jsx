@@ -17,19 +17,16 @@ export default function RecipeByIdCard({
         </div>
         <div className={styles.recipeByIdContainerTop}>
           <h2 className={styles.recipeByIdTitle}>{title}</h2>
-          <h5>Temps requis: {time}</h5>
-          <h5>Pour {number} personnes</h5>
-          <h4>
-            <p className={styles.recipeByIdTitle}>Description: </p>
-            {description}
-          </h4>
+          <p>Temps requis: {time}</p>
+          <p>Pour {number} personnes</p>
+
+          <h4 className={styles.recipeByIdTitle}>Description: </h4>
+          {description}
         </div>
       </div>
       <div className={styles.recipeByIdContainer}>
-        <h4>
-          <p className={styles.recipeByIdTitle}>Instructions: </p>
-          {instructions}
-        </h4>
+        <h4 className={styles.recipeByIdTitle}>Instructions: </h4>
+        {instructions}
       </div>
     </section>
   );
