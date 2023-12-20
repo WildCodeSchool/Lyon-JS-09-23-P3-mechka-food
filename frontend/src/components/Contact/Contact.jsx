@@ -12,8 +12,8 @@ export default function Contact() {
             <div className={styles.divInscriptionTitle}>
               <h2 className={styles.inscriptionTitle}>Contactez Nous</h2>
             </div>
-            <label>
-              <label htmlFor="Nom">Nom :</label>
+            <label htmlFor="Nom">
+              Nom :
               <input
                 className={styles.inputContact}
                 type="text"
@@ -21,8 +21,8 @@ export default function Contact() {
                 id="Nom"
               />
             </label>
-            <label>
-              <label htmlFor="Prénom">Prénom :</label>
+            <label htmlFor="Prénom">
+              Prénom :
               <input
                 className={styles.inputContact}
                 type="text"
@@ -30,8 +30,8 @@ export default function Contact() {
                 id="Prénom"
               />
             </label>
-            <label>
-              <label htmlFor="Email">Email :</label>
+            <label htmlFor="Email">
+              Email :
               <input
                 className={styles.inputContact}
                 type="mail"
@@ -39,8 +39,8 @@ export default function Contact() {
                 id="Email"
               />
             </label>
-            <label>
-              <label htmlFor="Message">Message :</label>
+            <label htmlFor="Message">
+              Message :
               <input
                 className={styles.Message}
                 type="Message"
