@@ -1,0 +1,50 @@
+label p {
+  margin: 0.3rem;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.formInscription input {
+  background-color: #f4f4f4;
+  height: 2rem;
+  width: 100%;
+  border: none;
+  border-radius: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.formInscription {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+}
+
+.divInscriptionTitle {
+  height: 2.5rem;
+  margin: 1rem;
+  margin-top: 1.5rem;
+  background-color: #feecbe;
+  border-radius: 0.3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  -webkit-box-shadow: -1px 3px 14px 1px rgba(0, 0, 0, 0.25);
+  box-shadow: -1px 3px 14px 1px rgba(0, 0, 0, 0.25);
+}
+
+.inscriptionTitle {
+  margin: 0;
+}
+
+.subscribeButton {
+  height: 2.5rem;
+  margin: 1rem;
+  background-color: #f5b409;
+  border-radius: 1rem;
+  border: none;
+  -webkit-box-shadow: -1px 3px 14px 1px rgba(0, 0, 0, 0.51);
+  box-shadow: -1px 3px 14px 1px rgba(0, 0, 0, 0.51);
+}
