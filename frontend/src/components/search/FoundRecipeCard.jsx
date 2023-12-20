@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
-import styles from "./FoundCard.module.css";
+import styles from "./FoundRecipeCard.module.css";
 
-export default function FoundCard({ image, title }) {
+export default function FoundRecipeCard({ image, title }) {
   return (
     <section className={styles.card}>
       <h3 className={styles.recipeTitle}>{title}</h3>
@@ -10,7 +10,7 @@ export default function FoundCard({ image, title }) {
   );
 }
 
-FoundCard.propTypes = {
+FoundRecipeCard.propTypes = {
   image: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
 };

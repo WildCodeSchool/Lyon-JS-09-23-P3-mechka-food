@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import style from "./SearchContainer.module.css";
-import FoundCard from "./FoundCard";
+import FoundRecipeCard from "./FoundRecipeCard";
 
 export default function SearcContainer() {
   const MAX_LENGTH = 50;
@@ -18,7 +18,7 @@ export default function SearcContainer() {
   const maxReached = value.length >= MAX_LENGTH;
 
   useEffect(() => {
-    fetch(`http://${import.meta.env.VITE_BACKEND_URL}/api/recipes`)
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/recipes`)
       .then((res) => res.json())
       .then((data) => setRecipe(data));
   }, []);
@@ -67,7 +67,11 @@ export default function SearcContainer() {
         {found &&
           found.map((res) => {
             return (
-              <FoundCard key={res.id} image={res.image_url} title={res.title} />
+              <FoundRecipeCard
+                key={res.id}
+                image={res.image_url}
+                title={res.title}
+              />
             );
           })}
       </div>
