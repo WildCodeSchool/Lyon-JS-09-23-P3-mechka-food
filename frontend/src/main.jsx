@@ -5,6 +5,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import App from "./App";
 import Contact from "./components/Contact/Contact";
+import ProfilComponent from "./components/Profil/ProfilComponent";
 import InscriptionComponent from "./components/InscriptionComponent/InscriptionComponent";
 
 const router = createBrowserRouter([
@@ -15,6 +16,14 @@ const router = createBrowserRouter([
   {
     path: "/contact",
     element: <Contact />,
+  },
+  {
+    path: "/logSignIn",
+    element: <InscriptionComponent />, // Composant à changer lors que la page sera créé.
+  },
+  {
+    path: "/profil",
+    element: <ProfilComponent />, // Route lors que le USER est connecté à son profil.
   },
   {
     path: "/inscription",
