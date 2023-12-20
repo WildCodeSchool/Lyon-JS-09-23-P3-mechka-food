@@ -5,7 +5,7 @@
 // Import the manager modules responsible for handling data operations on the tables
 const ItemManager = require("./models/ItemManager");
 const RecipeManager = require("./models/RecipeManager");
-const IngredientsManager = require("./models/IngrdientsManager");
+const IngredientsManager = require("./models/IngredientsManager");
 
 const managers = [
   ItemManager,
