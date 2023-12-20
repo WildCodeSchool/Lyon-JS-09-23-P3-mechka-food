@@ -1,6 +1,5 @@
 import { useState } from "react";
 
-import { Rating } from "@mui/material";
 import styles from "./Comment.module.css";
 
 export default function Comment() {
@@ -8,8 +7,7 @@ export default function Comment() {
   const [comments, setComments] = useState([]);
 
   const onClickHandler = () => {
-    // eslint-disable-next-line no-shadow
-    setComments((comments) => [...comments, comment]);
+    setComments([...comments, comment]);
   };
   const onChangeHandler = (event) => {
     setComment(event.target.value);
@@ -18,9 +16,6 @@ export default function Comment() {
     <div className={styles.positionCommentForm}>
       <div className={styles.comment_flexbox}>
         <h3 className={styles.comment_text}>Laissez un commentaire !</h3>
-        <div className={styles.ratingPostion}>
-          <Rating defaultValue={0} precision={0.5} size="large" />
-        </div>
         <textarea
           maxLength={250}
           value={comment}
@@ -39,7 +34,9 @@ export default function Comment() {
       </div>
       <div className={styles.main_container}>
         {comments.map((text) => (
-          <div className={styles.comment_container}>{text}</div>
+          <div key={text} className={styles.commentCard}>
+            <div className={styles.comment_container}>{text}</div>
+          </div>
         ))}
       </div>
     </div>
