@@ -10,6 +10,7 @@ const router = express.Router();
 const itemControllers = require("./controllers/itemControllers");
 const recipeControllers = require("./controllers/recipeControllers");
 const ingredientControllers = require("./controllers/ingredientControllers");
+const instructionControllers = require("./controllers/instructionControllers");
 
 // Route to get a list of items
 router.get("/items", itemControllers.browse);
@@ -19,6 +20,7 @@ router.get("/recipes", recipeControllers.browse);
 router.get("/items/:id", itemControllers.read);
 router.get("/recipes/:id", recipeControllers.readById);
 router.get("/recipes/ingredients/:id", ingredientControllers.readById);
+router.get("/recipes/instructions/:id", instructionControllers.readById);
 
 // Route to add a new item
 router.post("/items", itemControllers.add);
