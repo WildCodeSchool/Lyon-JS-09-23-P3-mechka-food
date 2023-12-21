@@ -38,14 +38,14 @@
 }
 
 /* .home,
-.title,
-.favoris,
-.switch {
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  align-items: center;
-} */
+  .title,
+  .favoris,
+  .switch {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+  } */
 
 .svgLogo {
   height: 3rem;

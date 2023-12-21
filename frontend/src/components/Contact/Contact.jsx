@@ -6,7 +6,7 @@ export default function Contact() {
   return (
     <>
       <Header />
-      <div className={styles.outline}>
+      <section className={styles.outline}>
         <div className={styles.container}>
           <form className={styles.formInscription}>
             <div className={styles.divInscriptionTitle}>
@@ -49,7 +49,7 @@ export default function Contact() {
             </button>
           </form>
         </div>
-      </div>
+      </section>
       <Navbar />
     </>
   );

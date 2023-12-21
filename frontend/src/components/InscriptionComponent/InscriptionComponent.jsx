@@ -12,30 +12,21 @@ export default function InscriptionComponent() {
             <div className={styles.divInscriptionTitle}>
               <h2 className={styles.inscriptionTitle}>INSCRIPTION</h2>
             </div>
-            <label>
-              <p>Nom :</p>
-              <input type="text" name="text" />
+            <label htmlFor="Nom"> Nom :</label>
+            <input type="text" name="Nom" />
+            <label htmlFor="Prénom"> Prénom :</label>
+            <input type="password" name="Prénom" />
+            <label htmlFor="Pseudo"> Pseudo :</label>
+            <input type="text" name="Pseudo" />
+            <label htmlFor="Email"> Email :</label>
+            <input type="mail" name="Email" />
+            <label htmlFor="Mot de passe"> Mot de passe :</label>
+            <input type="password" name="mot de passe" />
+            <label htmlFor="Confirmer Mot de passe">
+              {" "}
+              Confirmer le mot de passe :
             </label>
-            <label>
-              <p>Prénom :</p>
-              <input type="password" name="password" />
-            </label>
-            <label>
-              <p>Pseudo :</p>
-              <input type="text" name="pseudo" />
-            </label>
-            <label>
-              <p>Email :</p>
-              <input type="mail" name="email" />
-            </label>
-            <label>
-              <p>Mot de passe :</p>
-              <input type="password" name="mot de passe" />
-            </label>
-            <label>
-              <p>Confirmer le mot de passe :</p>
-              <input type="password" name="mot de passe" />
-            </label>
+            <input type="password" name="mot de passe" />
             <button className={styles.subscribeButton} type="button">
               S'inscrire !
             </button>

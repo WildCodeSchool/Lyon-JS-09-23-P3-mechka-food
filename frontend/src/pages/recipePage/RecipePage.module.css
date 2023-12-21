@@ -1,0 +1,9 @@
+.recipePageHeader {
+  display: none;
+}
+
+@media screen and (width > 768px) {
+  .recipePageHeader {
+    display: block;
+  }
+}
