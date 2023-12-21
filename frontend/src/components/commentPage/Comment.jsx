@@ -14,7 +14,7 @@ export default function Comment() {
   };
   return (
     <div className={styles.positionCommentForm}>
-      <div className={styles.comment_flexbox}>
+      <section className={styles.comment_flexbox}>
         <h3 className={styles.comment_text}>Laissez un commentaire !</h3>
         <textarea
           maxLength={250}
@@ -31,14 +31,14 @@ export default function Comment() {
             Poster
           </button>
         </div>
-      </div>
-      <div className={styles.main_container}>
+      </section>
+      <section className={styles.main_container}>
         {comments.map((text) => (
           <div key={text} className={styles.commentCard}>
             <div className={styles.comment_container}>{text}</div>
           </div>
         ))}
-      </div>
+      </section>
     </div>
   );
 }
