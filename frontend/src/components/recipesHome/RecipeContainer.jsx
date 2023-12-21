@@ -21,6 +21,7 @@ export default function RecipeContainer() {
             id={recipe.id}
             image={recipe.image_url}
             title={recipe.title}
+            description={recipe.descriptions}
           />
         ))}
       </div>
