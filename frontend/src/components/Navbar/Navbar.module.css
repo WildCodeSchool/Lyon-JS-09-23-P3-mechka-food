@@ -7,7 +7,7 @@ nav.mainmenu.expanded {
 .mainmenu {
   background-color: rgba(33, 33, 33, 0.8);
   border-right: 1px solid #e5e5e5;
-  position: absolute;
+  position: fixed;
   top: 0;
   bottom: 0;
   height: 100%;
@@ -36,31 +36,38 @@ nav.mainmenu.expanded {
   border-spacing: 0;
   color: #999;
   font-family: arial;
-  font-size: 14px;
+  font-size: 25px;
   text-decoration: none;
   -webkit-transition: all 0.1s linear;
   transition: all 0.1s linear;
 }
 
-.mainmenu .navicon {
+.mainmenu .Navbaricon {
   position: relative;
   display: table-cell;
-  width: 60px;
+  color: #fff;
+  width: 36px;
   height: 36px;
   text-align: center;
   vertical-align: middle;
   font-size: 18px;
   margin: 2rem 2rem 2rem 0.5rem;
 }
+.logo {
+  height: 67px;
+  background-color: white;
+  border-radius: 40px;
+}
 .mainmenu .naviconbas {
   position: relative;
   display: table-cell;
-  width: 60px;
+  color: #fff;
+  width: 36px;
   height: 36px;
   text-align: center;
   vertical-align: middle;
   font-size: 18px;
-  margin: 2rem 2rem 0rem 0.5rem;
+  margin: 2rem 2rem 2rem 0.5rem;
 }
 .mainmenu .navtext {
   position: relative;
@@ -119,7 +126,7 @@ nav.main-menu li.active > a,
   color: #fff;
   background-color: #000000;
 }
-.area {
+.Navbarcontainer {
   float: left;
   background: #e2e2e2;
   width: 100%;
@@ -152,7 +159,7 @@ nav.main-menu li.active > a,
 
   align-items: center;
 }
-.navicon {
+.Navbaricon {
   width: 2rem;
   margin-left: 1rem;
 }
@@ -165,7 +172,7 @@ nav.main-menu li.active > a,
 }
 /* Styles pour les appareils mobiles */
 @media (max-width: 767px) {
-  .area {
+  .Navbarcontainer {
     display: none;
   }
   .menumobile li {
