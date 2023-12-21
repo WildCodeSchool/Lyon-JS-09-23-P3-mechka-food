@@ -26,9 +26,9 @@ export default function Navbar() {
                 <img
                   className={styles.Navbaricon}
                   src={homeDesktop}
-                  alt="logo of application"
+                  alt="icon home"
                 />
-                <span className={styles.navtext}>Home</span>
+                <span className={styles.navtext}>Accueil</span>
               </Link>
             </li>
             <li className={styles.linav}>
@@ -36,9 +36,9 @@ export default function Navbar() {
                 <img
                   className={styles.Navbaricon}
                   src={SearchDescktop}
-                  alt="logo of application"
+                  alt="icon search"
                 />
-                <span className={styles.navtext}>Search</span>
+                <span className={styles.navtext}>Recherche</span>
               </Link>
             </li>
             <li className={styles.linav}>
@@ -46,7 +46,7 @@ export default function Navbar() {
                 <img
                   className={styles.Navbaricon}
                   src={FavorisDesktop}
-                  alt="logo of application"
+                  alt="icon favoris"
                 />
                 <span className={styles.navtext}>Favoris</span>
               </Link>
@@ -56,9 +56,9 @@ export default function Navbar() {
                 <img
                   className={styles.Navbaricon}
                   src={PlusDesktop}
-                  alt="logo of application"
+                  alt="icon new post"
                 />
-                <span className={styles.navtext}>New Post</span>
+                <span className={styles.navtext}>Nouvelle recette</span>
               </Link>
             </li>
             <li>
@@ -66,9 +66,9 @@ export default function Navbar() {
                 <img
                   className={styles.Navbaricon}
                   src={ProfileDesktop}
-                  alt="logo of application"
+                  alt="icon profile"
                 />
-                <span className={styles.navtext}>Profile</span>
+                <span className={styles.navtext}>Profil</span>
               </Link>
             </li>
           </ul>
@@ -78,9 +78,9 @@ export default function Navbar() {
                 <img
                   className={styles.naviconbas}
                   src={AboutDesktop}
-                  alt="logo of application"
+                  alt="icon about us"
                 />
-                <span className={styles.navtext}>About Us</span>
+                <span className={styles.navtext}>À propos de nous</span>
               </Link>
             </li>
             <li>
@@ -88,9 +88,9 @@ export default function Navbar() {
                 <img
                   className={styles.naviconbas}
                   src={ContactDesktop}
-                  alt="logo of application"
+                  alt="icon contact us"
                 />
-                <span className={styles.navtext}>Contact Us</span>
+                <span className={styles.navtext}>Contact Nous</span>
               </Link>
             </li>
           </ul>

@@ -16,7 +16,7 @@ export default function Contact() {
             <input
               className={styles.inputContact}
               type="text"
-              name="text"
+              name="Nom"
               id="Nom"
             />
 
@@ -24,11 +24,11 @@ export default function Contact() {
             <input
               className={styles.inputContact}
               type="text"
-              name="text"
+              name="Prénom"
               id="Prénom"
             />
 
-            <label htmlFor="Email">Email :</label>
+            <label htmlFor="email">Email :</label>
             <input
               className={styles.inputContact}
               type="mail"

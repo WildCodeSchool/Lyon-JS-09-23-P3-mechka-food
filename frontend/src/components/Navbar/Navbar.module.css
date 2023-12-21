@@ -36,7 +36,7 @@ nav.mainmenu.expanded {
   border-spacing: 0;
   color: #999;
   font-family: arial;
-  font-size: 25px;
+  font-size: 20px;
   text-decoration: none;
   -webkit-transition: all 0.1s linear;
   transition: all 0.1s linear;
@@ -77,11 +77,11 @@ nav.mainmenu.expanded {
   font-family: "Titillium Web", sans-serif;
 }
 
-.mainmenu > ul.logout {
+/* .mainmenu > ul.logout {
   position: absolute;
   left: 0;
   bottom: 0;
-}
+} */
 
 .notouch .scrollable.hover {
   overflow-y: hidden;
@@ -100,13 +100,13 @@ a:focus {
   text-decoration: none;
 }
 
-nav {
+/* nav {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   -o-user-select: none;
   user-select: none;
-}
+} */
 
 nav ul,
 nav li {
