@@ -17,7 +17,7 @@
   justify-content: space-around;
   position: relative;
   overflow: hidden;
-  margin-bottom: 2rem;
+  margin-bottom: 0.5rem;
 
   text-align: center;
   width: 100%;
@@ -25,7 +25,7 @@
   padding-bottom: 1.8rem;
   &::before {
     content: "";
-    background: #f5b409;
+    background: #fae078;
     position: absolute;
     left: 50%;
     bottom: 5%;
@@ -38,14 +38,14 @@
 }
 
 /* .home,
-.title,
-.favoris,
-.switch {
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  align-items: center;
-} */
+  .title,
+  .favoris,
+  .switch {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+  } */
 
 .svgLogo {
   height: 3rem;

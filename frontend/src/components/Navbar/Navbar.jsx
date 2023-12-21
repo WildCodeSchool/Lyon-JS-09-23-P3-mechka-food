@@ -103,24 +103,24 @@ export default function Navbar() {
       <nav className={styles.menumobile}>
         <ul>
           <li className={styles.iconMobile}>
-            <a href="/">
+            <Link to="/">
               <img className={styles.navicon} src={home} alt="home" />
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="/">
+            <Link to="/recipes/search">
               <img className={styles.navicon} src={search} alt="search" />
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="/">
+            <Link to="/">
               <img className={styles.naviconplus} src={plus} alt="icon plus" />
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="/">
+            <Link to="/">
               <img className={styles.navicon} src={favoris} alt="favoris" />
-            </a>
+            </Link>
           </li>
           <li>
             <Link to="/contact">
