@@ -12,7 +12,10 @@ export default function RecipeById() {
   useEffect(() => {
     fetch(`${import.meta.env.VITE_BACKEND_URL}/api/recipes/${idRecipe.id}`)
       .then((response) => response.json())
-      .then((data) => setRecipes(data));
+      .then((data) => setRecipes(data))
+      .catch((err) => {
+        console.error(err);
+      });
   }, []);
 
   useEffect(() => {
@@ -22,7 +25,10 @@ export default function RecipeById() {
       }`
     )
       .then((response) => response.json())
-      .then((data) => setIngredients(data));
+      .then((data) => setIngredients(data))
+      .catch((err) => {
+        console.error(err);
+      });
   }, []);
 
   return (

@@ -5,11 +5,11 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import App from "./App";
 
-import Contact from "./components/Contact/Contact";
+import Contact from "./components/contact/Contact";
 import RecipePage from "./pages/recipePage/RecipePage";
-import Search from "./pages/Search/Search";
-import ProfilComponent from "./components/Profil/ProfilComponent";
-import InscriptionComponent from "./components/InscriptionComponent/InscriptionComponent";
+import Search from "./pages/search/Search";
+import ProfilComponent from "./components/profil/ProfilComponent";
+import InscriptionComponent from "./components/inscriptionComponent/InscriptionComponent";
 
 const router = createBrowserRouter([
   {
@@ -25,7 +25,7 @@ const router = createBrowserRouter([
     element: <RecipePage />,
   },
   {
-    path: "/search",
+    path: "/recipes/search",
     element: <Search />,
   },
   {

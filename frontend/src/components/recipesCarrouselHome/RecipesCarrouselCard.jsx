@@ -4,11 +4,11 @@ import styles from "./RecipesCarrouselCard.module.css";
 
 export default function RecipesCarrouselCard({ image, id }) {
   return (
-    <div className={styles.carrouselCardPosition}>
+    <section className={styles.carrouselCardPosition}>
       <Link to={`/recipes/${id}`}>
         <img src={image} alt="Recipe" className={styles.imageCarrouselCard} />
       </Link>
-    </div>
+    </section>
   );
 }
 

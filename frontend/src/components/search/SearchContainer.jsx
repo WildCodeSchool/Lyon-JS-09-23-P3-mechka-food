@@ -20,7 +20,10 @@ export default function SearcContainer() {
   useEffect(() => {
     fetch(`${import.meta.env.VITE_BACKEND_URL}/api/recipes`)
       .then((res) => res.json())
-      .then((data) => setRecipe(data));
+      .then((data) => setRecipe(data))
+      .catch((err) => {
+        console.error(err);
+      });
   }, []);
 
   const strNoAccent = (a) => {
@@ -63,7 +66,7 @@ export default function SearcContainer() {
         </div>
       </div>
       {maxReached ? <p className={style.warning}>Trop long</p> : ""}
-      <div className={style.containerFlex}>
+      <section className={style.containerFlex}>
         {found &&
           found.map((res) => {
             return (
@@ -74,7 +77,7 @@ export default function SearcContainer() {
               />
             );
           })}
-      </div>
+      </section>
     </>
   );
 }

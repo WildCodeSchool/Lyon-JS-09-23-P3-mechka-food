@@ -1,12 +1,11 @@
-import Header from "../Header/Header";
-import Navbar from "../Navbar/Navbar";
-import styles from "./Contact.module.css";
+import Header from "../header/Header";
+import Navbar from "../navbar/Navbar";
 
 export default function Contact() {
   return (
     <>
       <Header />
-      <div className={styles.outline}>
+      {/* <section className={styles.outline}>
         <div className={styles.container}>
           <form className={styles.formInscription}>
             <div className={styles.divInscriptionTitle}>
@@ -49,7 +48,7 @@ export default function Contact() {
             </button>
           </form>
         </div>
-      </div>
+      </section> */}
       <Navbar />
     </>
   );

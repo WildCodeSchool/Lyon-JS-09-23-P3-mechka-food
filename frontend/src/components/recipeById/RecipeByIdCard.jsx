@@ -11,7 +11,7 @@ export default function RecipeByIdCard({
 }) {
   return (
     <section className={styles.recipeByIdCard}>
-      <div className={styles.recipeBydUpperContainer}>
+      <section className={styles.recipeBydUpperContainer}>
         <div className={styles.recipeByIdImageContainer}>
           <img src={image} className={styles.recipeImage} alt={title} />
         </div>
@@ -23,7 +23,7 @@ export default function RecipeByIdCard({
           <h4 className={styles.recipeByIdTitle}>Description: </h4>
           {description}
         </div>
-      </div>
+      </section>
       <div className={styles.recipeByIdContainer}>
         <h4 className={styles.recipeByIdTitle}>Instructions: </h4>
         {instructions}
