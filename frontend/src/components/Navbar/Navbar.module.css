@@ -184,7 +184,7 @@ nav.main-menu li.active > a,
 /* Styles pour les appareils desktop */
 @media (min-width: 767px) {
   .mainmenu {
-    display: block;
+    display: none;
   }
   .menumobile {
     display: none;

@@ -1,12 +1,3 @@
-/* .positionRecipeContainer{
-  display: flex;
-  font-size: 0.8rem;
-  justify-content: space-around;
-  
-  flex-direction: column;
-  
-} */
-
 .cardPosition {
   display: flex;
   font-size: 0.8rem;
@@ -17,4 +8,10 @@
 .titleRecipeContainer {
   margin-left: 1rem;
   margin-bottom: 1rem;
+}
+
+@media screen and (width > 768px) {
+  .cardPosition {
+    gap: 2rem;
+  }
 }
