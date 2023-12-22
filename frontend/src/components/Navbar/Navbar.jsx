@@ -61,7 +61,7 @@ export default function Navbar() {
                 <span className={styles.navtext}>Nouvelle recette</span>
               </Link>
             </li>
-            <li>
+            <li className={styles.linav}>
               <Link to="/">
                 <img
                   className={styles.Navbaricon}
@@ -73,7 +73,7 @@ export default function Navbar() {
             </li>
           </ul>
           <ul className={styles.logout}>
-            <li>
+            <li className={styles.linav}>
               <Link to="/">
                 <img
                   className={styles.naviconbas}
@@ -83,7 +83,7 @@ export default function Navbar() {
                 <span className={styles.navtext}>À propos de nous</span>
               </Link>
             </li>
-            <li>
+            <li className={styles.linav}>
               <Link to="/contact">
                 <img
                   className={styles.naviconbas}

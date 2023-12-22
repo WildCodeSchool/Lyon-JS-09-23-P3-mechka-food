@@ -12,7 +12,7 @@ nav.mainmenu.expanded {
   bottom: 0;
   height: 100%;
   left: 0;
-  width: 60px;
+  width: 70px;
   overflow: hidden;
   -webkit-transition: width 0.05s linear;
   transition: width 0.05s linear;
@@ -23,7 +23,7 @@ nav.mainmenu.expanded {
   margin: 7px 0;
 }
 
-.mainmenu li {
+.linav {
   position: relative;
   display: block;
   width: 250px;
@@ -46,28 +46,28 @@ nav.mainmenu.expanded {
   position: relative;
   display: table-cell;
   color: #fff;
-  width: 36px;
-  height: 36px;
+  width: 2rem;
+  height: 2rem;
   text-align: center;
   vertical-align: middle;
   font-size: 18px;
-  margin: 2rem 2rem 2rem 0.5rem;
+  margin: 2rem 2rem 2rem 1rem;
 }
 .logo {
-  height: 67px;
-  background-color: white;
+  height: 3.5rem;
   border-radius: 40px;
+  margin: 0rem 2rem 2rem 0.5rem;
 }
 .mainmenu .naviconbas {
   position: relative;
   display: table-cell;
   color: #fff;
-  width: 36px;
-  height: 36px;
+  width: 2rem;
+  height: 2rem;
   text-align: center;
   vertical-align: middle;
   font-size: 18px;
-  margin: 2rem 2rem 2rem 0.5rem;
+  margin: 2rem 2rem 2rem 1rem;
 }
 .mainmenu .navtext {
   position: relative;
@@ -76,12 +76,6 @@ nav.mainmenu.expanded {
   width: 190px;
   font-family: "Titillium Web", sans-serif;
 }
-
-/* .mainmenu > ul.logout {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-} */
 
 .notouch .scrollable.hover {
   overflow-y: hidden;
@@ -92,13 +86,13 @@ nav.mainmenu.expanded {
   overflow: visible;
 }
 
-a {
+/* a {
   display: inline-flex;
 }
 a:hover,
 a:focus {
   text-decoration: none;
-}
+} */
 
 /* nav {
   -webkit-user-select: none;
