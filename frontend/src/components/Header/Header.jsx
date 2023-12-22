@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import styles from "./Header.module.css";
-import logo from "../../assets/svg/LOGO_MECHKA_FOOD.svg";
+
+import logo from "../../assets/svg/LOGO_MECHKA_FOOD_mobile.svg";
 import profile from "../../assets/svg/profile.svg";
 
 export default function Header() {
