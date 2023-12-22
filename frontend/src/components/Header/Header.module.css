@@ -11,25 +11,41 @@
   width: 100%;
 }
 .container {
-  height: 100%;
+  height: 6rem;
   display: flex;
   align-items: center;
   justify-content: space-around;
-  width: 100%;
-  background-color: #f5b409;
   position: relative;
   overflow: hidden;
+  margin-bottom: 0.5rem;
+
+  text-align: center;
+  width: 100%;
+  z-index: 2;
+  padding-bottom: 1.8rem;
+  &::before {
+    content: "";
+    background: #fae078;
+    position: absolute;
+    left: 50%;
+    bottom: 5%;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    width: 225%;
+    height: 700%;
+    z-index: -1;
+  }
 }
 
 /* .home,
-.title,
-.favoris,
-.switch {
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  align-items: center;
-} */
+  .title,
+  .favoris,
+  .switch {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+  } */
 
 .svgLogo {
   height: 3rem;
@@ -41,4 +57,15 @@
 
 .svgLink {
   text-decoration: none;
+}
+
+.test {
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  line-height: 0;
+  fill: #f5b409;
+  width: 100%;
 }

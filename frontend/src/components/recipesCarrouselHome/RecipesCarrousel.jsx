@@ -30,7 +30,11 @@ export default function RecipesCarrousel() {
         {random &&
           random.map((recipe) => (
             <Carousel.Item interval={3000} key={recipe.id}>
-              <RecipesCarrouselCard key={recipe.id} image={recipe.image_url} />
+              <RecipesCarrouselCard
+                key={recipe.id}
+                id={recipe.id}
+                image={recipe.image_url}
+              />
               <Carousel.Caption className={styles.carouselImageTitle}>
                 {recipe.title}
               </Carousel.Caption>
