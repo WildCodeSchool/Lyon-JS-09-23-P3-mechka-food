@@ -1,12 +1,3 @@
-/* .positionRecipeContainer{
-  display: flex;
-  font-size: 0.8rem;
-  justify-content: space-around;
-  
-  flex-direction: column;
-  
-} */
-
 .cardPosition {
   display: flex;
   font-size: 0.8rem;
