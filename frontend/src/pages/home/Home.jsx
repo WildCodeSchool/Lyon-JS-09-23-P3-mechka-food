@@ -5,12 +5,12 @@ import Navbar from "../../components/Navbar/Navbar";
 
 function Home() {
   return (
-    <>
+    <div className="Home">
       <Header />
       <Navbar />
       <RecipesCarrousel />
       <RecipeContainer />
-    </>
+    </div>
   );
 }
 

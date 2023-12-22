@@ -7,12 +7,12 @@ nav.mainmenu.expanded {
 .mainmenu {
   background-color: rgba(33, 33, 33, 0.8);
   border-right: 1px solid #e5e5e5;
-  position: absolute;
+  position: fixed;
   top: 0;
   bottom: 0;
   height: 100%;
   left: 0;
-  width: 60px;
+  width: 70px;
   overflow: hidden;
   -webkit-transition: width 0.05s linear;
   transition: width 0.05s linear;
@@ -23,7 +23,7 @@ nav.mainmenu.expanded {
   margin: 7px 0;
 }
 
-.mainmenu li {
+.linav {
   position: relative;
   display: block;
   width: 250px;
@@ -36,31 +36,38 @@ nav.mainmenu.expanded {
   border-spacing: 0;
   color: #999;
   font-family: arial;
-  font-size: 14px;
+  font-size: 20px;
   text-decoration: none;
   -webkit-transition: all 0.1s linear;
   transition: all 0.1s linear;
 }
 
-.mainmenu .navicon {
+.mainmenu .Navbaricon {
   position: relative;
   display: table-cell;
-  width: 60px;
-  height: 36px;
+  color: #fff;
+  width: 2rem;
+  height: 2rem;
   text-align: center;
   vertical-align: middle;
   font-size: 18px;
-  margin: 2rem 2rem 2rem 0.5rem;
+  margin: 2rem 2rem 2rem 1rem;
+}
+.logo {
+  height: 3.5rem;
+  border-radius: 40px;
+  margin: 0rem 2rem 2rem 0.5rem;
 }
 .mainmenu .naviconbas {
   position: relative;
   display: table-cell;
-  width: 60px;
-  height: 36px;
+  color: #fff;
+  width: 2rem;
+  height: 2rem;
   text-align: center;
   vertical-align: middle;
   font-size: 18px;
-  margin: 2rem 2rem 0rem 0.5rem;
+  margin: 2rem 2rem 2rem 1rem;
 }
 .mainmenu .navtext {
   position: relative;
@@ -68,12 +75,6 @@ nav.mainmenu.expanded {
   vertical-align: middle;
   width: 190px;
   font-family: "Titillium Web", sans-serif;
-}
-
-.mainmenu > ul.logout {
-  position: absolute;
-  left: 0;
-  bottom: 0;
 }
 
 .notouch .scrollable.hover {
@@ -85,21 +86,21 @@ nav.mainmenu.expanded {
   overflow: visible;
 }
 
-a {
+/* a {
   display: inline-flex;
 }
 a:hover,
 a:focus {
   text-decoration: none;
-}
+} */
 
-nav {
+/* nav {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   -o-user-select: none;
   user-select: none;
-}
+} */
 
 nav ul,
 nav li {
@@ -119,7 +120,7 @@ nav.main-menu li.active > a,
   color: #fff;
   background-color: #000000;
 }
-.area {
+.Navbarcontainer {
   float: left;
   background: #e2e2e2;
   width: 100%;
@@ -152,7 +153,7 @@ nav.main-menu li.active > a,
 
   align-items: center;
 }
-.navicon {
+.Navbaricon {
   width: 2rem;
   margin-left: 1rem;
 }
@@ -165,7 +166,7 @@ nav.main-menu li.active > a,
 }
 /* Styles pour les appareils mobiles */
 @media (max-width: 767px) {
-  .area {
+  .Navbarcontainer {
     display: none;
   }
   .menumobile li {
