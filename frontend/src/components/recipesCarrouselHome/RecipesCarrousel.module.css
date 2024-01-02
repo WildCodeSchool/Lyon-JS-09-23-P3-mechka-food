@@ -9,20 +9,13 @@
 
 .carouselGlobal {
   display: flex;
-  height: 17rem;
+  height: 90%;
   justify-content: center;
   align-self: center;
 }
 
 @media screen and (width > 768px) {
-  .carouselImageTitle {
-    background-color: transparent;
-    font-size: 1.5rem;
-  }
   .carouselGlobal {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
+    display: none;
   }
 }
