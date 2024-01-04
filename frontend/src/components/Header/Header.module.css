@@ -14,14 +14,13 @@
   height: 6rem;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   position: relative;
   overflow: hidden;
   margin-bottom: 0.5rem;
 
   text-align: center;
   width: 100%;
-  z-index: 2;
   padding-bottom: 1.8rem;
   &::before {
     content: "";
@@ -53,6 +52,7 @@
 
 .svgProfil {
   height: 2rem;
+  padding-right: 1rem;
 }
 
 .svgLink {
@@ -68,4 +68,10 @@
   line-height: 0;
   fill: #f5b409;
   width: 100%;
+}
+
+@media screen and (width > 768px) {
+  .svgLogo {
+    display: none;
+  }
 }
