@@ -1,6 +1,6 @@
 .card {
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -15,6 +15,12 @@
   font-size: 1rem;
   width: 8rem;
   padding-top: 0.5rem;
+  text-align: center;
+}
+
+a:link {
+  text-decoration: none;
+  color: black;
 }
 
 @media screen and (width > 768px) {

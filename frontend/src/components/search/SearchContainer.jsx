@@ -73,6 +73,7 @@ export default function SearcContainer() {
                 key={res.id}
                 image={res.image_url}
                 title={res.title}
+                id={res.id}
               />
             );
           })}
