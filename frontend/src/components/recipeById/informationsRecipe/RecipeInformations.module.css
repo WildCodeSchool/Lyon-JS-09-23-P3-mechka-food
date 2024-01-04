@@ -4,8 +4,8 @@
 }
 
 .recipeImage {
-  height: 40vh;
-  max-width: 50rem;
+  height: 100%;
+  max-width: 100%;
 }
 
 .recipeByIdContainer {
@@ -30,11 +30,12 @@
   margin-top: 1rem;
   border-radius: 0.7rem;
   box-shadow: rgba(0, 0, 0, 0.15) 0.3rem 4px 2.6px;
+  text-align: justify;
 }
 
 .recipeByIdTitle {
   font-weight: bold;
-  padding: 0.5rem;
+  font-size: 1.5rem;
 }
 
 @media screen and (width > 1024px) {
