@@ -89,6 +89,7 @@ export default function SearcContainer() {
         )}
       </div>
       {found !== null || isFound === false ? null : <Category />}
+
     </>
   );
 }
