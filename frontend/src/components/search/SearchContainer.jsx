@@ -53,6 +53,7 @@ export default function SearcContainer() {
 
         <div className={style.button}>
           <svg
+            onClick={handleSearch}
             xmlns="http://www.w3.org/2000/svg"
             height="16"
             width="16"
