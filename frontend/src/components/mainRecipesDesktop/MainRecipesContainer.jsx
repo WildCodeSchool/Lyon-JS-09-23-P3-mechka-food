@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
-import MainRecipes from "./MainRecipes";
+import ImageList from "@mui/material/ImageList";
+import ImageListItem from "@mui/material/ImageListItem";
+import { Link } from "react-router-dom";
 import styles from "./MainRecipesContainer.module.css";
 
 export default function MainRecipesContainer() {
@@ -22,18 +24,29 @@ export default function MainRecipesContainer() {
     fetchData();
   }, []);
   return (
-    <div className={styles.gridContainer}>
-      <section className={styles.positionRecipes}>
+    <section className={styles.positionRecipes}>
+      <ImageList
+        sx={{ width: 500, height: 450 }}
+        variant="woven"
+        cols={3}
+        gap={8}
+      >
         {random &&
           random.map((recipe) => (
-            <MainRecipes
-              key={recipe.id}
-              id={recipe.id}
-              image={recipe.image_url}
-              title={recipe.title}
-            />
+            <ImageListItem key={recipe.id}>
+              <Link to={`/recipes/${recipe.id}`}>
+                <img
+                  className={styles.imageCardRecipes}
+                  srcSet={`${recipe.image_url}?w=161&fit=crop&auto=format&dpr=2 2x`}
+                  src={`${recipe.image_url}?w=161&fit=crop&auto=format`}
+                  alt={recipe.title}
+                  loading="lazy"
+                />
+                <h2>{recipe.title}</h2>
+              </Link>
+            </ImageListItem>
           ))}
-      </section>
-    </div>
+      </ImageList>
+    </section>
   );
 }
