@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import style from "./SearchContainer.module.css";
 import FoundRecipeCard from "./FoundRecipeCard";
+import Category from "../category/Category";
 
 export default function SearcContainer() {
   const MAX_LENGTH = 50;
@@ -75,6 +76,7 @@ export default function SearcContainer() {
             );
           })}
       </div>
+      {found !== null || <Category />}
     </>
   );
 }
