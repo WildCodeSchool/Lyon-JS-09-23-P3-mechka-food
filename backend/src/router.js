@@ -22,7 +22,8 @@ router.get("/items/:id", itemControllers.read);
 router.get("/recipes/:id", recipeControllers.readById);
 router.get("/recipes/ingredients/:id", ingredientControllers.readById);
 router.get("/recipes/instructions/:id", instructionControllers.readById);
-router.get("/recipes/category", categoryControllers.browse);
+router.get("/category", categoryControllers.browse);
+router.get("/category/:id", categoryControllers.readById);
 
 // Route to add a new item
 router.post("/items", itemControllers.add);

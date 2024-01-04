@@ -15,16 +15,16 @@ class CategoryManager extends AbstractManager {
     return rows;
   }
 
-  //   async readById(id) {
-  //     // Execute the SQL SELECT query to retrieve a specific item by its ID
-  //     const [rows] = await this.database.query(
-  //       `select * from ${this.table} where id = ?`,
-  //       [id]
-  //     );
+  async readById(id) {
+    // Execute the SQL SELECT query to retrieve a specific item by its ID
+    const [rows] = await this.database.query(
+      `SELECT recipe.id, title, recipe.image_url, recipe.descriptions FROM category join recipe on recipe.category_id = category.id where recipe.category_id=? `,
+      [id]
+    );
 
-  //     // Return the first row of the result, which represents the item
-  //     return rows[0];
-  //   }
+    // Return the first row of the result, which represents the item
+    return rows;
+  }
 }
 
 module.exports = CategoryManager;
