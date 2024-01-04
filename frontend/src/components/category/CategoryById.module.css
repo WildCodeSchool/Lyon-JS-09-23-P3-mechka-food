@@ -1,0 +1,4 @@
+.CategoryContainer {
+  display: flex;
+  flex-wrap: wrap;
+}

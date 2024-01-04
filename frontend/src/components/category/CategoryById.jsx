@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import RecipeCard from "../recipesHome/RecipeCard";
+import styles from "./CategoryById.module.css";
+import Header from "../Header/Header";
+import Sidebar from "../sidebar/Sidebar";
 
 export default function CategoryById() {
   const [category, setCategory] = useState(null);
@@ -10,7 +13,7 @@ export default function CategoryById() {
     fetch(`http://localhost:3310/api/category/${idCategory.id}`)
       .then((response) => response.json())
       .then((data) => {
-        setCategory(data); // Mettre à jour l'état avec les données récupérées
+        setCategory(data);
       })
       .catch((error) => {
         console.error(
@@ -18,20 +21,24 @@ export default function CategoryById() {
           error
         );
       });
-  }, []); // Utilisation de idCategory comme dépendance pour recharger les données lorsque l'ID change
+  }, []);
 
   return (
-    <div>
-      {category &&
-        category.map((categorie) => (
-          <RecipeCard
-            key={categorie.id}
-            id={categorie.id}
-            image={categorie.image_url}
-            title={categorie.title}
-            description={categorie.description}
-          />
-        ))}
-    </div>
+    <>
+      <Header />
+      <Sidebar />
+      <div className={styles.CategoryContainer}>
+        {category &&
+          category.map((categorie) => (
+            <RecipeCard
+              key={categorie.id}
+              id={categorie.id}
+              image={categorie.image_url}
+              title={categorie.title}
+              description={categorie.descriptions}
+            />
+          ))}
+      </div>
+    </>
   );
 }
