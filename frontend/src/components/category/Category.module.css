@@ -1,0 +1,43 @@
+.globalContainer {
+  display: flex;
+  gap: 2rem;
+  margin: 0rem 2rem 6rem 2rem;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.categoryTitle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 1rem;
+  align-content: center;
+}
+
+.categoryTitleContainer {
+  height: 3rem;
+}
+
+.categoryImage {
+  height: 20vh;
+}
+
+@media screen and (width > 768px) {
+  .categoryImage {
+    height: 50vh;
+  }
+
+  .categoryTitle {
+    padding: 1rem;
+  }
+
+  .categoryTitleContainer {
+    height: 4.5rem;
+  }
+
+  .globalContainer {
+    flex-direction: row;
+    gap: 5rem;
+    margin-top: 5rem;
+  }
+}
