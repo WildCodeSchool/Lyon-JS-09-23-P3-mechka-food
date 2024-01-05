@@ -39,7 +39,7 @@ export default function MainRecipesContainer() {
         variant="quilted"
         gap={20}
       >
-        {random &&
+        {random !== null &&
           random.map((recipe) => (
             <ImageListItem
               key={recipe.id}
