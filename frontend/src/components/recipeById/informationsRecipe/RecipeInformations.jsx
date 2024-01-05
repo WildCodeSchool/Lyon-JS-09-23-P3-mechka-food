@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import styles from "./RecipeByIdCard.module.css";
+import styles from "./RecipeInformations.module.css";
 
 export default function RecipeByIdCard({
   image,
@@ -7,7 +7,6 @@ export default function RecipeByIdCard({
   time,
   number,
   description,
-  instructions,
 }) {
   return (
     <section className={styles.recipeByIdCard}>
@@ -17,16 +16,12 @@ export default function RecipeByIdCard({
         </div>
         <div className={styles.recipeByIdContainerTop}>
           <h2 className={styles.recipeByIdTitle}>{title}</h2>
-          <p>Temps requis: {time}</p>
+          <p>Temps requis : {time}</p>
           <p>Pour {number} personnes</p>
 
-          <h4 className={styles.recipeByIdTitle}>Description: </h4>
+          <h4 className={styles.recipeByIdTitle}>Description : </h4>
           {description}
         </div>
-      </div>
-      <div className={styles.recipeByIdContainer}>
-        <h4 className={styles.recipeByIdTitle}>Instructions: </h4>
-        {instructions}
       </div>
     </section>
   );
@@ -38,5 +33,4 @@ RecipeByIdCard.propTypes = {
   time: PropTypes.string.isRequired,
   number: PropTypes.number.isRequired,
   description: PropTypes.string.isRequired,
-  instructions: PropTypes.string.isRequired,
 };
