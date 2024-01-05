@@ -10,9 +10,9 @@ class InstructionManager extends AbstractManager {
   async readById(id) {
     // Execute the SQL SELECT query to retrieve a specific item by its ID
     const [rows] = await this.database.query(
-      `SELECT step FROM ${this.table}
+      `SELECT instruction.id, step FROM ${this.table}
         join recipe on recipe.id = ${this.table}.recipeStep_id
-        where recipe.id = ?;`,
+        where recipe.id = ?`,
       [id]
     );
 
