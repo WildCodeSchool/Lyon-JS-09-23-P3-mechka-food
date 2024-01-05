@@ -11,6 +11,8 @@
 .positionRecipes {
   display: flex;
   justify-content: center;
+  height: 40%;
+  max-width: 80rem;
 }
 .imageCardRecipes {
   height: 10rem;
