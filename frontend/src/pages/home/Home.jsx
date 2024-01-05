@@ -2,13 +2,13 @@ import RecipesCarrousel from "../../components/recipesCarrouselHome/RecipesCarro
 import RecipeContainer from "../../components/recipesHome/RecipeContainer";
 import Header from "../../components/Header/Header";
 import Navbar from "../../components/Navbar/Navbar";
-import MainRecipesContainer from "../../components/mainRecipesDesktop/MainRecipesContainer";
+import Sidebar from "../../components/sidebar/Sidebar";
 
 function Home() {
   return (
     <div className="Home">
       <Header />
-      <MainRecipesContainer />
+      <Sidebar />
       <Navbar />
       <RecipesCarrousel />
       <RecipeContainer />

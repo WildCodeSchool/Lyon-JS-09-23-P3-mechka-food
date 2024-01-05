@@ -1,0 +1,106 @@
+/*-------------------------APPARENCE GLOBAL DU MENU----------------------------------*/
+
+.sidebar {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 0.5rem;
+  transition: 0.5s;
+  display: flex;
+  flex-direction: column;
+}
+
+.activeSidebar {
+  height: 100%;
+  width: 20rem;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 0.5rem;
+  transition: 0.5s;
+  display: flex;
+  flex-direction: column;
+  border-radius: 0 2rem 2rem 0;
+}
+
+/*-------------POSITION BOUTON OUVERTURE DU MENU-----------------*/
+
+.positionOpenButton {
+  width: 2rem;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+}
+
+.openButton {
+  width: 2rem;
+  border: none;
+  background-color: #fae078;
+  padding-left: 1rem;
+  padding-top: 0.25rem;
+}
+
+/*-------------POSITION DU LOGO ET BOUTON FERMER--------------*/
+.topPosition {
+  display: flex;
+  justify-content: space-between;
+}
+.logoMechka {
+  width: 4rem;
+  padding-bottom: 1rem;
+}
+
+.closeButton {
+  border: none;
+  background-color: #111;
+  padding-right: 0.5rem;
+}
+
+.iconeClose {
+  height: 3rem;
+}
+
+/*--------------POSITION ET STYLE DES LIENS------------------*/
+
+.link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  padding-left: 1rem;
+  margin-top: 2rem;
+  font-size: 1.5rem;
+  color: white;
+  width: 20rem;
+  height: 6rem;
+}
+
+.link:hover {
+  color: black;
+  background-color: #fae078;
+  width: 20rem;
+}
+
+/*-------------MEDIA QUERIES----------*/
+
+@media screen and (width < 768px) {
+  .sidebar {
+    display: none;
+  }
+
+  .activeSidebar {
+    display: none;
+  }
+
+  .positionOpenButton {
+    display: none;
+  }
+}
