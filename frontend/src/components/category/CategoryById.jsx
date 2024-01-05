@@ -4,6 +4,7 @@ import RecipeCard from "../recipesHome/RecipeCard";
 import styles from "./CategoryById.module.css";
 import Header from "../Header/Header";
 import Sidebar from "../sidebar/Sidebar";
+import Navbar from "../Navbar/Navbar";
 
 export default function CategoryById() {
   const [category, setCategory] = useState(null);
@@ -27,6 +28,12 @@ export default function CategoryById() {
     <>
       <Header />
       <Sidebar />
+      <Navbar />
+      <div className={styles.CategoryTitleContainer}>
+        <h1 className={styles.CategoryTitle}>
+          {category !== null && category[0].name}
+        </h1>
+      </div>
       <div className={styles.CategoryContainer}>
         {category &&
           category.map((categorie) => (

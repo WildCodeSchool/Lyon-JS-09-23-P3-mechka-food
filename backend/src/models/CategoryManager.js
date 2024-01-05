@@ -18,7 +18,7 @@ class CategoryManager extends AbstractManager {
   async readById(id) {
     // Execute the SQL SELECT query to retrieve a specific item by its ID
     const [rows] = await this.database.query(
-      `SELECT recipe.id, title, recipe.image_url, recipe.descriptions FROM category join recipe on recipe.category_id = category.id where recipe.category_id=? `,
+      `SELECT recipe.id, recipe.title, recipe.image_url, recipe.descriptions, category.name FROM category join recipe on recipe.category_id = category.id where recipe.category_id=? `,
       [id]
     );
 
