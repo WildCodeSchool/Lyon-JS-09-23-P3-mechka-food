@@ -1,5 +1,8 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import closeButton from "../../assets/images/icone-close.png";
+import logoSidebar from "../../assets/svg/LOGO_MECHKA_FOOD.svg";
+import logoMenu from "../../assets/svg/icone-menu.svg";
 import styles from "./Sidebar.module.css";
 
 export default function Sidebar() {
@@ -17,12 +20,12 @@ export default function Sidebar() {
         <div className={styles.topPosition}>
           <img
             className={styles.logoMechka}
-            src="./src/assets/svg/LOGO_MECHKA_FOOD.svg"
+            src={logoSidebar}
             alt="logo of application"
           />
           <button className={styles.closeButton} type="button" onClick={toggle}>
             <img
-              src="./src/assets/images/icone-close.png"
+              src={closeButton}
               alt="Fermer menu"
               className={styles.iconeClose}
             />
@@ -58,8 +61,13 @@ export default function Sidebar() {
         </Link>
       </section>
       <div className={styles.positionOpenButton}>
-        <button type="button" onClick={toggle} className={styles.openButton}>
-          <img src="./src/assets/svg/icone-menu.svg" alt="Ouvrir menu" />
+        <button
+          aria-label="menu button"
+          type="button"
+          onClick={toggle}
+          className={styles.openButton}
+        >
+          <img src={logoMenu} alt="Ouvrir menu" className={styles.sizeImage} />
         </button>
       </div>
     </>
