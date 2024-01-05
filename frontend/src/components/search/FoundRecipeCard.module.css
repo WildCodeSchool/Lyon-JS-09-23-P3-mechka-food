@@ -18,11 +18,6 @@
   text-align: center;
 }
 
-a:link {
-  text-decoration: none;
-  color: black;
-}
-
 @media screen and (width > 768px) {
   .imageCard {
     width: 16rem;
