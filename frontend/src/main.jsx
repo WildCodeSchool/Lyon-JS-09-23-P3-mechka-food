@@ -10,6 +10,7 @@ import RecipePage from "./pages/recipePage/RecipePage";
 import Search from "./pages/Search/Search";
 import ProfilComponent from "./components/Profil/ProfilComponent";
 import InscriptionComponent from "./components/InscriptionComponent/InscriptionComponent";
+import CategoryById from "./components/category/CategoryById";
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
   {
     path: "/recipes/:id",
     element: <RecipePage />,
+  },
+  {
+    path: "/recipes/category/:id",
+    element: <CategoryById />,
   },
   {
     path: "/recipes/search",
