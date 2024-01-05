@@ -75,7 +75,7 @@ export default function SearcContainer() {
       </div>
       {maxReached ? <p className={style.warning}>Trop long</p> : ""}
       <div className={style.containerFlex}>
-        {isFound ? (
+        {isFound === true ? (
           found &&
           found.map((res) => {
             return (
