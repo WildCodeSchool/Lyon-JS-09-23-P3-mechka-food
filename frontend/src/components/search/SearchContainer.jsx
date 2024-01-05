@@ -1,14 +1,17 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import style from "./SearchContainer.module.css";
 import FoundRecipeCard from "./FoundRecipeCard";
+import pictureError from "../../assets/images/notFound-removebg-preview.png";
 import Category from "../category/Category";
 
 export default function SearcContainer() {
   const MAX_LENGTH = 50;
 
-  const [value, setValue] = useState([]);
+  const [value, setValue] = useState("");
   const [recipes, setRecipe] = useState(null);
   const [found, setFound] = useState(null);
+  const [isFound, setIsFound] = useState(true);
 
   const handleChange = (e) => {
     if (e.target.value.length <= MAX_LENGTH) {
@@ -34,6 +37,12 @@ export default function SearcContainer() {
         strNoAccent(recipe.title).toLowerCase().includes(value.toLowerCase())
       );
       setFound(result);
+
+      if (result.length > 0) {
+        setIsFound(true);
+      } else {
+        setIsFound(false);
+      }
     }
   };
 
@@ -66,19 +75,20 @@ export default function SearcContainer() {
       </div>
       {maxReached ? <p className={style.warning}>Trop long</p> : ""}
       <div className={style.containerFlex}>
-        {found &&
+        {isFound === true ? (
+          found &&
           found.map((res) => {
             return (
-              <FoundRecipeCard
-                key={res.id}
-                image={res.image_url}
-                title={res.title}
-                id={res.id}
-              />
+              <Link to={`/recipes/${res.id}`} key={res.id}>
+                <FoundRecipeCard image={res.image_url} title={res.title} />
+              </Link>
             );
-          })}
+          })
+        ) : (
+          <img className={style.error_img} src={pictureError} alt="Error" />
+        )}
       </div>
-      {found !== null || <Category />}
+      {found !== null || isFound === false ? null : <Category />}
     </>
   );
 }
