@@ -25,7 +25,7 @@ export default function Category() {
                 <CardMedia
                   component="img"
                   image={categorie.image_url}
-                  alt="categorie"
+                  alt={categorie.name}
                   className={styles.categoryImage}
                 />
               </Link>

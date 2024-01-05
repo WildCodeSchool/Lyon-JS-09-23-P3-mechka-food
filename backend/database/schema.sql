@@ -41,7 +41,7 @@ CREATE TABLE instruction (
   CONSTRAINT recipeStep_id FOREIGN KEY (recipeStep_id) REFERENCES recipe(id)
 );
 
-DROP TABLE IF EXISTS recipe_category;
+DROP TABLE IF EXISTS category;
 CREATE TABLE category (
   id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
   name VARCHAR(50) NOT NULL,

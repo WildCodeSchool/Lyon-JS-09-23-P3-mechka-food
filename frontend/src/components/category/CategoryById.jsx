@@ -35,7 +35,7 @@ export default function CategoryById() {
         </h1>
       </div>
       <div className={styles.CategoryContainer}>
-        {category &&
+        {category !== null &&
           category.map((categorie) => (
             <RecipeCard
               key={categorie.id}
