@@ -1,8 +1,22 @@
 SET FOREIGN_KEY_CHECKS = 0;
 
--- DROP DATABASE IF EXISTS mechka;
--- CREATE DATABASE mechka;
--- USE mechka;
+
+CREATE TABLE role(
+  id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  roleName VARCHAR (50)
+);
+
+DROP TABLE IF EXISTS user;
+CREATE TABLE user(
+  id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  username VARCHAR(255) NOT NULL,
+  firstname VARCHAR(50),
+  lastname VARCHAR (50),
+  email VARCHAR (100) NOT NULL,
+  hashedPassword VARCHAR(255)NOT NULL,
+  role_id INT,
+  CONSTRAINT role_id FOREIGN KEY (role_id) REFERENCES role(id)
+);
 
 DROP TABLE IF EXISTS recipe;
 CREATE TABLE recipe (
@@ -12,6 +26,8 @@ CREATE TABLE recipe (
   global_time VARCHAR(50) NOT NULL,
   number_persons INT NOT NULL,
   image_url VARCHAR(255) NOT NULL,
+  user_id INT,
+  CONSTRAINT user_id FOREIGN KEY ( user_id) REFERENCES recipe(id),
   category_id INT,
   CONSTRAINT category_id FOREIGN KEY (category_id) REFERENCES category(id)
 );
@@ -40,6 +56,7 @@ CREATE TABLE instruction (
   recipeStep_id INT,
   CONSTRAINT recipeStep_id FOREIGN KEY (recipeStep_id) REFERENCES recipe(id)
 );
+
 
 DROP TABLE IF EXISTS category;
 CREATE TABLE category (
