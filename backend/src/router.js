@@ -12,6 +12,9 @@ const recipeControllers = require("./controllers/recipeControllers");
 const ingredientControllers = require("./controllers/ingredientControllers");
 const instructionControllers = require("./controllers/instructionControllers");
 const categoryControllers = require("./controllers/categoryControllers");
+const hashPassword = require("./services/auth");
+const userControllers = require("./controllers/userControllers");
+const userMiddleware = require("./middlewares/userMiddleware");
 
 // Route to get a list of items
 router.get("/items", itemControllers.browse);
@@ -27,6 +30,9 @@ router.get("/category/:id", categoryControllers.readById);
 
 // Route to add a new item
 router.post("/items", itemControllers.add);
+
+// Route to add a new user
+router.post("/user", userMiddleware, hashPassword, userControllers.add);
 
 /* ************************************************************************* */
 
