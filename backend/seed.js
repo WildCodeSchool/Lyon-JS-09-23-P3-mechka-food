@@ -136,7 +136,9 @@ const seed = async () => {
             ('Risotto aux Champignons', 'Un délicieux risotto crémeux avec une saveur riche de champignons sautés.', '35 minutes', 4, 'https://images.pexels.com/photos/5638527/pexels-photo-5638527.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 2),
             ('Crumble aux Pommes', 'Un dessert délicieusement croustillant avec des pommes tendres et une couche de crumble parfumée à la cannelle.', '45 minutes', 6, 'https://images.pexels.com/photos/18403952/pexels-photo-18403952/free-photo-of-pain-nourriture-assiette-bois.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 3),
             ('Cookies aux Pépites de Chocolat', 'Des cookies moelleux à l&apos;intérieur et croustillants à l&apos;extérieur, pleins de pépites de chocolat fondantes.', '25 minutes', 12, 'https://images.pexels.com/photos/2067424/pexels-photo-2067424.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 3),
-            ('Lasagnes Bolognaises', 'Un plat italien classique avec des couches de pâtes, une sauce bolognaise savoureuse, béchamel et fromage fondant.', '1 heure et 10 minutes', 6, 'https://images.pexels.com/photos/14696209/pexels-photo-14696209.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 2)`
+            ('Lasagnes Bolognaises', 'Un plat italien classique avec des couches de pâtes, une sauce bolognaise savoureuse, béchamel et fromage fondant.', '1 heure et 10 minutes', 6, 'https://images.pexels.com/photos/14696209/pexels-photo-14696209.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 2),
+            ('Lasagnes Bolognaises', 'Un plat italien classique avec des couches de pâtes, une sauce bolognaise savoureuse, béchamel et fromage fondant.', '1 heure et 10 minutes', 6, 'https://images.pexels.com/photos/14696209/pexels-photo-14696209.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 1),
+            ('Lasagnes Bolognaises', 'Un plat italien classique avec des couches de pâtes, une sauce bolognaise savoureuse, béchamel et fromage fondant.', '1 heure et 10 minutes', 6, 'https://images.pexels.com/photos/14696209/pexels-photo-14696209.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 1)`
       )
     );
 
