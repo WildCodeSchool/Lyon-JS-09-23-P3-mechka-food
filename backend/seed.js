@@ -236,10 +236,10 @@ const seed = async () => {
       )
     );
 
-    // await database.query("delete from role");
-    // queries.push(
-    //   database.query(`INSERT INTO role (roleName) VALUES ('admin'), ('member')`)
-    // );
+    await database.query("delete from role");
+    queries.push(
+      database.query(`INSERT INTO role (roleName) VALUES ('admin'), ('member')`)
+    );
 
     await database.query("delete from instruction");
     queries.push(
