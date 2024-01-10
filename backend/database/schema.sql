@@ -9,7 +9,7 @@ CREATE TABLE role(
 DROP TABLE IF EXISTS user;
 CREATE TABLE user(
   id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-  username VARCHAR(255) NOT NULL,
+  username VARCHAR(50) NOT NULL,
   firstname VARCHAR(50),
   lastname VARCHAR (50),
   email VARCHAR (100) NOT NULL,
@@ -27,7 +27,7 @@ CREATE TABLE recipe (
   number_persons INT NOT NULL,
   image_url VARCHAR(255) NOT NULL,
   user_id INT,
-  CONSTRAINT user_id FOREIGN KEY ( user_id) REFERENCES recipe(id),
+  CONSTRAINT user_id FOREIGN KEY (user_id) REFERENCES user(id),
   category_id INT,
   CONSTRAINT category_id FOREIGN KEY (category_id) REFERENCES category(id)
 );
@@ -47,6 +47,26 @@ CREATE TABLE recipe_ingredient (
   recipe_id INT,
   CONSTRAINT ingredient_id FOREIGN KEY (ingredient_id) REFERENCES ingredient(id),
   CONSTRAINT recipe_id FOREIGN KEY (recipe_id) REFERENCES recipe(id)
+);
+
+DROP TABLE IF EXISTS comment;
+CREATE TABLE comment (
+  id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  comment VARCHAR(255),
+  userC_id INT,
+  recipeC_id INT,
+  CONSTRAINT userC_id FOREIGN KEY (userC_id) REFERENCES user(id),
+  CONSTRAINT recipeC_id FOREIGN KEY (recipeC_id) REFERENCES recipe(id)
+);
+
+DROP TABLE IF EXISTS favorite;
+CREATE TABLE favorite (
+  id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  isFavorite bool,
+  userF_id INT,
+  recipeF_id INT,
+  CONSTRAINT userF_id FOREIGN KEY (userF_id) REFERENCES user(id),
+  CONSTRAINT recipeF_id FOREIGN KEY (recipeF_id) REFERENCES recipe(id)
 );
 
 DROP TABLE IF EXISTS instruction;
