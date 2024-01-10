@@ -27,7 +27,7 @@ CREATE TABLE recipe (
   number_persons INT NOT NULL,
   image_url VARCHAR(255) NOT NULL,
   user_id INT,
-  CONSTRAINT user_id FOREIGN KEY ( user_id) REFERENCES recipe(id)
+  CONSTRAINT user_id FOREIGN KEY ( user_id) REFERENCES recipe(id),
   category_id INT,
   CONSTRAINT category_id FOREIGN KEY (category_id) REFERENCES category(id)
 );
