@@ -1,11 +1,13 @@
 import Header from "../Header/Header";
 import Navbar from "../Navbar/Navbar";
+import Sidebar from "../sidebar/Sidebar";
 import styles from "./Contact.module.css";
 
 export default function Contact() {
   return (
     <>
       <Header />
+      <Sidebar />
       <section className={styles.outline}>
         <div className={styles.container}>
           <form className={styles.formInscription}>

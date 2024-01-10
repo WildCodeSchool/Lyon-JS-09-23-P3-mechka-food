@@ -9,7 +9,7 @@ export default function Header() {
     <div className={styles.container}>
       <div className={styles.home}>
         <Link className={styles.svgLink} to="/">
-          <img className={styles.svgLogo} src={logo} alt="" />
+          <img className={styles.svgLogo} src={logo} alt="profile" />
         </Link>
       </div>
 

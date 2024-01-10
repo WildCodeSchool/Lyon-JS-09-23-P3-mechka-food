@@ -49,6 +49,19 @@
   margin-top: 2rem;
 }
 
+.containerFlex > a {
+  color: black;
+  text-decoration: none;
+}
+
+.error_img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 32rem;
+  height: 20rem;
+}
+
 @media screen and (width > 768px) {
   .container {
     margin: 2rem 8rem 0rem 8rem;
@@ -61,6 +74,11 @@
 
   .warning {
     margin-left: 8rem;
+  }
+
+  .error_img {
+    width: 40rem;
+    height: 22rem;
   }
 }
 
@@ -84,5 +102,10 @@
 
   .warning {
     text-align: center;
+  }
+
+  .error_img {
+    width: 55rem;
+    height: 28rem;
   }
 }

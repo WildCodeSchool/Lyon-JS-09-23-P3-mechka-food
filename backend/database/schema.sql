@@ -28,6 +28,8 @@ CREATE TABLE recipe (
   image_url VARCHAR(255) NOT NULL,
   user_id INT,
   CONSTRAINT user_id FOREIGN KEY ( user_id) REFERENCES recipe(id)
+  category_id INT,
+  CONSTRAINT category_id FOREIGN KEY (category_id) REFERENCES category(id)
 );
 
 DROP TABLE IF EXISTS ingredient;
@@ -56,5 +58,11 @@ CREATE TABLE instruction (
 );
 
 
+DROP TABLE IF EXISTS category;
+CREATE TABLE category (
+  id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  name VARCHAR(50) NOT NULL,
+  image_url VARCHAR(255) NOT NULL
+);
 
 SET FOREIGN_KEY_CHECKS = 1;

@@ -18,6 +18,15 @@ const seed = async () => {
     /* ************************************************************************* */
 
     // Generating Seed Data
+    await database.query("delete from category");
+    queries.push(
+      database.query(
+        `INSERT INTO category (name, image_url) VALUES
+            ('Entrée', 'https://ideogram.ai/api/images/direct/WOreRJGDQYuQD3Bd7HWXIg.jpg'),
+            ('Plat', 'https://ideogram.ai/api/images/direct/-o4CWzygTuWWqNfhMm84bg.jpg'),
+            ('Dessert', 'https://ideogram.ai/api/images/direct/VQxSmIp3RkCEWcN9ZXMV2w.jpg')`
+      )
+    );
 
     await database.query("delete from ingredient");
     queries.push(
@@ -119,15 +128,15 @@ const seed = async () => {
     await database.query("delete from recipe");
     queries.push(
       database.query(
-        `INSERT INTO recipe (title, descriptions, global_time, number_persons, image_url) VALUES
-            ('Pâtes à la Carbonara', "Une délicieuse recette de pâtes à la carbonara.", "30 minutes", 4, "https://images.pexels.com/photos/14930758/pexels-photo-14930758.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"),
-            ('Spaghetti Bolognaise', "Découvrez l'authenticité de la cuisine italienne avec cette recette classique de spaghetti bolognaise. Une sauce riche, des pâtes al dente et une garniture de basilic frais font de ce plat un favori pour toute la famille.", "1 heure", 4, "https://images.pexels.com/photos/5864362/pexels-photo-5864362.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"),
-            ('Poulet Rôti', 'Un délicieux poulet rôti doré à la perfection, parfait pour un repas familial.', '1 heure 50 minutes', 4, 'https://images.pexels.com/photos/5718015/pexels-photo-5718015.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'),
-            ('Saumon Grillé avec Légumes', 'Un plat sain et délicieux, associant le saumon grillé à une variété de légumes colorés.', '35 minutes', 2, 'https://images.pexels.com/photos/3763847/pexels-photo-3763847.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'),
-            ('Risotto aux Champignons', 'Un délicieux risotto crémeux avec une saveur riche de champignons sautés.', '35 minutes', 4, 'https://images.pexels.com/photos/5638527/pexels-photo-5638527.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'),
-            ('Crumble aux Pommes', 'Un dessert délicieusement croustillant avec des pommes tendres et une couche de crumble parfumée à la cannelle.', '45 minutes', 6, 'https://images.pexels.com/photos/18403952/pexels-photo-18403952/free-photo-of-pain-nourriture-assiette-bois.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'),
-            ('Cookies aux Pépites de Chocolat', 'Des cookies moelleux à l&apos;intérieur et croustillants à l&apos;extérieur, pleins de pépites de chocolat fondantes.', '25 minutes', 12, 'https://images.pexels.com/photos/2067424/pexels-photo-2067424.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'),
-            ('Lasagnes Bolognaises', 'Un plat italien classique avec des couches de pâtes, une sauce bolognaise savoureuse, béchamel et fromage fondant.', '1 heure et 10 minutes', 6, 'https://images.pexels.com/photos/14696209/pexels-photo-14696209.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')`
+        `INSERT INTO recipe (title, descriptions, global_time, number_persons, image_url, category_id ) VALUES
+            ('Pâtes à la Carbonara', "Une délicieuse recette de pâtes à la carbonara.", "30 minutes", 4, "https://images.pexels.com/photos/14930758/pexels-photo-14930758.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", 2 ),
+            ('Spaghetti Bolognaise', "Découvrez l'authenticité de la cuisine italienne avec cette recette classique de spaghetti bolognaise. Une sauce riche, des pâtes al dente et une garniture de basilic frais font de ce plat un favori pour toute la famille.", "1 heure", 4, "https://images.pexels.com/photos/5864362/pexels-photo-5864362.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2", 2 ),
+            ('Poulet Rôti', 'Un délicieux poulet rôti doré à la perfection, parfait pour un repas familial.', '1 heure 50 minutes', 4, 'https://images.pexels.com/photos/5718015/pexels-photo-5718015.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 2),
+            ('Saumon Grillé avec Légumes', 'Un plat sain et délicieux, associant le saumon grillé à une variété de légumes colorés.', '35 minutes', 2, 'https://images.pexels.com/photos/3763847/pexels-photo-3763847.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 2),
+            ('Risotto aux Champignons', 'Un délicieux risotto crémeux avec une saveur riche de champignons sautés.', '35 minutes', 4, 'https://images.pexels.com/photos/5638527/pexels-photo-5638527.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 2),
+            ('Crumble aux Pommes', 'Un dessert délicieusement croustillant avec des pommes tendres et une couche de crumble parfumée à la cannelle.', '45 minutes', 6, 'https://images.pexels.com/photos/18403952/pexels-photo-18403952/free-photo-of-pain-nourriture-assiette-bois.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 3),
+            ('Cookies aux Pépites de Chocolat', 'Des cookies moelleux à l&apos;intérieur et croustillants à l&apos;extérieur, pleins de pépites de chocolat fondantes.', '25 minutes', 12, 'https://images.pexels.com/photos/2067424/pexels-photo-2067424.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 3),
+            ('Lasagnes Bolognaises', 'Un plat italien classique avec des couches de pâtes, une sauce bolognaise savoureuse, béchamel et fromage fondant.', '1 heure et 10 minutes', 6, 'https://images.pexels.com/photos/14696209/pexels-photo-14696209.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 2)`
       )
     );
 
