@@ -1,4 +1,4 @@
-label p {
+/* label p {
   margin: 0.3rem;
 }
 
@@ -47,4 +47,15 @@ label p {
   border: none;
   -webkit-box-shadow: -1px 3px 14px 1px rgba(0, 0, 0, 0.51);
   box-shadow: -1px 3px 14px 1px rgba(0, 0, 0, 0.51);
+} */
+
+.positionForm {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+.titleRegister {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
 }
