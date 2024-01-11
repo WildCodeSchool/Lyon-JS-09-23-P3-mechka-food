@@ -1,4 +1,6 @@
 import * as React from "react";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -14,8 +16,52 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 const defaultTheme = createTheme();
 
 export default function LoginDesktopComponent() {
-  const handleSubmit = (event) => {
+  // États pour le mot de passe et la confirmation du mot de passe
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState([]);
+
+  // Hook pour la navigation
+  const navigate = useNavigate();
+
+  // Gestionnaire de changement de l'email
+  const handleMailChange = (event) => {
+    setEmail(event.target.value);
+  };
+  // Gestionnaire de changement du mot de passe
+  const handlePasswordChange = (event) => {
+    setPassword(event.target.value);
+  };
+
+  // Gestionnaire de soumission du formulaire
+  const handleSubmit = async (event) => {
     event.preventDefault();
+
+    try {
+      // Appel à l'API pour créer un nouvel utilisateur
+      const response = await fetch(
+        `${import.meta.env.VITE_BACKEND_URL}/api/login`,
+        {
+          method: "post",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            email,
+            password,
+          }),
+        }
+      );
+
+      // Redirection vers la page de connexion si la création réussit
+      if (response.status === 200) {
+        navigate("/");
+      } else {
+        // Log des détails de la réponse en cas d'échec
+        setError("Email ou mot de passe incorrect");
+      }
+    } catch (err) {
+      // Log des erreurs possibles
+      console.error(err);
+    }
   };
 
   return (
@@ -68,7 +114,8 @@ export default function LoginDesktopComponent() {
                 id="email"
                 label="Email Address"
                 name="email"
-                autoComplete="email"
+                value={email}
+                onChange={handleMailChange}
                 autoFocus
               />
               <TextField
@@ -79,9 +126,10 @@ export default function LoginDesktopComponent() {
                 label="Password"
                 type="password"
                 id="password"
-                autoComplete="current-password"
+                value={password}
+                onChange={handlePasswordChange}
               />
-
+              <p style={{ color: "red" }}>{error}</p>
               <Button
                 type="submit"
                 fullWidth
