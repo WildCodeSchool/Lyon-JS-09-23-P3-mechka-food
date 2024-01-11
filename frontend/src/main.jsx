@@ -11,6 +11,7 @@ import Search from "./pages/Search/Search";
 import ProfilComponent from "./components/Profil/ProfilComponent";
 import InscriptionComponent from "./components/InscriptionComponent/InscriptionComponent";
 import CategoryById from "./components/category/CategoryById";
+import Login from "./pages/login/login";
 
 const router = createBrowserRouter([
   {
@@ -45,6 +46,10 @@ const router = createBrowserRouter([
   {
     path: "/inscription",
     element: <InscriptionComponent />,
+  },
+  {
+    path: "/login",
+    element: <Login />,
   },
 ]);
 
