@@ -1,10 +1,12 @@
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
+import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
 
-export default function RecipeCard({ image, id }) {
+export default function RecipeCard({ image, title, id, description }) {
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardActionArea>
@@ -16,6 +18,14 @@ export default function RecipeCard({ image, id }) {
             alt="green iguana"
           />
         </Link>
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="div">
+            {title}
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+            {description}
+          </Typography>
+        </CardContent>
       </CardActionArea>
     </Card>
   );
@@ -24,4 +34,6 @@ export default function RecipeCard({ image, id }) {
 RecipeCard.propTypes = {
   id: PropTypes.number.isRequired,
   image: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
 };
