@@ -10,7 +10,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 const defaultTheme = createTheme();
 
-export default function LoginDesktopComponent() {
+export default function InscriptionComponent() {
   // Définissez vos règles de validation et messages ici
   const validationRules = [
     {
@@ -30,7 +30,7 @@ export default function LoginDesktopComponent() {
       message: "Doit avoir une longueur d'au moins 8 caractères.",
     },
   ];
-
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [password, setPassword] = useState("");
 
   const [isValid, setIsValid] = useState(validationRules.map(() => false));
@@ -49,6 +49,10 @@ export default function LoginDesktopComponent() {
     );
   };
 
+  const handleConfirmPassword = (event) => {
+    setConfirmPassword(event.target.value);
+  };
+  const matchingPassword = password === confirmPassword;
   const handleSubmit = (event) => {
     event.preventDefault();
 
@@ -144,7 +148,7 @@ export default function LoginDesktopComponent() {
                 type="password"
                 id="password"
                 value={password}
-                autoComplete="current-password"
+                // autoComplete="current-password"
                 onChange={handlePasswordChange}
               />
               <TextField
@@ -155,7 +159,9 @@ export default function LoginDesktopComponent() {
                 label="Confirmez mot de passe"
                 type="password"
                 id="confirmPassword"
-                autoComplete="current-password"
+                onChange={handleConfirmPassword}
+                value={confirmPassword}
+                // autoComplete="current-password"
               />
               <ul>
                 {validationRules.map((rule, index) => (
@@ -174,7 +180,8 @@ export default function LoginDesktopComponent() {
                 fullWidth
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
-                disabled={!isValid.every((valid) => valid)}
+                onClick={handleSubmit}
+                disabled={null || !matchingPassword}
               >
                 S'inscrire
               </Button>
