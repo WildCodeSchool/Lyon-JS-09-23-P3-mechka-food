@@ -1,18 +1,33 @@
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
-import styles from "./RecipeCard.module.css";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
+import Typography from "@mui/material/Typography";
+import { CardActionArea } from "@mui/material";
 
 export default function RecipeCard({ image, title, id, description }) {
   return (
-    <section className={styles.card}>
-      <Link to={`/recipes/${id}`}>
-        <img src={image} alt={title} className={styles.imageCard} />
-      </Link>
-      <div className={styles.recipeInfoCard}>
-        <h3 className={styles.recipeTitle}>{title}</h3>
-        <p className={styles.CardDetails}>{description}</p>
-      </div>
-    </section>
+    <Card sx={{ maxWidth: 345 }}>
+      <CardActionArea>
+        <Link to={`/recipes/${id}`}>
+          <CardMedia
+            component="img"
+            height="240"
+            image={image}
+            alt="green iguana"
+          />
+        </Link>
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="div">
+            {title}
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+            {description}
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+    </Card>
   );
 }
 
