@@ -11,6 +11,7 @@ import Search from "./pages/Search/Search";
 import ProfilComponent from "./components/Profil/ProfilComponent";
 import CategoryById from "./components/category/CategoryById";
 import RegisterPage from "./pages/registerPage/RegisterPage";
+import Login from "./pages/login/login";
 
 const router = createBrowserRouter([
   {
@@ -41,6 +42,10 @@ const router = createBrowserRouter([
   {
     path: "/inscription",
     element: <RegisterPage />,
+  },
+  {
+    path: "/login",
+    element: <Login />,
   },
 ]);
 
