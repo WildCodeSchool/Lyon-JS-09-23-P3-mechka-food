@@ -11,7 +11,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 const defaultTheme = createTheme();
 
 export default function InscriptionComponent() {
-  // Définissez vos règles de validation et messages ici
+  // Règles de mot de passe valide et verification des conditions
   const validationRules = [
     {
       condition: /[A-Z]/,
@@ -39,10 +39,10 @@ export default function InscriptionComponent() {
     const newPassword = event.target.value;
     setPassword(newPassword);
 
-    // Mettez à jour l'état de validation pour chaque règle
+    // Mise à jour de l'état de validation pour chaque règles lors de la création du mot de passe en effectuant un test
     setIsValid(
       validationRules.map((rule) =>
-        rule.condition.test
+        rule.condition.test !== undefined
           ? rule.condition.test(newPassword)
           : rule.condition(newPassword)
       )
@@ -117,7 +117,6 @@ export default function InscriptionComponent() {
                 label="Prénom"
                 name="prénom"
                 autoComplete="prénom"
-                autoFocus
               />
               <TextField
                 margin="normal"
@@ -127,7 +126,6 @@ export default function InscriptionComponent() {
                 label="Pseudo"
                 name="pseudo"
                 autoComplete="pseudo"
-                autoFocus
               />
               <TextField
                 margin="normal"
@@ -136,8 +134,6 @@ export default function InscriptionComponent() {
                 id="email"
                 label="Email "
                 name="email"
-                autoComplete="email"
-                autoFocus
               />
               <TextField
                 margin="normal"
@@ -168,7 +164,7 @@ export default function InscriptionComponent() {
                   <li
                     key={rule.message}
                     style={{
-                      color: isValid[index] ? "green" : "red",
+                      color: isValid[index] === true ? "green" : "red",
                     }}
                   >
                     {rule.message}
