@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
@@ -32,8 +33,30 @@ export default function InscriptionComponent() {
   ];
   const [confirmPassword, setConfirmPassword] = useState("");
   const [password, setPassword] = useState("");
+  const [username, setUsername] = useState("");
+  const [firstname, setFirstName] = useState("");
+  const [lastname, setLastName] = useState("");
+  const [email, setEmail] = useState("");
 
   const [isValid, setIsValid] = useState(validationRules.map(() => false));
+
+  const navigate = useNavigate();
+
+  const handleChangeLastName = (e) => {
+    setLastName(e.target.value);
+  };
+
+  const handleFirstName = (e) => {
+    setFirstName(e.target.value);
+  };
+
+  const handleChangeUsername = (e) => {
+    setUsername(e.target.value);
+  };
+
+  const handleChangeEmail = (e) => {
+    setEmail(e.target.value);
+  };
 
   const handlePasswordChange = (event) => {
     const newPassword = event.target.value;
@@ -53,10 +76,33 @@ export default function InscriptionComponent() {
     setConfirmPassword(event.target.value);
   };
   const matchingPassword = password === confirmPassword;
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-
     // Ajoutez le code pour la soumission du formulaire ici
+    try {
+      const response = await fetch(
+        `${import.meta.env.VITE_BACKEND_URL}/api/user`,
+        {
+          method: "post",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            username,
+            firstname,
+            lastname,
+            email,
+            password,
+          }),
+        }
+      );
+
+      if (response.status === 201) {
+        navigate("/login");
+      } else {
+        console.info(response);
+      }
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   return (
@@ -107,7 +153,9 @@ export default function InscriptionComponent() {
                 label="Nom"
                 name="nom"
                 autoComplete="nom"
+                value={lastname}
                 autoFocus
+                onChange={handleChangeLastName}
               />
               <TextField
                 margin="normal"
@@ -116,7 +164,9 @@ export default function InscriptionComponent() {
                 id="prénom"
                 label="Prénom"
                 name="prénom"
+                value={firstname}
                 autoComplete="prénom"
+                onChange={handleFirstName}
               />
               <TextField
                 margin="normal"
@@ -125,7 +175,9 @@ export default function InscriptionComponent() {
                 id="pseudo"
                 label="Pseudo"
                 name="pseudo"
+                value={username}
                 autoComplete="pseudo"
+                onChange={handleChangeUsername}
               />
               <TextField
                 margin="normal"
@@ -134,6 +186,8 @@ export default function InscriptionComponent() {
                 id="email"
                 label="Email "
                 name="email"
+                value={email}
+                onChange={handleChangeEmail}
               />
               <TextField
                 margin="normal"
