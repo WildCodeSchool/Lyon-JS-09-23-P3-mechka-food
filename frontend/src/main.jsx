@@ -9,8 +9,8 @@ import Contact from "./components/Contact/Contact";
 import RecipePage from "./pages/recipePage/RecipePage";
 import Search from "./pages/Search/Search";
 import ProfilComponent from "./components/Profil/ProfilComponent";
-import InscriptionComponent from "./components/InscriptionComponent/InscriptionComponent";
 import CategoryById from "./components/category/CategoryById";
+import RegisterPage from "./pages/registerPage/RegisterPage";
 import Login from "./pages/login/login";
 
 const router = createBrowserRouter([
@@ -35,17 +35,13 @@ const router = createBrowserRouter([
     element: <Search />,
   },
   {
-    path: "/logSignIn",
-    element: <InscriptionComponent />, // Composant à changer lors que la page sera créé.
-  },
-  {
     path: "/profil",
     element: <ProfilComponent />, // Route lors que le USER est connecté à son profil.
   },
 
   {
     path: "/inscription",
-    element: <InscriptionComponent />,
+    element: <RegisterPage />,
   },
   {
     path: "/login",
