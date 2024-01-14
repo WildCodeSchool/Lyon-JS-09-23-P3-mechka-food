@@ -9,6 +9,7 @@ const IngredientsManager = require("./models/IngredientsManager");
 const InstructionManager = require("./models/InstructionManager");
 const CategoryManager = require("./models/CategoryManager");
 const UserManager = require("./models/UserManager");
+const FavoriteManager = require("./models/FavoriteManager");
 
 const managers = [
   ItemManager,
@@ -17,6 +18,7 @@ const managers = [
   InstructionManager,
   CategoryManager,
   UserManager,
+  FavoriteManager,
 
   // Add other managers here
 ];

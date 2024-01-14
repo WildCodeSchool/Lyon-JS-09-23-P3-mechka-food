@@ -18,6 +18,10 @@
   padding: 0.5rem;
 }
 
+.likeButton {
+  margin: 20rem;
+}
+
 @media screen and (width > 1024px) {
   .apparenceCard {
     width: 80vw;

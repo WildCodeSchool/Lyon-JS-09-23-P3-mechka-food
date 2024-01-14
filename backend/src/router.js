@@ -17,6 +17,7 @@ const userControllers = require("./controllers/userControllers");
 const userMiddleware = require("./middlewares/userMiddleware");
 const authControllers = require("./controllers/authControllers");
 const loginMiddleware = require("./middlewares/loginMiddleware");
+const favoriteControllers = require("./controllers/favoriteControllers");
 
 // Route to get a list of items
 router.get("/items", itemControllers.browse);
@@ -38,6 +39,9 @@ router.post("/user", userMiddleware, hashPassword, userControllers.add);
 
 // Login
 router.post("/login", loginMiddleware, authControllers.login);
+
+// Favorite
+router.post("/recipe/:id/favorite", favoriteControllers.add);
 /* ************************************************************************* */
 
 module.exports = router;
