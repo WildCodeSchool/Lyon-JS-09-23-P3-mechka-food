@@ -9,14 +9,13 @@ import styles from "./RecipeById.module.css";
 export default function RecipeById() {
   const [recipes, setRecipes] = useState(null);
   // const [favorite, setFavorite] = useState(false);
-  const idRecipe = useParams();
   const userId = 1; // 1 pour simuler l'user 1
-  const { id: recipeFid } = useParams();
+  const { id: recipeId } = useParams();
 
   // useEffect pour aller chercher l'id de la recette et afficher la photo, les informations (titre...)
 
   useEffect(() => {
-    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/recipes/${idRecipe.id}`)
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/recipes/${recipeId}`)
       .then((response) => response.json())
       .then((data) => setRecipes(data));
   }, []);
@@ -32,11 +31,11 @@ export default function RecipeById() {
 
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_BACKEND_URL}/api/recipes/${recipeFid}/favorite`,
+        `${import.meta.env.VITE_BACKEND_URL}/api/recipes/${recipeId}/favorite`,
         {
           method: "post",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ userId, recipeFid }),
+          body: JSON.stringify({ userId, recipeId }),
         }
       );
       if (response.status === 201) {
@@ -50,6 +49,30 @@ export default function RecipeById() {
       console.error("Error posting comment:", err);
     }
   };
+
+  // const handleDelete = async (event) => {
+  //   event.preventDefault();
+
+  //   try {
+  //     const response = await fetch(
+  //       `${import.meta.env.VITE_BACKEND_URL}/api/recipes/${recipeId}/favorite`,
+  //       {
+  //         method: "delete",
+  //         headers: { "Content-Type": "application/json" },
+  //         body: JSON.stringify({ userId, recipeId }),
+  //       }
+  //     );
+  //     if (response.status === 201) {
+  //       console.info("FARIS SUPPRIMÉ !");
+  //       // setFavorite(true);
+  //       refreshPage();
+  //     } else {
+  //       console.error("FAILED !!!!!!!!!!!!!:", response);
+  //     }
+  //   } catch (err) {
+  //     console.error("Error posting comment:", err);
+  //   }
+  // };
 
   return (
     <section className={styles.RecipeByIdContainer}>

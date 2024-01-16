@@ -41,7 +41,8 @@ router.post("/user", userMiddleware, hashPassword, userControllers.add);
 router.post("/login", loginMiddleware, authControllers.login);
 
 // Favorite
-router.post("/recipe/:id/favorite", favoriteControllers.add);
+router.post("/recipes/:id/favorite", favoriteControllers.add);
+router.delete("/recipes/:id/favorite", favoriteControllers.deleteFavorite);
 /* ************************************************************************* */
 
 module.exports = router;
