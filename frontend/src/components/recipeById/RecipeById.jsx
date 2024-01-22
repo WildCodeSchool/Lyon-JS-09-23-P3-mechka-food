@@ -11,6 +11,11 @@ export default function RecipeById() {
   // const [favorite, setFavorite] = useState(false);
   const userId = 1; // 1 pour simuler l'user 1
   const { id: recipeId } = useParams();
+  const [isFavorite, setIsFavorite] = useState(false);
+
+  const handleChangeFavorite = () => {
+    setIsFavorite(!isFavorite);
+  };
 
   // useEffect pour aller chercher l'id de la recette et afficher la photo, les informations (titre...)
 
@@ -48,36 +53,38 @@ export default function RecipeById() {
     } catch (err) {
       console.error("Error posting comment:", err);
     }
+    handleChangeFavorite();
   };
 
-  // const handleDelete = async (event) => {
-  //   event.preventDefault();
+  const handleDelete = async (event) => {
+    event.preventDefault();
 
-  //   try {
-  //     const response = await fetch(
-  //       `${import.meta.env.VITE_BACKEND_URL}/api/recipes/${recipeId}/favorite`,
-  //       {
-  //         method: "delete",
-  //         headers: { "Content-Type": "application/json" },
-  //         body: JSON.stringify({ userId, recipeId }),
-  //       }
-  //     );
-  //     if (response.status === 201) {
-  //       console.info("FARIS SUPPRIMÉ !");
-  //       // setFavorite(true);
-  //       refreshPage();
-  //     } else {
-  //       console.error("FAILED !!!!!!!!!!!!!:", response);
-  //     }
-  //   } catch (err) {
-  //     console.error("Error posting comment:", err);
-  //   }
-  // };
+    try {
+      const response = await fetch(
+        `${import.meta.env.VITE_BACKEND_URL}/api/recipes/${recipeId}/favorite`,
+        {
+          method: "delete",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ userId, recipeId }),
+        }
+      );
+      if (response.status === 201) {
+        console.info("FARIS SUPPRIMÉ !");
+        // setFavorite(true);
+        refreshPage();
+      } else {
+        console.error("FAILED !!!!!!!!!!!!!:", response);
+      }
+    } catch (err) {
+      console.error("Error posting comment:", err);
+    }
+    handleChangeFavorite();
+  };
 
   return (
     <section className={styles.RecipeByIdContainer}>
       <Button
-        onClick={handleSubmit}
+        onClick={isFavorite ? handleSubmit : handleDelete}
         className={styles.likeButton}
         variant="contained"
         color="success"
