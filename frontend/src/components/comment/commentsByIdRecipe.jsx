@@ -8,7 +8,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 const defaultTheme = createTheme();
 
-export default function CommentById() {
+export default function commentsByIdRecipe() {
   const [comments, setComments] = useState(null);
   const { id } = useParams();
 

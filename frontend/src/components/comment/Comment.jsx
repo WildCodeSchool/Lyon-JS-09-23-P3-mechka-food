@@ -8,7 +8,6 @@ import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import CommentById from "./CommentById";
 
 const defaultTheme = createTheme();
 
@@ -84,7 +83,7 @@ export default function Comment() {
               alignItems: "center",
             }}
           >
-            <CommentById />
+            <commentsByIdRecipe />
           </Box>
           <Box
             sx={{
