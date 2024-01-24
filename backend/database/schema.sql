@@ -53,10 +53,10 @@ DROP TABLE IF EXISTS comment;
 CREATE TABLE comment (
   id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
   comment VARCHAR(255),
-  userC_id INT,
-  recipeC_id INT,
-  CONSTRAINT userC_id FOREIGN KEY (userC_id) REFERENCES user(id),
-  CONSTRAINT recipeC_id FOREIGN KEY (recipeC_id) REFERENCES recipe(id)
+  commentUserId INT,
+  CommentRecipeId INT,
+  CONSTRAINT commentUserId FOREIGN KEY (commentUserId) REFERENCES user(id),
+  CONSTRAINT CommentRecipeId FOREIGN KEY (CommentRecipeId) REFERENCES recipe(id)
 );
 
 DROP TABLE IF EXISTS favorite;
