@@ -63,7 +63,7 @@ export default function LoginDesktopComponent() {
       } else {
         // Log des détails de la réponse en cas d'échec
         setError("Email ou mot de passe incorrect");
-        navigate("/contact");
+        navigate("/login");
       }
     } catch (err) {
       // Log des erreurs possibles
