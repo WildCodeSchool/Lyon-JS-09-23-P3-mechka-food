@@ -17,11 +17,13 @@ const userControllers = require("./controllers/userControllers");
 const userMiddleware = require("./middlewares/userMiddleware");
 const authControllers = require("./controllers/authControllers");
 const loginMiddleware = require("./middlewares/loginMiddleware");
+const addRecipeControllers = require("./controllers/addRecipeControllers");
 const commentControllers = require("./controllers/commentControllers");
 
 // Route to get a list of items
 router.get("/items", itemControllers.browse);
 router.get("/recipes", recipeControllers.browse);
+router.get("/recipes/ingredients", ingredientControllers.browse);
 
 // Route to get a specific item by ID
 router.get("/items/:id", itemControllers.read);
@@ -40,6 +42,9 @@ router.post("/user", userMiddleware, hashPassword, userControllers.add);
 
 // Login
 router.post("/login", loginMiddleware, authControllers.login);
+
+// Add new recipe
+router.post("/recipes/add", addRecipeControllers.addRecipe);
 /* ************************************************************************* */
 
 // Route to add a new comment

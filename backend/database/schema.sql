@@ -25,7 +25,7 @@ CREATE TABLE recipe (
   descriptions VARCHAR(255) NOT NULL,
   global_time VARCHAR(50) NOT NULL,
   number_persons INT NOT NULL,
-  image_url VARCHAR(255) NOT NULL,
+  image_url VARCHAR(255),
   user_id INT,
   CONSTRAINT user_id FOREIGN KEY (user_id) REFERENCES user(id),
   category_id INT,
@@ -38,8 +38,8 @@ CREATE TABLE ingredient (
   name VARCHAR(50) NOT NULL
 );
 
-DROP TABLE IF EXISTS recipe_ingredient;
-CREATE TABLE recipe_ingredient (
+DROP TABLE IF EXISTS recipeIngredient;
+CREATE TABLE recipeIngredient (
   id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
   quantity INT,
   unit VARCHAR(50),

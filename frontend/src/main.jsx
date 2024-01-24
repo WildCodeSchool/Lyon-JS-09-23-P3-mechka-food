@@ -12,6 +12,7 @@ import ProfilComponent from "./components/Profil/ProfilComponent";
 import CategoryById from "./components/category/CategoryById";
 import RegisterPage from "./pages/registerPage/RegisterPage";
 import Login from "./pages/login/login";
+import AddRecipeForm from "./components/addRecipe/AddRecipeForm";
 
 const router = createBrowserRouter([
   {
@@ -46,6 +47,10 @@ const router = createBrowserRouter([
   {
     path: "/login",
     element: <Login />,
+  },
+  {
+    path: "/recipes/add",
+    element: <AddRecipeForm />,
   },
 ]);
 
