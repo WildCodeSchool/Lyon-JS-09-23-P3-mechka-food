@@ -154,7 +154,7 @@ const seed = async () => {
       )
     );
 
-    await database.query("delete from recipe_ingredient");
+    await database.query("delete from recipeIngredient");
     queries.push(
       database.query(
         `INSERT INTO recipe_ingredient (quantity, unit, ingredient_id, recipe_id)
