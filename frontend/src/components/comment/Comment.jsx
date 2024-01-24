@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -13,6 +13,7 @@ import CommentById from "./CommentById";
 const defaultTheme = createTheme();
 
 export default function Comment() {
+  const [recipeImage, setRecipeImage] = useState(null);
   const [comment, setComment] = useState("");
   const { id: CommentRecipeId } = useParams();
 
@@ -53,28 +54,18 @@ export default function Comment() {
       console.error("Error posting comment:", err);
     }
   };
+  const idRecipe = useParams();
 
+  useEffect(() => {
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/recipes/${idRecipe.id}`)
+      .then((response) => response.json())
+      .then((data) => setRecipeImage(data.image_url));
+  }, []);
   return (
     <ThemeProvider theme={defaultTheme}>
       <Grid container component="main" sx={{ height: "100vh" }}>
         <CssBaseline />
-        <Grid
-          item
-          xs={false}
-          sm={4}
-          md={7}
-          sx={{
-            backgroundImage:
-              "url(https://images.pexels.com/photos/5638527/pexels-photo-5638527.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2)",
-            backgroundRepeat: "no-repeat",
-            backgroundColor: (t) =>
-              t.palette.mode === "light"
-                ? t.palette.grey[50]
-                : t.palette.grey[900],
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
-        />
+
         <Grid item xs={12} sm={8} md={5} component={Paper} elevation={0} square>
           <Button
             type="submit"
@@ -98,7 +89,7 @@ export default function Comment() {
           <Box
             sx={{
               my: 8,
-              mx: 4,
+              mx: 7,
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
@@ -108,6 +99,7 @@ export default function Comment() {
               Laissez un commentaire !
             </Typography>
             <TextField
+              sx={{ mt: 5, mb: 2 }}
               fullWidth
               margin="normal"
               name="comment"
@@ -127,6 +119,22 @@ export default function Comment() {
             </Button>
           </Box>
         </Grid>
+        <Grid
+          item
+          xs={false}
+          sm={4}
+          md={7}
+          sx={{
+            backgroundImage: `url(${recipeImage})`,
+            backgroundRepeat: "no-repeat",
+            backgroundColor: (t) =>
+              t.palette.mode === "light"
+                ? t.palette.grey[50]
+                : t.palette.grey[900],
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        />
       </Grid>
     </ThemeProvider>
   );
