@@ -14,6 +14,7 @@ import RegisterPage from "./pages/registerPage/RegisterPage";
 import Login from "./pages/login/login";
 import { UserContextProvider } from "./context/userContext";
 import TestContext from "./components/TestContext";
+import AddRecipeForm from "./components/addRecipe/AddRecipeForm";
 
 const router = createBrowserRouter([
   {
@@ -52,6 +53,10 @@ const router = createBrowserRouter([
   {
     path: "/testcontext",
     element: <TestContext />,
+  },
+  {
+    path: "/recipes/add",
+    element: <AddRecipeForm />,
   },
 ]);
 
