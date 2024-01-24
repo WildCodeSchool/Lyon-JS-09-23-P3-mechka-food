@@ -142,10 +142,10 @@ const seed = async () => {
       )
     );
 
-    await database.query("delete from recipe_ingredient");
+    await database.query("delete from recipeIngredient");
     queries.push(
       database.query(
-        `insert into recipe_ingredient (quantity, unit, ingredient_id, recipe_id)
+        `insert into recipeIngredient (quantity, unit, ingredient_id, recipe_id)
         values 
             (400, 'Grammes', 1, 1),
             (200, 'Grammes', 2, 1),
