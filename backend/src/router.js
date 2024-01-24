@@ -40,18 +40,20 @@ router.get("/category/:id", categoryControllers.readById);
 // Route to add a new item
 router.post("/items", itemControllers.add);
 
-// The WALL OF AUTH
-router.use(auth); //
-
-/* ************************************************************************* */
-// beyond the wall : auth is used
-/* ************************************************************************* */
-
 // Route to add a new user
 router.post("/user", userMiddleware, hashPassword, userControllers.add);
 
 // Login
 router.post("/login", loginMiddleware, authControllers.login);
+/* ************************************************************************* */
+
+// The WALL OF AUTH
+router.use((req, res, next) => {
+  auth.verifyToken(req, res, next);
+});
+
+/* ************************************************************************* */
+// beyond the wall : auth is used
 /* ************************************************************************* */
 
 module.exports = router;
