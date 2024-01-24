@@ -38,7 +38,7 @@ export default function IngredientsForm({
   return (
     <>
       {userIngredients.map((userIngredient, index) => (
-        <div className={style.container}>
+        <div className={style.container} key={userIngredient.id}>
           <TextField
             id="outlined-basic"
             label="Quantity"
