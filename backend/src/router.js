@@ -38,6 +38,7 @@ router.post("/items", itemControllers.add);
 
 // The WALL OF AUTH
 router.use(auth); //
+
 /* ************************************************************************* */
 // beyond the wall : auth is used
 /* ************************************************************************* */
