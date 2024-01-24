@@ -18,6 +18,9 @@ const userMiddleware = require("./middlewares/userMiddleware");
 const authControllers = require("./controllers/authControllers");
 const loginMiddleware = require("./middlewares/loginMiddleware");
 
+// Import auth middleware
+const auth = require("./services/auth");
+
 // Route to get a list of items
 router.get("/items", itemControllers.browse);
 router.get("/recipes", recipeControllers.browse);
@@ -32,6 +35,12 @@ router.get("/category/:id", categoryControllers.readById);
 
 // Route to add a new item
 router.post("/items", itemControllers.add);
+
+// The WALL OF AUTH
+router.use(auth); //
+/* ************************************************************************* */
+// beyond the wall : auth is used
+/* ************************************************************************* */
 
 // Route to add a new user
 router.post("/user", userMiddleware, hashPassword, userControllers.add);

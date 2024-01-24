@@ -56,7 +56,17 @@ const verifyToken = (req, res, next) => {
   }
 };
 
+const auth = (req, res, next) => {
+  if (req.auth == null) {
+    res.sendStatus(401);
+  } else {
+    req.user = req.auth.user;
+    next();
+  }
+};
+
 module.exports = {
   hashPassword,
   verifyToken,
+  auth,
 };
