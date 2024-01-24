@@ -42,7 +42,10 @@ router.post("/login", loginMiddleware, authControllers.login);
 
 // Favorite
 router.post("/recipes/:id/favorite", favoriteControllers.add);
-router.delete("/recipes/:id/favorite", favoriteControllers.deleteFavorite);
+router.delete(
+  "/recipes/:id/deleteFavorite",
+  favoriteControllers.deleteFavorite
+);
 /* ************************************************************************* */
 
 module.exports = router;

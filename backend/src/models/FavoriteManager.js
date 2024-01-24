@@ -23,7 +23,7 @@ class UserManager extends AbstractManager {
   async delete(userId, recipeId) {
     // Execute the SQL INSERT query to add a new user to the "user" table
     const [result] = await this.database.query(
-      `delete from ${this.table} where userFId=? and recipeFid=?`,
+      `delete from ${this.table} where userFid=? and recipeFid=?`,
       [userId, recipeId]
     );
 

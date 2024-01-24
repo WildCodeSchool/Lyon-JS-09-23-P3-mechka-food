@@ -1,0 +1,7 @@
+.cardPosition {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+  gap: 3rem;
+}
