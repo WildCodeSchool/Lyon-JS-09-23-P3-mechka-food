@@ -12,6 +12,7 @@ import ProfilComponent from "./components/Profil/ProfilComponent";
 import CategoryById from "./components/category/CategoryById";
 import RegisterPage from "./pages/registerPage/RegisterPage";
 import Login from "./pages/login/login";
+import CommentPage from "./pages/CommentPage/CommentPage";
 
 const router = createBrowserRouter([
   {
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
   {
     path: "/recipes/search",
     element: <Search />,
+  },
+  {
+    path: "/recipes/:id/comment",
+    element: <CommentPage />,
   },
   {
     path: "/profil",
