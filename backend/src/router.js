@@ -21,6 +21,10 @@ const loginMiddleware = require("./middlewares/loginMiddleware");
 // Import auth middleware
 const auth = require("./services/auth");
 
+/* ************************************************************************* */
+// behind the wall : auth is not used
+/* ************************************************************************* */
+
 // Route to get a list of items
 router.get("/items", itemControllers.browse);
 router.get("/recipes", recipeControllers.browse);
