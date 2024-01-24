@@ -16,16 +16,6 @@ class CommentManager extends AbstractManager {
       [id]
     );
 
-    // `select comment.id as id, comment, username from ${this.table} join recipe on CommentRecipeId = recipe.id join user on commentUserId = user.id
-    // where recipe.id = ? `,
-    //   [id]
-
-    //     SELECT comment, username FROM comment
-    // join recipe on recipeC_id = recipe.id
-    // join user on userC_id = user.id
-    // where recipe.id = 1;
-
-    // Return the array of recipes
     return rows;
   }
 
