@@ -38,6 +38,8 @@ router.post("/user", userMiddleware, hashPassword, userControllers.add);
 
 // Login
 router.post("/login", loginMiddleware, authControllers.login);
+// Logout
+router.get("/logout", authControllers.logout);
 /* ************************************************************************* */
 
 module.exports = router;
