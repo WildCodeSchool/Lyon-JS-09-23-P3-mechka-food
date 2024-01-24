@@ -12,7 +12,7 @@ import ProfilComponent from "./components/Profil/ProfilComponent";
 import CategoryById from "./components/category/CategoryById";
 import RegisterPage from "./pages/registerPage/RegisterPage";
 import Login from "./pages/login/login";
-import AdminPage from "./components/adminPage/AdminPage";
+import AdminPagePrincipal from "./pages/adminPage/AdminPagePrincipal";
 
 const router = createBrowserRouter([
   {
@@ -50,7 +50,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/admin",
-    element: <AdminPage />,
+    element: <AdminPagePrincipal />,
   },
 ]);
 

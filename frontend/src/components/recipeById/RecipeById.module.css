@@ -19,7 +19,27 @@
 }
 
 .likeButton {
-  margin: 20rem;
+  margin-top: 1rem;
+}
+
+.svgCoeur {
+  position: absolute;
+  height: 3rem;
+  bottom: 18rem;
+  right: 3rem;
+}
+
+.containerGlobal {
+  position: relative;
+}
+
+@media screen and (width > 768px) {
+  .svgCoeur {
+    position: absolute;
+    height: 3rem;
+    bottom: 18rem;
+    right: 3rem;
+  }
 }
 
 @media screen and (width > 1024px) {
@@ -32,5 +52,12 @@
     justify-content: center;
     flex-direction: column;
     align-items: center;
+  }
+
+  .svgCoeur {
+    position: absolute;
+    height: 3rem;
+    bottom: 3rem;
+    right: 37rem;
   }
 }

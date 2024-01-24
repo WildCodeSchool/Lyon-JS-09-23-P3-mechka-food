@@ -9,7 +9,7 @@ import { CardActionArea } from "@mui/material";
 
 export default function AdminCard({ image, title, id, description }) {
   return (
-    <Card sx={{ maxWidth: 345, marginBottom: 5 }}>
+    <Card sx={{ maxWidth: 345, marginBottom: 5, boxShadow: 5 }}>
       <Button sx={{ margin: 3 }} variant="outlined">
         Modifier
       </Button>
