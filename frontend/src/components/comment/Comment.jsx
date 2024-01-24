@@ -9,7 +9,6 @@ import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import CommentById from "./CommentById";
-import styles from "./Comment.module.css";
 
 const defaultTheme = createTheme();
 
@@ -57,48 +56,34 @@ export default function Comment() {
 
   return (
     <ThemeProvider theme={defaultTheme}>
-      <Grid item xs={12} sm={8} md={5} component={Paper} elevation={0} square>
+      <Grid container component="main" sx={{ height: "100vh" }}>
         <CssBaseline />
-        <Button
-          type="submit"
-          variant="contained"
-          sx={{ mt: 3, mb: 2 }}
-          onClick={() => navigate(-1)}
-        >
-          Retour
-        </Button>
-        <Box
+        <Grid
+          item
+          xs={false}
+          sm={4}
+          md={7}
           sx={{
-            my: 8,
-            mx: 4,
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
+            backgroundImage:
+              "url(https://images.pexels.com/photos/5638527/pexels-photo-5638527.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2)",
+            backgroundRepeat: "no-repeat",
+            backgroundColor: (t) =>
+              t.palette.mode === "light"
+                ? t.palette.grey[50]
+                : t.palette.grey[900],
+            backgroundSize: "cover",
+            backgroundPosition: "center",
           }}
-        >
-          <Typography component="h1" variant="h5">
-            Laissez un commentaire !
-          </Typography>
-          <TextField
-            margin="normal"
-            fullWidth
-            name="comment"
-            label="Commentez"
-            type="comment"
-            id="comment"
-            value={comment}
-            onChange={handleInputChange}
-          />
+        />
+        <Grid item xs={12} sm={8} md={5} component={Paper} elevation={0} square>
           <Button
             type="submit"
             variant="contained"
-            onClick={handleSubmit}
             sx={{ mt: 3, mb: 2 }}
+            onClick={() => navigate(-1)}
           >
-            Poster
+            Retour
           </Button>
-        </Box>
-        <section className={styles.main_container}>
           <Box
             sx={{
               my: 8,
@@ -110,7 +95,38 @@ export default function Comment() {
           >
             <CommentById />
           </Box>
-        </section>
+          <Box
+            sx={{
+              my: 8,
+              mx: 4,
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            }}
+          >
+            <Typography component="h1" variant="h5">
+              Laissez un commentaire !
+            </Typography>
+            <TextField
+              fullWidth
+              margin="normal"
+              name="comment"
+              label="Donnez votre avis"
+              type="comment"
+              id="comment"
+              value={comment}
+              onChange={handleInputChange}
+            />
+            <Button
+              type="submit"
+              variant="contained"
+              onClick={handleSubmit}
+              sx={{ mt: 3, mb: 2 }}
+            >
+              Ajouter
+            </Button>
+          </Box>
+        </Grid>
       </Grid>
     </ThemeProvider>
   );
