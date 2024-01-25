@@ -1,3 +1,4 @@
+import { Link, useParams } from "react-router-dom";
 import PropTypes from "prop-types";
 import styles from "./RecipeInformations.module.css";
 
@@ -8,12 +9,18 @@ export default function RecipeByIdCard({
   number,
   description,
 }) {
+  const idRecipe = useParams();
   return (
     <section className={styles.recipeByIdCard}>
       <div className={styles.recipeBydUpperContainer}>
         <div className={styles.recipeByIdImageContainer}>
           <img src={image} className={styles.recipeImage} alt={title} />
         </div>
+        <Link to={`/recipes/${idRecipe.id}/comment`}>
+          <button type="button" alt="commentaire">
+            Commentaire
+          </button>
+        </Link>
         <div className={styles.recipeByIdContainerTop}>
           <h2 className={styles.recipeByIdTitle}>{title}</h2>
           <p>Temps requis : {time}</p>
