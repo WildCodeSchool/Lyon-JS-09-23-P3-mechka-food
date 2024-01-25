@@ -52,6 +52,8 @@ const router = createBrowserRouter([
   {
     path: "/admin",
     element: <AdminPagePrincipal />,
+  },
+  {
     path: "/recipes/add",
     element: <AddRecipeForm />,
   },
