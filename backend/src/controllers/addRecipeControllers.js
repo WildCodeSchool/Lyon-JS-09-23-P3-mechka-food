@@ -10,6 +10,7 @@ const addRecipe = async (req, res, next) => {
       globalTime,
       numberPersons,
       imageUrl,
+      userCategorieId,
     } = req.body;
 
     // Post data to table recipe
@@ -19,6 +20,7 @@ const addRecipe = async (req, res, next) => {
       globalTime,
       numberPersons,
       imageUrl,
+      userCategorieId,
     }); // => { id: '1', image: ..., description: '', 'title' }
 
     // Post data into table instructions (one recipe has multiply instructions)
