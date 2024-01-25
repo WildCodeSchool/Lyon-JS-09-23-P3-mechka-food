@@ -26,7 +26,9 @@ function AdminPagePrincipal() {
           }}
         >
           <Link to="/admin/recipes">
-            <Button variant="contained">Tous les recettes</Button>
+            <Button sx={{ backgroundColor: "#ffc107" }} variant="contained">
+              Tous les recettes
+            </Button>
           </Link>
         </Box>
         <Box
@@ -38,7 +40,9 @@ function AdminPagePrincipal() {
           }}
         >
           <Link to="/admin/users">
-            <Button variant="contained">Tous les users</Button>
+            <Button sx={{ backgroundColor: "#ffc107" }} variant="contained">
+              Tous les users
+            </Button>
           </Link>{" "}
         </Box>
       </Container>
