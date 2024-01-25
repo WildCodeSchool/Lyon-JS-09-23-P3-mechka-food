@@ -20,7 +20,7 @@ export default function LoginDesktopComponent() {
   // États pour le mot de passe et la confirmation du mot de passe
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState([]);
+  const [error, setError] = useState("");
 
   const { login } = useUserContext();
   // Hook pour la navigation
@@ -58,8 +58,7 @@ export default function LoginDesktopComponent() {
       if (response.status === 200) {
         const user = await response.json();
         login(user);
-        console.info("connexion réussie");
-        navigate("/testcontext");
+        navigate("/");
       } else {
         // Log des détails de la réponse en cas d'échec
         setError("Email ou mot de passe incorrect");

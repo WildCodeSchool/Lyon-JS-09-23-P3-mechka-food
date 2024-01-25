@@ -13,7 +13,6 @@ import CategoryById from "./components/category/CategoryById";
 import RegisterPage from "./pages/registerPage/RegisterPage";
 import Login from "./pages/login/login";
 import { UserContextProvider } from "./context/userContext";
-import TestContext from "./components/TestContext";
 
 const router = createBrowserRouter([
   {
@@ -48,10 +47,6 @@ const router = createBrowserRouter([
   {
     path: "/login",
     element: <Login />,
-  },
-  {
-    path: "/testcontext",
-    element: <TestContext />,
   },
 ]);
 

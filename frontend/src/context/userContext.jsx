@@ -27,11 +27,6 @@ export function UserContextProvider({ children }) {
       // Redirection vers la page de connexion si la création réussit
       if (response.status === 200) {
         setUserData(null);
-
-        console.info("vous avez été déconnecté");
-      } else {
-        // Log des détails de la réponse en cas d'échec
-        console.info(response);
       }
     } catch (err) {
       // Log des erreurs possibles
