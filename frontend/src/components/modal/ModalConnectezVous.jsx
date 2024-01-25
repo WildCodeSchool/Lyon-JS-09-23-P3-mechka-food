@@ -16,14 +16,14 @@ const style = {
   p: 4,
 };
 
-export default function BasicModal() {
+export default function ModalConnectezVous() {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
   return (
     <div>
-      <Button onClick={handleOpen}>commentaires</Button>
+      <Button onClick={handleOpen}>Connectez-vous</Button>
       <Modal
         open={open}
         onClose={handleClose}
