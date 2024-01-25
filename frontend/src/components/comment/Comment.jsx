@@ -9,6 +9,7 @@ import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import CommentsByIdRecipe from "./commentsByIdRecipe";
+import ConnectionVerification from "../modal/ConnectionVerification";
 
 const defaultTheme = createTheme();
 
@@ -16,6 +17,7 @@ export default function Comment() {
   const [recipeImage, setRecipeImage] = useState(null);
   const [comment, setComment] = useState("");
   const { id: CommentRecipeId } = useParams();
+  const user = true;
 
   // Hook pour la navigation
   const navigate = useNavigate();
@@ -85,38 +87,42 @@ export default function Comment() {
           >
             <CommentsByIdRecipe />
           </Box>
-          <Box
-            sx={{
-              my: 8,
-              mx: 7,
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-            }}
-          >
-            <Typography component="h1" variant="h5">
-              Laissez un commentaire !
-            </Typography>
-            <TextField
-              sx={{ mt: 5, mb: 2 }}
-              fullWidth
-              margin="normal"
-              name="comment"
-              label="Donnez votre avis"
-              type="comment"
-              id="comment"
-              value={comment}
-              onChange={handleInputChange}
-            />
-            <Button
-              type="submit"
-              variant="contained"
-              onClick={handleSubmit}
-              sx={{ mt: 3, mb: 2 }}
+          {user === true ? (
+            <Box
+              sx={{
+                my: 8,
+                mx: 7,
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+              }}
             >
-              Ajouter
-            </Button>
-          </Box>
+              <Typography component="h1" variant="h5">
+                Laissez un commentaire !
+              </Typography>
+              <TextField
+                sx={{ mt: 5, mb: 2 }}
+                fullWidth
+                margin="normal"
+                name="comment"
+                label="Donnez votre avis"
+                type="comment"
+                id="comment"
+                value={comment}
+                onChange={handleInputChange}
+              />
+              <Button
+                type="submit"
+                variant="contained"
+                onClick={handleSubmit}
+                sx={{ mt: 3, mb: 2 }}
+              >
+                Ajouter
+              </Button>
+            </Box>
+          ) : (
+            <ConnectionVerification />
+          )}
         </Grid>
         <Grid
           item
