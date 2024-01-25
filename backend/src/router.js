@@ -44,6 +44,12 @@ router.post("/user", userMiddleware, hashPassword, userControllers.add);
 // Login
 router.post("/login", loginMiddleware, authControllers.login);
 
+// Logout
+router.get("/logout", authControllers.logout);
+
+// Add new recipe
+router.post("/recipes/add", addRecipeControllers.addRecipe);
+
 // Favorite
 router.post("/recipes/:id/favorite", favoriteControllers.add);
 router.delete(
