@@ -62,11 +62,11 @@ CREATE TABLE comment (
 DROP TABLE IF EXISTS favorite;
 CREATE TABLE favorite (
   id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-  isFavorite bool,
-  userF_id INT,
-  recipeF_id INT,
-  CONSTRAINT userF_id FOREIGN KEY (userF_id) REFERENCES user(id),
-  CONSTRAINT recipeF_id FOREIGN KEY (recipeF_id) REFERENCES recipe(id)
+  userFid INT,
+  recipeFid INT,
+  UNIQUE KEY userFidRecipeFid (userFid, recipeFid),
+  CONSTRAINT userFid FOREIGN KEY (userFid) REFERENCES user(id),
+  CONSTRAINT recipeFid FOREIGN KEY (recipeFid) REFERENCES recipe(id)
 );
 
 DROP TABLE IF EXISTS instruction;
