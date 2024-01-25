@@ -8,6 +8,9 @@ import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { Checkbox } from "@mui/material";
+import ConditionsGenerales from "../conditionsGenerales/ConditionsGenerales";
+import styles from "./InscriptionComponent.module.css";
 
 const defaultTheme = createTheme();
 
@@ -37,6 +40,8 @@ export default function InscriptionComponent() {
   const [firstname, setFirstName] = useState("");
   const [lastname, setLastName] = useState("");
   const [email, setEmail] = useState("");
+  const [checked, setChecked] = useState(false);
+  const [available, setAvailable] = useState(false);
 
   const [isValid, setIsValid] = useState(validationRules.map(() => false));
 
@@ -58,6 +63,11 @@ export default function InscriptionComponent() {
     setEmail(e.target.value);
   };
 
+  const handleCheck = () => {
+    setChecked(!checked);
+    setAvailable(!checked);
+  };
+
   const handlePasswordChange = (event) => {
     const newPassword = event.target.value;
     setPassword(newPassword);
@@ -75,7 +85,7 @@ export default function InscriptionComponent() {
   const handleConfirmPassword = (event) => {
     setConfirmPassword(event.target.value);
   };
-  const matchingPassword = password === confirmPassword;
+  // const matchingPassword = password === confirmPassword;
   const handleSubmit = async (event) => {
     event.preventDefault();
     // Ajoutez le code pour la soumission du formulaire ici
@@ -225,13 +235,17 @@ export default function InscriptionComponent() {
                   </li>
                 ))}
               </ul>
+              <div className={styles.positionCheckbox}>
+                <Checkbox checked={checked} onChange={handleCheck} />
+                <ConditionsGenerales />
+              </div>
               <Button
                 type="submit"
                 fullWidth
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
                 onClick={handleSubmit}
-                disabled={null || !matchingPassword}
+                disabled={null || !available}
               >
                 S'inscrire
               </Button>
