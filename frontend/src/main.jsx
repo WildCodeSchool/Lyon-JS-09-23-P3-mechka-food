@@ -13,6 +13,7 @@ import CategoryById from "./components/category/CategoryById";
 import RegisterPage from "./pages/registerPage/RegisterPage";
 import Login from "./pages/login/login";
 import AdminPagePrincipal from "./pages/adminPage/AdminPagePrincipal";
+import AddRecipeForm from "./components/addRecipe/AddRecipeForm";
 
 const router = createBrowserRouter([
   {
@@ -51,6 +52,8 @@ const router = createBrowserRouter([
   {
     path: "/admin",
     element: <AdminPagePrincipal />,
+    path: "/recipes/add",
+    element: <AddRecipeForm />,
   },
 ]);
 
