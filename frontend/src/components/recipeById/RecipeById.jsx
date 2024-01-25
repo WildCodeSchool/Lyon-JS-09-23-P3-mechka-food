@@ -39,9 +39,8 @@ export default function RecipeById() {
       );
       if (response.status === 201) {
         handleChangeFavorite();
-        console.info("AJOUT FAVORIS OK...");
       } else {
-        console.error("FAILED add !!!!!!!!!!!!!:", response);
+        console.error(`failed add to favorite, status ${response.status}`);
       }
     } catch (err) {
       console.error("Error posting favorite:", err);
@@ -64,9 +63,8 @@ export default function RecipeById() {
       );
       if (response.status === 201) {
         handleChangeFavorite();
-        console.info("FAVORIS SUPPRIMÉ !");
       } else {
-        console.error("FAILED delete !!!!!!!!!!!!!:", response);
+        console.error(`failed delete to favorite, status ${response.status}`);
       }
     } catch (err) {
       console.error("Error posting favorite:", err);
