@@ -18,6 +18,7 @@ import styles from "./AddRecipeForm.module.css";
 import RecipeForm from "./RecipeForm";
 import InstructionsForm from "./InstructionsForm";
 import IngredientsForm from "./IngredientsForm";
+import CategoriesSelect from "./CategoriesSelect";
 
 const defaultTheme = createTheme();
 
@@ -48,8 +49,8 @@ export default function AddRecipeForm() {
   ]);
   const [timeCook, settimeCook] = useState("");
   const [isSuccess, setIsSucces] = useState(false);
-  // const [unit, setUnit] = useState("");
-  // const [quantity, setQuantity] = useState(0);
+  const [categories, setCategories] = useState([]);
+  const [userCategorieId, setUserCategoriesId] = useState(0);
 
   const MaxLengthTitleIngredients = 50;
   const MaxLengthDescriptionInstructions = 250;
@@ -71,6 +72,24 @@ export default function AddRecipeForm() {
     fetchData();
   }, []);
 
+  // Get all categories from our database (need for select options);
+
+  useEffect(() => {
+    const fetchDataCategorie = async () => {
+      try {
+        const response = await fetch(
+          `${import.meta.env.VITE_BACKEND_URL}/api/category`
+        );
+        const data = await response.json();
+
+        setCategories(data);
+      } catch (err) {
+        console.error(err);
+      }
+    };
+    fetchDataCategorie();
+  }, []);
+
   // Request POST from body frontend to back-end
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -88,6 +107,7 @@ export default function AddRecipeForm() {
               numberPersons: persons,
               instructions,
               userIngredients,
+              userCategorieId,
             }),
           }
         );
@@ -200,6 +220,11 @@ export default function AddRecipeForm() {
                     <MenuItem value={8}>8</MenuItem>
                   </Select>
                 </FormControl>
+                <CategoriesSelect
+                  categories={categories}
+                  setUserCategoryId={setUserCategoriesId}
+                  userCategoryId={userCategorieId}
+                />
                 <Button
                   sx={{ background: "#FAE078", color: "black" }}
                   component="label"
