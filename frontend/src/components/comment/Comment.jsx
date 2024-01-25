@@ -9,7 +9,7 @@ import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import CommentsByIdRecipe from "./commentsByIdRecipe";
-import ModalConnectezVous from "../modal/ModalConnectezVous";
+import ConnectionVerification from "../modal/ConnectionVerification";
 
 const defaultTheme = createTheme();
 
@@ -121,7 +121,7 @@ export default function Comment() {
               </Button>
             </Box>
           ) : (
-            <ModalConnectezVous />
+            <ConnectionVerification />
           )}
         </Grid>
         <Grid
