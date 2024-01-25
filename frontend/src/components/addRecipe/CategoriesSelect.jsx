@@ -23,7 +23,11 @@ export default function CategoriesSelect({
         onChange={handleChangeCategory}
       >
         {categories.map((category) => {
-          return <MenuItem value={category.id}>{category.name}</MenuItem>;
+          return (
+            <MenuItem key={category.id} value={category.id}>
+              {category.name}
+            </MenuItem>
+          );
         })}
       </Select>
     </FormControl>
@@ -33,5 +37,6 @@ export default function CategoriesSelect({
 CategoriesSelect.propTypes = {
   categories: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
   setUserCategoryId: PropTypes.func.isRequired,
-  userCategoryId: PropTypes.number.isRequired,
+  userCategoryId: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+    .isRequired,
 };
