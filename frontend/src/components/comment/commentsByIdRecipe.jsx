@@ -5,6 +5,7 @@ import Paper from "@mui/material/Paper";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { TextField } from "@mui/material";
 
 const defaultTheme = createTheme();
 
@@ -15,18 +16,18 @@ export default function CommentsByIdRecipe() {
   useEffect(() => {
     fetch(`${import.meta.env.VITE_BACKEND_URL}/api/recipes/${id}/comment`)
       .then((response) => response.json())
-      .then((data) => setComments(data));
+      .then((data) => {
+        setComments(data);
+      });
   }, [id]);
 
   return (
     <ThemeProvider theme={defaultTheme}>
-      <Grid item xs={12} sm={8} md={5} component={Paper} elevation={0} square>
+      <Grid item xs={10} sm={8} md={5} component={Paper} elevation={0} square>
         <CssBaseline />
         <section>
           <Box
             sx={{
-              my: 8,
-              mx: 4,
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
@@ -34,10 +35,12 @@ export default function CommentsByIdRecipe() {
           >
             {comments !== null &&
               comments.map((comment) => (
-                <div key={comment.id}>
-                  <p>{comment.username}</p>
-                  <p>{comment.comment}</p>
-                </div>
+                <TextField
+                  fullWidth
+                  margin="normal"
+                  key={comment.id}
+                  value={JSON.stringify(comment.comment).replace(/["']/g, "")}
+                />
               ))}
           </Box>
         </section>
