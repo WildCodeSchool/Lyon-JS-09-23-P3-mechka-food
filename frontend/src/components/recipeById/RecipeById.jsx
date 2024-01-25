@@ -4,7 +4,7 @@ import RecipeInformations from "./informationsRecipe/RecipeInformations";
 import IngredientByRecipe from "./ingredients/IngredientByRecipe";
 import InstructionByRecipe from "./instructions/InstructionByRecipe";
 import styles from "./RecipeById.module.css";
-import ModalConnectezVous from "../modal/ModalConnectezVous";
+import ConnectionVerification from "../modal/ConnectionVerification";
 
 export default function RecipeById() {
   const [recipes, setRecipes] = useState(null);
@@ -78,7 +78,7 @@ export default function RecipeById() {
         {userId === 1 ? (
           <button type="button">test</button>
         ) : (
-          <ModalConnectezVous />
+          <ConnectionVerification />
         )}
         {!isFavorite ? (
           <svg
