@@ -41,7 +41,6 @@ export default function AdminUserCard({
 }
 
 AdminUserCard.propTypes = {
-  //   id: PropTypes.number.isRequired,
   username: PropTypes.string.isRequired,
   firstname: PropTypes.string.isRequired,
   lastname: PropTypes.string.isRequired,

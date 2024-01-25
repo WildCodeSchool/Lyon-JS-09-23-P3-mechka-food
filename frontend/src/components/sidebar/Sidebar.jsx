@@ -52,6 +52,10 @@ export default function Sidebar() {
           <span className={styles.navtext}>Profil</span>
         </Link>
 
+        <Link className={styles.link} to="/admin">
+          <span className={styles.navtext}>Administareur</span>
+        </Link>
+
         <Link className={styles.link} to="/">
           <span className={styles.navtext}>À propos de nous</span>
         </Link>
