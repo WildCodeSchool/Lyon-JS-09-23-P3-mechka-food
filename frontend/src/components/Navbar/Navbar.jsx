@@ -21,7 +21,7 @@ export default function Navbar() {
           </Link>
         </li>
         <li>
-          <Link to="/">
+          <Link to="/recipes/add">
             <img className={styles.naviconplus} src={plus} alt="icon plus" />
           </Link>
         </li>
