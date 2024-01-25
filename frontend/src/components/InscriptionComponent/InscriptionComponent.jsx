@@ -85,7 +85,6 @@ export default function InscriptionComponent() {
   const handleConfirmPassword = (event) => {
     setConfirmPassword(event.target.value);
   };
-  // const matchingPassword = password === confirmPassword;
   const handleSubmit = async (event) => {
     event.preventDefault();
     // Ajoutez le code pour la soumission du formulaire ici
