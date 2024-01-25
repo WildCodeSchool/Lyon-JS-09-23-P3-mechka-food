@@ -1,5 +1,6 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 
@@ -15,11 +16,14 @@ const style = {
   p: 4,
 };
 
-export default function ModalConnectezVous() {
+export default function BasicModal() {
   const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+
   return (
-    <section>
+    <div>
+      <Button onClick={handleOpen}>commentaires</Button>
       <Modal
         open={open}
         onClose={handleClose}
@@ -27,14 +31,11 @@ export default function ModalConnectezVous() {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <Typography id="modal-modal-title" variant="h6" component="h2">
-            Text in a modal
-          </Typography>
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+            Connectez-vous et profitez pleinement de l'expérience.
           </Typography>
         </Box>
       </Modal>
-    </section>
+    </div>
   );
 }
