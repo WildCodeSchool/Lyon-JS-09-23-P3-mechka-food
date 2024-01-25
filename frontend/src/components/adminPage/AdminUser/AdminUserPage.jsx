@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import AdminUserCard from "./AdminUserCard";
+import styles from "./AdminUserPage.module.css";
 
 export default function AdminUserPage() {
   const [users, setUsers] = useState([]);
@@ -10,10 +11,10 @@ export default function AdminUserPage() {
   });
   return (
     <section>
-      <div>
-        <h2>Toutes les users</h2>
+      <div className={styles.containerTitle}>
+        <h2 className={styles.titleRecipeContainer}>Toutes les users</h2>
       </div>
-      <div>
+      <div className={styles.cardPosition}>
         {users.map((user) => (
           <AdminUserCard
             key={user.id}
@@ -22,7 +23,7 @@ export default function AdminUserPage() {
             firstname={user.firstname}
             lastname={user.lastname}
             email={user.email}
-            role={user.role}
+            role={user.role_id}
           />
         ))}
       </div>

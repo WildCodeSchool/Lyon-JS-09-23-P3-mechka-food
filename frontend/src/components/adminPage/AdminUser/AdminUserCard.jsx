@@ -20,19 +20,19 @@ export default function AdminUserCard({
       <CardActionArea>
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
-            {username}
+            Username: {username}
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            {firstname}
+            Firstname: {firstname}
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            {lastname}
+            Lastname: {lastname}
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            {email}
+            Email: {email}
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            {role}
+            Role: {role}
           </Typography>
         </CardContent>
       </CardActionArea>
@@ -46,5 +46,5 @@ AdminUserCard.propTypes = {
   firstname: PropTypes.string.isRequired,
   lastname: PropTypes.string.isRequired,
   email: PropTypes.string.isRequired,
-  role: PropTypes.string.isRequired,
+  role: PropTypes.number.isRequired,
 };
