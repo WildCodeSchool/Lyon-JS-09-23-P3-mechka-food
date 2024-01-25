@@ -17,6 +17,7 @@ const userControllers = require("./controllers/userControllers");
 const userMiddleware = require("./middlewares/userMiddleware");
 const authControllers = require("./controllers/authControllers");
 const loginMiddleware = require("./middlewares/loginMiddleware");
+const favoriteControllers = require("./controllers/favoriteControllers");
 const addRecipeControllers = require("./controllers/addRecipeControllers");
 const commentControllers = require("./controllers/commentControllers");
 
@@ -43,8 +44,15 @@ router.post("/user", userMiddleware, hashPassword, userControllers.add);
 // Login
 router.post("/login", loginMiddleware, authControllers.login);
 
+// Favorite
+router.post("/recipes/:id/favorite", favoriteControllers.add);
+router.delete(
+  "/recipes/:id/deleteFavorite",
+  favoriteControllers.deleteFavorite
+);
 // Add new recipe
 router.post("/recipes/add", addRecipeControllers.addRecipe);
+
 /* ************************************************************************* */
 
 // Route to add a new comment
