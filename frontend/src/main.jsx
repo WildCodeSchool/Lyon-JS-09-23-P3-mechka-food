@@ -17,6 +17,7 @@ import { UserContextProvider } from "./context/userContext";
 import AdminPagePrincipal from "./pages/adminPage/AdminPagePrincipal";
 import AddRecipeForm from "./components/addRecipe/AddRecipeForm";
 import AdminUserPage from "./components/adminPage/AdminUser/AdminUserPage";
+import AdminPage from "./components/adminPage/AdminPage";
 
 const router = createBrowserRouter([
   {
@@ -59,6 +60,10 @@ const router = createBrowserRouter([
   {
     path: "/admin",
     element: <AdminPagePrincipal />,
+  },
+  {
+    path: "/admin/recipes",
+    element: <AdminPage />,
   },
   {
     path: "/admin/users",
