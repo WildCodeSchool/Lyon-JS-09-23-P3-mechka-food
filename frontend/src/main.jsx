@@ -14,6 +14,7 @@ import RegisterPage from "./pages/registerPage/RegisterPage";
 import Login from "./pages/login/login";
 import AdminPagePrincipal from "./pages/adminPage/AdminPagePrincipal";
 import AddRecipeForm from "./components/addRecipe/AddRecipeForm";
+import AdminUserPage from "./components/adminPage/AdminUser/AdminUserPage";
 
 const router = createBrowserRouter([
   {
@@ -52,6 +53,10 @@ const router = createBrowserRouter([
   {
     path: "/admin",
     element: <AdminPagePrincipal />,
+  },
+  {
+    path: "/admin/users",
+    element: <AdminUserPage />,
   },
   {
     path: "/recipes/add",
