@@ -34,6 +34,9 @@ const updateRecipe = async (req, res, next) => {
   try {
     // Insert the user into the database
 
+    const updateRecipeTable = await tables.recipe.update(dataBody, recipeId);
+    res.status(200).json(updateRecipeTable);
+
     const updateInstruction = await tables.instruction.update(
       dataBody,
       recipeId
@@ -45,9 +48,6 @@ const updateRecipe = async (req, res, next) => {
       recipeId
     );
     res.status(201).json(updateRecipeIngredient);
-
-    const updateRecipeTable = await tables.recipe.update(dataBody, recipeId);
-    res.status(200).json(updateRecipeTable);
 
     // Respond with HTTP 201 (Created) and the ID of the newly inserted user
   } catch (err) {

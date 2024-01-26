@@ -1,51 +1,62 @@
-// const tables = require("../tables");
+const tables = require("../tables");
 
-// const updateRecipe = async (req, res, next) => {
-//   try {
-//     const {
-//       title,
-//       descriptions,
-//       instructions,
-//       userIngredients,
-//       globalTime,
-//       numberPersons,
-//       imageUrl,
-//     } = req.body;
+const updateRecipe = async (req, res, next) => {
+  try {
+    const {
+      title,
+      descriptions,
+      instruction,
+      recipeIngredient,
+      globalTime,
+      numberPersons,
+      imageUrl,
+    } = req.body;
 
-//     // Post data to table recipe
-//     const recipe = await tables.recipe.create({
-//       title,
-//       descriptions,
-//       globalTime,
-//       numberPersons,
-//       imageUrl,
-//     }); // => { id: '1', image: ..., description: '', 'title' }
+    const recipeId = req.params.id;
 
-//     // Post data into table instructions (one recipe has multiply instructions)
-//     const instructionDocs = await Promise.all(
-//       instructions.map((instruction) =>
-//         tables.instruction.create(instruction.step, recipe)
-//       )
-//     ); // => [{id: '1', ...}, {id: '2', ...}, {id: '3'}]
+    // Post data to table recipe
+    await tables.recipe.update({
+      title,
+      descriptions,
+      globalTime,
+      numberPersons,
+      imageUrl,
+      recipeId,
+    }); // => { id: '1', image: ..., description: '', 'title' }
 
-//     // Post data into table recipeIngredient (one recipe has multiply ingredients)
-//     const recipeIngredientDocs = await Promise.all(
-//       userIngredients.map((ingredient) =>
-//         tables.recipeIngredient.create(ingredient, recipe)
-//       )
-//     ); // => [{id: '1', ...}, {id: '2', ...}, {id: '3'}]
+    // Post data into table instructions (one recipe has multiply instructions)
+    await Promise.all(
+      instruction.map((instructions) =>
+        tables.instruction.update(
+          instructions.step,
+          instructions.INid,
+          recipeId
+        )
+      )
+    ); // => [{id: '1', ...}, {id: '2', ...}, {id: '3'}]
 
-//     const result = {
-//       recipe,
-//       instructionDocs,
-//       recipeIngredientDocs,
-//     };
-//     res.status(201).json(result);
-//   } catch (err) {
-//     next(err);
-//   }
-// };
+    // Post data into table recipeIngredient (one recipe has multiply ingredients)
+    await Promise.all(
+      recipeIngredient.map((recipeIngredients) =>
+        tables.recipeIngredient.update(
+          recipeIngredients.quantity,
+          recipeIngredients.unit,
+          recipeIngredients.RIid
+        )
+      )
+    ); // => [{id: '1', ...}, {id: '2', ...}, {id: '3'}]
 
-// module.exports = {
-//   updateRecipe,
-// };
+    // const result = {
+    //   recipe,
+    //   instructionUpdate,
+    //   recipeIngredientUpdate,
+    // };
+    res.status(204);
+  } catch (err) {
+    next(err);
+  }
+};
+
+module.exports = {
+  updateRecipe,
+};

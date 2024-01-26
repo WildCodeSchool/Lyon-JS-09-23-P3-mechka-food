@@ -21,6 +21,7 @@ const favoriteControllers = require("./controllers/favoriteControllers");
 const addRecipeControllers = require("./controllers/addRecipeControllers");
 const commentControllers = require("./controllers/commentControllers");
 const adminControllers = require("./controllers/adminControllers");
+const updateRecipeControllers = require("./controllers/updateRecipeControllers");
 
 // Route to get a list of items
 router.get("/items", itemControllers.browse);
@@ -58,7 +59,7 @@ router.post("/recipes/add", addRecipeControllers.addRecipe);
 router.delete("/admin/recipes/:id/delete", adminControllers.deleteRecipe);
 
 // Admin update recipe
-router.put("/admin/recipes/:id/update", adminControllers.updateRecipe);
+router.put("/recipes/:id/update", updateRecipeControllers.updateRecipe);
 
 /* ************************************************************************* */
 

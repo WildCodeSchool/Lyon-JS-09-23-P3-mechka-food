@@ -8,12 +8,34 @@ import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
 
 export default function AdminCard({ image, title, id, description }) {
+  const handleDelete = async (event) => {
+    event.preventDefault();
+
+    try {
+      const response = await fetch(
+        `${import.meta.env.VITE_BACKEND_URL}/api/admin/recipes/${id}/delete`,
+        {
+          method: "delete",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ id }),
+        }
+      );
+      if (response.status === 201) {
+        console.info("Recipe deleted.");
+      } else {
+        console.error(`failed deleting instruction, status ${response.status}`);
+      }
+    } catch (err) {
+      console.error("Error posting instruction:", err);
+    }
+  };
+
   return (
     <Card sx={{ maxWidth: 345, marginBottom: 5, boxShadow: 5 }}>
       <Button sx={{ margin: 3 }} variant="outlined">
         Modifier
       </Button>
-      <Button sx={{ margin: 3 }} variant="outlined">
+      <Button sx={{ margin: 3 }} variant="outlined" onClick={handleDelete}>
         Supprimer
       </Button>
       <CardActionArea>

@@ -38,10 +38,11 @@ class InstructionManager extends AbstractManager {
 
   async update(instruction, recipeId) {
     // Execute the SQL INSERT query to add a new user to the "user" table
-    await this.database.query(
+    const [result] = await this.database.query(
       `UPDATE ${this.table} SET step=? WHERE id=? and recipeStep_id=?`,
-      [instruction.step, instruction.id, recipeId]
+      [instruction.step, instruction.INid, recipeId]
     );
+    return result;
   }
 }
 

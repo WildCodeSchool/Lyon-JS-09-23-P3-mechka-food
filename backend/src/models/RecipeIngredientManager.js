@@ -24,11 +24,16 @@ class RecipeIngredientManager extends AbstractManager {
   }
 
   async update(recipeIngredient, recipeId) {
-    // Execute the SQL INSERT query to add a new user to the "user" table
-    await this.database.query(
-      `UPDATE ${this.table} SET quantity=?, unit=? WHERE id=? AND recipe_id=?`,
-      [recipeIngredient.quantity, recipeIngredient.unit, recipeId]
+    const [result] = await this.database.query(
+      `UPDATE ${this.table} SET quantity=?, unit=? WHERE ${this.table}.id=? AND recipe_id=?`,
+      [
+        recipeIngredient.quantity,
+        recipeIngredient.unit,
+        recipeIngredient.RIid,
+        recipeId,
+      ]
     );
+    return result;
   }
 }
 
