@@ -11,7 +11,9 @@ class UserManager extends AbstractManager {
 
   async readAllUsers() {
     // Execute the SQL SELECT query to retrieve all users from the "user" table
-    const [rows] = await this.database.query(`select * from ${this.table}`);
+    const [rows] = await this.database.query(
+      `select username, firstname, lastname, email, role_id from ${this.table}`
+    );
 
     // Return the array of users
     return rows;
