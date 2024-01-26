@@ -13,8 +13,8 @@ export default function AdminUserCard({
   email,
   role,
 }) {
-  const handelDeleteUser = (uid) => {
-    fetch(`http://localhost:3310/api/user/${uid}`, {
+  const handelDeleteUser = (id) => {
+    fetch(`http://localhost:3310/api/user/${id}`, {
       method: "DELETE",
     })
       .then((response) => response.json())
