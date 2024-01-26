@@ -9,9 +9,12 @@ const addRecipe = async (req, res, next) => {
       userIngredients,
       globalTime,
       numberPersons,
-      imageUrl,
+      // imageUrl,
     } = req.body;
 
+    const imageUrl = req.file
+      ? `${req.protocol}://${req.get("host")}/images/${req.file.filename}`
+      : req.body.imageUrl;
     // Post data to table recipe
     const recipe = await tables.recipe.create({
       title,

@@ -20,6 +20,7 @@ const loginMiddleware = require("./middlewares/loginMiddleware");
 const favoriteControllers = require("./controllers/favoriteControllers");
 const addRecipeControllers = require("./controllers/addRecipeControllers");
 const commentControllers = require("./controllers/commentControllers");
+const multer = require("./middlewares/multerMiddleware");
 
 // Route to get a list of items
 router.get("/items", itemControllers.browse);
@@ -48,7 +49,7 @@ router.post("/login", loginMiddleware, authControllers.login);
 router.get("/logout", authControllers.logout);
 
 // Add new recipe
-router.post("/recipes/add", addRecipeControllers.addRecipe);
+router.post("/recipes/add", multer, addRecipeControllers.addRecipe);
 
 // Favorite
 router.post("/recipes/:id/favorite", favoriteControllers.add);

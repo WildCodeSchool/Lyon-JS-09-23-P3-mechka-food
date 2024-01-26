@@ -2,6 +2,7 @@
 
 const express = require("express");
 const cors = require("cors");
+const path = require("path");
 
 const app = express();
 
@@ -85,6 +86,7 @@ const router = require("./router");
 
 // Mount the API routes under the "/api" endpoint
 app.use("/api", router);
+app.use("/images", express.static(path.join(__dirname, "images")));
 
 /* ************************************************************************* */
 

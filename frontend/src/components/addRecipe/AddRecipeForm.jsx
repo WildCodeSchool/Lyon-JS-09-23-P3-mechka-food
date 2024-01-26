@@ -8,12 +8,12 @@ import Alert from "@mui/material/Alert";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
-import { createTheme, ThemeProvider, styled } from "@mui/material/styles";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Select from "@mui/material/Select";
 import FormControl from "@mui/material/FormControl";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
-import CloudUploadIcon from "@mui/icons-material/CloudUpload";
+// import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 import styles from "./AddRecipeForm.module.css";
 import RecipeForm from "./RecipeForm";
 import InstructionsForm from "./InstructionsForm";
@@ -22,17 +22,17 @@ import CategoriesSelect from "./CategoriesSelect";
 
 const defaultTheme = createTheme();
 
-const VisuallyHiddenInput = styled("input")({
-  clip: "rect(0 0 0 0)",
-  clipPath: "inset(50%)",
-  height: 1,
-  overflow: "hidden",
-  position: "absolute",
-  bottom: 0,
-  left: 0,
-  whiteSpace: "nowrap",
-  width: 1,
-});
+// const VisuallyHiddenInput = styled("input")({
+//   clip: "rect(0 0 0 0)",
+//   clipPath: "inset(50%)",
+//   height: 1,
+//   overflow: "hidden",
+//   position: "absolute",
+//   bottom: 0,
+//   left: 0,
+//   whiteSpace: "nowrap",
+//   width: 1,
+// });
 
 export default function AddRecipeForm() {
   const [persons, setPersons] = useState("");
@@ -171,13 +171,11 @@ export default function AddRecipeForm() {
                   description={descriptions}
                   setDescription={setDescription}
                 />
-
                 <InstructionsForm
                   maxLength={MaxLengthDescriptionInstructions}
                   instructions={instructions}
                   setInstructions={setInstructions}
                 />
-
                 <div className={styles.containerIng}>
                   <IngredientsForm
                     className={styles.ingredientInput}
@@ -224,15 +222,16 @@ export default function AddRecipeForm() {
                   setUserCategoryId={setUserCategoryId}
                   userCategoryId={userCategorieId}
                 />
-                <Button
+                {/* <Button
                   sx={{ background: "#FAE078", color: "black" }}
                   component="label"
                   variant="contained"
                   startIcon={<CloudUploadIcon />}
-                >
-                  Upload file
-                  <VisuallyHiddenInput type="file" />
-                </Button>
+                > */}
+                Upload file
+                {/* <VisuallyHiddenInput name="recipeImage" type="file" /> */}
+                <input name="recipeImage" type="file" />
+                {/* </Button> */}
                 <Button
                   type="submit"
                   fullWidth
