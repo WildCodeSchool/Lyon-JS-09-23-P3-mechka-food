@@ -40,6 +40,7 @@ router.post("/items", itemControllers.add);
 
 // Route to add a new user
 router.post("/user", userMiddleware, hashPassword, userControllers.add);
+router.get("/user", userControllers.browse);
 
 // Login
 router.post("/login", loginMiddleware, authControllers.login);

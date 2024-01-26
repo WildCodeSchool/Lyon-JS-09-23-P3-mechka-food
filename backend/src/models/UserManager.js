@@ -9,6 +9,16 @@ class UserManager extends AbstractManager {
 
   // The C of CRUD - Create operation
 
+  async readAllUsers() {
+    // Execute the SQL SELECT query to retrieve all users from the "user" table
+    const [rows] = await this.database.query(
+      `select username, firstname, lastname, email, role_id from ${this.table}`
+    );
+
+    // Return the array of users
+    return rows;
+  }
+
   async create(user) {
     // Execute the SQL INSERT query to add a new user to the "user" table
     const [result] = await this.database.query(
