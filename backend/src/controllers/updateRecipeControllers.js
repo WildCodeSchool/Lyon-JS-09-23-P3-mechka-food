@@ -22,7 +22,7 @@ const updateRecipe = async (req, res, next) => {
       numberPersons,
       imageUrl,
       recipeId,
-    }); // => { id: '1', image: ..., description: '', 'title' }
+    }); // => { id: '1', image: ..., description: '', 'title' } OK
 
     // Post data into table instructions (one recipe has multiply instructions)
     await Promise.all(
