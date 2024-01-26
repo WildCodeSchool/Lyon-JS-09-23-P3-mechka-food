@@ -41,6 +41,7 @@ router.post("/items", itemControllers.add);
 // Route to add a new user
 router.post("/user", userMiddleware, hashPassword, userControllers.add);
 router.get("/user", userControllers.browse);
+router.delete("/user/:id", userControllers.deleteById);
 
 // Login
 router.post("/login", loginMiddleware, authControllers.login);

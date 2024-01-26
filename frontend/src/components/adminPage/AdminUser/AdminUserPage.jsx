@@ -24,6 +24,7 @@ export default function AdminUserPage() {
             lastname={user.lastname}
             email={user.email}
             role={user.role_id}
+            userid={user.id}
           />
         ))}
       </div>
