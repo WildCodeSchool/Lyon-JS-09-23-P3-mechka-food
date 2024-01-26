@@ -49,9 +49,6 @@ router.post("/login", loginMiddleware, authControllers.login);
 // Logout
 router.get("/logout", authControllers.logout);
 
-// Add new recipe
-router.post("/recipes/add", multer, addRecipeControllers.addRecipe);
-
 // Favorite
 router.post("/recipes/:id/favorite", favoriteControllers.add);
 router.delete(
@@ -59,7 +56,7 @@ router.delete(
   favoriteControllers.deleteFavorite
 );
 // Add new recipe
-router.post("/recipes/add", addRecipeControllers.addRecipe);
+router.post("/recipes/add", multer, addRecipeControllers.addRecipe);
 
 /* ************************************************************************* */
 

@@ -51,6 +51,7 @@ export default function AddRecipeForm() {
   const [isSuccess, setIsSucces] = useState(false);
   const [categories, setCategories] = useState([]);
   const [userCategorieId, setUserCategoryId] = useState("");
+  const [image, setImage] = useState();
 
   const MaxLengthTitleIngredients = 50;
   const MaxLengthDescriptionInstructions = 250;
@@ -90,26 +91,65 @@ export default function AddRecipeForm() {
   }, []);
 
   // Request POST from body frontend to back-end
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   const postData = async () => {
+  //     try {
+  //       const response = await fetch(
+  //         `${import.meta.env.VITE_BACKEND_URL}/api/recipes/add`,
+  //         {
+  //           method: "post",
+  //           headers: { "Content-Type": "application/json" },
+  //           body: JSON.stringify({
+  //             title,
+  //             descriptions,
+  //             globalTime: timeCook,
+  //             numberPersons: persons,
+  //             instructions,
+  //             userIngredients,
+  //             userCategorieId,
+  //             image,
+  //           }),
+  //         }
+  //       );
+  //       if (response.status === 201) {
+  //         setIsSucces(true);
+  //       } else {
+  //         console.info(response);
+  //       }
+  //     } catch (err) {
+  //       console.error(err);
+  //     }
+  //   };
+
+  //   postData();
+  // };
+  // Temps de préparation
+
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    const formData = new FormData();
+    formData.append("title", title);
+    formData.append("descriptions", descriptions);
+    formData.append("globalTime", timeCook);
+    formData.append("numberPersons", persons);
+    formData.append("instructions", JSON.stringify(instructions));
+    formData.append("userIngredients", JSON.stringify(userIngredients));
+    formData.append("userCategorieId", userCategorieId);
+    formData.append("recipeimage", image.get("recipeimage")); // Assuming "image" is the key for your image field
+
     const postData = async () => {
       try {
         const response = await fetch(
           `${import.meta.env.VITE_BACKEND_URL}/api/recipes/add`,
           {
             method: "post",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-              title,
-              descriptions,
-              globalTime: timeCook,
-              numberPersons: persons,
-              instructions,
-              userIngredients,
-              userCategorieId,
-            }),
+            // headers: { "Content-Type": "application/json" },
+            body: formData,
           }
         );
+
         if (response.status === 201) {
           setIsSucces(true);
         } else {
@@ -122,7 +162,6 @@ export default function AddRecipeForm() {
 
     postData();
   };
-  // Temps de préparation
 
   const handleChangeCookTime = (e) => {
     if (e.target.value.length <= MaxLengthTitleIngredients) {
@@ -132,6 +171,16 @@ export default function AddRecipeForm() {
 
   const handleChange = (event) => {
     setPersons(event.target.value);
+  };
+
+  const handleImage = (event) => {
+    const formData = new FormData();
+    formData.append(
+      "recipeimage",
+      event.target.files[0],
+      event.target.files[0].name
+    );
+    setImage(formData);
   };
 
   return (
@@ -162,6 +211,7 @@ export default function AddRecipeForm() {
                 onSubmit={handleSubmit}
                 noValidate
                 sx={{ mt: 1 }}
+                encType="multipart/form-data"
               >
                 <RecipeForm
                   maxTitle={MaxLengthTitleIngredients}
@@ -230,7 +280,7 @@ export default function AddRecipeForm() {
                 > */}
                 Upload file
                 {/* <VisuallyHiddenInput name="recipeImage" type="file" /> */}
-                <input name="recipeImage" type="file" />
+                <input name="recipeimage" type="file" onChange={handleImage} />
                 {/* </Button> */}
                 <Button
                   type="submit"

@@ -9,37 +9,42 @@ const addRecipe = async (req, res, next) => {
       userIngredients,
       globalTime,
       numberPersons,
-      // imageUrl,
+      // recipeimage,
     } = req.body;
 
-    const imageUrl = req.file
-      ? `${req.protocol}://${req.get("host")}/images/${req.file.filename}`
-      : req.body.imageUrl;
+    // console.log(req.file);
+    const dest = req.file.destination.split("public")[1];
+    const imageName = req.file.filename;
+    // console.log("debut controller");
+    // console.log(dest + "/" + imageName);
+    // const imageUrl = req.file
+    //   ? `${req.protocol}://${req.get("host")}/images/${req.file.filename}`
+    //   : req.body.imageUrl;
     // Post data to table recipe
-    const recipe = await tables.recipe.create({
+    const recipeId = await tables.recipe.create({
       title,
       descriptions,
       globalTime,
       numberPersons,
-      imageUrl,
+      recipeimage: `${dest}/${imageName}`,
     }); // => { id: '1', image: ..., description: '', 'title' }
 
     // Post data into table instructions (one recipe has multiply instructions)
     const instructionDocs = await Promise.all(
-      instructions.map((instruction) =>
-        tables.instruction.create(instruction.step, recipe)
+      JSON.parse(instructions).map((instruction) =>
+        tables.instruction.create(instruction.step, recipeId)
       )
     ); // => [{id: '1', ...}, {id: '2', ...}, {id: '3'}]
 
     // Post data into table recipeIngredient (one recipe has multiply ingredients)
     const recipeIngredientDocs = await Promise.all(
-      userIngredients.map((ingredient) =>
-        tables.recipeIngredient.create(ingredient, recipe)
+      JSON.parse(userIngredients).map((ingredient) =>
+        tables.recipeIngredient.create(ingredient, recipeId)
       )
     ); // => [{id: '1', ...}, {id: '2', ...}, {id: '3'}]
 
     const result = {
-      recipe,
+      recipeId,
       instructionDocs,
       recipeIngredientDocs,
     };
