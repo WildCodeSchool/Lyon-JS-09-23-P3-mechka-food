@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import Typography from "@mui/material/Typography";
 import AdminCard from "./AdminCard";
 import styles from "./AdminPage.module.css";
 
@@ -12,7 +13,20 @@ export default function RecipeContainer() {
   return (
     <section>
       <div className={styles.containerTitle}>
-        <h2 className={styles.titleRecipeContainer}>Toutes les recettes</h2>
+        <Typography
+          variant="h4"
+          component="h5"
+          sx={{
+            backgroundColor: "#ffc107",
+            borderRadius: "5px",
+            width: "20rem",
+            color: "whitesmoke",
+            display: "flex",
+            justifyContent: "center",
+          }}
+        >
+          Toutes les recettes
+        </Typography>
       </div>
       <div className={styles.cardPosition}>
         {recipes.map((recipe) => (

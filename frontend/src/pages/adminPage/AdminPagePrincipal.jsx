@@ -45,7 +45,10 @@ function AdminPagePrincipal() {
           }}
         >
           <Button
-            sx={{ backgroundColor: "#ffc107" }}
+            sx={{
+              backgroundColor: "#fae078",
+              ":hover": { backgroundColor: "#ffc107" },
+            }}
             variant="contained"
             onClick={() => setSelectedSection("recipes")}
           >
@@ -61,7 +64,10 @@ function AdminPagePrincipal() {
           }}
         >
           <Button
-            sx={{ backgroundColor: "#ffc107" }}
+            sx={{
+              backgroundColor: "#fae078",
+              ":hover": { backgroundColor: "#ffc107" },
+            }}
             variant="contained"
             onClick={() => setSelectedSection("users")}
           >
