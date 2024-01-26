@@ -43,6 +43,28 @@ class RecipeManager extends AbstractManager {
     // Return the first row of the result, which represents the item
     return rows[0];
   }
+
+  async delete(recipeId) {
+    // Execute the SQL INSERT query to add a new user to the "user" table
+    await this.database.query(`delete from ${this.table} where id=?`, [
+      recipeId,
+    ]);
+  }
+
+  async update(recipe, recipeId) {
+    // Execute the SQL INSERT query to add a new user to the "user" table
+    await this.database.query(
+      `UPDATE ${this.table} SET title=?, descriptions=?, global_time=?, number_persons=?, image_url=? WHERE recipe.id=?`,
+      [
+        recipe.title,
+        recipe.descriptions,
+        recipe.global_time,
+        recipe.number_persons,
+        recipe.image_url,
+        recipeId,
+      ]
+    );
+  }
 }
 
 module.exports = RecipeManager;

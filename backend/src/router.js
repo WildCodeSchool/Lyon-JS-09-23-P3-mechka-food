@@ -20,6 +20,7 @@ const loginMiddleware = require("./middlewares/loginMiddleware");
 const favoriteControllers = require("./controllers/favoriteControllers");
 const addRecipeControllers = require("./controllers/addRecipeControllers");
 const commentControllers = require("./controllers/commentControllers");
+const adminControllers = require("./controllers/adminControllers");
 
 // Route to get a list of items
 router.get("/items", itemControllers.browse);
@@ -52,6 +53,12 @@ router.delete(
 );
 // Add new recipe
 router.post("/recipes/add", addRecipeControllers.addRecipe);
+
+// Admin delete recipe
+router.delete("/admin/recipes/:id/delete", adminControllers.deleteRecipe);
+
+// Admin update recipe
+router.put("/admin/recipes/:id/update", adminControllers.updateRecipe);
 
 /* ************************************************************************* */
 
