@@ -26,7 +26,7 @@ const addRecipe = async (req, res, next) => {
       descriptions,
       globalTime,
       numberPersons,
-      recipeimage: `${dest}/${imageName}`,
+      imageUrl: `${dest}/${imageName}`,
     }); // => { id: '1', image: ..., description: '', 'title' }
 
     // Post data into table instructions (one recipe has multiply instructions)
