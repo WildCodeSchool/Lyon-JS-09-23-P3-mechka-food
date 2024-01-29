@@ -78,6 +78,7 @@ export default function IngredientsForm({
               // eslint-disable-next-line react/jsx-props-no-spreading
               <TextField {...params} label="Ingredient" />
             )}
+            value={userIngredient}
           />
         </div>
       ))}

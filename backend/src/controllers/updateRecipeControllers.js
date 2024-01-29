@@ -5,8 +5,8 @@ const updateRecipe = async (req, res, next) => {
     const {
       title,
       descriptions,
-      instruction,
-      recipeIngredient,
+      instructions,
+      userIngredients,
       globalTime,
       numberPersons,
       imageUrl,
@@ -26,12 +26,14 @@ const updateRecipe = async (req, res, next) => {
 
     // uPDATE data into table instructions (one recipe has multiply instructions)
     await Promise.all(
-      instruction.map((element) => tables.instruction.update(element, recipeId))
+      instructions.map((element) =>
+        tables.instruction.update(element, recipeId)
+      )
     ); // => [{id: '1', ...}, {id: '2', ...}, {id: '3'}]
 
     // uPDATE data into table recipeIngredient (one recipe has multiply ingredients)
     await Promise.all(
-      recipeIngredient.map((ingredient) =>
+      userIngredients.map((ingredient) =>
         tables.recipeIngredient.update(ingredient, recipeId)
       )
     );

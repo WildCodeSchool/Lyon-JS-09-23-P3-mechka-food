@@ -17,7 +17,7 @@ import MenuItem from "@mui/material/MenuItem";
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 import styles from "./UpdateRecipeForm.module.css";
 import UpdateRecipeForm from "./UpdateRecipeForm";
-import InstructionsForm from "../addRecipe/InstructionsForm";
+import UpdateInstructionsForm from "./UpdateInstructionsForm";
 import UpdateIngredientsForm from "./UpdateIngredientsForm";
 import UpdateCategoriesSelect from "./UpdateCategoriesSelect";
 
@@ -58,6 +58,24 @@ export default function UpdateForm() {
   const MaxLengthTitleIngredients = 50;
   const MaxLengthDescriptionInstructions = 250;
 
+  // AXEL Get ALL INGREDIENTS from our database (in order to have completed form)
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          `${import.meta.env.VITE_BACKEND_URL}/api/recipes/ingredients`
+        );
+        const data = await response.json();
+
+        setAllIngredients(data);
+      } catch (err) {
+        console.error(err);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   // AXEL Get RECIPE from our database (in order to have completed form)
   useEffect(() => {
     const fetchData = async () => {
@@ -75,7 +93,7 @@ export default function UpdateForm() {
     fetchData();
   }, []);
 
-  // AXEL Get INSTRUCTIONS from our database (in order to have completed form)
+  // AXEL Get SPECIFIC RECIPE INSTRUCTIONS from our database (in order to have completed form)
 
   useEffect(() => {
     const fetchData = async () => {
@@ -115,7 +133,7 @@ export default function UpdateForm() {
     fetchData();
   }, []);
 
-  // AXEL Get all categories from our database
+  // AXEL Get ALL CATEGORIES from our database
   useEffect(() => {
     const fetchDataCategories = async () => {
       try {
@@ -132,15 +150,15 @@ export default function UpdateForm() {
     fetchDataCategories();
   }, []);
 
-  // Request POST from body frontend to back-end
+  // Request UPDATE from body frontend to back-end
   const handleSubmit = (e) => {
     e.preventDefault();
     const postData = async () => {
       try {
         const response = await fetch(
-          `${import.meta.env.VITE_BACKEND_URL}/api/recipes/${recipeId}/update`,
+          `${import.meta.env.VITE_BACKEND_URL}/api/recipes/update/${recipeId}`,
           {
-            method: "post",
+            method: "put",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
               title,
@@ -215,7 +233,7 @@ export default function UpdateForm() {
                   setDescription={setDescription}
                 />
 
-                <InstructionsForm
+                <UpdateInstructionsForm
                   maxLength={MaxLengthDescriptionInstructions}
                   instructions={instructions}
                   setInstructions={setInstructions}
