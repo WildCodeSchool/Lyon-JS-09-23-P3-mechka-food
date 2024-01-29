@@ -17,7 +17,7 @@ export default function MainRecipesContainer() {
 
         if (data !== null) {
           const shuffled = [...data].sort(() => 0.5 - Math.random());
-          setRandom(shuffled.slice(0, 7));
+          setRandom(shuffled.slice(0, 5));
         }
       } catch (err) {
         console.error(err);
@@ -32,11 +32,12 @@ export default function MainRecipesContainer() {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
+        padding: 3,
       }}
     >
       <ImageList
         sx={{
-          width: "100%",
+          width: "80%",
           height: "100%",
           display: "flex",
           flexWrap: "wrap",
@@ -51,7 +52,7 @@ export default function MainRecipesContainer() {
             <ImageListItem
               key={recipe.id}
               sx={{
-                width: index === 0 ? 600 : 300,
+                width: index === 0 ? 620 : 300,
                 height: index === 0 ? 650 : 300,
                 display: "flex",
                 flexWrap: "wrap",
@@ -73,7 +74,7 @@ export default function MainRecipesContainer() {
                   background:
                     "linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, " +
                     "rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)",
-                  width: index === 0 ? 600 : 300,
+                  width: index === 0 ? 620 : 300,
                 }}
                 title={recipe.title}
                 position="bottom"
