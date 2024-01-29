@@ -40,8 +40,9 @@ class InstructionManager extends AbstractManager {
     // Execute the SQL INSERT query to add a new user to the "user" table
     const [result] = await this.database.query(
       `UPDATE ${this.table} SET step=? WHERE id=? and recipeStep_id=?`,
-      [instruction.step, instruction.INid, recipeId]
+      [instruction.step, instruction.id, recipeId]
     );
+
     return result;
   }
 }

@@ -32,9 +32,12 @@ export default function AdminCard({ image, title, id, description }) {
 
   return (
     <Card sx={{ maxWidth: 345, marginBottom: 5, boxShadow: 5 }}>
-      <Button sx={{ margin: 3 }} variant="outlined">
+      <Link to={`/recipes/update/${id}`}>
+        <p>MODIFIER</p>
+      </Link>
+      {/* <Button sx={{ margin: 3 }} variant="outlined">
         Modifier
-      </Button>
+      </Button> */}
       <Button sx={{ margin: 3 }} variant="outlined" onClick={handleDelete}>
         Supprimer
       </Button>

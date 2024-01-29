@@ -14,6 +14,7 @@ import RegisterPage from "./pages/registerPage/RegisterPage";
 import Login from "./pages/login/login";
 import AdminPagePrincipal from "./pages/adminPage/AdminPagePrincipal";
 import AddRecipeForm from "./components/addRecipe/AddRecipeForm";
+import UpdateForm from "./components/updateRecipe/UpdateForm";
 
 const router = createBrowserRouter([
   {
@@ -56,6 +57,10 @@ const router = createBrowserRouter([
   {
     path: "/recipes/add",
     element: <AddRecipeForm />,
+  },
+  {
+    path: "/recipes/update/:id",
+    element: <UpdateForm />,
   },
 ]);
 
