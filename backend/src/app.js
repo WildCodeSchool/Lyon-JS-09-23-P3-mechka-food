@@ -2,6 +2,7 @@
 
 const express = require("express");
 const cors = require("cors");
+const path = require("path");
 
 const app = express();
 
@@ -50,7 +51,7 @@ app.use(
 // Uncomment one or more of these options depending on the format of the data sent by your client:
 
 app.use(express.json());
-// app.use(express.urlencoded());
+// app.use(express.urlencoded({ limit: "50mb" }));
 // app.use(express.text());
 // app.use(express.raw());
 
@@ -85,6 +86,7 @@ const router = require("./router");
 
 // Mount the API routes under the "/api" endpoint
 app.use("/api", router);
+app.use("/images", express.static(path.join(__dirname, "images")));
 
 /* ************************************************************************* */
 
