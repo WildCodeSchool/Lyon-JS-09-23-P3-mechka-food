@@ -2,11 +2,13 @@ import Header from "../Header/Header";
 import Navbar from "../Navbar/Navbar";
 import styles from "./ProfilComponent.module.css";
 import profilPicture from "../../assets/images/profilPicture.png";
+import Sidebar from "../sidebar/Sidebar";
 
 export default function ProfilComponent() {
   return (
     <>
       <Header />
+      <Sidebar />
       <div>
         <section className={styles.outline}>
           <img
