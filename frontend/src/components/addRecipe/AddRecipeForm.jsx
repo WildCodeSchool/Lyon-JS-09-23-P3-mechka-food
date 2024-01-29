@@ -20,6 +20,7 @@ import RecipeForm from "./RecipeForm";
 import InstructionsForm from "./InstructionsForm";
 import IngredientsForm from "./IngredientsForm";
 import CategoriesSelect from "./CategoriesSelect";
+import { useUserContext } from "../../context/userContext";
 
 const defaultTheme = createTheme();
 
@@ -53,6 +54,8 @@ export default function AddRecipeForm() {
   const [categories, setCategories] = useState([]);
   const [userCategorieId, setUserCategoryId] = useState("");
   const [image, setImage] = useState();
+  const user = useUserContext();
+  const [userId, setUserId] = useState();
 
   const MaxLengthTitleIngredients = 50;
   const MaxLengthDescriptionInstructions = 250;
@@ -95,12 +98,13 @@ export default function AddRecipeForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
+    setUserId(user.userData.user.id);
     const formData = new FormData();
     formData.append("title", title);
     formData.append("descriptions", descriptions);
     formData.append("globalTime", timeCook);
     formData.append("numberPersons", persons);
+    formData.append("userId", userId);
     formData.append("instructions", JSON.stringify(instructions));
     formData.append("userIngredients", JSON.stringify(userIngredients));
     formData.append("userCategorieId", userCategorieId);
