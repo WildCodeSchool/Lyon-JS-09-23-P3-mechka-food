@@ -6,15 +6,33 @@ import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
 
 export default function AdminUserCard({
+  userid,
   username,
   firstname,
   lastname,
   email,
   role,
 }) {
+  const handelDeleteUser = (id) => {
+    fetch(`http://localhost:3310/api/user/${id}`, {
+      method: "DELETE",
+    })
+      .then((response) => response.json())
+      .then((data) => console.info(data));
+    if (window.confirm("Voulez-vous vraiment supprimer cet utilisateur ?")) {
+      window.location.reload();
+    }
+  };
+
   return (
     <Card sx={{ maxWidth: 345, marginBottom: 5, boxShadow: 5 }}>
-      <Button sx={{ margin: 3 }} variant="outlined">
+      <Button
+        sx={{ margin: 3 }}
+        variant="outlined"
+        onClick={() => {
+          handelDeleteUser(userid);
+        }}
+      >
         Supprimer
       </Button>
       <CardActionArea>
@@ -41,6 +59,7 @@ export default function AdminUserCard({
 }
 
 AdminUserCard.propTypes = {
+  userid: PropTypes.number.isRequired,
   username: PropTypes.string.isRequired,
   firstname: PropTypes.string.isRequired,
   lastname: PropTypes.string.isRequired,
