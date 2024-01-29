@@ -19,7 +19,6 @@ const browse = async (req, res, next) => {
 const add = async (req, res, next) => {
   // Extract the item data from the request body
   const recipe = req.body;
-  // console.log(recipe)
 
   try {
     // Insert the item into the database

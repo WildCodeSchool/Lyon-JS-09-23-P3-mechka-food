@@ -13,7 +13,8 @@ import Select from "@mui/material/Select";
 import FormControl from "@mui/material/FormControl";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
-// import CloudUploadIcon from "@mui/icons-material/CloudUpload";
+import CloudUploadIcon from "@mui/icons-material/CloudUpload";
+import styled from "@emotion/styled";
 import styles from "./AddRecipeForm.module.css";
 import RecipeForm from "./RecipeForm";
 import InstructionsForm from "./InstructionsForm";
@@ -22,17 +23,17 @@ import CategoriesSelect from "./CategoriesSelect";
 
 const defaultTheme = createTheme();
 
-// const VisuallyHiddenInput = styled("input")({
-//   clip: "rect(0 0 0 0)",
-//   clipPath: "inset(50%)",
-//   height: 1,
-//   overflow: "hidden",
-//   position: "absolute",
-//   bottom: 0,
-//   left: 0,
-//   whiteSpace: "nowrap",
-//   width: 1,
-// });
+const VisuallyHiddenInput = styled("input")({
+  clip: "rect(0 0 0 0)",
+  clipPath: "inset(50%)",
+  height: 1,
+  overflow: "hidden",
+  position: "absolute",
+  bottom: 0,
+  left: 0,
+  whiteSpace: "nowrap",
+  width: 1,
+});
 
 export default function AddRecipeForm() {
   const [persons, setPersons] = useState("");
@@ -91,40 +92,6 @@ export default function AddRecipeForm() {
   }, []);
 
   // Request POST from body frontend to back-end
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   const postData = async () => {
-  //     try {
-  //       const response = await fetch(
-  //         `${import.meta.env.VITE_BACKEND_URL}/api/recipes/add`,
-  //         {
-  //           method: "post",
-  //           headers: { "Content-Type": "application/json" },
-  //           body: JSON.stringify({
-  //             title,
-  //             descriptions,
-  //             globalTime: timeCook,
-  //             numberPersons: persons,
-  //             instructions,
-  //             userIngredients,
-  //             userCategorieId,
-  //             image,
-  //           }),
-  //         }
-  //       );
-  //       if (response.status === 201) {
-  //         setIsSucces(true);
-  //       } else {
-  //         console.info(response);
-  //       }
-  //     } catch (err) {
-  //       console.error(err);
-  //     }
-  //   };
-
-  //   postData();
-  // };
-  // Temps de préparation
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -145,7 +112,6 @@ export default function AddRecipeForm() {
           `${import.meta.env.VITE_BACKEND_URL}/api/recipes/add`,
           {
             method: "post",
-            // headers: { "Content-Type": "application/json" },
             body: formData,
           }
         );
@@ -272,16 +238,19 @@ export default function AddRecipeForm() {
                   setUserCategoryId={setUserCategoryId}
                   userCategoryId={userCategorieId}
                 />
-                {/* <Button
+                <Button
                   sx={{ background: "#FAE078", color: "black" }}
                   component="label"
                   variant="contained"
                   startIcon={<CloudUploadIcon />}
-                > */}
-                Upload file
-                {/* <VisuallyHiddenInput name="recipeImage" type="file" /> */}
-                <input name="recipeimage" type="file" onChange={handleImage} />
-                {/* </Button> */}
+                >
+                  Upload file
+                  <VisuallyHiddenInput
+                    name="recipeImage"
+                    type="file"
+                    onChange={handleImage}
+                  />
+                </Button>
                 <Button
                   type="submit"
                   fullWidth

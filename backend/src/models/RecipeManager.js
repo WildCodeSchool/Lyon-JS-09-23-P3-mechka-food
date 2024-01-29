@@ -9,7 +9,6 @@ class RecipeManager extends AbstractManager {
 
   // The C of CRUD - Create operation
   async create(recipe) {
-    // console.log(recipe)
     // Execute the SQL INSERT query to add a new item to the "item" table
     const [result] = await this.database.query(
       `insert into ${this.table} (title, descriptions, global_time, number_persons, image_url, category_id) values (?, ?, ?, ?, ?, ?)`,
