@@ -4,10 +4,11 @@ import RecipeInformations from "./informationsRecipe/RecipeInformations";
 import IngredientByRecipe from "./ingredients/IngredientByRecipe";
 import InstructionByRecipe from "./instructions/InstructionByRecipe";
 import styles from "./RecipeById.module.css";
+import ConnectionVerification from "../modal/ConnectionVerification";
 
 export default function RecipeById() {
   const [recipes, setRecipes] = useState(null);
-  const userId = 1; // 1 pour simuler l'user 1
+  const userId = 2; // 1 pour simuler l'user 1
   const { id: recipeId } = useParams();
   const [isFavorite, setIsFavorite] = useState(false);
 
@@ -74,6 +75,11 @@ export default function RecipeById() {
   return (
     <section className={styles.RecipeByIdContainer}>
       <div className={styles.containerGlobal}>
+        {userId === 1 ? (
+          <button type="button">test</button>
+        ) : (
+          <ConnectionVerification />
+        )}
         {!isFavorite ? (
           <svg
             onClick={isFavorite === false ? handleSubmit : handleDelete}

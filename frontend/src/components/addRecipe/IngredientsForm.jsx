@@ -38,7 +38,7 @@ export default function IngredientsForm({
   return (
     <>
       {userIngredients.map((userIngredient, index) => (
-        <div className={style.container}>
+        <div className={style.container} key={userIngredient.id}>
           <TextField
             id="outlined-basic"
             label="Quantity"
@@ -101,9 +101,5 @@ IngredientsForm.propTypes = {
     })
   ).isRequired,
   setUserIngredients: PropTypes.func.isRequired,
-  userIngredients: PropTypes.arrayOf(PropTypes.number).isRequired,
-  setQuantity: PropTypes.func.isRequired,
-  setUnit: PropTypes.func.isRequired,
-  unit: PropTypes.string.isRequired,
-  quantity: PropTypes.number.isRequired,
+  userIngredients: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
 };

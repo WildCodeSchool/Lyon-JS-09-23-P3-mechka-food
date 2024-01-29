@@ -8,12 +8,13 @@ import Alert from "@mui/material/Alert";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
-import { createTheme, ThemeProvider, styled } from "@mui/material/styles";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Select from "@mui/material/Select";
 import FormControl from "@mui/material/FormControl";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
+import styled from "@emotion/styled";
 import styles from "./AddRecipeForm.module.css";
 import RecipeForm from "./RecipeForm";
 import InstructionsForm from "./InstructionsForm";
@@ -51,6 +52,7 @@ export default function AddRecipeForm() {
   const [isSuccess, setIsSucces] = useState(false);
   const [categories, setCategories] = useState([]);
   const [userCategorieId, setUserCategoryId] = useState("");
+  const [image, setImage] = useState();
 
   const MaxLengthTitleIngredients = 50;
   const MaxLengthDescriptionInstructions = 250;
@@ -90,26 +92,30 @@ export default function AddRecipeForm() {
   }, []);
 
   // Request POST from body frontend to back-end
+
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    const formData = new FormData();
+    formData.append("title", title);
+    formData.append("descriptions", descriptions);
+    formData.append("globalTime", timeCook);
+    formData.append("numberPersons", persons);
+    formData.append("instructions", JSON.stringify(instructions));
+    formData.append("userIngredients", JSON.stringify(userIngredients));
+    formData.append("userCategorieId", userCategorieId);
+    formData.append("recipeimage", image.get("recipeimage")); // Assuming "image" is the key for your image field
+
     const postData = async () => {
       try {
         const response = await fetch(
           `${import.meta.env.VITE_BACKEND_URL}/api/recipes/add`,
           {
             method: "post",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-              title,
-              descriptions,
-              globalTime: timeCook,
-              numberPersons: persons,
-              instructions,
-              userIngredients,
-              userCategorieId,
-            }),
+            body: formData,
           }
         );
+
         if (response.status === 201) {
           setIsSucces(true);
         } else {
@@ -122,7 +128,6 @@ export default function AddRecipeForm() {
 
     postData();
   };
-  // Temps de préparation
 
   const handleChangeCookTime = (e) => {
     if (e.target.value.length <= MaxLengthTitleIngredients) {
@@ -132,6 +137,16 @@ export default function AddRecipeForm() {
 
   const handleChange = (event) => {
     setPersons(event.target.value);
+  };
+
+  const handleImage = (event) => {
+    const formData = new FormData();
+    formData.append(
+      "recipeimage",
+      event.target.files[0],
+      event.target.files[0].name
+    );
+    setImage(formData);
   };
 
   return (
@@ -162,6 +177,7 @@ export default function AddRecipeForm() {
                 onSubmit={handleSubmit}
                 noValidate
                 sx={{ mt: 1 }}
+                encType="multipart/form-data"
               >
                 <RecipeForm
                   maxTitle={MaxLengthTitleIngredients}
@@ -171,13 +187,11 @@ export default function AddRecipeForm() {
                   description={descriptions}
                   setDescription={setDescription}
                 />
-
                 <InstructionsForm
                   maxLength={MaxLengthDescriptionInstructions}
                   instructions={instructions}
                   setInstructions={setInstructions}
                 />
-
                 <div className={styles.containerIng}>
                   <IngredientsForm
                     className={styles.ingredientInput}
@@ -231,7 +245,11 @@ export default function AddRecipeForm() {
                   startIcon={<CloudUploadIcon />}
                 >
                   Upload file
-                  <VisuallyHiddenInput type="file" />
+                  <VisuallyHiddenInput
+                    name="recipeImage"
+                    type="file"
+                    onChange={handleImage}
+                  />
                 </Button>
                 <Button
                   type="submit"

@@ -24,17 +24,22 @@ const login = async (req, res, next) => {
       delete user.hashedPassword;
 
       const token = await jwt.sign(
-        { sub: user.id, isAdmin: user.role_id },
+        { sub: user.id, email: user.email, isAdmin: user.role_id },
         process.env.APP_SECRET,
         {
           expiresIn: "1h",
         }
       );
-
-      res.json({
-        token,
-        user,
-      });
+      res
+        .cookie("access_token", token, {
+          httpOnly: true,
+          sameSite: "lax",
+          secure: process.env.NODE_ENV === "production",
+          maxAge: 60000,
+        })
+        .json({
+          user,
+        });
     } else {
       res.sendStatus(422);
     }
@@ -44,6 +49,11 @@ const login = async (req, res, next) => {
   }
 };
 
+const logout = (req, res) => {
+  res.clearCookie("access_token").sendStatus(200);
+};
+
 module.exports = {
   login,
+  logout,
 };

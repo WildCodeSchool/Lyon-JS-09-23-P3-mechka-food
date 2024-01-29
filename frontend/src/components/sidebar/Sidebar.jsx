@@ -44,12 +44,16 @@ export default function Sidebar() {
           <span className={styles.navtext}>Favoris</span>
         </Link>
 
-        <Link className={styles.link} to="/">
+        <Link className={styles.link} to="/recipes/add">
           <span className={styles.navtext}>Nouvelle recette</span>
         </Link>
 
         <Link className={styles.link} to="/">
           <span className={styles.navtext}>Profil</span>
+        </Link>
+
+        <Link className={styles.link} to="/admin">
+          <span className={styles.navtext}>Administareur</span>
         </Link>
 
         <Link className={styles.link} to="/">

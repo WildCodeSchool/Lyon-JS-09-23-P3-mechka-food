@@ -22,6 +22,7 @@ const addRecipeControllers = require("./controllers/addRecipeControllers");
 const commentControllers = require("./controllers/commentControllers");
 const adminControllers = require("./controllers/adminControllers");
 const updateRecipeControllers = require("./controllers/updateRecipeControllers");
+const multer = require("./middlewares/multerMiddleware");
 
 // Route to get a list of items
 router.get("/items", itemControllers.browse);
@@ -42,9 +43,14 @@ router.post("/items", itemControllers.add);
 
 // Route to add a new user
 router.post("/user", userMiddleware, hashPassword, userControllers.add);
+router.get("/user", userControllers.browse);
+router.delete("/user/:id", userControllers.deleteById);
 
 // Login
 router.post("/login", loginMiddleware, authControllers.login);
+
+// Logout
+router.get("/logout", authControllers.logout);
 
 // Favorite
 router.post("/recipes/:id/favorite", favoriteControllers.add);
@@ -53,7 +59,7 @@ router.delete(
   favoriteControllers.deleteFavorite
 );
 // Add new recipe
-router.post("/recipes/add", addRecipeControllers.addRecipe);
+router.post("/recipes/add", multer, addRecipeControllers.addRecipe);
 
 // Admin delete recipe
 router.delete("/admin/recipes/:id/delete", adminControllers.deleteRecipe);

@@ -12,6 +12,7 @@ import Grid from "@mui/material/Grid";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { useUserContext } from "../../context/userContext";
 
 const defaultTheme = createTheme();
 
@@ -19,8 +20,9 @@ export default function LoginDesktopComponent() {
   // États pour le mot de passe et la confirmation du mot de passe
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState([]);
+  const [error, setError] = useState("");
 
+  const { login } = useUserContext();
   // Hook pour la navigation
   const navigate = useNavigate();
 
@@ -43,6 +45,7 @@ export default function LoginDesktopComponent() {
         `${import.meta.env.VITE_BACKEND_URL}/api/login`,
         {
           method: "post",
+          credentials: "include",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
             email,
@@ -53,10 +56,13 @@ export default function LoginDesktopComponent() {
 
       // Redirection vers la page de connexion si la création réussit
       if (response.status === 200) {
+        const user = await response.json();
+        login(user);
         navigate("/");
       } else {
         // Log des détails de la réponse en cas d'échec
         setError("Email ou mot de passe incorrect");
+        navigate("/login");
       }
     } catch (err) {
       // Log des erreurs possibles
@@ -135,6 +141,7 @@ export default function LoginDesktopComponent() {
                 fullWidth
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
+                onClick={handleSubmit}
               >
                 Se connecter
               </Button>
