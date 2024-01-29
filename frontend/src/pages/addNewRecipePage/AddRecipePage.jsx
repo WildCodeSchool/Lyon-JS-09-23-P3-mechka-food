@@ -7,7 +7,7 @@ export default function AddRecipePage() {
 
   return (
     <div>
-      {userData !== null ? <AddRecipeForm /> : <ConnectionVerification />}
+      {userData === "null" ? <ConnectionVerification /> : <AddRecipeForm />}
     </div>
   );
 }
