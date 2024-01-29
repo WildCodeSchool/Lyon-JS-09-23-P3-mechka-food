@@ -9,10 +9,11 @@ const addRecipe = async (req, res, next) => {
       userIngredients,
       globalTime,
       numberPersons,
-      imageUrl,
       userCategorieId,
       userId,
     } = req.body;
+    const dest = req.file.destination.split("public")[1];
+    const imageName = req.file.filename;
 
     // Post data to table recipe
     const recipe = await tables.recipe.create({
@@ -21,20 +22,20 @@ const addRecipe = async (req, res, next) => {
       globalTime,
       numberPersons,
       userId,
-      imageUrl,
+      imageUrl: `${dest}/${imageName}`,
       userCategorieId,
     }); // => { id: '1', image: ..., description: '', 'title' }
 
     // Post data into table instructions (one recipe has multiply instructions)
     const instructionDocs = await Promise.all(
-      instructions.map((instruction) =>
+      JSON.parse(instructions).map((instruction) =>
         tables.instruction.create(instruction.step, recipe)
       )
     ); // => [{id: '1', ...}, {id: '2', ...}, {id: '3'}]
 
     // Post data into table recipeIngredient (one recipe has multiply ingredients)
     const recipeIngredientDocs = await Promise.all(
-      userIngredients.map((ingredient) =>
+      JSON.parse(userIngredients).map((ingredient) =>
         tables.recipeIngredient.create(ingredient, recipe)
       )
     ); // => [{id: '1', ...}, {id: '2', ...}, {id: '3'}]
