@@ -15,12 +15,6 @@ const addRecipe = async (req, res, next) => {
     // console.log(req.file);
     const dest = req.file.destination.split("public")[1];
     const imageName = req.file.filename;
-    // console.log("debut controller");
-    // console.log(dest + "/" + imageName);
-    // const imageUrl = req.file
-    //   ? `${req.protocol}://${req.get("host")}/images/${req.file.filename}`
-    //   : req.body.imageUrl;
-    // Post data to table recipe
     const recipeId = await tables.recipe.create({
       title,
       descriptions,
