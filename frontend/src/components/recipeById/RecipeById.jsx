@@ -1,19 +1,29 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import RecipeInformations from "./informationsRecipe/RecipeInformations";
 import IngredientByRecipe from "./ingredients/IngredientByRecipe";
 import InstructionByRecipe from "./instructions/InstructionByRecipe";
 import styles from "./RecipeById.module.css";
-import ConnectionVerification from "../modal/ConnectionVerification";
+// import ConnectionVerification from "../modal/ConnectionVerification";
+import { useUserContext } from "../../context/userContext";
 
 export default function RecipeById() {
   const [recipes, setRecipes] = useState(null);
-  const userId = 2; // 1 pour simuler l'user 1
   const { id: recipeId } = useParams();
   const [isFavorite, setIsFavorite] = useState(false);
+  const { userData, logout } = useUserContext();
+  // const = useUserContext();
+  const navigate = useNavigate();
 
+  // console.log(userData)
+  // console.log(isFavorite)
   const handleChangeFavorite = () => {
     setIsFavorite(!isFavorite);
+  };
+
+  const logoutFromSession = () => {
+    logout();
+    navigate("/login");
   };
 
   // useEffect pour aller chercher l'id de la recette et afficher la photo, les informations (titre...)
@@ -30,24 +40,27 @@ export default function RecipeById() {
     event.preventDefault();
 
     try {
-      const response = await fetch(
-        `${import.meta.env.VITE_BACKEND_URL}/api/recipes/${recipeId}/favorite`,
-        {
-          method: "post",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ userId, recipeId }),
+      if (userData !== "null") {
+        const response = await fetch(
+          `${
+            import.meta.env.VITE_BACKEND_URL
+          }/api/recipes/${recipeId}/favorite`,
+          {
+            method: "post",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ userId: userData.user.id, recipeId }),
+          }
+        );
+        if (response.status === 201) {
+          handleChangeFavorite();
+        } else {
+          console.error(`failed add to favorite, status ${response.status}`);
         }
-      );
-      if (response.status === 201) {
-        handleChangeFavorite();
-      } else {
-        console.error(`failed add to favorite, status ${response.status}`);
       }
     } catch (err) {
       console.error("Error posting favorite:", err);
     }
   };
-
   const handleDelete = async (event) => {
     event.preventDefault();
 
@@ -59,7 +72,7 @@ export default function RecipeById() {
         {
           method: "delete",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ userId, recipeId }),
+          body: JSON.stringify({ userId: userData.user.id, recipeId }),
         }
       );
       if (response.status === 201) {
@@ -75,11 +88,11 @@ export default function RecipeById() {
   return (
     <section className={styles.RecipeByIdContainer}>
       <div className={styles.containerGlobal}>
-        {userId === 1 ? (
+        {/* {userData === "null" ? (
           <button type="button">test</button>
         ) : (
           <ConnectionVerification />
-        )}
+        )} */}
         {!isFavorite ? (
           <svg
             onClick={isFavorite === false ? handleSubmit : handleDelete}
@@ -116,7 +129,9 @@ export default function RecipeById() {
           />
         )}
       </div>
-
+      <button type="button" onClick={logoutFromSession}>
+        deco
+      </button>
       <div>
         <IngredientByRecipe />
         <InstructionByRecipe />
