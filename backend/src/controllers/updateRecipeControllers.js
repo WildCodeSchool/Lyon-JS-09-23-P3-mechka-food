@@ -11,7 +11,7 @@ const updateRecipe = async (req, res, next) => {
       numberPersons,
       imageUrl,
     } = req.body;
-
+    // console.log(userIngredients);
     const recipeId = req.params.id;
 
     // uPDATE data to table recipe
@@ -35,6 +35,7 @@ const updateRecipe = async (req, res, next) => {
     // console.log("user ingrédient :")
     // console.log(userIngredients);
     // console.log("début boucle :")
+
     await Promise.all(
       userIngredients.map((ingredient) => {
         return tables.recipeIngredient.update(ingredient, recipeId);

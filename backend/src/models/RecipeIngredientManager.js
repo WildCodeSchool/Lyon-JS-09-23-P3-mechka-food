@@ -24,16 +24,23 @@ class RecipeIngredientManager extends AbstractManager {
   }
 
   async update(recipeIngredient, recipeId) {
-    const [result] = await this.database.query(
-      `UPDATE ${this.table} SET quantity=?, unit=? WHERE ingredient_id=? AND recipe_id=?`,
+    // console.log(
+    //   `UPDATE ${this.table} SET quantity=${recipeIngredient.quantity}, unit=${recipeIngredient.unit}, ingredient_id=${recipeIngredient.id}  WHERE recipeIngredient.id=${recipeIngredient.RID} AND recipe_id=${recipeId}`
+    // );
+
+    // const IngredientID = await this.database.query(
+    //   "SELECT id FROM ingredient Where name = ?"[ingredientid]
+    // );
+    await this.database.query(
+      `UPDATE ${this.table} SET quantity=?, unit=?, ${this.table}.ingredient_id=? WHERE ${this.table}.id=? AND recipe_id=?`,
       [
         recipeIngredient.quantity,
         recipeIngredient.unit,
         recipeIngredient.id,
+        recipeIngredient.RID,
         recipeId,
       ]
     );
-    return result;
   }
 }
 
