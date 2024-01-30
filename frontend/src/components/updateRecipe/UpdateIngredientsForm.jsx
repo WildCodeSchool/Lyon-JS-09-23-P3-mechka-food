@@ -26,7 +26,7 @@ export default function IngredientsForm({
   // Add new inputs to the user when clicked on button +
   const handleAddUserIng = () => {
     setUserIngredients([
-      ...userIngredients,
+      ...ingredients,
       {
         id: 0,
         quantity: 0,
@@ -78,7 +78,6 @@ export default function IngredientsForm({
               // eslint-disable-next-line react/jsx-props-no-spreading
               <TextField {...params} label="Ingredient" />
             )}
-            value={userIngredient}
           />
         </div>
       ))}
