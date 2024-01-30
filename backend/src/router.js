@@ -51,6 +51,7 @@ router.post("/login", loginMiddleware, authControllers.login);
 router.get("/logout", authControllers.logout);
 
 // Favorite
+router.get("/favorites/:id", favoriteControllers.readById);
 router.post("/recipes/:id/favorite", favoriteControllers.add);
 router.delete(
   "/recipes/:id/deleteFavorite",
