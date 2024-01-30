@@ -15,7 +15,7 @@ import Login from "./pages/login/login";
 import CommentPage from "./pages/CommentPage/CommentPage";
 import { UserContextProvider } from "./context/userContext";
 import AdminPagePrincipal from "./pages/adminPage/AdminPagePrincipal";
-import AddRecipeForm from "./components/addRecipe/AddRecipeForm";
+import AddRecipePage from "./pages/addNewRecipePage/AddRecipePage";
 
 const router = createBrowserRouter([
   {
@@ -61,7 +61,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/recipes/add",
-    element: <AddRecipeForm />,
+    element: <AddRecipePage />,
   },
 ]);
 

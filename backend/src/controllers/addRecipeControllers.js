@@ -9,12 +9,13 @@ const addRecipe = async (req, res, next) => {
       userIngredients,
       globalTime,
       numberPersons,
-      // recipeimage,
+      userCategorieId,
+      userId,
     } = req.body;
 
-    // console.log(req.file);
     const dest = req.file.destination.split("public")[1];
     const imageName = req.file.filename;
+
     // Post data to table recipe
     const recipeId = await tables.recipe.create({
       title,
@@ -22,6 +23,8 @@ const addRecipe = async (req, res, next) => {
       globalTime,
       numberPersons,
       imageUrl: `${dest}/${imageName}`,
+      userId,
+      userCategorieId,
     }); // => { id: '1', image: ..., description: '', 'title' }
 
     // Post data into table instructions (one recipe has multiply instructions)

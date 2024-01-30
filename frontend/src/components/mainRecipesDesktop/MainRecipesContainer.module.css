@@ -11,11 +11,14 @@
 .positionRecipes {
   display: flex;
   justify-content: center;
-  height: 40%;
+  height: 70%;
   max-width: 80rem;
+  flex-wrap: wrap;
+  gap: 2rem;
 }
 .imageCardRecipes {
-  height: 10rem;
+  height: 20rem;
+  gap: 15rem;
 }
 
 @media screen and (width < 768px) {
