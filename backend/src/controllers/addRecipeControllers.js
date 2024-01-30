@@ -9,6 +9,8 @@ const addRecipe = async (req, res, next) => {
       userIngredients,
       globalTime,
       numberPersons,
+      userCategorieId,
+      userId,
     } = req.body;
 
     const dest = req.file.destination.split("public")[1];
@@ -21,6 +23,8 @@ const addRecipe = async (req, res, next) => {
       globalTime,
       numberPersons,
       imageUrl: `${dest}/${imageName}`,
+      userId,
+      userCategorieId,
     }); // => { id: '1', image: ..., description: '', 'title' }
 
     // Post data into table instructions (one recipe has multiply instructions)
