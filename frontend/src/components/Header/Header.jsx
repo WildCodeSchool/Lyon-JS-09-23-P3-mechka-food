@@ -21,7 +21,7 @@ export default function Header() {
       <h1>MECHKA FOOD</h1>
 
       <div className={styles.favoris}>
-        {!userData ? (
+        {userData === "null" || userData === null ? (
           <Link className={styles.svgLink} to="/login">
             <img className={styles.svgProfil} src={profile} alt="profile" />
           </Link>

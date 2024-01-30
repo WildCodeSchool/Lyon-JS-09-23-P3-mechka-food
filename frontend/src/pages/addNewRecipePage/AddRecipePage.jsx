@@ -11,7 +11,13 @@ export default function AddRecipePage() {
     <>
       <Header />
       <Sidebar />
-      <div>{!userData ? <ConnectionVerification /> : <AddRecipeForm />}</div>
+      <div>
+        {userData === "null" || userData === null ? (
+          <ConnectionVerification />
+        ) : (
+          <AddRecipeForm />
+        )}
+      </div>
     </>
   );
 }
