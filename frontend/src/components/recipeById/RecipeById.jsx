@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import RecipeInformations from "./informationsRecipe/RecipeInformations";
 import IngredientByRecipe from "./ingredients/IngredientByRecipe";
 import InstructionByRecipe from "./instructions/InstructionByRecipe";
@@ -11,18 +11,11 @@ export default function RecipeById() {
   const [recipes, setRecipes] = useState(null);
   const { id: recipeId } = useParams();
   const [isFavorite, setIsFavorite] = useState(false);
-  const { userData, logout } = useUserContext();
+  const { userData } = useUserContext();
   const [allFav, setAllFav] = useState([]);
-
-  const navigate = useNavigate();
 
   const handleChangeFavorite = () => {
     setIsFavorite(!isFavorite);
-  };
-
-  const logoutFromSession = () => {
-    logout();
-    navigate("/login");
   };
 
   // useEffect pour aller chercher l'id de la recette et afficher la photo, les informations (titre...)
@@ -101,11 +94,6 @@ export default function RecipeById() {
   return (
     <section className={styles.RecipeByIdContainer}>
       <div className={styles.containerGlobal}>
-        {/* {userData === "null" ? (
-          <button type="button">test</button>
-        ) : (
-          <ConnectionVerification />
-        )} */}
         {!isFavorite ? (
           <svg
             onClick={isFavorite === false ? handleSubmit : handleDelete}
@@ -142,9 +130,6 @@ export default function RecipeById() {
           />
         )}
       </div>
-      <button type="button" onClick={logoutFromSession}>
-        deco
-      </button>
       <div>
         <IngredientByRecipe />
         <InstructionByRecipe />
