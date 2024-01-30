@@ -21,6 +21,7 @@ const favoriteControllers = require("./controllers/favoriteControllers");
 const addRecipeControllers = require("./controllers/addRecipeControllers");
 const commentControllers = require("./controllers/commentControllers");
 const multer = require("./middlewares/multerMiddleware");
+const authWall = require("./middlewares/authWall");
 
 // Route to get a list of items
 router.get("/items", itemControllers.browse);
@@ -57,6 +58,8 @@ router.delete(
   "/recipes/:id/deleteFavorite",
   favoriteControllers.deleteFavorite
 );
+
+router.use(authWall);
 // Add new recipe
 router.post("/recipes/add", multer, addRecipeControllers.addRecipe);
 
