@@ -16,9 +16,9 @@ export default function IngredientsForm({
     } else {
       updatedIngredients[index][field] = e.target.value;
     }
+
     setUserIngredients(updatedIngredients);
   };
-
   // Add new inputs to the user when clicked on button +
   const handleAddUserIng = () => {
     setUserIngredients([

@@ -32,10 +32,13 @@ const updateRecipe = async (req, res, next) => {
     ); // => [{id: '1', ...}, {id: '2', ...}, {id: '3'}]
 
     // uPDATE data into table recipeIngredient (one recipe has multiply ingredients)
+    // console.log("user ingrédient :")
+    // console.log(userIngredients);
+    // console.log("début boucle :")
     await Promise.all(
-      userIngredients.map((ingredient) =>
-        tables.recipeIngredient.update(ingredient, recipeId)
-      )
+      userIngredients.map((ingredient) => {
+        return tables.recipeIngredient.update(ingredient, recipeId);
+      })
     );
     // => [{id: '1', ...}, {id: '2', ...}, {id: '3'}]
 
