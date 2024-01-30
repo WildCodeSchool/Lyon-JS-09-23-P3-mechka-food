@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import styles from "./Header.module.css";
 import { useUserContext } from "../../context/userContext";
 import logo from "../../assets/svg/LOGO_MECHKA_FOOD_mobile.svg";
@@ -6,8 +6,12 @@ import profile from "../../assets/svg/profile.svg";
 
 export default function Header() {
   const { logout, userData } = useUserContext();
+
+  const navigate = useNavigate();
+
   const logOutFromSession = () => {
     logout();
+    navigate("/login");
   };
 
   return (
