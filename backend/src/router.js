@@ -36,6 +36,9 @@ router.get("/category", categoryControllers.browse);
 router.get("/category/:id", categoryControllers.readById);
 router.get("/recipes/:id/comment", commentControllers.browse);
 
+// Route to get a specific recipe by ID
+router.get("/recipes/user/:id", recipeControllers.getRecipesByUserId);
+
 // Route to add a new item
 router.post("/items", itemControllers.add);
 

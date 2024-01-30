@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import AspectRatio from "@mui/joy/AspectRatio";
 import Card from "@mui/joy/Card";
 import CardContent from "@mui/joy/CardContent";
@@ -9,13 +10,34 @@ import Navbar from "../Navbar/Navbar";
 import styles from "./ProfilComponent.module.css";
 import Sidebar from "../sidebar/Sidebar";
 import { useUserContext } from "../../context/userContext";
+import RecipeCard from "../recipesHome/RecipeCard";
 
 export default function ProfilComponent() {
-  // const [users, setUsers] = useState(null);
+  const [recipes, setRecipes] = useState([]);
+  const [recipeCount, setRecipeCount] = useState(0);
 
   const { userData } = useUserContext();
   // console.log(userData);
 
+  useEffect(() => {
+    // Make sure to replace 'userId' with the actual user ID you want to fetch recipes for
+    const apiUrl = `${import.meta.env.VITE_BACKEND_URL}/api/recipes/user/${
+      userData.user.id
+    }`;
+    // console.log(userData.user.id);
+
+    fetch(apiUrl)
+      .then((response) => response.json())
+      .then((data) => {
+        setRecipes(data);
+        setRecipeCount(data.length); // Mettez à jour le nombre de recettes
+      })
+      .catch((error) =>
+        console.error("Erreur lors de la récupération des recettes:", error)
+      );
+  }, [userData]);
+
+  // console.log(recipes);
   return (
     <>
       <Header />
@@ -83,7 +105,7 @@ export default function ProfilComponent() {
                 <Typography level="body-xs" fontWeight="lg">
                   Recipes
                 </Typography>
-                <Typography fontWeight="lg">34</Typography>
+                <Typography fontWeight="lg">{recipeCount}</Typography>
               </div>
               <div>
                 <Typography level="body-xs" fontWeight="lg">
@@ -101,6 +123,17 @@ export default function ProfilComponent() {
           </CardContent>
         </Card>
       </Container>
+      <div className={styles.cardPosition}>
+        {recipes.map((recipe) => (
+          <RecipeCard
+            key={recipe.id}
+            id={recipe.id}
+            image={recipe.image_url}
+            title={recipe.title}
+            description={recipe.descriptions}
+          />
+        ))}
+      </div>
       <Navbar />
     </>
   );

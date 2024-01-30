@@ -47,3 +47,18 @@
   height: 17rem;
   width: 29rem;
 }
+
+.cardPosition {
+  display: flex;
+  font-size: 0.8rem;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  padding-bottom: 7rem;
+}
+
+@media screen and (width > 768px) {
+  .cardPosition {
+    gap: 2rem;
+    margin: 2rem;
+  }
+}
