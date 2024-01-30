@@ -12,11 +12,10 @@ export default function RecipeById() {
   const { id: recipeId } = useParams();
   const [isFavorite, setIsFavorite] = useState(false);
   const { userData, logout } = useUserContext();
-  // const = useUserContext();
+  const [allFav, setAllFav] = useState([]);
+
   const navigate = useNavigate();
 
-  // console.log(userData)
-  // console.log(isFavorite)
   const handleChangeFavorite = () => {
     setIsFavorite(!isFavorite);
   };
@@ -34,7 +33,21 @@ export default function RecipeById() {
       .then((data) => setRecipes(data));
   }, []);
 
+  useEffect(() => {
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/api//favorites/${recipeId}`)
+      .then((response) => response.json())
+      .then((data) => setAllFav(data));
+  }, []);
+
   // Code pour lier ce qui est des favorites
+
+  useEffect(() => {
+    if (allFav.length === 0) {
+      setIsFavorite(false);
+    } else {
+      setIsFavorite(true);
+    }
+  }, [allFav]);
 
   const handleSubmit = async (event) => {
     event.preventDefault();

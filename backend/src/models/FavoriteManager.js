@@ -28,6 +28,17 @@ class UserManager extends AbstractManager {
     return rows;
   }
 
+  async readById(id) {
+    // Execute the SQL SELECT query to retrieve a specific item by its ID
+    const [rows] = await this.database.query(
+      `select * from ${this.table} where recipeFid = ?`,
+      [id]
+    );
+
+    // Return the first row of the result, which represents the item
+    return rows;
+  }
+
   async delete(userId, recipeId) {
     // Execute the SQL INSERT query to add a new user to the "user" table
     const [result] = await this.database.query(

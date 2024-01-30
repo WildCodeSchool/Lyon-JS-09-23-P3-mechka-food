@@ -14,6 +14,24 @@ const browse = async (req, res, next) => {
   }
 };
 
+const readById = async (req, res, next) => {
+  try {
+    // Fetch a specific item from the database based on the provided ID
+    const favorites = await tables.favorite.readById(req.params.id);
+
+    // If the item is not found, respond with HTTP 404 (Not Found)
+    // Otherwise, respond with the item in JSON format
+    if (favorites.length === 0) {
+      res.sendStatus(404);
+    } else {
+      res.json(favorites);
+    }
+  } catch (err) {
+    // Pass any errors to the error-handling middleware
+    next(err);
+  }
+};
+
 // The A of BREAD - Add (Create) operation
 const add = async (req, res, next) => {
   // Extract the user data from the request body
@@ -53,4 +71,5 @@ module.exports = {
   browse,
   add,
   deleteFavorite,
+  readById,
 };
