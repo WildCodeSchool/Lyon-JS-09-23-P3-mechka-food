@@ -1,7 +1,3 @@
-import TextField from "@mui/material/TextField";
-import Autocomplete from "@mui/material/Autocomplete";
-import Select from "@mui/material/Select";
-import MenuItem from "@mui/material/MenuItem";
 import Fab from "@mui/material/Fab";
 import AddIcon from "@mui/icons-material/Add";
 import PropTypes from "prop-types";
@@ -39,46 +35,34 @@ export default function IngredientsForm({
     <>
       {userIngredients.map((userIngredient, index) => (
         <div className={style.container}>
-          <TextField
-            id="outlined-basic"
-            label="Quantity"
-            variant="outlined"
-            key={userIngredient.id}
-            className={style.textQuantity}
-            onChange={(e) => handleChange(e, "quantity", index)}
+          <input
             value={userIngredient.quantity}
+            onChange={(e) => handleChange(e, "quantity", index)}
+            className={style.textQuantity}
+            key={userIngredient.id}
           />
 
-          <Select
-            id="outlined-basic"
-            label="Unit"
-            variant="outlined"
-            className={style.unitSelect}
-            onChange={(e) => handleChange(e, "unit", index)}
+          <select
             value={userIngredient.unit}
+            onChange={(e) => handleChange(e, "unit", index)}
           >
-            <MenuItem value="gr">Gr</MenuItem>
-            <MenuItem value="ml">Ml</MenuItem>
-            <MenuItem value="l">Litres</MenuItem>
-            <MenuItem value="kg">Kg</MenuItem>
-            <MenuItem value="pince">Pincée</MenuItem>
-            <MenuItem value="cc">Cuillière à café</MenuItem>
-            <MenuItem value="cs">Cuillère à soupe</MenuItem>
-          </Select>
-          <Autocomplete
-            disablePortal
-            id="combo-box-demo"
-            fullWidth
-            options={ingredients}
-            getOptionLabel={(option) => option.name}
-            onChange={(e, newValue) =>
-              handleChange(e, "id", index, newValue.id)
-            }
-            renderInput={(params) => (
-              // eslint-disable-next-line react/jsx-props-no-spreading
-              <TextField {...params} label="Ingredient" />
-            )}
-          />
+            {userIngredients.map((element) => (
+              <option key={element.id} value={element.unit}>
+                {element.unit}
+              </option>
+            ))}
+          </select>
+
+          <select
+            value={userIngredient.name}
+            onChange={(e) => handleChange(e, "name", index)}
+          >
+            {ingredients.map((element) => (
+              <option key={element.id} value={element.name}>
+                {element.name}
+              </option>
+            ))}
+          </select>
         </div>
       ))}
       <Fab
@@ -102,8 +86,4 @@ IngredientsForm.propTypes = {
   ).isRequired,
   setUserIngredients: PropTypes.func.isRequired,
   userIngredients: PropTypes.arrayOf(PropTypes.number).isRequired,
-  setQuantity: PropTypes.func.isRequired,
-  setUnit: PropTypes.func.isRequired,
-  unit: PropTypes.string.isRequired,
-  quantity: PropTypes.number.isRequired,
 };
