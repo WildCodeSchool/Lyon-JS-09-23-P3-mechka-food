@@ -21,7 +21,7 @@ const favoriteControllers = require("./controllers/favoriteControllers");
 const addRecipeControllers = require("./controllers/addRecipeControllers");
 const commentControllers = require("./controllers/commentControllers");
 const multer = require("./middlewares/multerMiddleware");
-const authWall = require("./middlewares/authWall");
+const { authWall } = require("./middlewares/authWall");
 
 // Route to get a list of items
 router.get("/items", itemControllers.browse);
