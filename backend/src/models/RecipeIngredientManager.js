@@ -25,12 +25,11 @@ class RecipeIngredientManager extends AbstractManager {
 
   async update(recipeIngredient, recipeId) {
     const [result] = await this.database.query(
-      `UPDATE ${this.table} SET quantity=?, unit=?, ingredient_id=? WHERE ${this.table}.id=? AND recipe_id=?`,
+      `UPDATE ${this.table} SET quantity=?, unit=? WHERE ingredient_id=? AND recipe_id=?`,
       [
         recipeIngredient.quantity,
         recipeIngredient.unit,
         recipeIngredient.id,
-        recipeIngredient.ide,
         recipeId,
       ]
     );
