@@ -254,7 +254,7 @@ export default function UpdateForm() {
                   required
                   fullWidth
                   id="Temps de préparation"
-                  // label="Temps de préparation"
+                  label="Temps de préparation"
                   name="Temps de préparation"
                   autoComplete="Temps de préparation"
                   onChange={handleChangeCookTime}
