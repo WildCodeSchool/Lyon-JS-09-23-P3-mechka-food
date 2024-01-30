@@ -50,21 +50,6 @@ const deleteById = async (req, res, next) => {
   }
 };
 
-const getCurrentUser = async (req, res, next) => {
-  try {
-    // Récupérez l'ID de l'utilisateur à partir des informations d'authentification
-    const userId = req.user.id;
-
-    // Ensuite, récupérez les informations de l'utilisateur en utilisant l'ID
-    const user = await tables.user.readById(userId);
-
-    // Répondez avec les informations de l'utilisateur en JSON
-    res.json(user);
-  } catch (err) {
-    // Gérez les erreurs ici
-    next(err);
-  }
-};
 // The D of BREAD - Destroy (Delete) operation
 // This operation is not yet implemented
 
@@ -73,5 +58,4 @@ module.exports = {
   add,
   browse,
   deleteById,
-  getCurrentUser,
 };
