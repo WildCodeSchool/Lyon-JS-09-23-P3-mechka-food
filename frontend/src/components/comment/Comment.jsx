@@ -43,6 +43,7 @@ export default function Comment() {
           method: "post",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ comment, CommentRecipeId }),
+          credentials: "include",
         }
       );
 
