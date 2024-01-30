@@ -11,13 +11,14 @@ class RecipeManager extends AbstractManager {
   async create(recipe) {
     // Execute the SQL INSERT query to add a new item to the "item" table
     const [result] = await this.database.query(
-      `insert into ${this.table} (title, descriptions, global_time, number_persons, image_url, category_id) values (?, ?, ?, ?, ?, ?)`,
+      `insert into ${this.table} (title, descriptions, global_time, number_persons, image_url, user_id, category_id) values (?, ?, ?, ?, ?, ?, ?)`,
       [
         recipe.title,
         recipe.descriptions,
         recipe.globalTime,
         recipe.numberPersons,
         recipe.imageUrl,
+        recipe.userId,
         recipe.userCategorieId,
       ]
     );

@@ -3,6 +3,7 @@ import ImageList from "@mui/material/ImageList";
 import ImageListItem from "@mui/material/ImageListItem";
 import { ImageListItemBar } from "@mui/material";
 import { Link } from "react-router-dom";
+import Box from "@mui/material/Box";
 import styles from "./MainRecipesContainer.module.css";
 
 export default function MainRecipesContainer() {
@@ -16,7 +17,7 @@ export default function MainRecipesContainer() {
 
         if (data !== null) {
           const shuffled = [...data].sort(() => 0.5 - Math.random());
-          setRandom(shuffled.slice(0, 6));
+          setRandom(shuffled.slice(0, 5));
         }
       } catch (err) {
         console.error(err);
@@ -24,30 +25,38 @@ export default function MainRecipesContainer() {
     };
     fetchData();
   }, []);
+
   return (
-    <section className={styles.positionRecipes}>
+    <Box
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        padding: 3,
+      }}
+    >
       <ImageList
         sx={{
-          width: "80% ",
+          width: "80%",
           height: "100%",
           display: "flex",
           flexWrap: "wrap",
           justifyContent: "center",
           overflow: "hidden",
         }}
-        cols={0}
         variant="quilted"
         gap={20}
       >
         {random !== null &&
-          random.map((recipe) => (
+          random.map((recipe, index) => (
             <ImageListItem
               key={recipe.id}
               sx={{
-                width: 269,
-                display: "grid",
-                gridTemplateColumns: "repeat(3, 30%)",
-                gridTemplateRows: "repeat(3,41%)",
+                width: index === 0 ? 620 : 300,
+                height: index === 0 ? 650 : 300,
+                display: "flex",
+                flexWrap: "wrap",
+                justifyContent: "center",
               }}
             >
               <Link to={`/recipes/${recipe.id}`}>
@@ -57,6 +66,7 @@ export default function MainRecipesContainer() {
                   src={`${recipe.image_url}?w=161&fit=crop&auto=format`}
                   alt={recipe.title}
                   loading="lazy"
+                  style={{ width: "100%", height: "100%", objectFit: "cover" }}
                 />
               </Link>
               <ImageListItemBar
@@ -64,7 +74,7 @@ export default function MainRecipesContainer() {
                   background:
                     "linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, " +
                     "rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)",
-                  width: 269,
+                  width: index === 0 ? 620 : 300,
                 }}
                 title={recipe.title}
                 position="bottom"
@@ -73,6 +83,6 @@ export default function MainRecipesContainer() {
             </ImageListItem>
           ))}
       </ImageList>
-    </section>
+    </Box>
   );
 }

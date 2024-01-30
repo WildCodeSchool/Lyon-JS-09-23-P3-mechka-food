@@ -10,6 +10,7 @@ import Typography from "@mui/material/Typography";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import CommentsByIdRecipe from "./commentsByIdRecipe";
 import ConnectionVerification from "../modal/ConnectionVerification";
+import { useUserContext } from "../../context/userContext";
 
 const defaultTheme = createTheme();
 
@@ -17,7 +18,7 @@ export default function Comment() {
   const [recipeImage, setRecipeImage] = useState(null);
   const [comment, setComment] = useState("");
   const { id: CommentRecipeId } = useParams();
-  const user = true;
+  const user = useUserContext();
 
   // Hook pour la navigation
   const navigate = useNavigate();
@@ -87,7 +88,7 @@ export default function Comment() {
           >
             <CommentsByIdRecipe />
           </Box>
-          {user === true ? (
+          {user !== null ? (
             <Box
               sx={{
                 my: 8,
@@ -111,17 +112,39 @@ export default function Comment() {
                 value={comment}
                 onChange={handleInputChange}
               />
-              <Button
-                type="submit"
-                variant="contained"
-                onClick={handleSubmit}
-                sx={{ mt: 3, mb: 2 }}
-              >
-                Ajouter
-              </Button>
+              {comment.length > 0 ? (
+                <Button
+                  type="submit"
+                  variant="contained"
+                  onClick={handleSubmit}
+                  sx={{ mt: 3, mb: 2 }}
+                >
+                  Ajouter
+                </Button>
+              ) : (
+                <Button
+                  type="submit"
+                  variant="contained"
+                  disabled
+                  onClick={handleSubmit}
+                  sx={{ mt: 3, mb: 2 }}
+                >
+                  Ajouter
+                </Button>
+              )}
             </Box>
           ) : (
-            <ConnectionVerification />
+            <Box
+              sx={{
+                my: 8,
+                mx: 7,
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+              }}
+            >
+              <ConnectionVerification />
+            </Box>
           )}
         </Grid>
         <Grid
