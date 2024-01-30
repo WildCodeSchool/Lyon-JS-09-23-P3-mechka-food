@@ -171,7 +171,7 @@ export default function UpdateForm() {
             }),
           }
         );
-        if (response.status === 204) {
+        if (response.status === 201) {
           setIsSucces(true);
         } else {
           console.info(response);
@@ -200,7 +200,7 @@ export default function UpdateForm() {
       {isSuccess === true && (
         <Alert severity="success">
           <AlertTitle>Success</AlertTitle>
-          Your recipe has been uploaded successfully!
+          Your recipe has been added successfully!
         </Alert>
       )}
       <section className={styles.section}>
