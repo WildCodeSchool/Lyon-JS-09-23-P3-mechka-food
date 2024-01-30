@@ -1,4 +1,3 @@
-import React, { useState, useEffect } from "react";
 import AspectRatio from "@mui/joy/AspectRatio";
 import Card from "@mui/joy/Card";
 import CardContent from "@mui/joy/CardContent";
@@ -9,14 +8,13 @@ import Header from "../Header/Header";
 import Navbar from "../Navbar/Navbar";
 import styles from "./ProfilComponent.module.css";
 import Sidebar from "../sidebar/Sidebar";
+import { useUserContext } from "../../context/userContext";
 
 export default function ProfilComponent() {
-  const [users, setUsers] = useState([]);
-  useEffect(() => {
-    fetch("http://localhost:3310/api/user")
-      .then((response) => response.json())
-      .then((data) => setUsers(data));
-  });
+  // const [users, setUsers] = useState(null);
+
+  const { userData } = useUserContext();
+  // console.log(userData);
 
   return (
     <>
@@ -46,63 +44,61 @@ export default function ProfilComponent() {
         >
           <AspectRatio flex ratio="1" maxHeight={182} sx={{ minWidth: 182 }}>
             <img
-              src="https://images.pexels.com/photos/8093599/pexels-photo-8093599.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-              srcSet="https://images.pexels.com/photos/8093599/pexels-photo-8093599.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2 2x"
+              src="https://images.pexels.com/photos/1267320/pexels-photo-1267320.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+              srcSet="https://images.pexels.com/photos/1267320/pexels-photo-1267320.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2 2x"
               loading="lazy"
               alt=""
             />
           </AspectRatio>
-          {users.map((user) => (
-            <CardContent key={user.id}>
-              <Typography fontSize="xl" fontWeight="lg">
-                Username: {user.username}
-              </Typography>
-              <Typography
-                level="body-sm"
-                fontWeight="lg"
-                textColor="text.tertiary"
-              >
-                Prénom: {user.firstname}
-              </Typography>
-              <Typography
-                level="body-sm"
-                fontWeight="lg"
-                textColor="text.tertiary"
-              >
-                Nom: {user.lastname}
-              </Typography>
-              <Sheet
-                sx={{
-                  bgcolor: "background.level1",
-                  borderRadius: "sm",
-                  p: 1.5,
-                  my: 1.5,
-                  display: "flex",
-                  gap: 2,
-                  "& > div": { flex: 1 },
-                }}
-              >
-                <div>
-                  <Typography level="body-xs" fontWeight="lg">
-                    Recipes
-                  </Typography>
-                  <Typography fontWeight="lg">34</Typography>
-                </div>
-                <div>
-                  <Typography level="body-xs" fontWeight="lg">
-                    Comment
-                  </Typography>
-                  <Typography fontWeight="lg">980</Typography>
-                </div>
-                <div>
-                  <Typography level="body-xs" fontWeight="lg">
-                    Rating
-                  </Typography>
-                  <Typography fontWeight="lg">8.9</Typography>
-                </div>
-              </Sheet>
-            </CardContent>
-          ))}
+          <CardContent key={userData.id}>
+            <Typography fontSize="xl" fontWeight="lg">
+              Username: {userData.user.username}
+            </Typography>
+            <Typography
+              level="body-sm"
+              fontWeight="lg"
+              textColor="text.tertiary"
+            >
+              Prénom: {userData.user.firstname}
+            </Typography>
+            <Typography
+              level="body-sm"
+              fontWeight="lg"
+              textColor="text.tertiary"
+            >
+              Nom: {userData.user.lastname}
+            </Typography>
+            <Sheet
+              sx={{
+                bgcolor: "background.level1",
+                borderRadius: "sm",
+                p: 1.5,
+                my: 1.5,
+                display: "flex",
+                gap: 2,
+                "& > div": { flex: 1 },
+              }}
+            >
+              <div>
+                <Typography level="body-xs" fontWeight="lg">
+                  Recipes
+                </Typography>
+                <Typography fontWeight="lg">34</Typography>
+              </div>
+              <div>
+                <Typography level="body-xs" fontWeight="lg">
+                  Comment
+                </Typography>
+                <Typography fontWeight="lg">980</Typography>
+              </div>
+              <div>
+                <Typography level="body-xs" fontWeight="lg">
+                  Rating
+                </Typography>
+                <Typography fontWeight="lg">8.9</Typography>
+              </div>
+            </Sheet>
+          </CardContent>
         </Card>
       </Container>
       <Navbar />
