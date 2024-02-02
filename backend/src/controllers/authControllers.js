@@ -24,7 +24,7 @@ const login = async (req, res, next) => {
       delete user.hashedPassword;
 
       const token = await jwt.sign(
-        { sub: user.id, email: user.email, isAdmin: user.role_id },
+        { sub: user.id, email: user.email },
         process.env.APP_SECRET,
         {
           expiresIn: "1h",
