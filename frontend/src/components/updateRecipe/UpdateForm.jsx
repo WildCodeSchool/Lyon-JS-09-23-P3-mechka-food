@@ -9,12 +9,11 @@ import Alert from "@mui/material/Alert";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
-import { createTheme, ThemeProvider, styled } from "@mui/material/styles";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Select from "@mui/material/Select";
 import FormControl from "@mui/material/FormControl";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
-import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 import styles from "./UpdateRecipeForm.module.css";
 import UpdateRecipeForm from "./UpdateRecipeForm";
 import UpdateInstructionsForm from "./UpdateInstructionsForm";
@@ -22,18 +21,6 @@ import UpdateIngredientsForm from "./UpdateIngredientsForm";
 import UpdateCategoriesSelect from "./UpdateCategoriesSelect";
 
 const defaultTheme = createTheme();
-
-const VisuallyHiddenInput = styled("input")({
-  clip: "rect(0 0 0 0)",
-  clipPath: "inset(50%)",
-  height: 1,
-  overflow: "hidden",
-  position: "absolute",
-  bottom: 0,
-  left: 0,
-  whiteSpace: "nowrap",
-  width: 1,
-});
 
 export default function UpdateForm() {
   const [persons, setPersons] = useState("");
@@ -216,7 +203,7 @@ export default function UpdateForm() {
               }}
             >
               <Typography component="h1" variant="h5">
-                Nouvelle Recette
+                Modifier la recette
               </Typography>
               <Box
                 component="form"
@@ -286,15 +273,6 @@ export default function UpdateForm() {
                   setUserCategoryId={setUserCategoryId}
                   userCategoryId={userCategorieId}
                 />
-                <Button
-                  sx={{ background: "#FAE078", color: "black" }}
-                  component="label"
-                  variant="contained"
-                  startIcon={<CloudUploadIcon />}
-                >
-                  Upload file
-                  <VisuallyHiddenInput type="file" />
-                </Button>
                 <Button
                   type="submit"
                   fullWidth

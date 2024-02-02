@@ -52,13 +52,12 @@ class RecipeManager extends AbstractManager {
 
   async update(recipe) {
     const [result] = await this.database.query(
-      `UPDATE ${this.table} SET title=?, descriptions=?, global_time=?, number_persons=?, image_url=? WHERE ${this.table}.id=?`,
+      `UPDATE ${this.table} SET title=?, descriptions=?, global_time=?, number_persons=? WHERE ${this.table}.id=?`,
       [
         recipe.title,
         recipe.descriptions,
         recipe.globalTime,
         recipe.numberPersons,
-        recipe.imageUrl,
         recipe.recipeId,
       ]
     );
