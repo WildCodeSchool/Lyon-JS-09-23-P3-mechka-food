@@ -16,6 +16,7 @@ import CommentPage from "./pages/CommentPage/CommentPage";
 import { UserContextProvider } from "./context/userContext";
 import AdminPagePrincipal from "./pages/adminPage/AdminPagePrincipal";
 import AddRecipePage from "./pages/addNewRecipePage/AddRecipePage";
+import UpdateRecipe from "./components/updateRecipeComponent/UpdateRecipe";
 
 const router = createBrowserRouter([
   {
@@ -62,6 +63,10 @@ const router = createBrowserRouter([
   {
     path: "/recipes/add",
     element: <AddRecipePage />,
+  },
+  {
+    path: "/recipes/:id/edit",
+    element: <UpdateRecipe />,
   },
 ]);
 

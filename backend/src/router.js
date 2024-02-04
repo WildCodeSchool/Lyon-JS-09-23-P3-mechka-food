@@ -22,6 +22,8 @@ const addRecipeControllers = require("./controllers/addRecipeControllers");
 const commentControllers = require("./controllers/commentControllers");
 const multer = require("./middlewares/multerMiddleware");
 const { adminWall } = require("./middlewares/adminWall");
+const updateControllers = require("./controllers/updateControllers");
+const recipeIngredientControllers = require("./controllers/recipeIngredientController");
 
 // Route to get a list of items
 router.get("/items", itemControllers.browse);
@@ -36,6 +38,10 @@ router.get("/recipes/instructions/:id", instructionControllers.readById);
 router.get("/category", categoryControllers.browse);
 router.get("/category/:id", categoryControllers.readById);
 router.get("/recipes/:id/comment", commentControllers.browse);
+router.get(
+  "/recipes/recipeIngredient/:id",
+  recipeIngredientControllers.readById
+);
 
 // Route to add a new item
 router.post("/items", itemControllers.add);
@@ -43,6 +49,8 @@ router.post("/items", itemControllers.add);
 // Route to add a new user
 router.post("/user", userMiddleware, hashPassword, userControllers.add);
 router.get("/user", userControllers.browse);
+
+router.put("/recipes/:id/update", updateControllers.edit);
 
 // Login
 router.post("/login", loginMiddleware, authControllers.login);
