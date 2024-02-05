@@ -1,7 +1,5 @@
 import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
-import Fab from "@mui/material/Fab";
-import AddIcon from "@mui/icons-material/Add";
 import PropTypes from "prop-types";
 import style from "../addRecipe/IngredientsForm.module.css";
 
@@ -64,7 +62,7 @@ export default function IngredientsUpdate({
             id="combo-box-demo"
             options={allIngredients}
             getOptionLabel={(option) => option.name}
-            value={allIngredients.find(
+            defaultValue={allIngredients.find(
               (ingredient) => ingredient.name === userIngredient.name
             )}
             onChange={(e, newValue) => handleChangeId(e, index, newValue.id)}
@@ -75,13 +73,6 @@ export default function IngredientsUpdate({
           />
         </div>
       ))}
-      <Fab
-        color="primary"
-        aria-label="add"
-        sx={{ background: "#FAE078", color: "black" }}
-      >
-        <AddIcon />
-      </Fab>
     </>
   );
 }

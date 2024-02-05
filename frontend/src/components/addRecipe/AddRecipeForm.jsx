@@ -250,6 +250,7 @@ export default function AddRecipeForm() {
                   component="label"
                   variant="contained"
                   startIcon={<CloudUploadIcon />}
+                  key={image}
                 >
                   Upload file
                   <VisuallyHiddenInput
