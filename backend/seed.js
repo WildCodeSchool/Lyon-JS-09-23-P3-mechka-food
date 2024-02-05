@@ -148,7 +148,8 @@ const seed = async () => {
             ('Cookies aux Pépites de Chocolat', 'Des cookies moelleux à l''intérieur et croustillants à l''extérieur, pleins de pépites de chocolat fondantes.', '25 minutes', 12, 'https://images.pexels.com/photos/2067424/pexels-photo-2067424.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 3),
             ('Lasagnes Bolognaises', 'Un plat italien classique avec des couches de pâtes, une sauce bolognaise savoureuse, béchamel et fromage fondant.', '1 heure et 10 minutes', 6, 'https://images.pexels.com/photos/14696209/pexels-photo-14696209.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 2),
             ('Salade de Quinoa aux Légumes Grillés', 'Cette salade fraîche et nourrissante associe du quinoa tendre avec des légumes grillés, offrant une explosion de saveurs et de textures. Parfait en entrée ou en plat principal pour un repas léger et équilibré.', '45 minutes', 4, 'https://ideogram.ai/api/images/direct/4uopSCDPSn6uILgSw_gIrQ.jpg', 1),
-            ('Soupe aux champignons crémeuse', "Cette soupe aux champignons crémeuse est un régal réconfortant pour les jours frais. Des champignons de Paris frais sautés dans du beurre, mélangés à de l'oignon et de l'ail pour une saveur profonde.", '30 minutes', 4, 'https://ideogram.ai/api/images/direct/cE3H7_pTQXeHWHByfondWA.jpg', 1)`
+            ('Soupe aux champignons crémeuse', "Cette soupe aux champignons crémeuse est un régal réconfortant pour les jours frais. Des champignons de Paris frais sautés dans du beurre, mélangés à de l'oignon et de l'ail pour une saveur profonde.", '30 minutes', 4, 'https://ideogram.ai/api/images/direct/cE3H7_pTQXeHWHByfondWA.jpg', 1),
+            ("Salade de chèvre chaud", "Une salade fraîche et savoureuse qui marie la douceur du fromage de chèvre chaud avec la fraîcheur des légumes verts et la douceur des fruits secs.", "25 minutes", 2, "https://files.meilleurduchef.com/mdc/photo/recette/salade-chevre-chaud/salade-chevre-chaud-1200.jpg", 1)`
       )
     );
 
@@ -265,7 +266,16 @@ const seed = async () => {
           (200, 'ml', 46, 10),
           (1, 'pincée', 6, 10),
           (1, 'pincée', 5, 10),
-          (1, 'bouquet', 33, 10)
+          (1, 'bouquet', 33, 10),
+          (100, 'g' , 68, 11),
+          (4, 'tranches' , 96, 11),
+          (50, 'g',40, 11),
+          (50, 'g' ,79, 11),
+          (2, 'cuillères à soupe' ,93, 11),
+          (2, 'cuillères à soupe' ,60, 11),
+          (4,'cuillères à soupe' ,17, 11), 
+          (1, 'pincée', 5,11),
+          (1, 'pincée', 6, 11)
         `
       )
     );
@@ -361,7 +371,16 @@ const seed = async () => {
             ("Laissez mijoter la soupe pendant environ 15-20 minutes, jusqu'à ce qu'elle épaississe légèrement.", 10),
             ("Ajoutez la crème liquide et mélangez bien. Laissez mijoter pendant quelques minutes de plus.", 10),
             ("Assaisonnez avec du sel et du poivre selon votre goût.", 10),
-            ("Servez la soupe aux champignons dans des bols chauds, garnissez de persil frais haché et dégustez !", 10)
+            ("Servez la soupe aux champignons dans des bols chauds, garnissez de persil frais haché et dégustez !", 10),
+            ("Préchauffez votre four à 180°C (thermostat 6).", 11),
+            ("Disposez les tranches de pain sur une plaque de cuisson et faites-les griller au four pendant environ 5 minutes, jusqu'à ce qu'elles soient croustillantes.", 11),
+            ("Pendant ce temps, préparez la vinaigrette en mélangeant le miel, le vinaigre balsamique, l'huile d'olive, le sel et le poivre dans un petit bol.", 11),
+            ("Lavez et essorez le mesclun, puis répartissez-le dans deux assiettes.", 11),
+            ("Coupez le fromage de chèvre en tranches épaisses et déposez-les sur les tranches de pain grillées.", 11),
+            ("Disposez les tranches de pain avec le fromage sur le lit de mesclun dans les assiettes.", 11),
+            ("Parsemez de noix et de raisins secs sur les salades.", 11),
+            ("Arrosez chaque salade avec la vinaigrette préparée.", 11),
+            ("Servez immédiatement, pour profiter du fromage de chèvre chaud.", 11)
             `
       )
     );
