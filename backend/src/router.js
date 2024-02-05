@@ -57,8 +57,13 @@ router.get("/user", userControllers.browse);
 
 router.put("/recipes/:id/update", updateControllers.edit);
 
+// ------------- CONNEXION PROCESS ------------
+
 // Login
 router.post("/login", loginMiddleware, authControllers.login);
+
+// Logout
+router.get("/logout", authControllers.logout);
 
 // Routes user connecté
 router.use(verifyToken);
@@ -66,8 +71,6 @@ router.use(verifyToken);
 router.post("/recipes/add", multer, addRecipeControllers.addRecipe);
 // Route to add a new comment
 router.post("/recipes/:id/comment", commentControllers.addComment);
-// Logout
-router.get("/logout", authControllers.logout);
 
 // Favorite
 router.get("/favorites/:id", favoriteControllers.readById);

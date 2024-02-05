@@ -17,22 +17,22 @@ export default function AdminCard({ image, title, id, description }) {
         {
           method: "delete",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ id }),
+          credentials: "include",
         }
       );
       if (response.status === 201) {
         console.info("Recipe deleted.");
       } else {
-        console.error(`failed deleting instruction, status ${response.status}`);
+        console.error(`Failed deleting recipe, status ${response.status}`);
       }
     } catch (err) {
-      console.error("Error posting instruction:", err);
+      console.error("Error posting recipe:", err);
     }
   };
 
   return (
     <Card sx={{ maxWidth: 345, marginBottom: 5, boxShadow: 5 }}>
-      <Link to={`/recipes/update/${id}`}>
+      <Link to={`/recipes/${id}/edit`}>
         <Button sx={{ margin: 3 }} variant="outlined">
           Modifier
         </Button>

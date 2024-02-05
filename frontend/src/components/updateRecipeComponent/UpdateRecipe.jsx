@@ -5,7 +5,7 @@ import CssBaseline from "@mui/material/CssBaseline";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import RecipeUpdate from "./RecipeUpdate";
 import InstructionsUpdate from "./InstructionsUpdate";
 import IngredientsUpdate from "./IngredientsUpdate";
@@ -13,6 +13,7 @@ import IngredientsUpdate from "./IngredientsUpdate";
 const defaultTheme = createTheme();
 
 export default function UpdateRecipe() {
+  const navigate = useNavigate();
   const [recipe, setRecipe] = useState({
     title: "",
     descriptions: "",
@@ -121,6 +122,7 @@ export default function UpdateRecipe() {
         );
 
         if (response.status === 201) {
+          navigate("/");
           console.info("ok");
         } else {
           console.info(response);
