@@ -48,7 +48,7 @@ export default function Sidebar() {
           <span className={styles.navtext}>Nouvelle recette</span>
         </Link>
 
-        <Link className={styles.link} to="/">
+        <Link className={styles.link} to="/profil">
           <span className={styles.navtext}>Profil</span>
         </Link>
 
