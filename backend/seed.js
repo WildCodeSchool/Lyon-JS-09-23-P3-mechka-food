@@ -147,8 +147,8 @@ const seed = async () => {
             ('Crumble aux Pommes', 'Un dessert délicieusement croustillant avec des pommes tendres et une couche de crumble parfumée à la cannelle.', '45 minutes', 6, 'https://images.pexels.com/photos/18403952/pexels-photo-18403952/free-photo-of-pain-nourriture-assiette-bois.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 3),
             ('Cookies aux Pépites de Chocolat', 'Des cookies moelleux à l''intérieur et croustillants à l''extérieur, pleins de pépites de chocolat fondantes.', '25 minutes', 12, 'https://images.pexels.com/photos/2067424/pexels-photo-2067424.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 3),
             ('Lasagnes Bolognaises', 'Un plat italien classique avec des couches de pâtes, une sauce bolognaise savoureuse, béchamel et fromage fondant.', '1 heure et 10 minutes', 6, 'https://images.pexels.com/photos/14696209/pexels-photo-14696209.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 2),
-            ('Lasagnes Bolognaises', 'Un plat italien classique avec des couches de pâtes, une sauce bolognaise savoureuse, béchamel et fromage fondant.', '1 heure et 10 minutes', 6, 'https://images.pexels.com/photos/14696209/pexels-photo-14696209.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 1),
-            ('Lasagnes Bolognaises', 'Un plat italien classique avec des couches de pâtes, une sauce bolognaise savoureuse, béchamel et fromage fondant.', '1 heure et 10 minutes', 6, 'https://images.pexels.com/photos/14696209/pexels-photo-14696209.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', 1)`
+            ('Salade de Quinoa aux Légumes Grillés', 'Cette salade fraîche et nourrissante associe du quinoa tendre avec des légumes grillés, offrant une explosion de saveurs et de textures. Parfait en entrée ou en plat principal pour un repas léger et équilibré.', '45 minutes', 4, 'https://ideogram.ai/api/images/direct/4uopSCDPSn6uILgSw_gIrQ.jpg', 1),
+            ('Soupe aux champignons crémeuse', "Cette soupe aux champignons crémeuse est un régal réconfortant pour les jours frais. Des champignons de Paris frais sautés dans du beurre, mélangés à de l'oignon et de l'ail pour une saveur profonde.", '30 minutes', 4, 'https://ideogram.ai/api/images/direct/cE3H7_pTQXeHWHByfondWA.jpg', 1)`
       )
     );
 
@@ -244,7 +244,28 @@ const seed = async () => {
           (50, 'Grammes', 36, 8),
           (500, 'ml', 44, 8),
           (1, 'Cuillère à café', 45, 8),
-          (200, 'Grammes', 46, 8)
+          (200, 'Grammes', 46, 8),
+          (1, 'tasse', 28, 9),
+          (2, 'tasses', 44, 9),
+          (1, '', 24, 9),
+          (1, '', 25, 9),
+          (1, '', 67, 9),
+          (1, 'poignée', 29, 9),
+          (2, 'cuillères à soupe', 17, 9),
+          (1, 'pincée', 5,9),
+          (1, 'pincée', 6, 9),
+          (1, 'ml', 22, 9),
+          (1, 'bouquet', 32, 9),
+          (500, 'gr', 42, 10),
+          (1, '', 8, 10),
+          (3, 'gousses', 9, 10),
+          (2, 'cuillères à soupe', 20, 10),
+          (2, 'cuillères à soupe', 35, 10),
+          (1, 'litre', 44, 10),
+          (200, 'ml', 46, 10),
+          (1, 'pincée', 6, 10),
+          (1, 'pincée', 5, 10),
+          (1, 'bouquet', 33, 10)
         `
       )
     );
@@ -322,7 +343,26 @@ const seed = async () => {
             ('Pendant ce temps, préparez la béchamel. Dans une casserole, faites fondre le beurre, ajoutez la farine et remuez pendant quelques minutes. Ajoutez le lait progressivement en remuant constamment jusqu''à ce que la sauce épaississe. Ajoutez la noix de muscade et retirez du feu.', 8),
             ('Dans un plat allant au four, alternez les couches de feuilles de lasagne, de sauce bolognaise et de béchamel. Répétez jusqu''à épuisement des ingrédients, en terminant par une couche de béchamel. Saupoudrez de fromage râpé sur le dessus.', 8),
             ('Faites cuire au four pendant environ 30-40 minutes, jusqu''à ce que le dessus soit doré et les lasagnes bien cuites.', 8),
-            ('Laissez reposer quelques minutes avant de servir. Bon appétit !', 8)`
+            ('Laissez reposer quelques minutes avant de servir. Bon appétit !', 8),
+            ('Dans une casserole, porter à ébullition le bouillon de légumes.', 9),
+            ('Ajouter le quinoa dans la casserole avec le bouillon de légumes bouillant. Réduire le feu, couvrir et laisser mijoter pendant environ 15-20 minutes.',9),
+            ("Pendant ce temps, préchauffer le gril. Dans un bol, mélanger les courgettes, poivron rouge, oignon rouge, champignons de Paris avec l'huile d'olive.", 9),
+            ('Assaisonner avec du sel et du poivre.', 9),
+            ("Placer les légumes marinés sur le gril chaud et faire griller pendant 8 à 10 minutes, en retournant occasionnellement, jusqu'à ce qu'ils soient tendres et légèrement dorés.",9),
+            ('Une fois que le quinoa est cuit, le transférer dans un grand bol et laisser refroidir légèrement.',9),
+            ('Ajouter les légumes grillés sur le quinoa refroidi. Arroser de jus de citron pour assaisonner.',9),
+            ('Garnir de persil frais haché avant de servir.', 9),
+            ('Servir la salade de quinoa aux légumes grillés comme une entrée légère et savoureuse.', 9),
+            ('Dans une grande casserole, faites fondre le beurre à feu moyen.', 10),
+            ("Ajoutez les oignons et l'ail, faites-les revenir jusqu'à ce qu'ils soient translucides.", 10),
+            ("Ajoutez les champignons tranchés et faites-les sauter jusqu'à ce qu'ils soient dorés et que toute l'eau soit évaporée.", 10),
+            ("Saupoudrez de farine sur les champignons et mélangez bien pour les enrober.", 10),
+            ("Versez lentement le bouillon de légumes tout en remuant constamment pour éviter les grumeaux.", 10),
+            ("Laissez mijoter la soupe pendant environ 15-20 minutes, jusqu'à ce qu'elle épaississe légèrement.", 10),
+            ("Ajoutez la crème liquide et mélangez bien. Laissez mijoter pendant quelques minutes de plus.", 10),
+            ("Assaisonnez avec du sel et du poivre selon votre goût.", 10),
+            ("Servez la soupe aux champignons dans des bols chauds, garnissez de persil frais haché et dégustez !", 10)
+            `
       )
     );
 
