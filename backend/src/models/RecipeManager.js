@@ -7,6 +7,24 @@ class RecipeManager extends AbstractManager {
     super({ table: "recipe" });
   }
 
+  // The C of CRUD - Create operation
+  async create(recipe) {
+    // Execute the SQL INSERT query to add a new item to the "item" table
+    const [result] = await this.database.query(
+      `insert into ${this.table} (title, descriptions, global_time, number_persons, image_url) values (?, ?, ?, ?, ?)`,
+      [
+        recipe.title,
+        recipe.descriptions,
+        recipe.globalTime,
+        recipe.numberPersons,
+        recipe.imageUrl,
+      ]
+    );
+
+    // Return the ID of the newly inserted item
+    return result.insertId;
+  }
+
   async readAllRecipes() {
     // Execute the SQL SELECT query to retrieve all items from the "recipe" table
     const [rows] = await this.database.query(`select * from ${this.table}`);
@@ -24,6 +42,26 @@ class RecipeManager extends AbstractManager {
 
     // Return the first row of the result, which represents the item
     return rows[0];
+  }
+
+  async delete(recipeId) {
+    await this.database.query(`delete from ${this.table} where id=?`, [
+      recipeId,
+    ]);
+  }
+
+  async update(recipe) {
+    const [result] = await this.database.query(
+      `UPDATE ${this.table} SET title=?, descriptions=?, global_time=?, number_persons=? WHERE ${this.table}.id=?`,
+      [
+        recipe.title,
+        recipe.descriptions,
+        recipe.globalTime,
+        recipe.numberPersons,
+        recipe.recipeId,
+      ]
+    );
+    return result;
   }
 }
 
