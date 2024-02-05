@@ -12,9 +12,9 @@ import ProfilComponent from "./components/Profil/ProfilComponent";
 import CategoryById from "./components/category/CategoryById";
 import RegisterPage from "./pages/registerPage/RegisterPage";
 import Login from "./pages/login/login";
+import AdminPagePrincipal from "./pages/adminPage/AdminPagePrincipal";
 import CommentPage from "./pages/CommentPage/CommentPage";
 import { UserContextProvider } from "./context/userContext";
-import AdminPagePrincipal from "./pages/adminPage/AdminPagePrincipal";
 import AddRecipePage from "./pages/addNewRecipePage/AddRecipePage";
 import UpdateRecipe from "./components/updateRecipeComponent/UpdateRecipe";
 
@@ -57,7 +57,7 @@ const router = createBrowserRouter([
     element: <Login />,
   },
   {
-    path: "/admin",
+    path: "/admin/",
     element: <AdminPagePrincipal />,
   },
   {

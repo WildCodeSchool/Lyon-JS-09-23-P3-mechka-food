@@ -27,6 +27,13 @@ class RecipeIngredientManager extends AbstractManager {
     return result.insertId;
   }
 
+  async delete(recipeId) {
+    // Execute the SQL INSERT query to add a new user to the "user" table
+    await this.database.query(`delete from ${this.table} where recipe_id=?`, [
+      recipeId,
+    ]);
+  }
+
   async update(ingredient, recipeId) {
     // Execute the SQL INSERT query to add a new item to the "item" table
     const [result] = await this.database.query(
@@ -40,6 +47,7 @@ class RecipeIngredientManager extends AbstractManager {
       ]
     );
 
+    // Return the ID of the newly inserted item
     return result;
   }
 }

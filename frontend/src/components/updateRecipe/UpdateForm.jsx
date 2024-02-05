@@ -1,5 +1,6 @@
 import * as React from "react";
 import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
@@ -13,32 +14,15 @@ import Select from "@mui/material/Select";
 import FormControl from "@mui/material/FormControl";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
-import CloudUploadIcon from "@mui/icons-material/CloudUpload";
-import styled from "@emotion/styled";
-import { useNavigate } from "react-router-dom";
-import styles from "./AddRecipeForm.module.css";
-import RecipeForm from "./RecipeForm";
-import InstructionsForm from "./InstructionsForm";
-import IngredientsForm from "./IngredientsForm";
-import CategoriesSelect from "./CategoriesSelect";
-import { useUserContext } from "../../context/userContext";
+import styles from "./UpdateRecipeForm.module.css";
+import UpdateRecipeForm from "./UpdateRecipeForm";
+import UpdateInstructionsForm from "./UpdateInstructionsForm";
+import UpdateIngredientsForm from "./UpdateIngredientsForm";
+import UpdateCategoriesSelect from "./UpdateCategoriesSelect";
 
 const defaultTheme = createTheme();
 
-const VisuallyHiddenInput = styled("input")({
-  clip: "rect(0 0 0 0)",
-  clipPath: "inset(50%)",
-  height: 1,
-  overflow: "hidden",
-  position: "absolute",
-  bottom: 0,
-  left: 0,
-  whiteSpace: "nowrap",
-  width: 1,
-});
-
-export default function AddRecipeForm() {
-  const navigate = useNavigate();
+export default function UpdateForm() {
   const [persons, setPersons] = useState("");
   const [instructions, setInstructions] = useState([{ id: 0, step: "" }]);
   const [title, setTitle] = useState("");
@@ -55,13 +39,13 @@ export default function AddRecipeForm() {
   const [isSuccess, setIsSucces] = useState(false);
   const [categories, setCategories] = useState([]);
   const [userCategorieId, setUserCategoryId] = useState("");
-  const [image, setImage] = useState();
-  const { userData } = useUserContext();
+
+  const { id: recipeId } = useParams();
 
   const MaxLengthTitleIngredients = 50;
   const MaxLengthDescriptionInstructions = 250;
 
-  // Get all ingredients from our database (need for autocomlete)
+  // Get ALL INGREDIENTS from our database (in order to have completed form)
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -75,10 +59,68 @@ export default function AddRecipeForm() {
         console.error(err);
       }
     };
+
     fetchData();
   }, []);
 
-  // Get all categories from our database
+  // Get RECIPE from our database (in order to have completed form)
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          `${import.meta.env.VITE_BACKEND_URL}/api/recipes/${recipeId}`
+        );
+        const data = await response.json();
+
+        setTitle(data);
+      } catch (err) {
+        console.error(err);
+      }
+    };
+    fetchData();
+  }, []);
+
+  // Get SPECIFIC RECIPE INSTRUCTIONS from our database (in order to have completed form)
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          `${
+            import.meta.env.VITE_BACKEND_URL
+          }/api/recipes/instructions/${recipeId}`
+        );
+        const data = await response.json();
+
+        setInstructions(data);
+      } catch (err) {
+        console.error(err);
+      }
+    };
+    fetchData();
+  }, []);
+
+  // Get INGREDIENTS INFOS from our database (in order to have completed form)
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          `${
+            import.meta.env.VITE_BACKEND_URL
+          }/api/recipes/ingredients/${recipeId}`
+        );
+        const data = await response.json();
+
+        setUserIngredients(data);
+      } catch (err) {
+        console.error(err);
+      }
+    };
+    fetchData();
+  }, []);
+
+  // Get ALL CATEGORIES from our database
   useEffect(() => {
     const fetchDataCategories = async () => {
       try {
@@ -95,35 +137,28 @@ export default function AddRecipeForm() {
     fetchDataCategories();
   }, []);
 
-  // Request POST from body frontend to back-end
-
+  // Request UPDATE from body frontend to back-end
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    const formData = new FormData();
-    formData.append("title", title);
-    formData.append("descriptions", descriptions);
-    formData.append("globalTime", timeCook);
-    formData.append("numberPersons", persons);
-    formData.append("userId", userData.user.id);
-    formData.append("instructions", JSON.stringify(instructions));
-    formData.append("userIngredients", JSON.stringify(userIngredients));
-    formData.append("userCategorieId", userCategorieId);
-    formData.append("recipeimage", image.get("recipeimage")); // Assuming "image" is the key for your image field
-
     const postData = async () => {
       try {
         const response = await fetch(
-          `${import.meta.env.VITE_BACKEND_URL}/api/recipes/add`,
+          `${import.meta.env.VITE_BACKEND_URL}/api/recipes/update/${recipeId}`,
           {
-            method: "post",
-            body: formData,
-            credentials: "include",
+            method: "put",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              title,
+              descriptions,
+              globalTime: timeCook,
+              numberPersons: persons,
+              instructions,
+              userIngredients,
+              userCategorieId,
+            }),
           }
         );
-
         if (response.status === 201) {
-          navigate("/");
           setIsSucces(true);
         } else {
           console.info(response);
@@ -144,16 +179,6 @@ export default function AddRecipeForm() {
 
   const handleChange = (event) => {
     setPersons(event.target.value);
-  };
-
-  const handleImage = (event) => {
-    const formData = new FormData();
-    formData.append(
-      "recipeimage",
-      event.target.files[0],
-      event.target.files[0].name
-    );
-    setImage(formData);
   };
 
   return (
@@ -177,32 +202,34 @@ export default function AddRecipeForm() {
               }}
             >
               <Typography component="h1" variant="h5">
-                Nouvelle Recette
+                Modifier la recette
               </Typography>
               <Box
                 component="form"
                 onSubmit={handleSubmit}
                 noValidate
                 sx={{ mt: 1 }}
-                encType="multipart/form-data"
               >
-                <RecipeForm
+                <UpdateRecipeForm
                   maxTitle={MaxLengthTitleIngredients}
                   maxDescription={MaxLengthDescriptionInstructions}
-                  title={title}
+                  title={title.title}
                   setTitle={setTitle}
-                  description={descriptions}
+                  description={title.descriptions}
                   setDescription={setDescription}
                 />
-                <InstructionsForm
+
+                <UpdateInstructionsForm
                   maxLength={MaxLengthDescriptionInstructions}
                   instructions={instructions}
                   setInstructions={setInstructions}
                 />
+
                 <div className={styles.containerIng}>
-                  <IngredientsForm
+                  <UpdateIngredientsForm
                     className={styles.ingredientInput}
                     ingredients={allIngredients}
+                    setIngredients={setAllIngredients}
                     userIngredients={userIngredients}
                     setUserIngredients={setUserIngredients}
                   />
@@ -217,7 +244,7 @@ export default function AddRecipeForm() {
                   name="Temps de préparation"
                   autoComplete="Temps de préparation"
                   onChange={handleChangeCookTime}
-                  value={timeCook}
+                  value={title.global_time}
                   autoFocus
                 />
                 <FormControl
@@ -230,8 +257,8 @@ export default function AddRecipeForm() {
                   <Select
                     labelId="numberPersons"
                     id="numberPersons"
-                    value={persons}
-                    label="Nombre de personnes"
+                    value={title.number_persons}
+                    // label="Nombre de personnes"
                     onChange={handleChange}
                   >
                     <MenuItem value={2}>2</MenuItem>
@@ -240,24 +267,11 @@ export default function AddRecipeForm() {
                     <MenuItem value={8}>8</MenuItem>
                   </Select>
                 </FormControl>
-                <CategoriesSelect
+                <UpdateCategoriesSelect
                   categories={categories}
                   setUserCategoryId={setUserCategoryId}
                   userCategoryId={userCategorieId}
                 />
-                <Button
-                  sx={{ background: "#FAE078", color: "black" }}
-                  component="label"
-                  variant="contained"
-                  startIcon={<CloudUploadIcon />}
-                >
-                  Upload file
-                  <VisuallyHiddenInput
-                    name="recipeImage"
-                    type="file"
-                    onChange={handleImage}
-                  />
-                </Button>
                 <Button
                   type="submit"
                   fullWidth
