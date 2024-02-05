@@ -1,9 +1,16 @@
 ## Concept
 
-This template is meant to serve as a foundation for every P2/P3 following the React-Express-MySQL stack, as learned in Wild Code School.
-It's pre-configured with a set of tools which'll help students produce industry-quality and easier-to-maintain code, while staying a pedagogical tool.
+Introducing our recipe sharing app, Mechka Food! Mechka Food is your go-to destination for discovering, sharing, and organizing delicious recipes from around the world. Whether you're a seasoned chef or a kitchen novice, Mechka Food makes cooking fun and accessible for everyone. Browse through a vast collection of user-generated recipes, each accompanied by mouthwatering photos and easy-to-follow instructions. Feeling inspired? Share your own culinary creations with the community and receive feedback and love from fellow food enthusiasts. With features like personalized recipe collections, ingredient shopping lists, and step-by-step cooking timers, CookHub streamlines your cooking experience and brings the joy of home-cooked meals to your fingertips. Join the CookHub community today and embark on a flavorful journey of discovery!
 
 ## Setup & Use
+
+You have the possibility to :
+- create an account & log into it,
+- check previously added recipes, from all users, by clicking on any image you encounter across the site,
+- access to a search page, where you can, first of all, have listed in 3 differents categories adn see all related recipes by clicking on it. And obviously, you can look for any recipe present in the database with the help of the searchBar,
+- add you own recipe with all required details, to help other users to cook it to the perfection,
+- access to an admin page, listing all previously added recipes, that you can modify or delete.
+- log out from your session.
 
 ### Windows users
 
@@ -20,6 +27,8 @@ git config --global core.autocrlf false
 - Clone this repo, enter it
 - Run command `npm install`
 - Create environment files (`.env`) in both `backend` and `frontend`: you can copy `.env.sample` files as starters (**don't** delete them)
+- Run command `npm run db:migrate`
+- Run command `npm run db:seed`
 
 ### Available Commands
 
