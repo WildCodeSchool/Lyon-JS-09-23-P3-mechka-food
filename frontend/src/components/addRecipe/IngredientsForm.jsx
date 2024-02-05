@@ -59,6 +59,9 @@ export default function IngredientsForm({
           <Autocomplete
             disablePortal
             id="combo-box-demo"
+            value={ingredients.find(
+              (option) => option.id === userIngredient.id
+            )}
             fullWidth
             options={ingredients}
             getOptionLabel={(option) => option.name}
@@ -76,7 +79,7 @@ export default function IngredientsForm({
         onClick={handleAddUserIng}
         color="primary"
         aria-label="add"
-        sx={{ background: "#FAE078", color: "black" }}
+        sx={{ background: "#FAE078", color: "black", mt: "1rem", mb: "1.5rem" }}
       >
         <AddIcon />
       </Fab>

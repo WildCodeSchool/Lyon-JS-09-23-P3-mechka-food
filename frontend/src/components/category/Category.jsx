@@ -38,9 +38,6 @@ export default function Category() {
                 >
                   {categorie.name}
                 </Typography>
-                {/* <Typography variant="body2" color="text.secondary">
-                  {categorie.description}
-                </Typography> */}
               </CardContent>
             </CardActionArea>
           </Card>

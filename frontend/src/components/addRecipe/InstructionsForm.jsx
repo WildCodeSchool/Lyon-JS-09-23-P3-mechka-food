@@ -47,7 +47,7 @@ export default function InstructionsForm({
         onClick={handleSubmitInstructions}
         color="primary"
         aria-label="add"
-        sx={{ background: "#FAE078", color: "black" }}
+        sx={{ background: "#FAE078", color: "black", mt: "1rem", mb: "1.5rem" }}
       >
         <AddIcon />
       </Fab>
