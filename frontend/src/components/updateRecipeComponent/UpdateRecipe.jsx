@@ -121,7 +121,7 @@ export default function UpdateRecipe() {
           }
         );
 
-        if (response.status === 201) {
+        if (response.status === 200) {
           navigate("/");
           console.info("ok");
         } else {
