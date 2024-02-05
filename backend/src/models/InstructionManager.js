@@ -30,6 +30,17 @@ class InstructionManager extends AbstractManager {
     // Return the ID of the newly inserted item
     return result.insertId;
   }
+
+  async update(instruction, recipeId) {
+    // Execute the SQL INSERT query to add a new item to the "item" table
+    const [result] = await this.database.query(
+      `update ${this.table} set step = ? where id = ? and recipeStep_id = ?`,
+      [instruction.step, instruction.id, recipeId]
+    );
+
+    // Return the ID of the newly inserted item
+    return result;
+  }
 }
 
 module.exports = InstructionManager;
