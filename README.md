@@ -9,7 +9,7 @@ You have the possibility to :
 - check previously added recipes, from all users, by clicking on any image you encounter across the site,
 - access to a search page, where you can, first of all, have listed in 3 differents categories adn see all related recipes by clicking on it. And obviously, you can look for any recipe present in the database with the help of the searchBar,
 - add you own recipe with all required details, to help other users to cook it to the perfection,
-- access to an admin page, listing all previously added recipes, that you can modify or delete.
+- access to your profil page, listing all previously added recipes, that you can modify or delete.
 - log out from your session.
 
 ### Windows users
@@ -49,30 +49,6 @@ git config --global core.autocrlf false
 - _ESLint_ : "Quality of code" tool, ensures chosen rules will be enforced
 - _Prettier_ : "Quality of code" tool as well, focuses on the styleguide
 - _ Airbnb Standard_ : One of the most known "standards", even though it's not officially linked to ES/JS
-
-## Deployment with Traefik
-
-> ⚠️ Prerequisites : You must have installed and configured Traefik on your VPS beforehand.
-> https://github.com/WildCodeSchool/vps-traefik-starter-kit/
-
-For deployment, you have to go to `secrets` → app `actions` on the github repo to insert via `New repository secret` :
-
-- SSH_HOST : IP address of your VPS
-- SSH_USER : SSH login to your VPS
-- SSH_PASSWORD : SSH connection password to your VPS
-
-And a public variable from the tab `/settings/variables/actions` :
-
-- PROJECT_NAME : the name of the project used to create the subdomain.
-
-> ⚠️ Warning : underscores are not allowed. They can cause trouble with the let's encrypt certificate
-
-Use this same tab to add the other environment variables required for the project if any.
-
-Only the backend will be accessible. The root path `"/"` will redirect to the dist folder on your frontend. In order to allow that, please uncomment the line as explain on `backend/src/app.js` (Line 102).
-Because the backend will serve the front, the global variable VITE_BACKEND_URL will be set with an empty string.
-
-Your url will be ` https://${PROJECT-NAME}.${subdomain}.wilders.dev/`.
 
 ### About the database
 
