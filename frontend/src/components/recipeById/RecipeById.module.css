@@ -18,30 +18,6 @@
   padding: 0.5rem;
 }
 
-.likeButton {
-  margin-top: 1rem;
-}
-
-.svgCoeur {
-  position: absolute;
-  height: 3rem;
-  bottom: 18rem;
-  right: 3rem;
-}
-
-.containerGlobal {
-  position: relative;
-}
-
-@media screen and (width > 768px) {
-  .svgCoeur {
-    position: absolute;
-    height: 3rem;
-    bottom: 18rem;
-    right: 3rem;
-  }
-}
-
 @media screen and (width > 1024px) {
   .apparenceCard {
     width: 80vw;
@@ -52,12 +28,5 @@
     justify-content: center;
     flex-direction: column;
     align-items: center;
-  }
-
-  .svgCoeur {
-    position: absolute;
-    height: 3rem;
-    bottom: 3rem;
-    right: 37rem;
   }
 }

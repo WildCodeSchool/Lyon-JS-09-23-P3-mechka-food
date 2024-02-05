@@ -8,7 +8,7 @@ export default function RecipeContainer() {
     fetch("http://localhost:3310/api/recipes")
       .then((response) => response.json())
       .then((data) => setRecipes(data));
-  }, []);
+  });
   return (
     <section>
       <div>
