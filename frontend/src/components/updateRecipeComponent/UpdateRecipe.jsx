@@ -181,6 +181,7 @@ export default function UpdateRecipe() {
         fullWidth
         variant="contained"
         sx={{ mt: 5, mb: 2, background: "#FAE078", color: "black" }}
+        onClick={handleSubmit}
       >
         Update
       </Button>

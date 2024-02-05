@@ -44,7 +44,6 @@ export default function IngredientsUpdate({
           <TextField
             id="outlined-basic"
             label="Quantity"
-            // variant="outlined"
             key={userIngredient.ingredien_id}
             className={style.textQuantity}
             onChange={(e) => handleChangeQuantity(e, index)}
@@ -54,7 +53,6 @@ export default function IngredientsUpdate({
           <TextField
             id="outlined-basic"
             label="Unit"
-            // variant="outlined"
             key={userIngredient.ingredien_id}
             className={style.textQuantity}
             onChange={(e) => handleChangeUnit(e, index)}
@@ -78,7 +76,6 @@ export default function IngredientsUpdate({
         </div>
       ))}
       <Fab
-        // onClick={handleAddUserIng}
         color="primary"
         aria-label="add"
         sx={{ background: "#FAE078", color: "black" }}
