@@ -17,14 +17,11 @@ export default function ProfilComponent() {
   const [recipeCount, setRecipeCount] = useState(0);
 
   const { userData } = useUserContext();
-  // console.log(userData);
 
   useEffect(() => {
-    // Make sure to replace 'userId' with the actual user ID you want to fetch recipes for
     const apiUrl = `${import.meta.env.VITE_BACKEND_URL}/api/recipes/user/${
       userData.user.id
     }`;
-    // console.log(userData.user.id);
 
     fetch(apiUrl)
       .then((response) => response.json())
@@ -37,7 +34,6 @@ export default function ProfilComponent() {
       );
   }, [userData]);
 
-  // console.log(recipes);
   return (
     <>
       <Header />
