@@ -4,12 +4,15 @@ import RecipeInformations from "./informationsRecipe/RecipeInformations";
 import IngredientByRecipe from "./ingredients/IngredientByRecipe";
 import InstructionByRecipe from "./instructions/InstructionByRecipe";
 import styles from "./RecipeById.module.css";
+// import ConnectionVerification from "../modal/ConnectionVerification";
+import { useUserContext } from "../../context/userContext";
 
 export default function RecipeById() {
   const [recipes, setRecipes] = useState(null);
-  const userId = 1; // 1 pour simuler l'user 1
   const { id: recipeId } = useParams();
   const [isFavorite, setIsFavorite] = useState(false);
+  const { userData } = useUserContext();
+  const [allFav, setAllFav] = useState([]);
 
   const handleChangeFavorite = () => {
     setIsFavorite(!isFavorite);
@@ -23,30 +26,47 @@ export default function RecipeById() {
       .then((data) => setRecipes(data));
   }, []);
 
+  useEffect(() => {
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/api//favorites/${recipeId}`)
+      .then((response) => response.json())
+      .then((data) => setAllFav(data));
+  }, []);
+
   // Code pour lier ce qui est des favorites
+
+  useEffect(() => {
+    if (allFav.length === 0) {
+      setIsFavorite(false);
+    } else {
+      setIsFavorite(true);
+    }
+  }, [allFav]);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
 
     try {
-      const response = await fetch(
-        `${import.meta.env.VITE_BACKEND_URL}/api/recipes/${recipeId}/favorite`,
-        {
-          method: "post",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ userId, recipeId }),
+      if (userData !== "null") {
+        const response = await fetch(
+          `${
+            import.meta.env.VITE_BACKEND_URL
+          }/api/recipes/${recipeId}/favorite`,
+          {
+            method: "post",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ userId: userData.user.id, recipeId }),
+          }
+        );
+        if (response.status === 201) {
+          handleChangeFavorite();
+        } else {
+          console.error(`failed add to favorite, status ${response.status}`);
         }
-      );
-      if (response.status === 201) {
-        handleChangeFavorite();
-      } else {
-        console.error(`failed add to favorite, status ${response.status}`);
       }
     } catch (err) {
       console.error("Error posting favorite:", err);
     }
   };
-
   const handleDelete = async (event) => {
     event.preventDefault();
 
@@ -58,7 +78,7 @@ export default function RecipeById() {
         {
           method: "delete",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ userId, recipeId }),
+          body: JSON.stringify({ userId: userData.user.id, recipeId }),
         }
       );
       if (response.status === 201) {
@@ -110,7 +130,6 @@ export default function RecipeById() {
           />
         )}
       </div>
-
       <div>
         <IngredientByRecipe />
         <InstructionByRecipe />

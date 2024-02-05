@@ -43,6 +43,7 @@ class InstructionManager extends AbstractManager {
       [instruction.step, instruction.id, recipeId]
     );
 
+    // Return the ID of the newly inserted item
     return result;
   }
 }

@@ -13,8 +13,11 @@ import CategoryById from "./components/category/CategoryById";
 import RegisterPage from "./pages/registerPage/RegisterPage";
 import Login from "./pages/login/login";
 import AdminCard from "./components/adminPage/AdminCard";
-import AddRecipeForm from "./components/addRecipe/AddRecipeForm";
 import UpdateForm from "./components/updateRecipe/UpdateForm";
+import CommentPage from "./pages/CommentPage/CommentPage";
+import { UserContextProvider } from "./context/userContext";
+import AddRecipePage from "./pages/addNewRecipePage/AddRecipePage";
+import UpdateRecipe from "./components/updateRecipeComponent/UpdateRecipe";
 
 const router = createBrowserRouter([
   {
@@ -38,6 +41,10 @@ const router = createBrowserRouter([
     element: <Search />,
   },
   {
+    path: "/recipes/:id/comment",
+    element: <CommentPage />,
+  },
+  {
     path: "/profil",
     element: <ProfilComponent />, // Route lors que le USER est connecté à son profil.
   },
@@ -56,7 +63,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/recipes/add",
-    element: <AddRecipeForm />,
+    element: <AddRecipePage />,
+  },
+  {
+    path: "/recipes/:id/edit",
+    element: <UpdateRecipe />,
   },
   {
     path: "/recipes/update/:id",
@@ -67,6 +78,8 @@ const router = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <UserContextProvider>
+      <RouterProvider router={router} />
+    </UserContextProvider>
   </React.StrictMode>
 );

@@ -11,13 +11,15 @@ class RecipeManager extends AbstractManager {
   async create(recipe) {
     // Execute the SQL INSERT query to add a new item to the "item" table
     const [result] = await this.database.query(
-      `insert into ${this.table} (title, descriptions, global_time, number_persons, image_url) values (?, ?, ?, ?, ?)`,
+      `insert into ${this.table} (title, descriptions, global_time, number_persons, image_url, user_id, category_id) values (?, ?, ?, ?, ?, ?, ?)`,
       [
         recipe.title,
         recipe.descriptions,
         recipe.globalTime,
         recipe.numberPersons,
         recipe.imageUrl,
+        recipe.userId,
+        recipe.userCategorieId,
       ]
     );
 
@@ -50,17 +52,34 @@ class RecipeManager extends AbstractManager {
     ]);
   }
 
+  async getRecipesByUserId(id) {
+    // Execute the SQL SELECT query to retrieve a specific item by its ID
+    const [rows] = await this.database.query(
+      `select * from ${this.table} where user_id = ?`,
+      [id]
+    );
+
+    // Return the first row of the result, which represents the item
+    return rows;
+  }
+
   async update(recipe) {
+    // Execute the SQL INSERT query to add a new item to the "item" table
     const [result] = await this.database.query(
-      `UPDATE ${this.table} SET title=?, descriptions=?, global_time=?, number_persons=? WHERE ${this.table}.id=?`,
+      `update ${this.table} SET title = ?, descriptions = ?, global_time = ?, number_persons = ?, image_url = ?, user_id=?, category_id = ? WHERE recipe.id = ?`,
       [
         recipe.title,
         recipe.descriptions,
-        recipe.globalTime,
-        recipe.numberPersons,
-        recipe.recipeId,
+        recipe.global_time,
+        recipe.number_persons,
+        recipe.image_url,
+        recipe.user_id,
+        recipe.category_id,
+        recipe.id,
       ]
     );
+
+    // Return the ID of the newly inserted item
     return result;
   }
 }

@@ -1,0 +1,15 @@
+.cardPosition {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+  gap: 3rem;
+  margin-right: 1rem;
+  margin-left: 1rem;
+}
+
+.containerTitle {
+  display: flex;
+  justify-content: center;
+  margin: 2rem;
+}
