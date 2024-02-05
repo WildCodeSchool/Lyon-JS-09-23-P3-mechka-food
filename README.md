@@ -29,6 +29,8 @@ git config --global core.autocrlf false
 - Create environment files (`.env`) in both `backend` and `frontend`: you can copy `.env.sample` files as starters (**don't** delete them)
 - Run command `npm run db:migrate`
 - Run command `npm run db:seed`
+- In frontend, create a `public` folder and a `images` folder in it
+
 
 ### Available Commands
 
