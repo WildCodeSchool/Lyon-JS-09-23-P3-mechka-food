@@ -116,6 +116,7 @@ export default function AddRecipeForm() {
           {
             method: "post",
             body: formData,
+            credentials: "include",
           }
         );
 

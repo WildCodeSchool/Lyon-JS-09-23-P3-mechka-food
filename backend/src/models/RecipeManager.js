@@ -56,6 +56,26 @@ class RecipeManager extends AbstractManager {
     // Return the first row of the result, which represents the item
     return rows;
   }
+
+  async update(recipe) {
+    // Execute the SQL INSERT query to add a new item to the "item" table
+    const [result] = await this.database.query(
+      `update ${this.table} SET title = ?, descriptions = ?, global_time = ?, number_persons = ?, image_url = ?, user_id=?, category_id = ? WHERE recipe.id = ?`,
+      [
+        recipe.title,
+        recipe.descriptions,
+        recipe.global_time,
+        recipe.number_persons,
+        recipe.image_url,
+        recipe.user_id,
+        recipe.category_id,
+        recipe.id,
+      ]
+    );
+
+    // Return the ID of the newly inserted item
+    return result;
+  }
 }
 
 module.exports = RecipeManager;

@@ -17,6 +17,22 @@ const add = async (req, res, next) => {
   }
 };
 
+const readById = async (req, res, next) => {
+  try {
+    const recipeIngredients = await tables.recipeIngredient.read(req.params.id);
+
+    if (recipeIngredients === null) {
+      res.sendStatus(404);
+    } else {
+      res.json(recipeIngredients);
+    }
+  } catch (err) {
+    // Pass any errors to the error-handling middleware
+    next(err);
+  }
+};
+
 module.exports = {
   add,
+  readById,
 };

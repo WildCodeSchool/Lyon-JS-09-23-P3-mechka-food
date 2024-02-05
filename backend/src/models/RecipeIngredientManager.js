@@ -5,6 +5,17 @@ class RecipeIngredientManager extends AbstractManager {
     super({ table: "recipeIngredient" });
   }
 
+  async read(recipeId) {
+    const [rows] = await this.database.query(
+      `
+    SELECT ri.id, ri.quantity, ri.unit, ri.ingredient_id, ri.recipe_id, ing.name FROM ${this.table} AS ri
+    INNER JOIN ingredient AS ing ON ing.id = ri.ingredient_id 
+    WHERE ri.recipe_id = ?`,
+      [recipeId]
+    );
+    return rows;
+  }
+
   async create(ingredient, recipeId) {
     // Execute the SQL INSERT query to add a new item to the "item" table
     const [result] = await this.database.query(
@@ -14,6 +25,22 @@ class RecipeIngredientManager extends AbstractManager {
 
     // Return the ID of the newly inserted item
     return result.insertId;
+  }
+
+  async update(ingredient, recipeId) {
+    // Execute the SQL INSERT query to add a new item to the "item" table
+    const [result] = await this.database.query(
+      `update  ${this.table} set quantity = ?, unit= ? , ingredient_id= ? WHERE id = ? and recipe_id = ?`,
+      [
+        ingredient.quantity,
+        ingredient.unit,
+        ingredient.ingredient_id,
+        ingredient.id,
+        recipeId,
+      ]
+    );
+
+    return result;
   }
 }
 
