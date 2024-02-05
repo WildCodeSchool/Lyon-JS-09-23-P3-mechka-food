@@ -10,6 +10,7 @@
   bottom: 0;
   width: 100%;
 }
+
 .container {
   height: 6rem;
   display: flex;
@@ -18,7 +19,6 @@
   position: relative;
   overflow: hidden;
   margin-bottom: 0.5rem;
-
   text-align: center;
   width: 100%;
   padding-bottom: 1.8rem;
@@ -35,16 +35,6 @@
     z-index: -1;
   }
 }
-
-/* .home,
-  .title,
-  .favoris,
-  .switch {
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    align-items: center;
-  } */
 
 .svgLogo {
   height: 3rem;
@@ -70,8 +60,33 @@
   width: 100%;
 }
 
+.welcome svg {
+  margin-right: 1rem;
+}
+
+.title {
+  font-weight: bold;
+}
+
+.welcome p {
+  display: none;
+}
+
 @media screen and (width > 768px) {
   .svgLogo {
     display: none;
+  }
+
+  .welcome {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-right: 1rem;
+    width: 12em;
+  }
+
+  .welcome p {
+    display: block;
+    margin: 0;
   }
 }

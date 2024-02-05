@@ -38,6 +38,7 @@ export default function RecipeForm({
         name="Titre de la recette"
         autoComplete="Titre de la recette"
         autoFocus
+        sx={{ mt: "2rem" }}
       />
       <TextField
         value={description}

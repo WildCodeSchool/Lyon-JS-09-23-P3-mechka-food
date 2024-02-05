@@ -10,7 +10,7 @@ export default function RecipeContainer() {
       .then((data) => setRecipes(data));
   }, []);
   return (
-    <section>
+    <section className={styles.globalContainer}>
       <div>
         <h2 className={styles.titleRecipeContainer}>Suggestions</h2>
       </div>
