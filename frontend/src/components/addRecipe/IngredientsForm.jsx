@@ -1,7 +1,5 @@
 import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
-import Select from "@mui/material/Select";
-import MenuItem from "@mui/material/MenuItem";
 import Fab from "@mui/material/Fab";
 import AddIcon from "@mui/icons-material/Add";
 import PropTypes from "prop-types";
@@ -49,22 +47,15 @@ export default function IngredientsForm({
             value={userIngredient.quantity}
           />
 
-          <Select
+          <TextField
             id="outlined-basic"
             label="Unit"
-            variant="outlined"
-            className={style.unitSelect}
+            key={userIngredient.ingredien_id}
+            className={style.textQuantity}
             onChange={(e) => handleChange(e, "unit", index)}
-            value={userIngredient.unit}
-          >
-            <MenuItem value="gr">Gr</MenuItem>
-            <MenuItem value="ml">Ml</MenuItem>
-            <MenuItem value="l">Litres</MenuItem>
-            <MenuItem value="kg">Kg</MenuItem>
-            <MenuItem value="pince">Pincée</MenuItem>
-            <MenuItem value="cc">Cuillière à café</MenuItem>
-            <MenuItem value="cs">Cuillère à soupe</MenuItem>
-          </Select>
+            value={userIngredient.unit || ""}
+            sx={{ width: "10rem" }}
+          />
           <Autocomplete
             disablePortal
             id="combo-box-demo"
