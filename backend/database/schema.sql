@@ -14,7 +14,7 @@ CREATE TABLE user(
   lastname VARCHAR (50),
   email VARCHAR (100) NOT NULL,
   hashedPassword VARCHAR(255)NOT NULL,
-  role_id INT DEFAULT 1,
+  role_id INT DEFAULT 2,
   CONSTRAINT role_id FOREIGN KEY (role_id) REFERENCES role(id)
 );
 
