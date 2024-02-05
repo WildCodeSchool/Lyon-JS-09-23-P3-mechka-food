@@ -12,7 +12,7 @@ import ProfilComponent from "./components/Profil/ProfilComponent";
 import CategoryById from "./components/category/CategoryById";
 import RegisterPage from "./pages/registerPage/RegisterPage";
 import Login from "./pages/login/login";
-// import AdminPagePrincipal from "./pages/adminPage/AdminPagePrincipal";
+import AdminCard from "./components/adminPage/AdminCard";
 import AddRecipeForm from "./components/addRecipe/AddRecipeForm";
 import UpdateForm from "./components/updateRecipe/UpdateForm";
 
@@ -50,10 +50,10 @@ const router = createBrowserRouter([
     path: "/login",
     element: <Login />,
   },
-  // {
-  //   path: "/admin/",
-  //   element: <AdminPagePrincipal />,
-  // },
+  {
+    path: "/admin/",
+    element: <AdminCard />,
+  },
   {
     path: "/recipes/add",
     element: <AddRecipeForm />,
