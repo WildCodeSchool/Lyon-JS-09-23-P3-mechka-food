@@ -46,6 +46,23 @@ class RecipeManager extends AbstractManager {
     return rows[0];
   }
 
+  async delete(recipeId) {
+    await this.database.query(`delete from ${this.table} where id=?`, [
+      recipeId,
+    ]);
+  }
+
+  async getRecipesByUserId(id) {
+    // Execute the SQL SELECT query to retrieve a specific item by its ID
+    const [rows] = await this.database.query(
+      `select * from ${this.table} where user_id = ?`,
+      [id]
+    );
+
+    // Return the first row of the result, which represents the item
+    return rows;
+  }
+
   async update(recipe) {
     // Execute the SQL INSERT query to add a new item to the "item" table
     const [result] = await this.database.query(

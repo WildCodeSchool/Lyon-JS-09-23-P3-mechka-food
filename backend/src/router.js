@@ -20,6 +20,8 @@ const loginMiddleware = require("./middlewares/loginMiddleware");
 const favoriteControllers = require("./controllers/favoriteControllers");
 const addRecipeControllers = require("./controllers/addRecipeControllers");
 const commentControllers = require("./controllers/commentControllers");
+const adminControllers = require("./controllers/adminControllers");
+const updateRecipeControllers = require("./controllers/updateRecipeControllers");
 const multer = require("./middlewares/multerMiddleware");
 const { adminWall } = require("./middlewares/adminWall");
 const updateControllers = require("./controllers/updateControllers");
@@ -43,6 +45,9 @@ router.get(
   recipeIngredientControllers.readById
 );
 
+// Route to get a specific recipe by ID
+router.get("/recipes/user/:id", recipeControllers.getRecipesByUserId);
+
 // Route to add a new item
 router.post("/items", itemControllers.add);
 
@@ -52,8 +57,13 @@ router.get("/user", userControllers.browse);
 
 router.put("/recipes/:id/update", updateControllers.edit);
 
+// ------------- CONNEXION PROCESS ------------
+
 // Login
 router.post("/login", loginMiddleware, authControllers.login);
+
+// Logout
+router.get("/logout", authControllers.logout);
 
 // Routes user connecté
 router.use(verifyToken);
@@ -61,8 +71,6 @@ router.use(verifyToken);
 router.post("/recipes/add", multer, addRecipeControllers.addRecipe);
 // Route to add a new comment
 router.post("/recipes/:id/comment", commentControllers.addComment);
-// Logout
-router.get("/logout", authControllers.logout);
 
 // Favorite
 router.get("/favorites/:id", favoriteControllers.readById);
@@ -72,6 +80,16 @@ router.delete(
   favoriteControllers.deleteFavorite
 );
 
+// Admin delete recipe
+router.delete("/admin/recipes/:id/delete", adminControllers.deleteRecipe);
+
+// Admin update recipe
+router.put("/recipes/update/:id", updateRecipeControllers.updateRecipe);
+
+/* ************************************************************************* */
+
+// Route to add a new comment
+router.post("/recipes/:id/comment", commentControllers.addComment);
 // Routes admin uniquement
 router.use(adminWall);
 router.delete("/user/:id", userControllers.deleteById);

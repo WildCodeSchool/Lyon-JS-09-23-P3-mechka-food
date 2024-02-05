@@ -15,6 +15,7 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 import styled from "@emotion/styled";
+import { useNavigate } from "react-router-dom";
 import styles from "./AddRecipeForm.module.css";
 import RecipeForm from "./RecipeForm";
 import InstructionsForm from "./InstructionsForm";
@@ -37,6 +38,7 @@ const VisuallyHiddenInput = styled("input")({
 });
 
 export default function AddRecipeForm() {
+  const navigate = useNavigate();
   const [persons, setPersons] = useState("");
   const [instructions, setInstructions] = useState([{ id: 0, step: "" }]);
   const [title, setTitle] = useState("");
@@ -121,6 +123,7 @@ export default function AddRecipeForm() {
         );
 
         if (response.status === 201) {
+          navigate("/");
           setIsSucces(true);
         } else {
           console.info(response);

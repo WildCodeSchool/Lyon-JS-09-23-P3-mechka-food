@@ -10,10 +10,10 @@ class IngredientsManager extends AbstractManager {
   async readById(id) {
     // Execute the SQL SELECT query to retrieve a specific item by its ID
     const [rows] = await this.database.query(
-      `select ingredient.id, ${this.table}.name, ri.quantity, ri.unit from recipe as r
-        join recipeIngredient as ri on r.id = ri.recipe_id
-        join ${this.table} on ${this.table}.id = ri.ingredient_id
-        where r.id = ?`,
+      `select recipeIngredient.id as RID, ${this.table}.name, recipeIngredient.quantity, recipeIngredient.unit, ingredient.id from recipe
+        join recipeIngredient on recipe.id = recipeIngredient.recipe_id
+        join ${this.table} on ${this.table}.id = recipeIngredient.ingredient_id
+        where recipe.id = ?`,
       [id]
     );
 

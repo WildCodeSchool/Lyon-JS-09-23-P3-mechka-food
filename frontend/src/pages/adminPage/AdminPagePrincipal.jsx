@@ -9,6 +9,8 @@ import Navbar from "../../components/Navbar/Navbar";
 import Sidebar from "../../components/sidebar/Sidebar";
 import AdminUserPage from "../../components/adminPage/AdminUser/AdminUserPage";
 import AdminPage from "../../components/adminPage/AdminPage";
+import { useUserContext } from "../../context/userContext";
+import errorImage from "../../assets/images/errorMechka.jpg";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -20,65 +22,72 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 function AdminPagePrincipal() {
+  const { userData } = useUserContext();
   const [selectedSection, setSelectedSection] = useState("recipes");
 
   return (
-    <div className="Home">
+    <section>
       <Header />
       <Sidebar />
-      <Grid item xs={8}>
-        <Item>Administrateur</Item>
-      </Grid>
-      <Container
-        sx={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <Box
-          sx={{
-            width: "50%",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <Button
+      {userData !== null && userData !== "null" ? (
+        <div className="Home">
+          <Grid item xs={8}>
+            <Item>Administrateur</Item>
+          </Grid>
+          <Container
             sx={{
-              backgroundColor: "#fae078",
-              ":hover": { backgroundColor: "#ffc107" },
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
             }}
-            variant="contained"
-            onClick={() => setSelectedSection("recipes")}
           >
-            Tous les recettes
-          </Button>
-        </Box>
-        <Box
-          sx={{
-            width: "50%",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <Button
-            sx={{
-              backgroundColor: "#fae078",
-              ":hover": { backgroundColor: "#ffc107" },
-            }}
-            variant="contained"
-            onClick={() => setSelectedSection("users")}
-          >
-            Tous les users
-          </Button>
-        </Box>
-      </Container>
-      {selectedSection === "recipes" && <AdminPage />}
-      {selectedSection === "users" && <AdminUserPage />}
+            <Box
+              sx={{
+                width: "50%",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <Button
+                sx={{
+                  backgroundColor: "#fae078",
+                  ":hover": { backgroundColor: "#ffc107" },
+                }}
+                variant="contained"
+                onClick={() => setSelectedSection("recipes")}
+              >
+                Tous les recettes
+              </Button>
+            </Box>
+            <Box
+              sx={{
+                width: "50%",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <Button
+                sx={{
+                  backgroundColor: "#fae078",
+                  ":hover": { backgroundColor: "#ffc107" },
+                }}
+                variant="contained"
+                onClick={() => setSelectedSection("users")}
+              >
+                Tous les users
+              </Button>
+            </Box>
+          </Container>
+          {selectedSection === "recipes" && <AdminPage />}
+          {selectedSection === "users" && <AdminUserPage />}
+        </div>
+      ) : (
+        <img style={{ height: "27rem" }} src={errorImage} alt="ErrorImage" />
+      )}
       <Navbar />
-    </div>
+    </section>
   );
 }
 
