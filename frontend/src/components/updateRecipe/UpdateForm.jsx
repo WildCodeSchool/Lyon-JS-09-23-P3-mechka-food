@@ -45,7 +45,7 @@ export default function UpdateForm() {
   const MaxLengthTitleIngredients = 50;
   const MaxLengthDescriptionInstructions = 250;
 
-  // AXEL Get ALL INGREDIENTS from our database (in order to have completed form)
+  // Get ALL INGREDIENTS from our database (in order to have completed form)
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -63,7 +63,7 @@ export default function UpdateForm() {
     fetchData();
   }, []);
 
-  // AXEL Get RECIPE from our database (in order to have completed form)
+  // Get RECIPE from our database (in order to have completed form)
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -80,7 +80,7 @@ export default function UpdateForm() {
     fetchData();
   }, []);
 
-  // AXEL Get SPECIFIC RECIPE INSTRUCTIONS from our database (in order to have completed form)
+  // Get SPECIFIC RECIPE INSTRUCTIONS from our database (in order to have completed form)
 
   useEffect(() => {
     const fetchData = async () => {
@@ -100,7 +100,7 @@ export default function UpdateForm() {
     fetchData();
   }, []);
 
-  // AXEL Get INGREDIENTS INFOS from our database (in order to have completed form)
+  // Get INGREDIENTS INFOS from our database (in order to have completed form)
 
   useEffect(() => {
     const fetchData = async () => {
@@ -120,7 +120,7 @@ export default function UpdateForm() {
     fetchData();
   }, []);
 
-  // AXEL Get ALL CATEGORIES from our database
+  // Get ALL CATEGORIES from our database
   useEffect(() => {
     const fetchDataCategories = async () => {
       try {
@@ -170,7 +170,6 @@ export default function UpdateForm() {
 
     postData();
   };
-  // Temps de préparation
 
   const handleChangeCookTime = (e) => {
     if (e.target.value.length <= MaxLengthTitleIngredients) {

@@ -84,7 +84,6 @@ router.delete(
 router.delete("/admin/recipes/:id/delete", adminControllers.deleteRecipe);
 
 // Admin update recipe
-// router.put("/recipes/:id/update", updateRecipeControllers.updateRecipe);
 router.put("/recipes/update/:id", updateRecipeControllers.updateRecipe);
 
 /* ************************************************************************* */

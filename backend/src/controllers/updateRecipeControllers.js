@@ -12,8 +12,6 @@ const updateRecipe = async (req, res, next) => {
     } = req.body;
     const recipeId = req.params.id;
 
-    // const ingredientId = userIngredients.map((e) => e.id);
-
     // uPDATE data to table recipe
     await tables.recipe.update({
       title,

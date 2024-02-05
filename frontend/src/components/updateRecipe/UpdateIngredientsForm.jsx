@@ -18,7 +18,6 @@ export default function IngredientsForm({
     }
     setUserIngredients(updatedIngredients);
   };
-  // console.log(userIngredients);
   // Add new inputs to the user when clicked on button +
   const handleAddUserIng = () => {
     setUserIngredients([
