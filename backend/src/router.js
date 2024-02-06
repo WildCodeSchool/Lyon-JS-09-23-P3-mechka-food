@@ -21,7 +21,6 @@ const favoriteControllers = require("./controllers/favoriteControllers");
 const addRecipeControllers = require("./controllers/addRecipeControllers");
 const commentControllers = require("./controllers/commentControllers");
 const adminControllers = require("./controllers/adminControllers");
-// const updateRecipeControllers = require("./controllers/updateRecipeControllers");
 const multer = require("./middlewares/multerMiddleware");
 const { adminWall } = require("./middlewares/adminWall");
 const updateControllers = require("./controllers/updateControllers");
