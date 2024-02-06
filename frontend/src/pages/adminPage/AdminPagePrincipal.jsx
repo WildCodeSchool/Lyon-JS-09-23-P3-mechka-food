@@ -32,7 +32,7 @@ function AdminPagePrincipal() {
       {userData !== null && userData !== "null" ? (
         <div className="Home">
           <Grid item xs={8}>
-            <Item sx={{ fontSize: "4rem", color: "black" }}>Admin</Item>
+            <Item>Administrateur</Item>
           </Grid>
           <Container
             sx={{

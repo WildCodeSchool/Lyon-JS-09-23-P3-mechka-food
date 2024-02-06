@@ -20,9 +20,7 @@ export default function Header() {
         <img className={styles.svgLogo} src={logo} alt="profile" />
       </Link>
 
-      <Link to="/">
-        <h1 className={styles.title}>Мечка Food</h1>
-      </Link>
+      <h1 className={styles.title}>Мечка Food</h1>
 
       <div className={styles.favoris}>
         {userData === "null" || userData === null ? (
