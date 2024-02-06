@@ -8,6 +8,7 @@ import styles from "./Sidebar.module.css";
 
 export default function Sidebar() {
   const { userData } = useUserContext();
+
   /* ----------PERMET D'AFFICHER LE MENU AU CHANGEMENT DU STATE-----------*/
   const [isActive, setIsActive] = useState(false);
   const toggle = () => {
@@ -57,7 +58,7 @@ export default function Sidebar() {
         ) : null}
 
         {userData !== null &&
-        userData !== "null" &&
+        userData !== undefined &&
         userData.user.role_id === 1 ? (
           <Link className={styles.link} to="/admin">
             <span className={styles.navtext}>Admin</span>
