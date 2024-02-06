@@ -1,51 +1,67 @@
 const recipeMiddleware = async (req, res, next) => {
   try {
-    const {
-      title,
-      descriptions,
-      globalTime,
-      numberPersons,
-      // userId,
-      // instructions,
-      // userIngredients,
-      // userCategorieId,
-    } = req.body;
+    const { recipe, recipeInstructions, recipeIngredients } = req.body;
 
+    // console.log(recipeIngredients);
     const errors = [];
-
-    if (title === undefined) {
+    // FOR TITLE
+    if (recipe.title === undefined) {
       errors.push({ field: "title", message: "Ce champ est requis." });
-    } else if (title.length > 50) {
+    } else if (recipe.title.length > 50) {
       errors.push({
         field: "title",
         message: "Le nombre maximum de caractères est de 50.",
       });
     }
-
-    if (descriptions === undefined) {
+    // FOR DESCRIPTIONS
+    if (recipe.descriptions === undefined) {
       errors.push({ field: "descriptions", message: "Ce champ est requis." });
-    } else if (descriptions.length > 255) {
+    } else if (recipe.descriptions.length > 255) {
       errors.push({
         field: "descriptions",
         message: "Le nombre maximum de caractères est de 255.",
       });
     }
+    // FOR INSTRUCTIONS
+    recipeInstructions.map((instruction) => {
+      if (instruction.step === undefined) {
+        errors.push({ field: "title", message: "Ce champ est requis." });
+      } else if (instruction.step.length > 255) {
+        errors.push({
+          field: "instructions",
+          message: "Le nombre maximum de caractères est de 255.",
+        });
+      } else if (instruction.step.length < 5) {
+        errors.push({
+          field: "instructions",
+          message: "Le nombre minimum de caractères est de 5.",
+        });
+      }
+      return true;
+    });
 
-    if (globalTime === undefined) {
-      errors.push({ field: "globalTime", message: "Ce champ est requis." });
-    } else if (globalTime.length > 50) {
+    // FOR INGREDIENTS
+    if (recipeIngredients.length === 0) {
       errors.push({
-        field: "globalTime",
-        message: "Le nombre maximum de caractères est de 50.",
+        field: "recipeIngredients",
+        message: "Il faut au moins 1 ingrédient.",
       });
-    }
-
-    if (numberPersons === undefined) {
-      errors.push({ field: "numberPersons", message: "Ce champ est requis." });
-    } else if (Number.isNaN(numberPersons)) {
-      errors.push({
-        field: "numberPersons",
-        message: "Merci de sélectionner un nombre.",
+      recipeIngredients.map((ingredient) => {
+        if (ingredient.unit === undefined) {
+          errors.push({ field: "title", message: "Ce champ est requis." });
+        } else if (ingredient.unit.length > 25) {
+          errors.push({
+            field: "ingredients",
+            message: "Le nombre maximum de caractères est de 25.",
+          });
+          if (Number.isNaN(ingredient.quantity)) {
+            errors.push({
+              field: "quantity",
+              message: "Il doit s'agir d'un nombre.",
+            });
+          }
+        }
+        return true;
       });
     }
 

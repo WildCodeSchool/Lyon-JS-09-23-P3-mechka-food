@@ -90,9 +90,6 @@ router.put("/recipes/:id/update", recipeMiddleware, updateControllers.edit);
 // Admin delete recipe
 router.delete("/admin/recipes/:id/delete", adminControllers.deleteRecipe);
 
-// Admin update recipe
-// router.put("/recipes/update/:id", updateRecipeControllers.updateRecipe);
-
 /* ************************************************************************* */
 
 // Route to add a new comment
