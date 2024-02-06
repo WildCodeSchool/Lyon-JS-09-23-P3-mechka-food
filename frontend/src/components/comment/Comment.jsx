@@ -18,7 +18,7 @@ export default function Comment() {
   const [recipeImage, setRecipeImage] = useState(null);
   const [comment, setComment] = useState("");
   const { id: CommentRecipeId } = useParams();
-  const user = useUserContext();
+  const { userData } = useUserContext();
 
   // Hook pour la navigation
   const navigate = useNavigate();
@@ -89,7 +89,9 @@ export default function Comment() {
           >
             <CommentsByIdRecipe />
           </Box>
-          {user !== null ? (
+          {userData !== null &&
+          userData !== "null" &&
+          userData.user.role_id === 1 ? (
             <Box
               sx={{
                 my: 8,
