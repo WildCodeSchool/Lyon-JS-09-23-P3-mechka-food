@@ -6,8 +6,8 @@ import Sidebar from "../../components/sidebar/Sidebar";
 export default function CommentPage() {
   return (
     <>
-      <Header />
       <Sidebar />
+      <Header />
       <Comment />
       <Navbar />
     </>
