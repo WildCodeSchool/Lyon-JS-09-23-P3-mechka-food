@@ -25,7 +25,7 @@ export default function RecipesCarrousel() {
   }, []);
 
   return (
-    <section>
+    <section className={styles.sectionGlobal}>
       <Carousel className={styles.carouselGlobal}>
         {random &&
           random.map((recipe) => (
