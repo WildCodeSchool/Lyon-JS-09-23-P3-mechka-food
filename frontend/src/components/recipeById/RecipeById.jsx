@@ -98,43 +98,50 @@ export default function RecipeById() {
     <>
       <section className={styles.RecipeByIdContainer}>
         <div className={styles.containerGlobal}>
-           <div>
-          {userData !== null && userData !== "null" ? (
-            <div className={styles.svgCoeur}>
-              <Fab
-                aria-label="like"
-                sx={{
-                  position: "absolute",
-                  bottom: "12.5rem",
-                  right: "1.5rem",
-                  bgcolor: "white",
-                }}
-              >
-                <FavoriteIcon
-                  onClick={isFavorite === false ? handleSubmit : handleDelete}
-                />
-              </Fab>
-            </div>
-          ) : (
-            <div className={styles.svgCoeur}>
-              <Fab
-                aria-label="like"
-                sx={{
-                  position: "absolute",
-                  bottom: "12.5rem",
-                  right: "1.5rem",
-                  bgcolor: "white",
-                }}
-              >
-                <FavoriteIcon
-                  sx={{ color: "red" }}
-                  onClick={isFavorite === false ? handleSubmit : handleDelete}
-                />
-              </Fab>
-            </div>
-          )}
-  ) : null}
-        </div>
+          <div>
+            {userData !== null && userData !== "null" ? (
+              <div>
+                {!isFavorite ? (
+                  <div className={styles.svgCoeur}>
+                    <Fab
+                      aria-label="like"
+                      sx={{
+                        position: "absolute",
+                        bottom: "12.5rem",
+                        right: "1.5rem",
+                        bgcolor: "white",
+                      }}
+                    >
+                      <FavoriteIcon
+                        onClick={
+                          isFavorite === false ? handleSubmit : handleDelete
+                        }
+                      />
+                    </Fab>
+                  </div>
+                ) : (
+                  <div className={styles.svgCoeur}>
+                    <Fab
+                      aria-label="like"
+                      sx={{
+                        position: "absolute",
+                        bottom: "12.5rem",
+                        right: "1.5rem",
+                        bgcolor: "white",
+                      }}
+                    >
+                      <FavoriteIcon
+                        sx={{ color: "red" }}
+                        onClick={
+                          isFavorite === false ? handleSubmit : handleDelete
+                        }
+                      />
+                    </Fab>
+                  </div>
+                )}
+              </div>
+            ) : null}
+          </div>
 
           {recipes !== null && (
             <RecipeInformations
