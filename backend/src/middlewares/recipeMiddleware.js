@@ -2,7 +2,6 @@ const recipeMiddleware = async (req, res, next) => {
   try {
     const { recipe, recipeInstructions, recipeIngredients } = req.body;
 
-    // console.log(recipeIngredients);
     const errors = [];
     // FOR TITLE
     if (recipe.title === undefined) {
