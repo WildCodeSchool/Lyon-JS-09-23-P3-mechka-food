@@ -22,23 +22,14 @@
   margin-top: 1rem;
 }
 
-.svgCoeur {
-  position: absolute;
-  height: 3rem;
-  bottom: 22rem;
-  right: 1rem;
-}
-
 .containerGlobal {
   position: relative;
 }
 
 @media screen and (width > 768px) {
-  .svgCoeur {
-    position: absolute;
-    height: 3rem;
-    bottom: 20rem;
-    right: 3rem;
+  .tabPosition {
+    display: flex;
+    justify-content: center;
   }
 }
 
@@ -56,8 +47,21 @@
 
   .svgCoeur {
     position: absolute;
-    height: 3rem;
-    bottom: 3rem;
-    right: 50rem;
+
+    bottom: -1rem;
+    right: 2.5rem;
+  }
+  .positionGenTab {
+    width: 80%;
+  }
+
+  .positionTab {
+    display: flex;
+    justify-content: center;
+    width: 60%;
+  }
+  .positionSection {
+    display: flex;
+    justify-content: center;
   }
 }

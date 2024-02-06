@@ -18,7 +18,7 @@ export default function Comment() {
   const [recipeImage, setRecipeImage] = useState(null);
   const [comment, setComment] = useState("");
   const { id: CommentRecipeId } = useParams();
-  const user = useUserContext();
+  const { userData } = useUserContext();
 
   // Hook pour la navigation
   const navigate = useNavigate();
@@ -89,7 +89,7 @@ export default function Comment() {
           >
             <CommentsByIdRecipe />
           </Box>
-          {user !== null ? (
+          {userData !== null && userData !== "null" ? (
             <Box
               sx={{
                 my: 8,
@@ -137,13 +137,22 @@ export default function Comment() {
           ) : (
             <Box
               sx={{
-                my: 8,
+                my: 10,
                 mx: 7,
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",
               }}
             >
+              <Typography
+                sx={{
+                  my: 3,
+                }}
+                component="h1"
+                variant="h5"
+              >
+                Laissez un commentaire !
+              </Typography>
               <ConnectionVerification />
             </Box>
           )}

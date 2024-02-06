@@ -26,7 +26,6 @@ export default function RecipeUpdate({ recipe, setRecipe, maxTitle, maxDesc }) {
         name="titreDeLaRecette"
         autoFocus
         label="Titre"
-        sx={{ mt: 3 }}
       />
 
       <TextField
@@ -37,7 +36,7 @@ export default function RecipeUpdate({ recipe, setRecipe, maxTitle, maxDesc }) {
         fullWidth
         multiline // Permet plusieurs lignes
         rows={4} // Spécifie le nombre initial de lignes
-        sx={{ height: 120, marginBottom: 8 }}
+        sx={{ height: 120 }}
         id={`decription-${recipe.id}`}
         name="description"
         label="Description"
