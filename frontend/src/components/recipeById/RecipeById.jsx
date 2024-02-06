@@ -5,7 +5,6 @@ import Fab from "@mui/material/Fab";
 import RecipeInformations from "./informationsRecipe/RecipeInformations";
 import styles from "./RecipeById.module.css";
 import GeneralTab from "./newRenderInfo/GeneralTab";
-// import ConnectionVerification from "../modal/ConnectionVerification";
 import { useUserContext } from "../../context/userContext";
 
 export default function RecipeById() {
