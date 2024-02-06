@@ -68,6 +68,11 @@
   font-weight: bold;
 }
 
+.container a {
+  text-decoration: none;
+  color: black;
+}
+
 .welcome p {
   display: none;
 }
@@ -81,12 +86,21 @@
     display: flex;
     align-items: center;
     gap: 1rem;
-    margin-right: 1rem;
     width: 12em;
   }
 
   .welcome p {
     display: block;
     margin: 0;
+  }
+
+  .favoris {
+    position: absolute;
+    z-index: 1;
+    right: 0;
+  }
+
+  .container {
+    justify-content: center;
   }
 }
