@@ -10,7 +10,7 @@ import { useUserContext } from "../../context/userContext";
 export default function RecipeById() {
   const [recipes, setRecipes] = useState(null);
   const { id: recipeId } = useParams();
-  const [isFavorite, setIsFavorite] = useState(false);
+  const [isFavorite, setIsFavorite] = useState();
   const { userData } = useUserContext();
   const [allFav, setAllFav] = useState([]);
 
