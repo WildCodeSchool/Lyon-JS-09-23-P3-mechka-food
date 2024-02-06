@@ -36,9 +36,9 @@ export default function IngredientsUpdate({
   };
 
   return (
-    <>
+    <div className={style.containerDiv}>
       {ingredients.map((userIngredient, index) => (
-        <div key={userIngredient.id}>
+        <div className={style.globalContainer} key={userIngredient.id}>
           <TextField
             id="outlined-basic"
             label="Quantity"
@@ -46,6 +46,7 @@ export default function IngredientsUpdate({
             className={style.textQuantity}
             onChange={(e) => handleChangeQuantity(e, index)}
             value={userIngredient.quantity || ""}
+            sx={{ width: "6rem" }}
           />
 
           <TextField
@@ -58,6 +59,7 @@ export default function IngredientsUpdate({
             sx={{ width: "10rem" }}
           />
           <Autocomplete
+            sx={{ width: "20rem" }}
             disablePortal
             id="combo-box-demo"
             options={allIngredients}
@@ -73,7 +75,7 @@ export default function IngredientsUpdate({
           />
         </div>
       ))}
-    </>
+    </div>
   );
 }
 
