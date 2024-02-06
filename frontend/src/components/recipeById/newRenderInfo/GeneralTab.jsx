@@ -7,6 +7,7 @@ import Box from "@mui/material/Box";
 import InstructionsTab from "./InstructionsTab";
 import IngredientsTab from "./IngredientsTab";
 import TabPanel from "./TabPanel";
+import styles from "../RecipeById.module.css";
 
 export default function GeneralTab() {
   const idRecipe = useParams();
@@ -18,33 +19,50 @@ export default function GeneralTab() {
   };
 
   // États pour les ingrédients et les instructions
-  const [ingredients, setIngredients] = useState(null);
-  const [instructions, setInstructions] = useState(null);
+  const [ingredients, setIngredients] = useState([]);
+  const [instructions, setInstructions] = useState([]);
 
   // Fetch des données d'ingrédients et d'instructions
   useEffect(() => {
-    fetch(
-      `${import.meta.env.VITE_BACKEND_URL}/api/recipes/ingredients/${
-        idRecipe.id
-      }`
-    )
-      .then((response) => response.json())
-      .then((data) => setIngredients(data));
+    const fetchData = async () => {
+      const resonse = await fetch(
+        `${import.meta.env.VITE_BACKEND_URL}/api/recipes/ingredients/${
+          idRecipe.id
+        }`
+      );
+      const data = await resonse.json();
+
+      setIngredients(data);
+    };
+
+    fetchData();
   }, []);
 
   useEffect(() => {
-    fetch(
-      `${import.meta.env.VITE_BACKEND_URL}/api/recipes/instructions/${
-        idRecipe.id
-      }`
-    )
-      .then((response) => response.json())
-      .then((data) => setInstructions(data));
+    const fetchData = async () => {
+      const resonse = await fetch(
+        `${import.meta.env.VITE_BACKEND_URL}/api/recipes/instructions/${
+          idRecipe.id
+        }`
+      );
+      const data = await resonse.json();
+
+      setInstructions(data);
+    };
+
+    fetchData();
   }, []);
 
   return (
-    <Container sx={{ m: 0 }}>
-      <Box sx={{ width: "100%" }}>
+    <Container
+      sx={{
+        m: 0,
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+      <Box sx={{ width: "100%" }} className={styles.positionGenTab}>
         <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
           {/* Onglets pour Ingrédients et Instructions */}
           <Tabs

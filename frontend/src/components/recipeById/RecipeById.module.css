@@ -27,11 +27,9 @@
 }
 
 @media screen and (width > 768px) {
-  .svgCoeur {
-    position: absolute;
-    height: 3rem;
-    bottom: 18rem;
-    right: 3rem;
+  .tabPosition {
+    display: flex;
+    justify-content: center;
   }
 }
 
@@ -49,8 +47,20 @@
 
   .svgCoeur {
     position: absolute;
-    height: 3rem;
-    bottom: 3rem;
-    right: 37rem;
+    bottom: -1rem;
+    right: 2.5rem;
+  }
+  .positionGenTab {
+    width: 80%;
+  }
+
+  .positionTab {
+    display: flex;
+    justify-content: center;
+    width: 60%;
+  }
+  .positionSection {
+    display: flex;
+    justify-content: center;
   }
 }

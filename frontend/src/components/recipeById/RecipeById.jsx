@@ -28,7 +28,7 @@ export default function RecipeById() {
   }, []);
 
   useEffect(() => {
-    fetch(`${import.meta.env.VITE_BACKEND_URL}/api//favorites/${recipeId}`)
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/favorites/${recipeId}`)
       .then((response) => response.json())
       .then((data) => setAllFav(data));
   }, []);
@@ -97,9 +97,8 @@ export default function RecipeById() {
       <section className={styles.RecipeByIdContainer}>
         <div className={styles.containerGlobal}>
           {!isFavorite ? (
-            <div>
+            <div className={styles.svgCoeur}>
               <Fab
-                className={styles.svgCoeur}
                 aria-label="like"
                 sx={{
                   position: "absolute",
@@ -114,20 +113,22 @@ export default function RecipeById() {
               </Fab>
             </div>
           ) : (
-            <Fab
-              aria-label="like"
-              sx={{
-                position: "absolute",
-                bottom: "12.5rem",
-                right: "1.5rem",
-                bgcolor: "white",
-              }}
-            >
-              <FavoriteIcon
-                sx={{ color: "red" }}
-                onClick={isFavorite === false ? handleSubmit : handleDelete}
-              />
-            </Fab>
+            <div className={styles.svgCoeur}>
+              <Fab
+                aria-label="like"
+                sx={{
+                  position: "absolute",
+                  bottom: "12.5rem",
+                  right: "1.5rem",
+                  bgcolor: "white",
+                }}
+              >
+                <FavoriteIcon
+                  sx={{ color: "red" }}
+                  onClick={isFavorite === false ? handleSubmit : handleDelete}
+                />
+              </Fab>
+            </div>
           )}
 
           {recipes !== null && (
@@ -141,9 +142,11 @@ export default function RecipeById() {
           )}
         </div>
       </section>
-      <div>
-        <GeneralTab />
-      </div>
+      <section className={styles.positionSection}>
+        <div className={styles.positionTab}>
+          <GeneralTab />
+        </div>
+      </section>
     </>
   );
 }

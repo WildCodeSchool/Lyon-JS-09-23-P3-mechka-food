@@ -4,7 +4,13 @@ import PropTypes from "prop-types";
 
 export default function IngredientsTab({ ingredients }) {
   return (
-    <Container sx={{ overflowY: "auto", height: "30vh", marginBottom: "2rem" }}>
+    <Container
+      sx={{
+        overflowY: "auto",
+        height: "30vh",
+        marginBottom: "2rem",
+      }}
+    >
       <ul>
         {ingredients !== null &&
           ingredients.map((ingredient) => {
@@ -16,6 +22,7 @@ export default function IngredientsTab({ ingredients }) {
                     gap: 0.5,
                     padding: 0,
                     paddingBottom: 0,
+                    bgColor: "red",
                   }}
                 >
                   <Typography variant="body2" color="text.secondary">
