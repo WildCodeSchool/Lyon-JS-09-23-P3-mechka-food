@@ -89,9 +89,7 @@ export default function Comment() {
           >
             <CommentsByIdRecipe />
           </Box>
-          {userData !== null &&
-          userData !== "null" &&
-          userData.user.role_id === 1 ? (
+          {userData !== null && userData !== "null" ? (
             <Box
               sx={{
                 my: 8,
@@ -139,13 +137,22 @@ export default function Comment() {
           ) : (
             <Box
               sx={{
-                my: 8,
+                my: 10,
                 mx: 7,
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",
               }}
             >
+              <Typography
+                sx={{
+                  my: 3,
+                }}
+                component="h1"
+                variant="h5"
+              >
+                Laissez un commentaire !
+              </Typography>
               <ConnectionVerification />
             </Box>
           )}
