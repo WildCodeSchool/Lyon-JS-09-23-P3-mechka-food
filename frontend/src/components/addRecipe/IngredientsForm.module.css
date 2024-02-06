@@ -10,15 +10,3 @@
   display: flex;
   gap: 0.5rem;
 }
-
-.globalContainer {
-  display: flex;
-  justify-content: center;
-  gap: 7rem;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-}
-
-.containerDiv {
-  margin-bottom: 5rem;
-}
