@@ -1,6 +1,4 @@
 import TextField from "@mui/material/TextField";
-import Fab from "@mui/material/Fab";
-import AddIcon from "@mui/icons-material/Add";
 import PropTypes from "prop-types";
 
 export default function InstructionsUpdate({
@@ -19,11 +17,6 @@ export default function InstructionsUpdate({
     }
   };
 
-  const handleSubmitInstructions = (e) => {
-    e.preventDefault();
-    setInstructions([...instructions, { step: "" }]);
-  };
-
   return (
     <>
       {instructions.map((instruction, index) => (
@@ -40,14 +33,6 @@ export default function InstructionsUpdate({
           label={`Instruction ${index + 1}`}
         />
       ))}
-      <Fab
-        onClick={handleSubmitInstructions}
-        color="primary"
-        aria-label="add"
-        sx={{ background: "#FAE078", color: "black" }}
-      >
-        <AddIcon />
-      </Fab>
     </>
   );
 }

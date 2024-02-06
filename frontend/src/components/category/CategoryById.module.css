@@ -1,6 +1,8 @@
 .CategoryContainer {
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
+  gap: 4rem;
 }
 
 .CategoryTitleContainer {
@@ -11,9 +13,10 @@
 }
 
 .CategoryTitle {
-  font-size: 5.5rem;
+  font-size: 3rem;
   font-weight: bold;
-  margin: 1rem 0;
+  margin-top: 1rem;
+  margin-bottom: 3rem;
 }
 
 @media (max-width: 768px) {

@@ -56,6 +56,7 @@ export default function RecipeById() {
             method: "post",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ userId: userData.user.id, recipeId }),
+            credentials: "include",
           }
         );
         if (response.status === 201) {
@@ -80,6 +81,7 @@ export default function RecipeById() {
           method: "delete",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ userId: userData.user.id, recipeId }),
+          credentials: "include",
         }
       );
       if (response.status === 201) {
@@ -96,7 +98,8 @@ export default function RecipeById() {
     <>
       <section className={styles.RecipeByIdContainer}>
         <div className={styles.containerGlobal}>
-          {!isFavorite ? (
+           <div>
+          {userData !== null && userData !== "null" ? (
             <div className={styles.svgCoeur}>
               <Fab
                 aria-label="like"
@@ -130,6 +133,8 @@ export default function RecipeById() {
               </Fab>
             </div>
           )}
+  ) : null}
+        </div>
 
           {recipes !== null && (
             <RecipeInformations

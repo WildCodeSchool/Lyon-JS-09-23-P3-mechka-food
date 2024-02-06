@@ -176,7 +176,7 @@ export default function AddRecipeForm() {
                 alignItems: "center",
               }}
             >
-              <Typography component="h1" variant="h5">
+              <Typography component="h2" variant="h3">
                 Nouvelle Recette
               </Typography>
               <Box
@@ -250,6 +250,7 @@ export default function AddRecipeForm() {
                   component="label"
                   variant="contained"
                   startIcon={<CloudUploadIcon />}
+                  key={image}
                 >
                   Upload file
                   <VisuallyHiddenInput

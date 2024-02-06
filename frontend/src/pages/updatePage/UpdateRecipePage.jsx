@@ -1,10 +1,10 @@
-import AddRecipeForm from "../../components/addRecipe/AddRecipeForm";
 import { useUserContext } from "../../context/userContext";
+import UpdateRecipe from "../../components/updateRecipeComponent/UpdateRecipe";
+import Error from "../../components/errorComponent/Error";
 import Header from "../../components/Header/Header";
 import Sidebar from "../../components/sidebar/Sidebar";
-import Error from "../../components/errorComponent/Error";
 
-export default function AddRecipePage() {
+export default function UpdateRecipePage() {
   const { userData } = useUserContext();
 
   return (
@@ -12,10 +12,10 @@ export default function AddRecipePage() {
       <Header />
       <Sidebar />
       <div>
-        {userData === "null" || userData === null ? (
+        {userData === null || userData === "null" ? (
           <Error />
         ) : (
-          <AddRecipeForm />
+          <UpdateRecipe />
         )}
       </div>
     </>
