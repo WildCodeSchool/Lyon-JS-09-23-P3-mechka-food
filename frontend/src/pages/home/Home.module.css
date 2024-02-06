@@ -8,3 +8,8 @@
 body {
   margin-left: 60px;
 }
+
+.dualCaroussel {
+  display: flex;
+  height: 37rem;
+}
