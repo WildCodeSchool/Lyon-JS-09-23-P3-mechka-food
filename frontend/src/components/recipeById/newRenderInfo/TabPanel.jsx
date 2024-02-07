@@ -3,6 +3,7 @@ import { Box, Container } from "@mui/material";
 import PropTypes from "prop-types";
 
 export default function TabPanel({ children, value, index }) {
+  // ----------------- Tableau intructions ingrédients
   return (
     <div
       role="tabpanel"
