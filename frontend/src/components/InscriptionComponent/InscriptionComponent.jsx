@@ -140,6 +140,8 @@ export default function InscriptionComponent() {
             sx={{
               my: 8,
               mx: 4,
+              mt: 15,
+              pb: 5,
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
