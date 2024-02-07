@@ -12,6 +12,7 @@
   height: 90%;
   justify-content: center;
   align-self: center;
+  padding-top: 5rem;
 }
 
 @media screen and (width > 768px) {

@@ -72,7 +72,7 @@ export default function LoginDesktopComponent() {
 
   return (
     <ThemeProvider theme={defaultTheme}>
-      <Grid container component="main" sx={{ height: "100vh" }}>
+      <Grid container component="main" sx={{ height: "100vh", zIndex: 1 }}>
         <CssBaseline />
         <Grid
           item
@@ -96,6 +96,7 @@ export default function LoginDesktopComponent() {
             sx={{
               my: 8,
               mx: 4,
+              mt: "40%",
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
