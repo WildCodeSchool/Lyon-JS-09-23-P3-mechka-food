@@ -136,13 +136,19 @@ export default function UpdateRecipe() {
   };
 
   return (
-    <section>
+    <Box
+      sx={{
+        pt: 15,
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+      }}
+    >
       <ThemeProvider theme={defaultTheme}>
         <Container component="main" maxWidth="70">
           <CssBaseline />
           <Box
             sx={{
-              marginTop: 8,
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
@@ -155,7 +161,7 @@ export default function UpdateRecipe() {
               component="form"
               onSubmit={handleSubmit}
               noValidate
-              sx={{ mt: 1 }}
+              sx={{ mt: 1, width: "90%", maxWidth: "50rem" }}
               encType="multipart/form-data"
             >
               <RecipeUpdate
@@ -180,13 +186,18 @@ export default function UpdateRecipe() {
       </ThemeProvider>
       <Button
         type="submit"
-        fullWidth
         variant="contained"
-        sx={{ mt: 5, mb: 2, background: "#FAE078", color: "black" }}
+        sx={{
+          width: "15rem",
+          mt: 5,
+          mb: 15,
+          background: "#FAE078",
+          color: "black",
+        }}
         onClick={handleSubmit}
       >
-        Update
+        Modifier
       </Button>
-    </section>
+    </Box>
   );
 }

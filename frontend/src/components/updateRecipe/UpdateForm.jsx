@@ -185,8 +185,8 @@ export default function UpdateForm() {
     <>
       {isSuccess === true && (
         <Alert severity="success">
-          <AlertTitle>Success</AlertTitle>
-          Your recipe has been added successfully!
+          <AlertTitle>Succès</AlertTitle>
+          Votre recette a été ajoutée avec succès!
         </Alert>
       )}
       <section className={styles.section}>

@@ -26,7 +26,7 @@ function AdminPagePrincipal() {
   const [selectedSection, setSelectedSection] = useState("recipes");
 
   return (
-    <section>
+    <Box sx={{ mb: "3rem" }}>
       <Header />
       <Sidebar />
       {userData !== null &&
@@ -91,7 +91,7 @@ function AdminPagePrincipal() {
         <img style={{ height: "27rem" }} src={errorImage} alt="ErrorImage" />
       )}
       <Navbar />
-    </section>
+    </Box>
   );
 }
 

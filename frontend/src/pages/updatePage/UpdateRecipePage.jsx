@@ -3,6 +3,7 @@ import UpdateRecipe from "../../components/updateRecipeComponent/UpdateRecipe";
 import Error from "../../components/errorComponent/Error";
 import Header from "../../components/Header/Header";
 import Sidebar from "../../components/sidebar/Sidebar";
+import Navbar from "../../components/Navbar/Navbar";
 
 export default function UpdateRecipePage() {
   const { userData } = useUserContext();
@@ -18,6 +19,7 @@ export default function UpdateRecipePage() {
           <UpdateRecipe />
         )}
       </div>
+      <Navbar />
     </>
   );
 }

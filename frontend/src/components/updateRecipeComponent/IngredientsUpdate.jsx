@@ -51,7 +51,7 @@ export default function IngredientsUpdate({
               className={style.textQuantity}
               onChange={(e) => handleChangeQuantity(e, index)}
               value={userIngredient.quantity || ""}
-              sx={{ width: "6rem" }}
+              sx={{ width: "auto" }}
             />
             <div>
               {userIngredient.quantity.length === 0 && <p> 🚨 Champ requis.</p>}
@@ -72,7 +72,7 @@ export default function IngredientsUpdate({
               className={style.textQuantity}
               onChange={(e) => handleChangeUnit(e, index)}
               value={userIngredient.unit || ""}
-              sx={{ width: "10rem" }}
+              sx={{ width: "8rem" }}
             />
             <div>
               {userIngredient.unit.length === 19 && (
