@@ -69,7 +69,16 @@ export default function Comment() {
     <ThemeProvider theme={defaultTheme}>
       <Grid container component="main" sx={{ height: "100vh" }}>
         <CssBaseline />
-        <Grid item xs={12} sm={8} md={5} component={Paper} elevation={0} square>
+        <Grid
+          item
+          pt={10}
+          xs={12}
+          sm={8}
+          md={5}
+          component={Paper}
+          elevation={0}
+          square
+        >
           <Button
             type="submit"
             variant="contained"

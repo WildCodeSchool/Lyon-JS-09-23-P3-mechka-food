@@ -31,8 +31,8 @@ function AdminPagePrincipal() {
       <Sidebar />
       {userData !== null && userData !== "null" ? (
         <div className="Home">
-          <Grid item xs={8}>
-            <Item>Administrateur</Item>
+          <Grid item pt={15} xs={8}>
+            <Item sx={{ fontSize: "5rem" }}>Admin</Item>
           </Grid>
           <Container
             sx={{

@@ -47,7 +47,7 @@ export default function SearcContainer() {
   };
 
   return (
-    <>
+    <section className={style.globalContainer}>
       <div className={style.container}>
         <input
           className={style.input}
@@ -89,6 +89,6 @@ export default function SearcContainer() {
         )}
       </div>
       {found !== null || isFound === false ? null : <Category />}
-    </>
+    </section>
   );
 }
