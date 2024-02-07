@@ -22,7 +22,7 @@ const readById = async (req, res, next) => {
     // If the item is not found, respond with HTTP 404 (Not Found)
     // Otherwise, respond with the item in JSON format
     if (favorites.length === 0) {
-      res.sendStatus(404);
+      res.json([]);
     } else {
       res.json(favorites);
     }

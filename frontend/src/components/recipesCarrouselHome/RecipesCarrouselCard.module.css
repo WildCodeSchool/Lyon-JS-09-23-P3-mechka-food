@@ -14,7 +14,7 @@
 
 @media screen and (width > 1024px) {
   .imageCarrouselCard {
-    width: 45rem;
+    width: 32rem;
     border-radius: 1rem;
     -webkit-box-shadow: 0px 7px 14px 5px rgba(0, 0, 0, 0.47);
     box-shadow: 0px 7px 14px 5px rgba(0, 0, 0, 0.47);
