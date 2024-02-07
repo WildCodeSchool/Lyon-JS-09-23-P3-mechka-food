@@ -42,10 +42,6 @@ export default function Sidebar() {
           <span className={styles.navtext}>Recherche</span>
         </Link>
 
-        <Link className={styles.link} to="/">
-          <span className={styles.navtext}>Favoris</span>
-        </Link>
-
         <Link className={styles.link} to="/recipes/add">
           <span className={styles.navtext}>Nouvelle recette</span>
         </Link>
@@ -63,10 +59,6 @@ export default function Sidebar() {
             <span className={styles.navtext}>Admin</span>
           </Link>
         ) : null}
-
-        <Link className={styles.link} to="/">
-          <span className={styles.navtext}>À propos de nous</span>
-        </Link>
 
         <Link className={styles.link} to="/contact">
           <span className={styles.navtext}>Contactez Nous</span>{" "}
