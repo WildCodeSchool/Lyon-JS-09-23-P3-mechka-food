@@ -58,8 +58,6 @@ router.get("/user", userControllers.browse);
 router.put("/recipes/:id/update", updateControllers.edit);
 
 // ------------- CONNEXION PROCESS ------------
-// Favorite
-router.get("/favorites/:id", favoriteControllers.readById);
 
 // Login
 router.post("/login", loginMiddleware, authControllers.login);
@@ -73,6 +71,9 @@ router.use(verifyToken);
 router.post("/recipes/add", multer, addRecipeControllers.addRecipe);
 // Route to add a new comment
 router.post("/recipes/:id/comment", commentControllers.addComment);
+
+// Favorite
+router.get("/favorites/:id", favoriteControllers.readById);
 router.post("/recipes/:id/favorite", favoriteControllers.add);
 router.delete(
   "/recipes/:id/deleteFavorite",

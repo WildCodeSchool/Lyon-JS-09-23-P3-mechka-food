@@ -3,7 +3,6 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
-import { Link } from "@mui/material";
 
 const style = {
   position: "absolute",
@@ -24,7 +23,7 @@ export default function ConnectionVerification() {
 
   return (
     <div>
-      <Button onClick={handleOpen}>Vous n'êtes pas connecté</Button>
+      <Button onClick={handleOpen}>Connectez-vous</Button>
       <Modal
         open={open}
         onClose={handleClose}
@@ -33,9 +32,7 @@ export default function ConnectionVerification() {
       >
         <Box sx={style}>
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            <Link to="/inscription">Inscrivez-vous</Link> ou{" "}
-            <Link to="/login">connectez-vous</Link> pour profiter pleinement de
-            l'expérience.
+            Connectez-vous et profitez pleinement de l'expérience.
           </Typography>
         </Box>
       </Modal>

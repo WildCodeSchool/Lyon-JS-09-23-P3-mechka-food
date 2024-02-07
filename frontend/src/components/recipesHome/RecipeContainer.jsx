@@ -12,7 +12,9 @@ export default function RecipeContainer() {
   return (
     <section className={styles.globalContainer}>
       <div>
-        <h2 className={styles.titleRecipeContainer}>Suggestions</h2>
+        <h3 className={styles.titleRecipeContainer}>
+          Découvrez nos suggestions
+        </h3>
       </div>
       <div className={styles.cardPosition}>
         {recipes.map((recipe) => (
