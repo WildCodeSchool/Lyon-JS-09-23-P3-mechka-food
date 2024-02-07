@@ -20,7 +20,7 @@ export default function MainCardHome() {
 
         if (data !== null) {
           const shuffled = [...data].sort(() => 0.5 - Math.random());
-          setRandom(shuffled.slice(0, 1));
+          setRandom(shuffled.slice(3, 4));
         }
       } catch (err) {
         console.error(err);

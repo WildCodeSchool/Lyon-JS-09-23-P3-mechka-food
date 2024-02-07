@@ -130,8 +130,11 @@ const seed = async () => {
         ("Crème liquide"),
         ("Crème fraiche"),
         ("Crème épaisse"),
-        ("Soja")
-        `
+        ("Soja"),
+        ("Sucre en poudre"),
+        ("Biscuits à la cuillère"),
+        ("Café fort refroidi"),
+        ("Cacao en poudre non sucré")`
       )
     );
 
@@ -140,7 +143,7 @@ const seed = async () => {
       database.query(
         `INSERT INTO recipe (title, descriptions, global_time, number_persons, image_url, category_id ) VALUES
             ('Pâtes à la Carbonara', "Une délicieuse recette de pâtes à la carbonara.", "30 minutes", 4, "/images/pexels-photo-149307581707185045576.jpeg", 2 ),
-            ('Spaghetti Bolognaise', "Découvrez l'authenticité de la cuisine italienne avec cette recette classique de spaghetti bolognaise. Une sauce riche, des pâtes al dente et une garniture de basilic frais font de ce plat un favori pour toute la famille.", "1 heure", 4, "/images/pexels-photo-5864362.jpeg", 2 ),
+            ('Spaghetti Bolognaise', "Découvrez l'authenticité de la cuisine italienne avec cette recette classique de spaghetti bolognaise. Une sauce riche, des pâtes al dente et une garniture de basilic frais font de ce plat un favori pour toute la famille.", "1 heure", 4, "/images/spaghetti-bolognaise.jpg", 2 ),
             ('Poulet Rôti', 'Un délicieux poulet rôti doré à la perfection, parfait pour un repas familial.', '1 heure 50 minutes', 4, '/images/pexels-photo-5718015.jpeg', 2),
             ('Saumon Grillé avec Légumes', 'Un plat sain et délicieux, associant le saumon grillé à une variété de légumes colorés.', '35 minutes', 2, '/images/pexels-photo-3763847.jpeg', 2),
             ('Risotto aux Champignons', 'Un délicieux risotto crémeux avec une saveur riche de champignons sautés.', '35 minutes', 4, '/images/pexels-photo-5638527.jpeg', 2),
@@ -149,7 +152,8 @@ const seed = async () => {
             ('Lasagnes Bolognaises', 'Un plat italien classique avec des couches de pâtes, une sauce bolognaise savoureuse, béchamel et fromage fondant.', '1 heure et 10 minutes', 6, '/images/pexels-photo-14696209.jpeg', 2),
             ('Salade de Quinoa aux Légumes Grillés', 'Cette salade fraîche et nourrissante associe du quinoa tendre avec des légumes grillés, offrant une explosion de saveurs et de textures. Parfait en entrée ou en plat principal pour un repas léger et équilibré.', '45 minutes', 4, '/images/4uopSCDPSn6uILgSw_gIrQ.jpg', 1),
             ('Soupe aux champignons crémeuse', "Cette soupe aux champignons crémeuse est un régal réconfortant pour les jours frais. Des champignons de Paris frais sautés dans du beurre, mélangés à de l'oignon et de l'ail pour une saveur profonde.", '30 minutes', 4, '/images/cE3H7_pTQXeHWHByfondWA.jpg', 1),
-            ("Salade de chèvre chaud", "Une salade fraîche et savoureuse qui marie la douceur du fromage de chèvre chaud avec la fraîcheur des légumes verts et la douceur des fruits secs.", "25 minutes", 2, "/images/giHHzcWeST-KnOB0v--mSg.jpg", 1)`
+            ("Salade de chèvre chaud", "Une salade fraîche et savoureuse qui marie la douceur du fromage de chèvre chaud avec la fraîcheur des légumes verts et la douceur des fruits secs.", "25 minutes", 2, "/images/giHHzcWeST-KnOB0v--mSg.jpg", 1),
+            ("Tiramisù", "Ce tiramisu classique est un dessert italien traditionnel, composé de couches de biscuits imbibés de café fort, de mascarpone crémeux et de cacao en poudre. Il est parfait pour terminer un repas avec une touche de douceur et de caféine.", "25 minutes", 6, "/images/tiramisù.jpg", 3)`
       )
     );
 
@@ -275,7 +279,13 @@ const seed = async () => {
           (2, 'cuillères à soupe' ,60, 11),
           (4,'cuillères à soupe' ,17, 11), 
           (1, 'pincée', 5,11),
-          (1, 'pincée', 6, 11)
+          (1, 'pincée', 6, 11),
+          (250, 'g', 78, 12),
+          (3, '', 3, 12),
+          (100, 'g', 99, 12),
+          (200, 'g', 100, 12),
+          (200, 'ml', 101, 12),
+          (2, 'cuillères à soupe', 102, 12)
         `
       )
     );
@@ -380,7 +390,19 @@ const seed = async () => {
             ("Disposez les tranches de pain avec le fromage sur le lit de mesclun dans les assiettes.", 11),
             ("Parsemez de noix et de raisins secs sur les salades.", 11),
             ("Arrosez chaque salade avec la vinaigrette préparée.", 11),
-            ("Servez immédiatement, pour profiter du fromage de chèvre chaud.", 11)
+            ("Servez immédiatement, pour profiter du fromage de chèvre chaud.", 11),
+            ("Séparez les blancs des jaunes d'œufs. Dans un grand bol, fouettez les jaunes d'œufs avec le sucre en poudre jusqu'à ce que le mélange soit léger et mousseux.", 12),
+            ("Ajoutez le mascarpone et l'extrait de vanille aux jaunes d'œufs battus. Mélangez jusqu'à obtenir une crème lisse et homogène. Assurez-vous de ne pas trop mélanger pour éviter que la crème ne devienne trop liquide.", 12),
+            ("Dans un autre bol propre, montez les blancs d'œufs en neige ferme à l'aide d'un batteur électrique ou d'un fouet. Veillez à ce que les blancs d'œufs et le bol soient parfaitement propres et secs pour obtenir de bons résultats.", 12),
+            ("Incorporez délicatement les blancs d'œufs montés à la préparation au mascarpone. Utilisez une spatule et effectuez des mouvements de bas en haut pour éviter de casser les blancs d'œufs.", 12),
+            ("Préparez le café fort et laissez-le refroidir à température ambiante. Si vous le souhaitez, vous pouvez y ajouter une touche de liqueur comme de l'amaretto pour plus de saveur.", 12),
+            ("Trempez rapidement les biscuits à la cuillère dans le café refroidi, un par un, en veillant à ne pas les imbiber trop longtemps pour éviter qu'ils ne deviennent trop mous.", 12),
+            ("Disposez une première couche de biscuits imbibés dans le fond d'un plat rectangulaire ou carré. Recouvrez-les ensuite d'une couche généreuse de crème au mascarpone.", 12),
+            ("Répétez l'opération en alternant les couches de biscuits et de crème jusqu'à épuisement des ingrédients, en terminant par une couche de crème.", 12),
+            ("Saupoudrez généreusement la surface du tiramisu avec du cacao en poudre tamisé à l'aide d'une passoire fine.", 12),
+            ("Couvrez le plat de tiramisu avec du film plastique et placez-le au réfrigérateur pendant au moins 4 heures, voire toute une nuit, pour que les saveurs se développent et que la texture se stabilise.", 12),
+            ("Avant de servir, laissez le tiramisu à température ambiante pendant quelques minutes, puis découpez-le en parts égales à l'aide d'un couteau à pâtisserie propre et tranchant.", 12),
+            ("Servez le tiramisu bien frais et régalez-vous ! Buon appetito !", 12)
             `
       )
     );
