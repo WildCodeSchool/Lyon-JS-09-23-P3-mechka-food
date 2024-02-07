@@ -20,9 +20,8 @@ export default function InstructionsUpdate({
   return (
     <>
       {instructions.map((instruction, index) => (
-        <>
+        <section key={instruction.id}>
           <TextField
-            key={instruction.id}
             value={instruction.step}
             onChange={(e) => handleChangeInstruction(e, index)}
             margin="normal"
@@ -44,7 +43,7 @@ export default function InstructionsUpdate({
               <p>⚠️ La description ne doit pas dépasser 255 caractères.</p>
             )}
           </div>
-        </>
+        </section>
       ))}
     </>
   );
