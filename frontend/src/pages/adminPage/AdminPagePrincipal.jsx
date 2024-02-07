@@ -33,8 +33,8 @@ function AdminPagePrincipal() {
       userData !== "null" &&
       userData.user.role_id === 1 ? (
         <div className="Home">
-          <Grid item xs={8}>
-            <Item>Administrateur</Item>
+          <Grid item pt={15} xs={8}>
+            <Item sx={{ fontSize: "5rem" }}>Admin</Item>
           </Grid>
           <Container
             sx={{
@@ -53,6 +53,7 @@ function AdminPagePrincipal() {
             >
               <Button
                 sx={{
+                  color: "black",
                   backgroundColor: "#fae078",
                   ":hover": { backgroundColor: "#ffc107" },
                 }}
@@ -72,6 +73,7 @@ function AdminPagePrincipal() {
             >
               <Button
                 sx={{
+                  color: "black",
                   backgroundColor: "#fae078",
                   ":hover": { backgroundColor: "#ffc107" },
                 }}

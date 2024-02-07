@@ -40,6 +40,7 @@ export default function ProfilComponent() {
       <Sidebar />
       <Container
         sx={{
+          pt: 15,
           display: "flex",
           flexDirection: "column",
           alignItems: "center",

@@ -26,7 +26,17 @@ export default function CommentsByIdRecipe() {
 
   return (
     <ThemeProvider theme={defaultTheme}>
-      <Grid item xs={0} sm={0} md={0} component={Paper} elevation={0} square>
+      <Grid
+        item
+        mt={10}
+        pt={10}
+        xs={0}
+        sm={0}
+        md={0}
+        component={Paper}
+        elevation={0}
+        square
+      >
         <CssBaseline />
         <Box
           sx={{
