@@ -47,7 +47,7 @@ class UserManager extends AbstractManager {
     );
 
     // Return the ID of the newly inserted user
-    return result.insertId;
+    return result;
   }
 }
 

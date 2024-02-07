@@ -15,7 +15,7 @@ export default function IngredientsTab({ ingredients }) {
         {ingredients !== null &&
           ingredients.map((ingredient) => {
             return (
-              <li key={ingredient.id}>
+              <li key={ingredient.RID}>
                 <CardContent
                   sx={{
                     display: "flex",
