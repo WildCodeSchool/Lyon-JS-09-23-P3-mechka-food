@@ -1,3 +1,5 @@
+/* CSS POUR LES INGREDIENTS */
+
 .apparenceCard {
   background-color: #f4f4f4;
   display: flex;
@@ -5,41 +7,20 @@
   margin: 1.5rem;
   padding: 2rem;
   padding-top: 1rem;
-  margin-bottom: 7rem;
-  margin-top: 3rem;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
   border-radius: 0.7rem;
   box-shadow: rgba(0, 0, 0, 0.15) 0.3rem 4px 2.6px;
   max-height: 30rem;
+}
+
+.listCard {
   overflow-y: auto;
 }
 
 .cardTitle {
   font-weight: bold;
   padding: 0.5rem;
-}
-
-.likeButton {
-  margin-top: 1rem;
-}
-
-.svgCoeur {
-  position: absolute;
-  height: 3rem;
-  bottom: 22rem;
-  right: 1rem;
-}
-
-.containerGlobal {
-  position: relative;
-}
-
-@media screen and (width > 768px) {
-  .svgCoeur {
-    position: absolute;
-    height: 3rem;
-    bottom: 20rem;
-    right: 3rem;
-  }
 }
 
 @media screen and (width > 1024px) {
@@ -52,12 +33,5 @@
     justify-content: center;
     flex-direction: column;
     align-items: center;
-  }
-
-  .svgCoeur {
-    position: absolute;
-    height: 3rem;
-    bottom: 3rem;
-    right: 50rem;
   }
 }

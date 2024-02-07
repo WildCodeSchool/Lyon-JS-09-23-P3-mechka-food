@@ -15,7 +15,11 @@
 }
 
 @media screen and (width > 768px) {
-  .carouselGlobal {
+  .carouselImageTitle {
+    display: none;
+  }
+
+  .carouselGlobal button {
     display: none;
   }
 }

@@ -17,7 +17,7 @@
 
 .activeSidebar {
   height: 100%;
-  width: 15rem;
+  width: 20rem;
   position: fixed;
   z-index: 1;
   top: 0;
@@ -28,6 +28,7 @@
   transition: 0.5s;
   display: flex;
   flex-direction: column;
+  border-radius: 0 2rem 2rem 0;
 }
 
 /*-------------POSITION BOUTON OUVERTURE DU MENU-----------------*/

@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import FavoriteIcon from "@mui/icons-material/Favorite";
-import Fab from "@mui/material/Fab";
 import RecipeInformations from "./informationsRecipe/RecipeInformations";
+import IngredientByRecipe from "./ingredients/IngredientByRecipe";
+import InstructionByRecipe from "./instructions/InstructionByRecipe";
 import styles from "./RecipeById.module.css";
-import GeneralTab from "./newRenderInfo/GeneralTab";
+// import ConnectionVerification from "../modal/ConnectionVerification";
 import { useUserContext } from "../../context/userContext";
 
 export default function RecipeById() {
@@ -27,7 +27,7 @@ export default function RecipeById() {
   }, []);
 
   useEffect(() => {
-    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/favorites/${recipeId}`)
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/api//favorites/${recipeId}`)
       .then((response) => response.json())
       .then((data) => setAllFav(data));
   }, []);
@@ -94,70 +94,54 @@ export default function RecipeById() {
   };
 
   return (
-    <>
-      <section className={styles.RecipeByIdContainer}>
-        <div className={styles.containerGlobal}>
-          <div>
-            {userData !== null && userData !== "null" ? (
-              <div>
-                {!isFavorite ? (
-                  <div className={styles.svgCoeur}>
-                    <Fab
-                      aria-label="like"
-                      sx={{
-                        position: "absolute",
-                        bottom: "12.5rem",
-                        right: "1.5rem",
-                        bgcolor: "white",
-                      }}
-                    >
-                      <FavoriteIcon
-                        onClick={
-                          isFavorite === false ? handleSubmit : handleDelete
-                        }
-                      />
-                    </Fab>
-                  </div>
-                ) : (
-                  <div className={styles.svgCoeur}>
-                    <Fab
-                      aria-label="like"
-                      sx={{
-                        position: "absolute",
-                        bottom: "12.5rem",
-                        right: "1.5rem",
-                        bgcolor: "white",
-                      }}
-                    >
-                      <FavoriteIcon
-                        sx={{ color: "red" }}
-                        onClick={
-                          isFavorite === false ? handleSubmit : handleDelete
-                        }
-                      />
-                    </Fab>
-                  </div>
-                )}
-              </div>
-            ) : null}
-          </div>
+    <section className={styles.RecipeByIdContainer}>
+      <div className={styles.containerGlobal}>
+        <div>
+          {userData !== null && userData !== "null" ? (
+            <div>
+              {!isFavorite ? (
+                <svg
+                  onClick={isFavorite === false ? handleSubmit : handleDelete}
+                  className={styles.svgCoeur}
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 512 512"
+                >
+                  <path
+                    fill="white"
+                    d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z"
+                  />
+                </svg>
+              ) : (
+                <svg
+                  onClick={isFavorite === false ? handleSubmit : handleDelete}
+                  className={styles.svgCoeur}
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 512 512"
+                >
+                  <path
+                    fill="#f50000"
+                    d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z"
+                  />
+                </svg>
+              )}
+            </div>
+          ) : null}
+        </div>
 
-          {recipes !== null && (
-            <RecipeInformations
-              image={recipes.image_url}
-              title={recipes.title}
-              time={recipes.global_time}
-              number={recipes.number_persons}
-              description={recipes.descriptions}
-            />
-          )}
-        </div>
-      </section>
-      <section className={styles.positionSection}>
-        <div className={styles.positionTab}>
-          <GeneralTab />
-        </div>
-      </section>
-    </>
+        {recipes !== null && (
+          <RecipeInformations
+            image={recipes.image_url}
+            title={recipes.title}
+            time={recipes.global_time}
+            number={recipes.number_persons}
+            description={recipes.descriptions}
+          />
+        )}
+      </div>
+      <div>
+        <IngredientByRecipe />
+        <InstructionByRecipe />
+      </div>
+    </section>
   );
 }

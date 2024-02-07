@@ -1,0 +1,80 @@
+.recipeByIdImageContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.recipeImage {
+  height: 100%;
+  max-width: 100%;
+}
+
+.recipeByIdContainer {
+  background-color: #f4f4f4;
+  display: flex;
+  flex-direction: column;
+  margin: 1.5rem;
+  padding: 2rem;
+  padding-top: 1rem;
+  margin-top: 1rem;
+  border-radius: 0.7rem;
+  box-shadow: rgba(0, 0, 0, 0.15) 0.3rem 4px 2.6px;
+}
+
+.recipeByIdContainerTop {
+  background-color: #f4f4f4;
+  display: flex;
+  flex-direction: column;
+  margin: 1.5rem;
+  padding: 2rem;
+  padding-top: 1rem;
+  margin-top: 1rem;
+  border-radius: 0.7rem;
+  box-shadow: rgba(0, 0, 0, 0.15) 0.3rem 4px 2.6px;
+  text-align: justify;
+}
+
+.recipeByIdTitle {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+@media screen and (width > 1024px) {
+  .recipeByIdCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .recipeByIdImageContainer {
+    width: 50vw;
+    padding: 2rem;
+  }
+  .recipeByIdContainer {
+    width: 80vw;
+  }
+
+  .recipeByIdContainer > h2 {
+    display: flex;
+    justify-content: center;
+  }
+
+  .recipeImage {
+    max-width: 100%;
+  }
+
+  .recipeBydUpperContainer {
+    display: flex;
+  }
+
+  .recipeByIdContainerTop {
+    margin: 2rem;
+    padding: 0;
+    max-width: 30vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    box-shadow: none;
+  }
+}
