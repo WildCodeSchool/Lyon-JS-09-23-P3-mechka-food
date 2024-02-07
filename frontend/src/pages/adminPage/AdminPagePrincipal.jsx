@@ -29,7 +29,9 @@ function AdminPagePrincipal() {
     <section>
       <Header />
       <Sidebar />
-      {userData !== null && userData !== "null" ? (
+      {userData !== null &&
+      userData !== "null" &&
+      userData.user.role_id === 1 ? (
         <div className="Home">
           <Grid item xs={8}>
             <Item>Administrateur</Item>

@@ -38,6 +38,8 @@
 
 .svgLogo {
   height: 3rem;
+  margin-bottom: 1.3rem;
+  margin-left: 0.5rem;
 }
 
 .svgProfil {
@@ -72,6 +74,12 @@
   display: none;
 }
 
+.container a {
+  text-decoration: none;
+  color: black;
+  margin-top: 1rem;
+}
+
 @media screen and (width > 768px) {
   .svgLogo {
     display: none;
@@ -88,5 +96,15 @@
   .welcome p {
     display: block;
     margin: 0;
+  }
+
+  .favoris {
+    position: absolute;
+    z-index: 1;
+    right: 0;
+  }
+
+  .container {
+    justify-content: center;
   }
 }

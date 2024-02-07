@@ -4,9 +4,12 @@ import home from "../../assets/svg/HomeMobile.svg";
 import search from "../../assets/svg/search.svg";
 import plus from "../../assets/svg/Plus.svg";
 import About from "../../assets/svg/About.svg";
-import favoris from "../../assets/svg/Favoris.svg";
+import profil from "../../assets/images/profilPicture.png";
+import { useUserContext } from "../../context/userContext";
 
 export default function Navbar() {
+  const { userData } = useUserContext();
+
   return (
     <nav className={styles.menumobile}>
       <ul>
@@ -26,9 +29,25 @@ export default function Navbar() {
           </Link>
         </li>
         <li>
-          <Link to="/">
-            <img className={styles.Navbaricon} src={favoris} alt="favoris" />
-          </Link>
+          {userData !== null &&
+          userData !== "null" &&
+          userData.user.role_id === 1 ? (
+            <Link to="/admin">
+              <img className={styles.Navbaricon} src={profil} alt="profil" />
+            </Link>
+          ) : null}
+          {userData !== null &&
+          userData !== "null" &&
+          userData.user.role_id === 2 ? (
+            <Link to="/profil">
+              <img className={styles.Navbaricon} src={profil} alt="profil" />
+            </Link>
+          ) : null}
+          {userData === null || userData === "null" ? (
+            <Link to="/login">
+              <img className={styles.Navbaricon} src={profil} alt="profil" />
+            </Link>
+          ) : null}
         </li>
         <li>
           <Link to="/contact">
