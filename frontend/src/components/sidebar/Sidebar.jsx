@@ -58,7 +58,7 @@ export default function Sidebar() {
         ) : null}
 
         {userData !== null &&
-        userData !== undefined &&
+        userData !== "null" &&
         userData.user.role_id === 1 ? (
           <Link className={styles.link} to="/admin">
             <span className={styles.navtext}>Admin</span>
