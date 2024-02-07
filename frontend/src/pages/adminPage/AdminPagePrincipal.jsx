@@ -53,6 +53,7 @@ function AdminPagePrincipal() {
             >
               <Button
                 sx={{
+                  color: "black",
                   backgroundColor: "#fae078",
                   ":hover": { backgroundColor: "#ffc107" },
                 }}
@@ -72,6 +73,7 @@ function AdminPagePrincipal() {
             >
               <Button
                 sx={{
+                  color: "black",
                   backgroundColor: "#fae078",
                   ":hover": { backgroundColor: "#ffc107" },
                 }}
