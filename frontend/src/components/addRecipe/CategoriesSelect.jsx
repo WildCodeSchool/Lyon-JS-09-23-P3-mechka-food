@@ -14,7 +14,7 @@ export default function CategoriesSelect({
   };
   return (
     <FormControl style={{ marginTop: "1rem", marginBottom: "2rem" }} fullWidth>
-      <InputLabel id="numberPersons">Category</InputLabel>
+      <InputLabel id="category">Category</InputLabel>
       <Select
         labelId="categories"
         id="categories"
@@ -30,6 +30,7 @@ export default function CategoriesSelect({
           );
         })}
       </Select>
+      {userCategoryId === "" && <p>🚨 Vous devez choisir une catégorie.</p>}
     </FormControl>
   );
 }

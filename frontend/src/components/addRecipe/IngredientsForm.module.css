@@ -10,3 +10,23 @@
   display: flex;
   gap: 0.5rem;
 }
+
+.globalContainer {
+  display: flex;
+  justify-content: center;
+  gap: 7rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.containerDiv {
+  margin-bottom: 5rem;
+}
+
+.quantity,
+.unit {
+  width: 8rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}

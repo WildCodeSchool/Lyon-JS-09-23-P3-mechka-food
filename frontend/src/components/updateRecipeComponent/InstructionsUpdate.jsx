@@ -20,18 +20,31 @@ export default function InstructionsUpdate({
   return (
     <>
       {instructions.map((instruction, index) => (
-        <TextField
-          key={instruction.id}
-          value={instruction.step}
-          onChange={(e) => handleChangeInstruction(e, index)}
-          margin="normal"
-          required
-          fullWidth
-          id={`instruction-${instruction.id}`}
-          name="instructio,"
-          autoFocus
-          label={`Instruction ${index + 1}`}
-        />
+        <>
+          <TextField
+            key={instruction.id}
+            value={instruction.step}
+            onChange={(e) => handleChangeInstruction(e, index)}
+            margin="normal"
+            required
+            fullWidth
+            id={`instruction-${instruction.id}`}
+            name="instructio,"
+            autoFocus
+            label={`Instruction ${index + 1}`}
+          />
+          <div>
+            {instruction.step.length === 0 && (
+              <p> 🚨 Ce champ ne peut pas être vide.</p>
+            )}
+            {instruction.step.length > 0 && instruction.step.length < 249 && (
+              <p> ✅ Ce champ est valide.</p>
+            )}
+            {instruction.step.length >= 249 && (
+              <p>⚠️ La description ne doit pas dépasser 255 caractères.</p>
+            )}
+          </div>
+        </>
       ))}
     </>
   );
