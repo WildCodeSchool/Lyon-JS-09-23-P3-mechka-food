@@ -4,14 +4,31 @@
   justify-content: space-evenly;
   flex-wrap: wrap;
   padding-bottom: 7rem;
+  max-width: 90%;
 }
+
+.globalContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .titleRecipeContainer {
-  margin-left: 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 3rem;
+  font-size: 2em;
+  margin-top: 1.5rem;
+  text-align: center;
 }
 
 @media screen and (width > 768px) {
   .cardPosition {
     gap: 2rem;
+  }
+
+  .titleRecipeContainer {
+    margin-bottom: 3rem;
+    font-size: 2.5em;
+    margin-top: 3.5rem;
+    text-align: center;
   }
 }

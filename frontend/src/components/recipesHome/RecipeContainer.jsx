@@ -8,11 +8,13 @@ export default function RecipeContainer() {
     fetch("http://localhost:3310/api/recipes")
       .then((response) => response.json())
       .then((data) => setRecipes(data));
-  });
+  }, []);
   return (
-    <section>
+    <section className={styles.globalContainer}>
       <div>
-        <h2 className={styles.titleRecipeContainer}>Suggestions</h2>
+        <h3 className={styles.titleRecipeContainer}>
+          Découvrez nos suggestions
+        </h3>
       </div>
       <div className={styles.cardPosition}>
         {recipes.map((recipe) => (

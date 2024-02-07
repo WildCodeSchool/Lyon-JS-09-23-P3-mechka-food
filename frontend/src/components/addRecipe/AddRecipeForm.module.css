@@ -1,0 +1,14 @@
+.containerIng {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+  gap: 0.5rem;
+}
+
+.titleRecipe {
+  font-size: 4rem;
+}
+
+.section {
+  padding-top: 5rem;
+}

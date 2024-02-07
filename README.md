@@ -1,9 +1,16 @@
 ## Concept
 
-This template is meant to serve as a foundation for every P2/P3 following the React-Express-MySQL stack, as learned in Wild Code School.
-It's pre-configured with a set of tools which'll help students produce industry-quality and easier-to-maintain code, while staying a pedagogical tool.
+Introducing our recipe sharing app, Mechka Food! Mechka Food is your go-to destination for discovering, sharing, and organizing delicious recipes from around the world. Whether you're a seasoned chef or a kitchen novice, Mechka Food makes cooking fun and accessible for everyone. Browse through a vast collection of user-generated recipes, each accompanied by mouthwatering photos and easy-to-follow instructions. Feeling inspired? Share your own culinary creations with the community and receive feedback and love from fellow food enthusiasts. With features like personalized recipe collections, ingredient shopping lists, and step-by-step cooking timers, CookHub streamlines your cooking experience and brings the joy of home-cooked meals to your fingertips. Join the CookHub community today and embark on a flavorful journey of discovery!
 
 ## Setup & Use
+
+You have the possibility to :
+- create an account & log into it,
+- check previously added recipes, from all users, by clicking on any image you encounter across the site,
+- access to a search page, where you can, first of all, have listed in 3 differents categories adn see all related recipes by clicking on it. And obviously, you can look for any recipe present in the database with the help of the searchBar,
+- add you own recipe with all required details, to help other users to cook it to the perfection,
+- access to your admin page, listing all previously added recipes, that you can modify or delete.
+- log out from your session.
 
 ### Windows users
 
@@ -18,8 +25,16 @@ git config --global core.autocrlf false
 
 - In VSCode, install plugins **Prettier - Code formatter** and **ESLint** and configure them
 - Clone this repo, enter it
+- Run command `git switch dev`
 - Run command `npm install`
 - Create environment files (`.env`) in both `backend` and `frontend`: you can copy `.env.sample` files as starters (**don't** delete them)
+- Run command `cd backend/`
+- Run command `npm run db:migrate`
+- Run command `npm run db:seed`
+- Run command `cd ..`
+- In frontend, create a `public` folder and a `images` folder in it
+- Run command `npm run dev`
+
 
 ### Available Commands
 
@@ -40,30 +55,6 @@ git config --global core.autocrlf false
 - _ESLint_ : "Quality of code" tool, ensures chosen rules will be enforced
 - _Prettier_ : "Quality of code" tool as well, focuses on the styleguide
 - _ Airbnb Standard_ : One of the most known "standards", even though it's not officially linked to ES/JS
-
-## Deployment with Traefik
-
-> ⚠️ Prerequisites : You must have installed and configured Traefik on your VPS beforehand.
-> https://github.com/WildCodeSchool/vps-traefik-starter-kit/
-
-For deployment, you have to go to `secrets` → app `actions` on the github repo to insert via `New repository secret` :
-
-- SSH_HOST : IP address of your VPS
-- SSH_USER : SSH login to your VPS
-- SSH_PASSWORD : SSH connection password to your VPS
-
-And a public variable from the tab `/settings/variables/actions` :
-
-- PROJECT_NAME : the name of the project used to create the subdomain.
-
-> ⚠️ Warning : underscores are not allowed. They can cause trouble with the let's encrypt certificate
-
-Use this same tab to add the other environment variables required for the project if any.
-
-Only the backend will be accessible. The root path `"/"` will redirect to the dist folder on your frontend. In order to allow that, please uncomment the line as explain on `backend/src/app.js` (Line 102).
-Because the backend will serve the front, the global variable VITE_BACKEND_URL will be set with an empty string.
-
-Your url will be ` https://${PROJECT-NAME}.${subdomain}.wilders.dev/`.
 
 ### About the database
 

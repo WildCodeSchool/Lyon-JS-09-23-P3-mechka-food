@@ -7,10 +7,10 @@ import styles from "./RecipePage.module.css";
 export default function RecipePage() {
   return (
     <>
-      <Sidebar />
       <div className={styles.recipePageHeader}>
         <Header />
       </div>
+      <Sidebar />
       <RecipeById />
       <Navbar />
     </>

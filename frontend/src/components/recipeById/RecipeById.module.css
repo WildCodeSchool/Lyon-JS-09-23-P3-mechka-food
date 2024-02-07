@@ -18,6 +18,21 @@
   padding: 0.5rem;
 }
 
+.likeButton {
+  margin-top: 1rem;
+}
+
+.containerGlobal {
+  position: relative;
+}
+
+@media screen and (width > 768px) {
+  .tabPosition {
+    display: flex;
+    justify-content: center;
+  }
+}
+
 @media screen and (width > 1024px) {
   .apparenceCard {
     width: 80vw;
@@ -28,5 +43,26 @@
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    padding-top: 7rem;
+  }
+
+  .svgCoeur {
+    position: absolute;
+
+    bottom: -1rem;
+    right: 2.5rem;
+  }
+  .positionGenTab {
+    width: 80%;
+  }
+
+  .positionTab {
+    display: flex;
+    justify-content: center;
+    width: 60%;
+  }
+  .positionSection {
+    display: flex;
+    justify-content: center;
   }
 }

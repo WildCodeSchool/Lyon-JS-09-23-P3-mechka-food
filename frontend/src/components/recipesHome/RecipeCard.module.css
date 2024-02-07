@@ -12,6 +12,14 @@
   box-shadow: rgba(0, 0, 0, 0.15) 0.3rem 4px 2.6px;
 }
 
+.cardRecipe {
+  margin-bottom: 2rem;
+}
+
+.descriptionArea {
+  font-size: 1.2rem;
+}
+
 .imageCard {
   width: 11rem;
   border-radius: 0.7rem 0.7rem 0 0;

@@ -2,6 +2,7 @@
 
 const express = require("express");
 const cors = require("cors");
+const path = require("path");
 
 const app = express();
 
@@ -14,7 +15,7 @@ const app = express();
 // CORS (Cross-Origin Resource Sharing) is a security mechanism in web browsers that blocks requests from a different domain than the server.
 // You may find the following magic line in forums:
 
-app.use(cors());
+// app.use(cors());
 
 // You should NOT do that: such code uses the `cors` module to allow all origins, which can pose security issues.
 // For this pedagogical template, the CORS code is commented out to show the need for defining specific allowed origins.
@@ -28,9 +29,9 @@ app.use(cors());
 
 app.use(
   cors({
-    origin: [
-      process.env.FRONTEND_URL, // keep this one, after checking the value in `backend/.env`
-    ],
+    origin: process.env.FRONTEND_URL, // keep this one, after checking the value in `backend/.env`
+    optionsSuccessStatus: 200,
+    credentials: true,
   })
 );
 
@@ -50,7 +51,7 @@ app.use(
 // Uncomment one or more of these options depending on the format of the data sent by your client:
 
 app.use(express.json());
-// app.use(express.urlencoded());
+// app.use(express.urlencoded({ limit: "50mb" }));
 // app.use(express.text());
 // app.use(express.raw());
 
@@ -67,8 +68,9 @@ app.use(express.json());
 
 // Then, require the module and use it as middleware in your Express application:
 
-// const cookieParser = require("cookie-parser");
-// app.use(cookieParser());
+const cookieParser = require("cookie-parser");
+
+app.use(cookieParser());
 
 // Once `cookie-parser` is set up, you can read and set cookies in your routes.
 // For example, to set a cookie named "username" with the value "john":
@@ -84,6 +86,7 @@ const router = require("./router");
 
 // Mount the API routes under the "/api" endpoint
 app.use("/api", router);
+app.use("/images", express.static(path.join(__dirname, "images")));
 
 /* ************************************************************************* */
 

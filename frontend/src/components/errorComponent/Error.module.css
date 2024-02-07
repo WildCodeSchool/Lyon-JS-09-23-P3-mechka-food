@@ -1,0 +1,23 @@
+.section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  padding-top: 10rem;
+}
+
+.section img {
+  width: 15rem;
+  height: 15rem;
+  margin: 0 auto;
+}
+
+.section p {
+  font-size: 2rem;
+  text-align: center;
+}
+
+.section a {
+  color: rgb(190, 190, 52);
+  font-style: italic;
+}
