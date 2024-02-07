@@ -53,11 +53,11 @@ export default function MainCardHome() {
               component="img"
               alt={recipe.title}
               image={recipe.image_url}
-              sx={{ width: "50%", height: "100%" }}
+              sx={{ width: "60%", height: "100%" }}
             />
             <CardContent
               sx={{
-                width: "50%",
+                width: "40%",
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",

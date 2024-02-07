@@ -29,7 +29,7 @@ export default function AnimeBg() {
   return (
     <div className={styles.positionContainer}>
       <AnimatePresence>
-        <Container>
+        <Container sx={{ mt: "2rem" }}>
           <motion.div
             key={index}
             initial="initial"
