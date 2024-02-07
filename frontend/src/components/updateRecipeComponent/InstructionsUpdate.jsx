@@ -18,7 +18,7 @@ export default function InstructionsUpdate({
   };
 
   return (
-    <div style={{ marginBottom: "5rem" }}>
+    <>
       {instructions.map((instruction, index) => (
         <>
           <TextField
@@ -46,7 +46,7 @@ export default function InstructionsUpdate({
           </div>
         </>
       ))}
-    </div>
+    </>
   );
 }
 

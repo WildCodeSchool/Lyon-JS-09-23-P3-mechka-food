@@ -21,11 +21,11 @@ const favoriteControllers = require("./controllers/favoriteControllers");
 const addRecipeControllers = require("./controllers/addRecipeControllers");
 const commentControllers = require("./controllers/commentControllers");
 const adminControllers = require("./controllers/adminControllers");
+const updateRecipeControllers = require("./controllers/updateRecipeControllers");
 const multer = require("./middlewares/multerMiddleware");
 const { adminWall } = require("./middlewares/adminWall");
 const updateControllers = require("./controllers/updateControllers");
 const recipeIngredientControllers = require("./controllers/recipeIngredientController");
-const recipeMiddleware = require("./middlewares/recipeMiddleware");
 
 // Route to get a list of items
 router.get("/items", itemControllers.browse);
@@ -55,6 +55,8 @@ router.post("/items", itemControllers.add);
 router.post("/user", userMiddleware, hashPassword, userControllers.add);
 router.get("/user", userControllers.browse);
 
+router.put("/recipes/:id/update", updateControllers.edit);
+
 // ------------- CONNEXION PROCESS ------------
 
 // Login
@@ -66,12 +68,7 @@ router.get("/logout", authControllers.logout);
 // Routes user connecté
 router.use(verifyToken);
 // Add new recipe
-router.post(
-  "/recipes/add",
-  recipeMiddleware,
-  multer,
-  addRecipeControllers.addRecipe
-);
+router.post("/recipes/add", multer, addRecipeControllers.addRecipe);
 // Route to add a new comment
 router.post("/recipes/:id/comment", commentControllers.addComment);
 
@@ -83,11 +80,11 @@ router.delete(
   favoriteControllers.deleteFavorite
 );
 
-// Modify recipe
-router.put("/recipes/:id/update", recipeMiddleware, updateControllers.edit);
-
 // Admin delete recipe
 router.delete("/admin/recipes/:id/delete", adminControllers.deleteRecipe);
+
+// Admin update recipe
+router.put("/recipes/update/:id", updateRecipeControllers.updateRecipe);
 
 /* ************************************************************************* */
 

@@ -9,7 +9,7 @@ You have the possibility to :
 - check previously added recipes, from all users, by clicking on any image you encounter across the site,
 - access to a search page, where you can, first of all, have listed in 3 differents categories adn see all related recipes by clicking on it. And obviously, you can look for any recipe present in the database with the help of the searchBar,
 - add you own recipe with all required details, to help other users to cook it to the perfection,
-- access to your profil page, listing all previously added recipes, that you can modify or delete.
+- access to your admin page, listing all previously added recipes, that you can modify or delete.
 - log out from your session.
 
 ### Windows users
@@ -25,10 +25,16 @@ git config --global core.autocrlf false
 
 - In VSCode, install plugins **Prettier - Code formatter** and **ESLint** and configure them
 - Clone this repo, enter it
+- Run command `git switch dev`
 - Run command `npm install`
 - Create environment files (`.env`) in both `backend` and `frontend`: you can copy `.env.sample` files as starters (**don't** delete them)
+- Run command `cd backend/`
 - Run command `npm run db:migrate`
 - Run command `npm run db:seed`
+- Run command `cd ..`
+- In frontend, create a `public` folder and a `images` folder in it
+- Run command `npm run dev`
+
 
 ### Available Commands
 

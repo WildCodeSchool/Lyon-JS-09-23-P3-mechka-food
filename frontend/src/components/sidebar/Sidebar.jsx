@@ -8,7 +8,6 @@ import styles from "./Sidebar.module.css";
 
 export default function Sidebar() {
   const { userData } = useUserContext();
-
   /* ----------PERMET D'AFFICHER LE MENU AU CHANGEMENT DU STATE-----------*/
   const [isActive, setIsActive] = useState(false);
   const toggle = () => {
@@ -43,10 +42,6 @@ export default function Sidebar() {
           <span className={styles.navtext}>Recherche</span>
         </Link>
 
-        <Link className={styles.link} to="/">
-          <span className={styles.navtext}>Favoris</span>
-        </Link>
-
         <Link className={styles.link} to="/recipes/add">
           <span className={styles.navtext}>Nouvelle recette</span>
         </Link>
@@ -58,16 +53,12 @@ export default function Sidebar() {
         ) : null}
 
         {userData !== null &&
-        userData !== undefined &&
+        userData !== "null" &&
         userData.user.role_id === 1 ? (
           <Link className={styles.link} to="/admin">
             <span className={styles.navtext}>Admin</span>
           </Link>
         ) : null}
-
-        <Link className={styles.link} to="/">
-          <span className={styles.navtext}>À propos de nous</span>
-        </Link>
 
         <Link className={styles.link} to="/contact">
           <span className={styles.navtext}>Contactez Nous</span>{" "}

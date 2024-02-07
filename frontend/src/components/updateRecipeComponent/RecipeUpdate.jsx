@@ -26,7 +26,6 @@ export default function RecipeUpdate({ recipe, setRecipe, maxTitle, maxDesc }) {
         name="titreDeLaRecette"
         autoFocus
         label="Titre"
-        sx={{ mt: 3 }}
       />
       {recipe.title.length === 0 && <p> 🚨 Ce champ ne peut pas être vide.</p>}
       {recipe.title.length > 0 && recipe.title.length < 49 && (

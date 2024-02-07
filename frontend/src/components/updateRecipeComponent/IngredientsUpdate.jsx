@@ -40,7 +40,7 @@ export default function IngredientsUpdate({
   };
 
   return (
-    <div className={style.containerDiv}>
+    <>
       {ingredients.map((userIngredient, index) => (
         <div className={style.globalContainer} key={userIngredient.id}>
           <div className={style.quantity}>
@@ -80,9 +80,7 @@ export default function IngredientsUpdate({
               )}
             </div>
           </div>
-
           <Autocomplete
-            sx={{ width: "20rem" }}
             disablePortal
             id="combo-box-demo"
             options={allIngredients}
@@ -98,7 +96,7 @@ export default function IngredientsUpdate({
           />
         </div>
       ))}
-    </div>
+    </>
   );
 }
 
