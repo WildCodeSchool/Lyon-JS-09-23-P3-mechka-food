@@ -2,13 +2,13 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
+import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import RecipeUpdate from "./RecipeUpdate";
 import InstructionsUpdate from "./InstructionsUpdate";
 import IngredientsUpdate from "./IngredientsUpdate";
-import styles from "./UpdateRecipe.module.css";
 
 const defaultTheme = createTheme();
 
@@ -121,7 +121,7 @@ export default function UpdateRecipe() {
           }
         );
 
-        if (response.status === 200) {
+        if (response.status === 201) {
           navigate("/");
           console.info("ok");
         } else {
@@ -136,65 +136,56 @@ export default function UpdateRecipe() {
   };
 
   return (
-    <section className={styles.globalContainer}>
+    <section>
       <ThemeProvider theme={defaultTheme}>
-        <CssBaseline />
-        <Box
-          sx={{
-            marginTop: 6,
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            width: "50rem",
-          }}
-        >
-          <Typography
-            sx={{ fontWeight: "bold", color: "black" }}
-            component="h1"
-            variant="h5"
-          >
-            Modifier Votre Recette
-          </Typography>
+        <Container component="main" maxWidth="70">
+          <CssBaseline />
           <Box
-            component="form"
-            onSubmit={handleSubmit}
-            noValidate
-            sx={{ mt: 1 }}
-            encType="multipart/form-data"
+            sx={{
+              marginTop: 8,
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            }}
           >
-            <RecipeUpdate
-              recipe={recipe}
-              setRecipe={setRecipe}
-              maxTitle={MaxLengthTitleIngredients}
-              maxDesc={MaxLengthDescriptionInstructions}
-            />
-            <InstructionsUpdate
-              instructions={recipeInstructions}
-              setInstructions={setRecipeInstructions}
-              maxLength={MaxLengthDescriptionInstructions}
-            />
-            <IngredientsUpdate
-              ingredients={recipeIngredients}
-              allIngredients={ingredients}
-              setIngredients={setRecipeIngredients}
-            />
+            <Typography component="h1" variant="h5">
+              Modifier Votre Recette
+            </Typography>
+            <Box
+              component="form"
+              onSubmit={handleSubmit}
+              noValidate
+              sx={{ mt: 1 }}
+              encType="multipart/form-data"
+            >
+              <RecipeUpdate
+                recipe={recipe}
+                setRecipe={setRecipe}
+                maxTitle={MaxLengthTitleIngredients}
+                maxDesc={MaxLengthDescriptionInstructions}
+              />
+              <InstructionsUpdate
+                instructions={recipeInstructions}
+                setInstructions={setRecipeInstructions}
+                maxLength={MaxLengthDescriptionInstructions}
+              />
+              <IngredientsUpdate
+                ingredients={recipeIngredients}
+                allIngredients={ingredients}
+                setIngredients={setRecipeIngredients}
+              />
+            </Box>
           </Box>
-        </Box>
+        </Container>
       </ThemeProvider>
       <Button
         type="submit"
         fullWidth
         variant="contained"
-        sx={{
-          margin: 0,
-          background: "#FAE078",
-          color: "black",
-          height: "4rem",
-          fontSize: "1.5rem",
-        }}
+        sx={{ mt: 5, mb: 2, background: "#FAE078", color: "black" }}
         onClick={handleSubmit}
       >
-        METTRE À JOUR
+        Update
       </Button>
     </section>
   );

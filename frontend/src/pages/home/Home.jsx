@@ -3,6 +3,7 @@ import RecipeContainer from "../../components/recipesHome/RecipeContainer";
 import Header from "../../components/Header/Header";
 import Navbar from "../../components/Navbar/Navbar";
 import Sidebar from "../../components/sidebar/Sidebar";
+import styles from "./Home.module.css";
 
 function Home() {
   return (
@@ -10,7 +11,10 @@ function Home() {
       <Header />
       <Sidebar />
       <Navbar />
-      <RecipesCarrousel />
+      <div className={styles.dualCaroussel}>
+        <RecipesCarrousel />
+        <RecipesCarrousel />
+      </div>
       <RecipeContainer />
     </div>
   );

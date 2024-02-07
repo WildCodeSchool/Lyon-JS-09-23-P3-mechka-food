@@ -10,7 +10,7 @@ import Navbar from "../Navbar/Navbar";
 import styles from "./ProfilComponent.module.css";
 import Sidebar from "../sidebar/Sidebar";
 import { useUserContext } from "../../context/userContext";
-import RecipeCardUser from "./RecipeCardUser";
+import RecipeCard from "../recipesHome/RecipeCard";
 
 export default function ProfilComponent() {
   const [recipes, setRecipes] = useState([]);
@@ -121,7 +121,7 @@ export default function ProfilComponent() {
       </Container>
       <div className={styles.cardPosition}>
         {recipes.map((recipe) => (
-          <RecipeCardUser
+          <RecipeCard
             key={recipe.id}
             id={recipe.id}
             image={recipe.image_url}
