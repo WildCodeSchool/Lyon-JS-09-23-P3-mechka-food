@@ -138,7 +138,7 @@ export default function UpdateRecipe() {
   return (
     <Box
       sx={{
-        // pt: 18,
+        pt: 15,
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
@@ -161,7 +161,7 @@ export default function UpdateRecipe() {
               component="form"
               onSubmit={handleSubmit}
               noValidate
-              sx={{ mt: 15 }}
+              sx={{ mt: 1, width: "90%", maxWidth: "50rem" }}
               encType="multipart/form-data"
             >
               <RecipeUpdate
@@ -188,15 +188,15 @@ export default function UpdateRecipe() {
         type="submit"
         variant="contained"
         sx={{
-          width: "20rem",
+          width: "15rem",
           mt: 5,
-          mb: 2,
+          mb: 15,
           background: "#FAE078",
           color: "black",
         }}
         onClick={handleSubmit}
       >
-        Update
+        Modifier
       </Button>
     </Box>
   );

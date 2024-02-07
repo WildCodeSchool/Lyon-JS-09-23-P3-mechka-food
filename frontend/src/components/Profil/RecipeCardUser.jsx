@@ -24,6 +24,7 @@ export default function RecipeCardUser({ image, title, id, description }) {
       );
       if (response.status === 201) {
         console.info("Recipe deleted.");
+        window.location.reload();
       } else {
         console.error(`Failed deleting recipe, status ${response.status}`);
       }
