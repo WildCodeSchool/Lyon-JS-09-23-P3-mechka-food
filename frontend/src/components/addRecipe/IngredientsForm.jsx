@@ -27,7 +27,7 @@ export default function IngredientsForm({
       ...userIngredients,
       {
         id: 0,
-        quantity: 0,
+        quantity: "",
         unit: "",
       },
     ]);
@@ -46,6 +46,14 @@ export default function IngredientsForm({
             onChange={(e) => handleChange(e, "quantity", index)}
             value={userIngredient.quantity}
           />
+          <div>
+            {Number.isNaN(Number(userIngredient.quantity)) && (
+              <p> 🚨 Nombre uniquement.</p>
+            )}
+            {userIngredient.quantity.length === 19 && (
+              <p> 🚨 Maximum 20 caractères.</p>
+            )}
+          </div>
 
           <TextField
             id="outlined-basic"
@@ -75,11 +83,15 @@ export default function IngredientsForm({
           />
         </div>
       ))}
+      {userIngredients.length === 1 && userIngredients[0].id === null && (
+        <p>🚨 Au moins 1 ingrédient requis.</p>
+      )}
       <Fab
         onClick={handleAddUserIng}
         color="primary"
         aria-label="add"
         sx={{ background: "#FAE078", color: "black", mt: "1rem", mb: "1.5rem" }}
+        size="medium"
       >
         <AddIcon />
       </Fab>
@@ -95,5 +107,6 @@ IngredientsForm.propTypes = {
     })
   ).isRequired,
   setUserIngredients: PropTypes.func.isRequired,
-  userIngredients: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
+  userIngredients: PropTypes.arrayOf(PropTypes.shape({ id: PropTypes.number }))
+    .isRequired,
 };

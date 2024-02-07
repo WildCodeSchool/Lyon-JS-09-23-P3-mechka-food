@@ -9,21 +9,25 @@ export default function IngredientsUpdate({
   allIngredients,
 }) {
   const handleChangeQuantity = (e, index) => {
-    const updatedIngredients = [...ingredients];
-    updatedIngredients[index] = {
-      ...updatedIngredients[index],
-      quantity: e.target.value,
-    };
-    setIngredients(updatedIngredients);
+    if (e.target.value.length < 20) {
+      const updatedIngredients = [...ingredients];
+      updatedIngredients[index] = {
+        ...updatedIngredients[index],
+        quantity: e.target.value,
+      };
+      setIngredients(updatedIngredients);
+    }
   };
 
   const handleChangeUnit = (e, index) => {
-    const updatedIngredients = [...ingredients];
-    updatedIngredients[index] = {
-      ...updatedIngredients[index],
-      unit: e.target.value,
-    };
-    setIngredients(updatedIngredients);
+    if (e.target.value.length < 20) {
+      const updatedIngredients = [...ingredients];
+      updatedIngredients[index] = {
+        ...updatedIngredients[index],
+        unit: e.target.value,
+      };
+      setIngredients(updatedIngredients);
+    }
   };
 
   const handleChangeId = (e, index, newValue) => {
@@ -39,25 +43,44 @@ export default function IngredientsUpdate({
     <div className={style.containerDiv}>
       {ingredients.map((userIngredient, index) => (
         <div className={style.globalContainer} key={userIngredient.id}>
-          <TextField
-            id="outlined-basic"
-            label="Quantity"
-            key={userIngredient.ingredien_id}
-            className={style.textQuantity}
-            onChange={(e) => handleChangeQuantity(e, index)}
-            value={userIngredient.quantity || ""}
-            sx={{ width: "6rem" }}
-          />
+          <div className={style.quantity}>
+            <TextField
+              id="outlined-basic"
+              label="Quantity"
+              key={userIngredient.ingredien_id}
+              className={style.textQuantity}
+              onChange={(e) => handleChangeQuantity(e, index)}
+              value={userIngredient.quantity || ""}
+              sx={{ width: "6rem" }}
+            />
+            <div>
+              {userIngredient.quantity.length === 0 && <p> 🚨 Champ requis.</p>}
+              {Number.isNaN(Number(userIngredient.quantity)) && (
+                <p> 🚨 Nombre uniquement.</p>
+              )}
+              {userIngredient.quantity.length === 19 && (
+                <p> 🚨 Maximum 20 caractères.</p>
+              )}
+            </div>
+          </div>
 
-          <TextField
-            id="outlined-basic"
-            label="Unit"
-            key={userIngredient.ingredien_id}
-            className={style.textQuantity}
-            onChange={(e) => handleChangeUnit(e, index)}
-            value={userIngredient.unit || ""}
-            sx={{ width: "10rem" }}
-          />
+          <div className={style.unit}>
+            <TextField
+              id="outlined-basic"
+              label="Unit"
+              key={userIngredient.ingredien_id}
+              className={style.textQuantity}
+              onChange={(e) => handleChangeUnit(e, index)}
+              value={userIngredient.unit || ""}
+              sx={{ width: "10rem" }}
+            />
+            <div>
+              {userIngredient.unit.length === 19 && (
+                <p> 🚨 Maximum 20 caractères.</p>
+              )}
+            </div>
+          </div>
+
           <Autocomplete
             sx={{ width: "20rem" }}
             disablePortal

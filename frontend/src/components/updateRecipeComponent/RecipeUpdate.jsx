@@ -28,6 +28,13 @@ export default function RecipeUpdate({ recipe, setRecipe, maxTitle, maxDesc }) {
         label="Titre"
         sx={{ mt: 3 }}
       />
+      {recipe.title.length === 0 && <p> 🚨 Ce champ ne peut pas être vide.</p>}
+      {recipe.title.length > 0 && recipe.title.length < 49 && (
+        <p> ✅ Ce champ est valide.</p>
+      )}
+      {recipe.title.length >= 49 && (
+        <p>⚠️ Le titre ne doit pas dépasser 50 caractères.</p>
+      )}
 
       <TextField
         value={recipe.descriptions}
@@ -37,12 +44,21 @@ export default function RecipeUpdate({ recipe, setRecipe, maxTitle, maxDesc }) {
         fullWidth
         multiline // Permet plusieurs lignes
         rows={4} // Spécifie le nombre initial de lignes
-        sx={{ height: 120, marginBottom: 8 }}
+        sx={{ height: 120, marginBottom: 2 }}
         id={`decription-${recipe.id}`}
         name="description"
         label="Description"
         autoFocus
       />
+      {recipe.descriptions.length === 0 && (
+        <p> 🚨 Ce champ ne peut pas être vide.</p>
+      )}
+      {recipe.descriptions.length > 0 && recipe.descriptions.length < 249 && (
+        <p> ✅ Ce champ est valide.</p>
+      )}
+      {recipe.descriptions.length >= 249 && (
+        <p>⚠️ La description ne doit pas dépasser 255 caractères.</p>
+      )}
     </>
   );
 }

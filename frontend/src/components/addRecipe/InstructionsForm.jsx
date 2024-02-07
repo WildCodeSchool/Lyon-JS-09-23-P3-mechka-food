@@ -31,23 +31,41 @@ export default function InstructionsForm({
     <>
       {instructions !== null &&
         instructions.map((instruction) => (
-          <TextField
-            key={instruction.id}
-            value={instruction.step}
-            onChange={(e) => handleChangeInstructions(e, instruction.id)}
-            margin="normal"
-            fullWidth
-            id={`Nouvelle instruction ${instruction.id}`}
-            label="Nouvelle instruction"
-            name={`Nouvelle instruction ${instruction.id}`}
-            autoFocus
-          />
+          <div key={instruction.id}>
+            <TextField
+              value={instruction.step}
+              onChange={(e) => handleChangeInstructions(e, instruction.id)}
+              margin="normal"
+              fullWidth
+              id={`Nouvelle instruction ${instruction.id}`}
+              label="Nouvelle instruction"
+              name={`Nouvelle instruction ${instruction.id}`}
+              autoFocus
+            />
+            <div>
+              {instruction.step.length === 0 && (
+                <p> 🚨 Ce champ ne peut pas être vide.</p>
+              )}
+              {instruction.step.length > 0 && instruction.step.length < 49 && (
+                <p> ✅ Ce champ est valide.</p>
+              )}
+              {instruction.step.length >= 49 && (
+                <p>⚠️ La description ne doit pas dépasser 50 caractères.</p>
+              )}
+            </div>
+          </div>
         ))}
       <Fab
         onClick={handleSubmitInstructions}
         color="primary"
         aria-label="add"
-        sx={{ background: "#FAE078", color: "black", mt: "1rem", mb: "1.5rem" }}
+        sx={{
+          background: "#FAE078",
+          color: "black",
+          mt: "1rem",
+          mb: "1.5rem",
+        }}
+        size="medium"
       >
         <AddIcon />
       </Fab>

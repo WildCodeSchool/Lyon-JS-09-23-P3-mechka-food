@@ -47,7 +47,7 @@ export default function AddRecipeForm() {
   const [userIngredients, setUserIngredients] = useState([
     {
       id: null,
-      quantity: 0,
+      quantity: "",
       unit: "",
     },
   ]);
@@ -137,7 +137,7 @@ export default function AddRecipeForm() {
   };
 
   const handleChangeCookTime = (e) => {
-    if (e.target.value.length <= MaxLengthTitleIngredients) {
+    if (e.target.value.length <= 20) {
       settimeCook(e.target.value);
     }
   };
@@ -220,6 +220,10 @@ export default function AddRecipeForm() {
                   value={timeCook}
                   autoFocus
                 />
+                <div>
+                  {timeCook.length === 0 && <p> 🚨 Champ requis.</p>}
+                  {timeCook.length === 20 && <p> 🚨 Maximum 20 caractères.</p>}
+                </div>
                 <FormControl
                   style={{ marginTop: "2rem", marginBottom: "2rem" }}
                   fullWidth
@@ -239,6 +243,9 @@ export default function AddRecipeForm() {
                     <MenuItem value={6}>6</MenuItem>
                     <MenuItem value={8}>8</MenuItem>
                   </Select>
+                  {persons === "" && (
+                    <p>🚨 Vous devez choisir le nombre de personnes.</p>
+                  )}
                 </FormControl>
                 <CategoriesSelect
                   categories={categories}

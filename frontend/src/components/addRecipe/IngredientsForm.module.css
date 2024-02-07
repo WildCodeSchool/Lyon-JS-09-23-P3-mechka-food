@@ -22,3 +22,11 @@
 .containerDiv {
   margin-bottom: 5rem;
 }
+
+.quantity,
+.unit {
+  width: 8rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}

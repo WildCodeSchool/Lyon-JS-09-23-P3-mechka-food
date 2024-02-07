@@ -40,6 +40,15 @@ export default function RecipeForm({
         autoFocus
         sx={{ mt: "2rem" }}
       />
+      <div>
+        {title.length === 0 && <p> 🚨 Ce champ ne peut pas être vide.</p>}
+        {title.length > 0 && title.length < 49 && (
+          <p> ✅ Ce champ est valide.</p>
+        )}
+        {title.length >= 49 && (
+          <p>⚠️ La description ne doit pas dépasser 50 caractères.</p>
+        )}
+      </div>
       <TextField
         value={description}
         onChange={handleChangeDescription}
@@ -53,6 +62,15 @@ export default function RecipeForm({
         multiline
         rows={5}
       />
+      <div>
+        {description.length === 0 && <p> 🚨 Ce champ ne peut pas être vide.</p>}
+        {description.length > 0 && description.length < 249 && (
+          <p> ✅ Ce champ est valide.</p>
+        )}
+        {description.length >= 249 && (
+          <p>⚠️ La description ne doit pas dépasser 255 caractères.</p>
+        )}
+      </div>
     </>
   );
 }
